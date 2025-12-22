@@ -1,0 +1,1873 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Name That Country</title>
+
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  />
+
+  <style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    * { box-sizing: border-box; }
+
+    /* Hide number input spinners (Chrome, Safari, Edge) */
+    input[type=number]::-webkit-outer-spin-button,
+    input[type=number]::-webkit-inner-spin-button{
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    /* Hide number input spinners (Firefox) */
+    input[type=number]{
+      -moz-appearance: textfield;
+      appearance: textfield;
+    }
+
+    :root { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+
+    body { margin: 0; background: #f6f6f6; color: #111; }
+    .wrap { padding: 8px 20px; }
+    .title { font-size: 20px; margin: 0; }
+
+    
+    .topHeader{
+      display: flex;
+      align-items: baseline;
+      justify-content: flex-start;
+      gap: 10px;
+      margin: 0 0 10px;
+      flex-wrap: wrap;
+    }
+    .topStatus{
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .topStatus .scoreInline{
+      width: auto;
+      flex: 0 0 auto;
+      margin-right: 0;
+      text-align: left;
+    }
+
+
+    .copyrightLine{
+      width: 100%;
+      text-align: center;
+      margin-top: 6px;
+      padding-bottom: 6px;
+      color: #444;
+    }
+.layout {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    #mapSlot { width: 100%; }
+    @media (max-width: 900px) {
+      .layout { grid-template-columns: 1fr; }
+    }
+
+    #map {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background: #e9eef5;
+      min-height: 720px;
+      width: 100%;
+    }
+
+    #redeemPane {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background: #fff;
+      min-height: 720px;
+      width: 100%;
+      padding: 14px;
+      overflow: auto;
+      display: none;
+    }
+    #redeemPane .redeemHeader {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    #redeemPane h2 {
+      margin: 0;
+      font-size: 18px;
+    }
+    #redeemBalance {
+      margin-top: 6px;
+      color: #333;
+      font-size: 16px;
+      white-space: pre-wrap;
+    }
+    #redeemPaneMessage {
+      margin-top: 8px;
+      min-height: 18px;
+      color: #333;
+      font-size: 13px;
+      white-space: pre-wrap;
+    }
+
+    #side {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .pane {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 14px;
+    }
+
+    .paneHeader {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .pane h3 {
+      margin: 0;
+      font-size: 16px;
+    }
+    .pct { font-weight: 400; }
+    .arrowDivider{
+      display:flex;
+      justify-content:flex-start;
+      padding:0;
+      margin:0;
+      width: 100%;
+    }
+
+    .spigotPane{
+  width: 100%;
+  display:flex;
+      box-sizing: border-box;
+    
+    
+  padding: 8px;
+}
+.spigotInner{
+  width: 100%;
+  height: 100%;
+  display:flex;
+  flex-wrap: nowrap;
+  gap: 10px;
+  align-items: stretch;
+}
+.spigotImg{
+  flex: 0 0 auto;
+  height: 100%;
+  max-height: 100%;
+  max-width: 52%;
+  width: auto;
+  display:block;
+  object-fit: contain;
+  object-position: left bottom;
+  align-self: flex-end;
+}
+.spigotText{
+  flex: 1;
+  min-width: 0;
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.scoreInline {
+      font-size: 13px;
+      color: #333;
+      white-space: nowrap;
+      width: 20ch;
+      text-align: right;
+      margin-right: 10px;
+      flex: 0 0 20ch;
+    }
+
+    
+    .scoreInline.copyrightLine{
+      width: 100%;
+      text-align: center;
+      margin-top: 6px;
+      padding-bottom: 6px;
+      color: #444;
+    }
+.answers { list-style: none; padding: 0; margin: 0; }
+    .answers li { margin: 2px 0; }
+
+    .ansBtn {
+      width: 100%;
+      text-align: left;
+      border: 1px solid transparent;
+      background: transparent;
+      padding: 4px 8px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font: inherit;
+      font-size: 15px;
+          line-height: 1.2;
+}
+    .ansBtn:hover { background: #f3f3f3; }
+    /* Ensure correctness highlighting overrides hover/press states immediately */
+    .ansBtn.correct,
+    .ansBtn.correct:hover,
+    .ansBtn.correct:active,
+    .ansBtn.correct:focus { background: #c8f3c8; border-color: #7bd47b; }
+
+    .ansBtn.wrong,
+    .ansBtn.wrong:hover,
+    .ansBtn.wrong:active,
+    .ansBtn.wrong:focus { background: #f6c1c1; border-color: #e18a8a; }
+
+    /* Keep disabled answer buttons readable, but do not gray out correct or wrong */
+    .ansBtn:disabled {
+      color: #666;
+      -webkit-text-fill-color: #666;
+      opacity: 1;
+      cursor: default;
+    }
+    .ansBtn.correct:disabled,
+    .ansBtn.wrong:disabled {
+      color: #111;
+      -webkit-text-fill-color: #111;
+      opacity: 1;
+    }
+    .ansBtn:disabled .label,
+    .ansBtn:disabled .mark { color: inherit; -webkit-text-fill-color: inherit; }
+
+    .bullet { width: 16px; text-align: center; color: #111; }
+    .label { flex: 1; }
+    .mark { width: 18px; text-align: center; font-weight: 700; }
+
+    .correct { background: #c8f3c8; border-color: #7bd47b; }
+    .wrong { background: #f6c1c1; border-color: #e18a8a; }
+
+    .controls {
+      display: flex;
+      gap: 10px;
+      justify-content: flex-start;
+      margin-top: 12px;
+    }
+
+    .controls button,
+    .bottomBar button,
+    .modal .controls button,
+    .storeItem button {
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid #888;
+      background: #f7f7f7;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .storeItem button:disabled { opacity: 0.45; cursor: not-allowed; }
+
+    .controls button:disabled { opacity: 0.55; cursor: not-allowed; }
+
+    .status {
+      margin-top: 10px;
+      min-height: 18px;
+      color: #333;
+      font-size: 13px;
+      white-space: pre-wrap;
+    }
+
+    
+    /* Quiz pane: do not reserve empty space below the button */
+    #quizPane #message { margin-top: 8px; min-height: 0; }
+    #quizPane #message:empty { display: none; }
+
+.acctLine{
+      margin-top: 6px;
+      line-height: 1.35;
+      font-size: 13px;
+      color: #333;
+      white-space: nowrap;
+    }
+
+    .flowInput {
+      width: 12ch;
+      padding: 4px 6px;
+      border-radius: 6px;
+      border: 1px solid #bbb;
+      font: inherit;
+      font-size: 13px;
+      margin-left: 6px;
+    }
+
+    
+    #sponsorMatchInput{ text-align: center; width: 2.2em; height: 2.2em; padding: 0; }
+.moneyInput {
+      width: 12.5ch;
+      padding: 4px 6px;
+      border-radius: 6px;
+      border: 1px solid #bbb;
+      font: inherit;
+      font-size: 13px;
+      margin-left: 6px;
+    }
+    /* Empty-wallet highlight disabled for now
+    .moneyInput.emptyWallet {
+      background: #fffbe6;
+    }
+    */
+    .bottomBar {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+      align-items: center;
+      padding: 14px;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.35);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+    }
+    .overlay.show { display: flex; }
+
+    .modal {
+      background: #fff;
+      border-radius: 10px;
+      padding: 18px;
+      max-width: 640px;
+      width: 100%;
+      border: 1px solid #ddd;
+    }
+    .modal h2 { margin: 0 0 8px; font-size: 18px; }
+    .modal p { margin: 0 0 14px; color: #333; }
+
+    .storeList { display: grid; gap: 8px; margin: 12px 0; }
+    .storeItem {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      background: #fafafa;
+    }
+    .storeItem strong { font-weight: 600; }
+  
+  
+    
+
+.storeLeft{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+.storeThumb{
+  width: 144px;
+  height: 144px;
+  border-radius: 10px;
+  object-fit: contain;
+  flex: 0 0 auto;
+  border: 1px solid #ddd;
+  background: #fff;
+}
+.storeMeta{ min-width: 0; }
+.storePrice{ font-size: 16px; }
+.ansBtn { box-sizing: border-box; min-height: 38px; }
+    .ansBtn .bullet { flex: 0 0 14px; width: 14px; }
+    .ansBtn .mark { flex: 0 0 18px; width: 18px; text-align: right; }
+    .ansBtn .label { flex: 1 1 auto; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+  
+    .matchSuffix{
+      margin-left: 6px;
+      font-size: 13px;
+      opacity: 0.9;
+      white-space: nowrap;
+    }
+
+  
+  
+  
+  
+  
+  
+
+
+
+.spigotText .acctLine{ white-space: normal; overflow-wrap: anywhere; }
+
+
+</style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="topHeader">
+      <p class="title">Name That Country</p>
+      <div class="topStatus" aria-live="polite">
+        <div class="scoreInline" id="progress">Progress: 0/0</div>
+        <div class="scoreInline" id="status">Score: 0/0 (0%)</div>
+      </div>
+    </div>
+
+    <div class="layout">
+      <div id="mapSlot">
+      <div id="map"></div>
+
+      <div id="redeemPane" aria-live="polite">
+        <div class="redeemHeader">
+          <div>
+            <h2>Redemption Store</h2>
+            <p id="redeemBalance" class="storePrice">Available for Redemption (Child K-Bucks): KBU 0.00</p>
+            <div id="redeemPaneMessage"></div>
+          </div>
+          <div class="controls" style="margin-top: 0;">
+            <button id="closeRedeemBtn" type="button">Back to game</button>
+          </div>
+        </div>
+
+        <div id="store"></div>
+      </div>
+      </div>
+
+      <div id="side">
+        <div class="pane" id="quizPane">
+          <div class="paneHeader">
+            <h3>Select your answer:</h3>
+</div>
+
+          <ul class="answers" id="answers"></ul>
+
+          <div class="status" id="message"></div>
+
+          <div class="controls">
+            <button id="nextBtn" disabled type="button">Next question</button>
+          </div>
+
+        </div>
+
+        
+        <div class="pane">
+          <h3>Parent</h3>
+          <div class="acctLine">
+            K-Bucks:
+            <input id="parentInput" class="moneyInput" type="text" inputmode="decimal" min="0" step="0.01" value="0.00" />
+          </div>
+          <div class="acctLine">
+            Flow rate (K-Bucks per correct answer):
+            <input id="flowRateInput" class="flowInput moneyInput" type="text" inputmode="decimal" min="0" step="any" value="0.00" />
+          </div>
+        </div>
+
+        <div class="pane">
+          <h3>Education Sponsors</h3>
+          <div class="acctLine">
+            K-Bucks:
+            <input id="sponsorInput" class="moneyInput" type="text" inputmode="decimal" min="0" step="any" value="0.00" />
+          </div>
+          <div class="acctLine">
+            Parent : Sponsors match ratio (3 ≤ x ≤ 7):
+            <input id="sponsorMatchInput" class="flowInput" type="number" min="3" max="7" step="any" value="5" /><span class="matchSuffix"> : 1</span></div>
+      </div>
+
+        
+
+        
+        <div class="arrowDivider" aria-hidden="true"><div id="spigotPane" class="pane spigotPane">
+          <div class="spigotInner">
+            <img class="spigotImg" src="spigot.png?v=3" alt="" />
+            <div class="spigotText">
+              <div class="acctLine">Flow rate (K-Bucks, Parent + Sponsors): <span id="spigotFlowRateOut">0.00</span></div>
+            </div>
+          </div>
+        </div></div>
+
+        <div class="pane" id="childPane">
+          <h3>Child <span class="pct">(75%)</span></h3>
+          <div class="acctLine" id="childAcct">K-Bucks: 0.00000</div>
+        </div>
+
+        <div class="pane">
+          <h3>Content Developer <span class="pct">(12.5%)</span></h3>
+          <div class="acctLine" id="devAcct">K-Bucks: 0.00000</div>
+        </div>
+
+
+        <div class="pane">
+          <h3>K-Bucks Platform <span class="pct">(12.5%)</span></h3>
+          <div class="acctLine" id="platformAcct">K-Bucks: 0.00000</div>
+          <div class="acctLine" id="platformInfo"></div>
+        </div>
+
+        <div class="bottomBar">
+          <button id="quitBtn" type="button" disabled>Practice misses</button>
+          <button id="startNewBtn" type="button">New game</button>
+          <button id="redeemBtn" type="button">Redeem</button>
+        </div>
+      </div>
+    </div>
+    <div class="scoreInline copyrightLine">Copyright © 2025 Vladimir Kravtchenko. All rights reserved.</div>
+  </div>
+
+  <div class="overlay" id="overlay">
+    <div class="modal">
+      <h2>Game ended</h2>
+      <p id="finalText">Thanks for playing.</p>
+      <div class="controls">
+        <button id="restartBtn" type="button">Restart</button>
+      </div>
+    </div>
+  </div>
+<script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+  >
+
+
+</script>
+
+  <script>
+
+
+
+
+
+
+
+
+
+    const SCALE = 1000000000  
+
+// Wallet display formatter:
+// - comma separators for integer part
+// - at least 2 decimals
+// - more decimals only when they contain non-zero digits
+// - no rounding
+function fmtWalletMin2U(u) {
+  const x = Number(u)
+  if (!Number.isFinite(x) || x <= 0) return "0.00"
+
+  const intPart = Math.floor(x / SCALE)
+  const fracUnits = Math.floor(x % SCALE)
+
+  const intStr = String(intPart).replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+
+  // Build 9 digits of fractional precision.
+  let frac = String(fracUnits).padStart(9, "0")
+  // Trim trailing zeros, but keep at least 2 digits.
+  frac = frac.replace(/0+$/, "")
+  if (frac.length < 2) frac = frac.padEnd(2, "0")
+
+  // If everything was zeros, show .00
+  if (!frac || /^0+$/.test(frac)) return intStr + ".00"
+
+  return intStr + "." + frac
+}
+// 1 unit = 0.000000001 K-Bucks
+
+    const ORANGE_STYLE = {
+      color: "#d08a00",
+      weight: 3,
+      fill: true,
+      fillColor: "#f2a400",
+      fillOpacity: 1.0
+    }
+
+    const UN_MEMBERS_URL = "https://restcountries.com/v3.1/all?fields=name,cca2,cca3,unMember"
+
+    const WORLD_BOUNDS = L.latLngBounds(
+  L.latLng(-85.05112878, -180),
+  L.latLng(85.05112878, 180)
+)
+
+const map = L.map("map", {
+  zoomControl: true,
+  attributionControl: false,
+  maxBounds: WORLD_BOUNDS,
+  maxBoundsViscosity: 1.0,
+  worldCopyJump: false
+}).setView([20, 0], 2)
+    L.control.attribution({ prefix: false }).addTo(map)
+
+    L.tileLayer("https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png", {
+  maxZoom: 19,
+  attribution: "© OpenStreetMap contributors © CARTO",
+  noWrap: true,
+  bounds: WORLD_BOUNDS
+}).addTo(map)
+
+    const mapDiv = document.getElementById("map")
+    const redeemPane = document.getElementById("redeemPane")
+    const sideEl = document.getElementById("side")
+
+    const answersEl = document.getElementById("answers")
+    const nextBtn = document.getElementById("nextBtn")
+    const quitBtn = document.getElementById("quitBtn")
+    const statusEl = document.getElementById("status")
+    
+    const progressEl = document.getElementById("progress")
+const messageEl = document.getElementById("message")
+
+    const overlay = document.getElementById("overlay")
+    const restartBtn = document.getElementById("restartBtn")
+
+    const parentInput = document.getElementById("parentInput")
+    const sponsorInput = document.getElementById("sponsorInput")
+    const sponsorMatchInput = document.getElementById("sponsorMatchInput")
+    const flowRateInput = document.getElementById("flowRateInput")
+    
+    const sponsorFlowRateOut = document.getElementById("sponsorFlowRateOut")
+    const spigotFlowRateOut = document.getElementById("spigotFlowRateOut")
+
+    const childAcctEl = document.getElementById("childAcct")
+    const devAcctEl = document.getElementById("devAcct")
+    const platformAcctEl = document.getElementById("platformAcct")
+    const childPaneEl = document.getElementById("childPane")
+    const spigotPaneEl = document.getElementById("spigotPane")
+
+    function syncSpigotPaneSize() {
+      if (!childPaneEl || !spigotPaneEl) return
+      const r = childPaneEl.getBoundingClientRect()
+      const w = Math.round(r.width)
+      const h = Math.round(r.height)
+      if (!w || !h || w < 120 || h < 40) return
+      spigotPaneEl.style.width = w + "px"
+      spigotPaneEl.style.height = h + "px"
+    }
+
+    window.addEventListener("resize", syncSpigotPaneSize)
+
+    const platformInfoEl = document.getElementById("platformInfo")
+
+    const redeemBtn = document.getElementById("redeemBtn")
+    const startNewBtn = document.getElementById("startNewBtn")
+    const redeemBalanceEl = document.getElementById("redeemBalance")
+    const redeemPaneMessageEl = document.getElementById("redeemPaneMessage")
+    const storeEl = document.getElementById("store")
+    const closeRedeemBtn = document.getElementById("closeRedeemBtn")
+    let countries = []
+    let deck = []
+    let deckIndex = 0
+    let gameComplete = false
+
+    let current = null
+    let currentLayer = null
+    let locked = false
+    let rounds = 0
+    let correctCount = 0
+
+    // Game mode: "normal" or "practice" (practice misses).
+    let mode = "normal"
+
+    // List of unique missed countries (keys) recorded during the current normal game.
+    let misses = []
+    let missesSet = new Set()
+
+    // Fast lookup for country objects by key.
+    let countryByKey = new Map()
+
+    // K-Bucks demo wallet (units = 0.0001 K-Bucks)
+    let parentU = 0 * SCALE
+    let sponsorU = 0 * SCALE
+    let childU = 0
+    let devU = 0
+    let platformU = 0
+    let flowU = toUnits("0.00")  // 0.00
+    let flowDec = 2
+    let sponsorMatch = 5
+    let devCarry = 0
+    let platCarry = 0
+    function pick(obj, keys) {
+      for (const k of keys) {
+        if (obj && obj[k] != null && String(obj[k]).trim() !== "") return obj[k]
+      }
+      return null
+    }
+
+    function normNameKey(s) {
+      return String(s || "")
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase()
+        .replace(/&/g, "and")
+        .replace(/[^a-z0-9 ]+/g, " ")
+        .replace(/\s+/g, " ")
+        .trim()
+    }
+
+    const NAME_ALIAS_TO_CANON = new Map([
+      ["united states of america", "united states"],
+      ["russian federation", "russia"],
+      ["iran islamic republic of", "iran"],
+      ["venezuela bolivarian republic of", "venezuela"],
+      ["bolivia plurinational state of", "bolivia"],
+      ["tanzania united republic of", "tanzania"],
+      ["lao people s democratic republic", "laos"],
+      ["viet nam", "vietnam"],
+      ["syrian arab republic", "syria"],
+      ["moldova republic of", "moldova"],
+      ["korea republic of", "south korea"],
+      ["korea democratic people s republic of", "north korea"],
+      ["czech republic", "czechia"],
+      ["cote d ivoire", "cote divoire"],
+      ["congo", "republic of the congo"],
+      ["congo democratic republic of the", "democratic republic of the congo"],
+      ["myanmar burma", "myanmar"],
+      ["brunei darussalam", "brunei"],
+      ["timor leste", "east timor"],
+      ["macedonia", "north macedonia"],
+      ["swaziland", "eswatini"],
+      ["cape verde", "cabo verde"],
+      ["the bahamas", "bahamas"],
+      ["turkiye", "turkey"],
+      ["türkiye", "turkey"]
+])
+
+    function canon(name) {
+      const n = normNameKey(name)
+      return NAME_ALIAS_TO_CANON.get(n) || n
+    }
+
+    function getISO2(props) {
+      return pick(props, ["ISO3166-1-Alpha-2", "ISO_A2", "iso_a2", "iso2", "ISO2", "alpha2", "alpha-2", "cca2", "id"])
+    }
+
+    function getISO3(props) {
+      return pick(props, ["ISO3166-1-Alpha-3", "ISO_A3", "iso_a3", "ADM0_A3", "adm0_a3", "iso3", "ISO3", "alpha3", "alpha-3", "cca3"])
+    }
+
+    function geoName(props) {
+      if (!props) return null
+      return pick(props, [
+        "ADMIN", "admin",
+        "NAME", "name",
+        "NAME_EN", "name_en",
+        "SOVEREIGNT", "sovereignt",
+        "COUNTRY", "country",
+        "Country"
+      ])
+    }
+
+    function shuffle(arr) {
+      const a = arr.slice()
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1))
+        const t = a[i]
+        a[i] = a[j]
+        a[j] = t
+      }
+      return a
+    }
+
+    function pickNOther(n, excludeKey) {
+      const pool = countries.filter(c => c.key !== excludeKey)
+      return shuffle(pool).slice(0, n)
+    }
+
+    function buildPracticeDeck() {
+      const arr = []
+      for (const k of misses) {
+        const c = countryByKey.get(k)
+        if (c) arr.push(c)
+      }
+      deck = shuffle(arr)
+      deckIndex = 0
+    }
+
+
+    function clearMapLayer() {
+      if (currentLayer) {
+        map.removeLayer(currentLayer)
+        currentLayer = null
+      }
+    }
+
+    function setCountryOnMap(feature) {
+      clearMapLayer()
+
+      currentLayer = L.geoJSON(feature, { style: ORANGE_STYLE }).addTo(map)
+      currentLayer.bringToFront()
+
+      const b = currentLayer.getBounds()
+      if (!b || !b.isValid()) return
+
+      const size = map.getSize()
+      const padY = Math.round(size.y * 0.25)
+      const padX = Math.round(size.x * 0.10)
+
+      map.fitBounds(b, {
+        paddingTopLeft: [padX, padY],
+        paddingBottomRight: [padX, padY],
+        maxZoom: 13
+      })
+    }
+
+    function fmtParentU(u) {
+  return fmtWalletMin2U(u)
+}
+
+
+    function fmtSponsorU(u) {
+  return fmtWalletMin2U(u)
+}
+
+
+    function fmtOtherU(u) {
+      const x = Number(u)
+      if (!Number.isFinite(x)) return "0.00"
+      const k = x / SCALE
+      if (k === 0) return "0.00"
+      return fmtMin2Max5(k)
+    }
+
+    
+function fmtFlow(u, decimals) {
+  return fmtUnitsFlex(u)
+}
+
+    function fmtMin2Max5(x) {
+      const v = Number(x)
+      if (!Number.isFinite(v) || v <= 0) return "0.00"
+      const parts = v.toFixed(5).split(".")
+      let frac = parts[1].replace(/0+$/, "")
+      if (frac.length < 2) frac = frac.padEnd(2, "0")
+      return parts[0] + "." + frac
+    }
+
+// Format an internal-units value (SCALE = 1e9) with comma separators and minimal decimals.
+// No rounding, no extra trailing zeros.
+function fmtUnitsTrimU(u) {
+  const x = Number(u)
+  if (!Number.isFinite(x) || x <= 0) return "0.00"
+
+  const intPart = Math.floor(x / SCALE)
+  let fracUnits = Math.floor(x % SCALE)
+
+  const intStr = String(intPart).replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+
+  if (!fracUnits) return intStr
+
+  let frac = String(fracUnits).padStart(9, "0")
+  frac = frac.replace(/0+$/, "")
+  if (!frac) return intStr
+
+  return intStr + "." + frac
+}
+
+// Combined Parent + Sponsors flow per correct answer, returned in internal units.
+// We keep full internal precision (up to 9 decimals) and avoid rounding.
+function spigotFlowRateU() {
+  const parentU = Number(flowU)
+  if (!Number.isFinite(parentU) || parentU <= 0) return 0
+
+  let sponsorAddU = 0
+  const m = Number(sponsorMatch)
+  const sponsorWalletU = Number(sponsorU)
+
+  if (Number.isFinite(sponsorWalletU) && sponsorWalletU > 0 && Number.isFinite(m) && m > 0) {
+    // Convert parentU / m into units, truncating (not rounding).
+    sponsorAddU = Math.trunc(parentU / m)
+    if (sponsorAddU > sponsorWalletU) sponsorAddU = sponsorWalletU
+    if (sponsorAddU < 0) sponsorAddU = 0
+  }
+
+  return parentU + sponsorAddU
+}
+
+
+    function fmtSponsorFlowRate() {
+      // Sponsors pay at a rate derived from the parent flow and the match ratio.
+      // If sponsor wallet is empty, sponsor flow rate is 0, mirroring parent flow behavior.
+      if (Number(sponsorU) <= 0) return "0.00"
+
+      const m = Number(sponsorMatch)
+      if (!Number.isFinite(m) || m <= 0) return "0.00"
+
+      let x = (Number(flowU) / SCALE) / m
+
+      // Do not display a sponsor flow rate higher than the available sponsor wallet.
+      const sponsorK = Number(sponsorU) / SCALE
+      if (Number.isFinite(sponsorK) && x > sponsorK) x = sponsorK
+
+      return fmtMin2Max5(x)
+    }
+function spigotFlowRateK() {
+  // Combined Parent + Sponsors flow per correct answer, in K-Bucks.
+  const parentK = Number(flowU) / SCALE
+  if (!Number.isFinite(parentK) || parentK <= 0) return 0
+
+  let sponsorK = 0
+  const m = Number(sponsorMatch)
+  const sponsorWalletK = Number(sponsorU) / SCALE
+
+  if (Number.isFinite(sponsorWalletK) && sponsorWalletK > 0 && Number.isFinite(m) && m > 0) {
+    sponsorK = parentK / m
+    if (sponsorK > sponsorWalletK) sponsorK = sponsorWalletK
+  }
+
+  return parentK + sponsorK
+}
+
+function fmtSpigotFlowRate() {
+  return fmtUnitsTrimU(spigotFlowRateU())
+}
+
+
+    function toUnits(val) {
+      const raw = String(val == null ? "" : val)
+      const cleaned = raw.replace(/,/g, "").trim()
+      const x = Number(cleaned)
+      if (!Number.isFinite(x)) return 0
+      return Math.max(0, Math.round(x * SCALE))
+    }
+
+// Parse a money input string into internal units, truncating (not rounding) to 2 decimals.
+function toMoneyUnits(val) {
+  const raw0 = String(val == null ? "" : val)
+  const cleaned = raw0.replace(/,/g, "").trim()
+  if (!cleaned) return 0
+
+  let sign = 1
+  let s = cleaned
+  if (s[0] === "-") { sign = -1; s = s.slice(1) }
+  if (s[0] === "+") { s = s.slice(1) }
+
+  const parts = s.split(".")
+  const intStr = parts[0] || "0"
+  if (!/^[0-9]+$/.test(intStr)) {
+    const x = Number(cleaned)
+    if (!Number.isFinite(x)) return 0
+    const truncated = Math.trunc(x * 100) / 100
+    return Math.max(0, Math.trunc(truncated * SCALE))
+  }
+
+  let frac = parts.length > 1 ? parts[1] : ""
+  // Keep only digits, then keep at most 2, then pad to 2 for cents math.
+  frac = String(frac).replace(/[^0-9]/g, "").slice(0, 2)
+  while (frac.length < 2) frac += "0"
+
+  const intPart = Number(intStr)
+  const cents = Number(frac || "0")
+
+  const units = sign * (intPart * SCALE + cents * (SCALE / 100))
+  return Math.max(0, units)
+}
+
+// Parse a decimal string into internal units without rounding.
+// Keeps up to 9 fractional digits (SCALE = 1e9). Extra digits are dropped.
+function parseUnitsNoRound(val) {
+  const raw0 = String(val == null ? "" : val)
+  const cleaned = raw0.replace(/,/g, "").trim()
+  if (!cleaned) return 0
+
+  let s = cleaned
+  let sign = 1
+  if (s[0] === "-") { sign = -1; s = s.slice(1) }
+  if (s[0] === "+") { s = s.slice(1) }
+
+  const parts = s.split(".")
+  const intStr = (parts[0] || "0").replace(/[^0-9]/g, "")
+  let fracStr = parts.length > 1 ? parts[1] : ""
+  fracStr = String(fracStr).replace(/[^0-9]/g, "")
+
+  if (!intStr) return 0
+
+  fracStr = fracStr.slice(0, 9)
+  while (fracStr.length < 9) fracStr += "0"
+
+  const intPart = Number(intStr)
+  const fracPart = Number(fracStr)
+
+  if (!Number.isFinite(intPart) || !Number.isFinite(fracPart)) return 0
+
+  const u = sign * (intPart * SCALE + fracPart)
+  return Math.max(0, u)
+}
+
+// Format internal units with comma separators and minimal decimals.
+// No padding zeros, no rounding.
+function fmtUnitsFlex(u) {
+  const x = Number(u)
+  if (!Number.isFinite(x) || x <= 0) return "0.00"
+
+  const intPart = Math.floor(x / SCALE)
+  let frac = String(Math.floor(x % SCALE)).padStart(9, "0")
+  frac = frac.replace(/0+$/, "")
+
+  const intStr = String(intPart).replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+
+  if (!frac) return intStr
+  return intStr + "." + frac
+}
+
+
+// Format flow rate for the input box.
+// At least 2 decimals, keep extra precision (up to 9 decimals), no rounding.
+function fmtFlowInputU(u) {
+  return fmtWalletMin2U(u)
+}
+
+
+    
+function clampFlowRate() {
+  if (!flowRateInput) return
+
+  const raw = String(flowRateInput.value || "")
+  let vU = parseUnitsNoRound(raw)
+  if (vU < 0) vU = 0
+  if (parentU <= 0) vU = 0
+
+  flowU = vU
+  flowRateInput.value = fmtFlowInputU(flowU)
+
+  saveWallet()
+  updateAccounts()
+}
+
+    function clampParentInput() {
+      if (!parentInput) return
+      const raw = String(parentInput.value || "")
+      let vU = toMoneyUnits(raw)
+      if (vU < 0) vU = 0
+      parentU = vU
+      if (parentU <= 0) flowU = 0
+      saveWallet()
+      // Re-render flow after clamp
+      if (flowRateInput) flowRateInput.value = fmtFlowInputU(flowU)
+      updateAccounts()
+      if (parentInput) parentInput.value = fmtParentU(parentU)}
+
+    function clampSponsorInput() {
+      if (!sponsorInput) return
+      const raw = String(sponsorInput.value || "")
+      let vU = toMoneyUnits(raw)
+      if (vU < 0) vU = 0
+      sponsorU = vU
+
+      saveWallet()
+      updateAccounts()
+      if (sponsorInput && document.activeElement !== sponsorInput) sponsorInput.value = fmtSponsorU(sponsorU)
+    }
+
+            function clampSponsorMatch() {
+      if (!sponsorMatchInput) return
+      const raw = String(sponsorMatchInput.value || "").trim()
+      let v = Number(raw)
+
+      // Reject non-numeric or out of range. Keep last valid sponsorMatch.
+      if (!Number.isFinite(v) || v < 3 || v > 7) {
+        sponsorMatchInput.value = String(sponsorMatch)
+        return
+      }
+
+      sponsorMatch = v
+
+      // Keep whatever the user typed while focused. Otherwise show the numeric value.
+      if (document.activeElement !== sponsorMatchInput) sponsorMatchInput.value = String(sponsorMatch)
+
+      saveWallet()
+      updateAccounts()
+    }
+
+    function formatScorePct(correct, total) {
+      if (!total || total <= 0) return ""
+      const pct = (correct / total) * 100
+      const pct1 = Math.round(pct * 10) / 10
+      const pctStr = (pct1 % 1 === 0) ? String(Math.round(pct1)) : String(pct1)
+      return " (" + pctStr + "%)"
+    }
+
+    function updateScoreDisplay(finalMode) {
+      const total = (deck && deck.length) ? deck.length : (countries && countries.length ? countries.length : 0)
+
+      if (mode === "practice") {
+        if (progressEl) progressEl.textContent = ""
+        const b = total
+        const a = Math.min(Math.max(deckIndex || 0, 0), b)
+        statusEl.textContent = "Practice misses: " + a + "/" + b
+        return
+      }
+
+      if (progressEl) {
+        const shown = Math.min(Math.max(rounds || 0, 0), total)
+        progressEl.textContent = "Progress: " + shown + "/" + total + formatScorePct(shown, total)
+      }
+
+      if (finalMode) {
+        statusEl.textContent = "Final score: " + correctCount + "/" + rounds + formatScorePct(correctCount, rounds)
+        return
+      }
+
+      if (rounds <= 0) {
+        statusEl.textContent = "Score: 0/0 (0%)"
+        return
+      }
+
+      statusEl.textContent = "Score: " + correctCount + "/" + rounds + formatScorePct(correctCount, rounds)
+    }
+
+
+    function loadWallet() {
+      try {
+        const raw = localStorage.getItem("kbucks_wallet_v14")
+        if (!raw) return
+        const obj = JSON.parse(raw)
+        if (Number.isFinite(obj.parentU)) parentU = obj.parentU
+        if (Number.isFinite(obj.sponsorU)) sponsorU = obj.sponsorU
+        if (Number.isFinite(obj.sponsorMatch)) sponsorMatch = Math.max(0, Number(obj.sponsorMatch))
+        if (Number.isFinite(obj.childU)) childU = obj.childU
+        if (Number.isFinite(obj.devU)) devU = obj.devU
+        if (Number.isFinite(obj.platformU)) platformU = obj.platformU
+        if (Number.isFinite(obj.flowU)) flowU = obj.flowU
+        if (Number.isFinite(obj.flowDec)) flowDec = obj.flowDec
+        if (Number.isFinite(obj.devCarry)) devCarry = obj.devCarry
+        if (Number.isFinite(obj.platCarry)) platCarry = obj.platCarry
+      } catch (e) {}
+    }
+
+    function saveWallet() {
+      try {
+        localStorage.setItem("kbucks_wallet_v14", JSON.stringify({ parentU, childU, devU, platformU, flowU, flowDec, devCarry, platCarry , sponsorU , sponsorMatch}))
+      } catch (e) {}
+    }
+
+    function resetWalletDefaults() {
+      // Defaults on every refresh
+      parentU = 0 * SCALE
+      sponsorU = 0
+      sponsorMatch = 5
+      childU = 0
+      devU = 0
+      platformU = 0
+      flowU = toUnits("0.00")  // 0.00
+      flowDec = 2
+      devCarry = 0
+      platCarry = 0
+      if (flowRateInput) flowRateInput.value = "0.00"
+      if (parentInput) parentInput.value = "0.00"
+      if (sponsorInput) sponsorInput.value = "0.00"
+      if (sponsorMatchInput) sponsorMatchInput.value = "5"
+      saveWallet()
+      updateAccounts()
+    }
+
+    function updateAccounts() {
+      if (parentU <= 0) flowU = 0
+      if (parentInput && document.activeElement !== parentInput) parentInput.value = fmtParentU(parentU)
+      if (sponsorInput && document.activeElement !== sponsorInput) sponsorInput.value = fmtSponsorU(sponsorU)
+
+      if (flowRateInput && document.activeElement !== flowRateInput) flowRateInput.value = fmtFlowInputU(flowU)
+      if (sponsorMatchInput && document.activeElement !== sponsorMatchInput) sponsorMatchInput.value = String(sponsorMatch)
+      
+      if (sponsorFlowRateOut) sponsorFlowRateOut.textContent = fmtSponsorFlowRate()
+      if (spigotFlowRateOut) spigotFlowRateOut.textContent = fmtSpigotFlowRate()
+      if (childAcctEl) childAcctEl.textContent = "K-Bucks: " + fmtOtherU(childU)
+      if (devAcctEl) devAcctEl.textContent = "K-Bucks: " + fmtOtherU(devU)
+      if (platformAcctEl) platformAcctEl.textContent = "K-Bucks: " + fmtOtherU(platformU)
+      if (redeemBalanceEl) redeemBalanceEl.textContent = "Available for Redemption (Child K-Bucks): " + "KBU " + fmtOtherU(childU)
+      // Empty-wallet highlight disabled for now
+      // if (parentInput) parentInput.classList.toggle("emptyWallet", parentU <= 0)
+      // if (sponsorInput) sponsorInput.classList.toggle("emptyWallet", sponsorU <= 0)
+      syncSpigotPaneSize()
+
+
+    }
+        // REDEMPTION_STORE_START
+        const STORE_ITEMS = [
+              { name: "STAEDTLER Eraser", cost: 0.05, image: "eraser.png" },
+              { name: "Plastic Spider Ring", cost: 0.10, image: "plastic_spider_ring.jpg" },
+              { name: "Baskin Robins Gift Card", cost: 25.00, image: "baskin_robins_gift_card.jpg" },
+              { name: "UGG Boots", cost: 199.00, image: "ugg_boots.jpg" },
+              { name: "Sony PlayStation 5 Digital", cost: 399.00, image: "ps5_digital.jpg" },
+              { name: "Apple iPhone 17", cost: 799.00, image: "iphone_17.png" }
+            ]
+        // REDEMPTION_STORE_END
+            // KB_STORE_MANIFEST_EXPECTED: count=6, minCost=0.05, maxCost=799.00, hash=3cb7731d
+            const KB_STORE_MANIFEST_EXPECTED = {
+              count: 6,
+              minCost: "0.05",
+              maxCost: "799.00",
+              hash: "3cb7731d"
+            }
+
+            function kbFNV1a32(str) {
+              let h = 0x811c9dc5
+              for (let i = 0; i < str.length; i++) {
+                h ^= (str.charCodeAt(i) & 0xff)
+                h = Math.imul(h, 0x01000193) >>> 0
+              }
+              return ("00000000" + h.toString(16)).slice(-8)
+            }
+
+            function kbNormalizeStore(items) {
+              return (items || []).map(it => {
+                const name = String(it && it.name || "").trim()
+                const image = String(it && it.image || "").trim()
+                const costNum = Number(it && it.cost)
+                const cost = Number.isFinite(costNum) ? costNum.toFixed(2) : ""
+                return { name, cost, image }
+              })
+            }
+
+            function kbComputeStoreHash(items) {
+              const normalized = kbNormalizeStore(items)
+              const json = JSON.stringify(normalized)
+              return kbFNV1a32(json)
+            }
+
+            function kbVerifyStoreManifest() {
+              try {
+                const normalized = kbNormalizeStore(STORE_ITEMS)
+                const count = normalized.length
+                const costs = normalized.map(x => Number(x.cost)).filter(Number.isFinite)
+                const minCost = costs.length ? Math.min(...costs).toFixed(2) : ""
+                const maxCost = costs.length ? Math.max(...costs).toFixed(2) : ""
+                const hash = kbComputeStoreHash(STORE_ITEMS)
+
+                const exp = KB_STORE_MANIFEST_EXPECTED
+                const problems = []
+                if (count !== exp.count) problems.push(`count expected ${exp.count} got ${count}`)
+                if (minCost !== exp.minCost) problems.push(`minCost expected ${exp.minCost} got ${minCost}`)
+                if (maxCost !== exp.maxCost) problems.push(`maxCost expected ${exp.maxCost} got ${maxCost}`)
+                if (hash !== exp.hash) problems.push(`hash expected ${exp.hash} got ${hash}`)
+
+                if (problems.length) {
+                  console.warn("[K-Bucks] Redemption store manifest changed:", problems.join(", "))
+                }
+              } catch (e) {}
+            }
+
+            function kbWarnIfStoreNotSorted() {
+              try {
+                for (let i = 1; i < STORE_ITEMS.length; i++) {
+                  if (Number(STORE_ITEMS[i].cost) < Number(STORE_ITEMS[i - 1].cost)) {
+                    console.warn("[K-Bucks] Redemption store is not sorted by increasing KB price at index", i)
+                    return
+                  }
+                }
+              } catch (e) {}
+            }
+
+            function kbWarnIfStoreHasDuplicates() {
+              try {
+                const seen = new Set()
+                for (const it of STORE_ITEMS) {
+                  const key = String(it && it.name || "").trim().toLowerCase()
+                  if (!key) continue
+                  if (seen.has(key)) {
+                    console.warn("[K-Bucks] Duplicate redemption store item name detected:", it.name)
+                    return
+                  }
+                  seen.add(key)
+                }
+              } catch (e) {}
+            }
+
+            function kbWarnIfBannedStoreItems() {
+              try {
+                const bannedSubstrings = ["lululemon gift card", "lululemon"]
+                for (const it of STORE_ITEMS) {
+                  const name = String(it && it.name || "").toLowerCase()
+                  for (const bad of bannedSubstrings) {
+                    if (name.includes(bad)) {
+                      console.warn("[K-Bucks] Banned redemption store item detected:", it.name)
+                      return
+                    }
+                  }
+                }
+              } catch (e) {}
+            }
+
+            (function kbRunGuardrailsOnce() {
+              kbVerifyStoreManifest()
+              kbWarnIfStoreNotSorted()
+              kbWarnIfStoreHasDuplicates()
+              kbWarnIfBannedStoreItems()
+            })()
+function renderStore() {
+      if (!storeEl) return
+
+      const wrap = document.createElement("div")
+      wrap.className = "storeList"
+
+      for (const it of STORE_ITEMS) {
+        const row = document.createElement("div")
+        row.className = "storeItem"
+
+        const left = document.createElement("div")
+        left.className = "storeLeft"
+
+        if (it.image) {
+          const img = document.createElement("img")
+          img.className = "storeThumb"
+          img.alt = it.name
+          img.loading = "lazy"
+          img.src = it.image
+          left.appendChild(img)
+        }
+
+        const meta = document.createElement("div")
+        meta.className = "storeMeta"
+
+        const nameEl = document.createElement("div")
+        nameEl.innerHTML = "<strong>" + it.name + "</strong>"
+        meta.appendChild(nameEl)
+
+        const price = document.createElement("div")
+        const costStr = Number(it.cost).toFixed(2)
+        price.className = "storePrice"
+        price.textContent = "KBU " + costStr
+        meta.appendChild(price)
+
+        left.appendChild(meta)
+
+        const btn = document.createElement("button")
+        btn.type = "button"
+        btn.textContent = "Redeem"
+
+        const costU = toUnits(it.cost)
+        btn.disabled = childU < costU
+
+        btn.addEventListener("click", () => {
+          if (btn.disabled) return
+
+          childU = Math.max(0, childU - costU)
+          saveWallet()
+          updateAccounts()
+          renderStore()
+
+          const msg = "Redeemed " + it.name + " for KBU " + costStr + "."
+          if (redeemPaneMessageEl) redeemPaneMessageEl.textContent = msg
+          if (messageEl) messageEl.textContent = msg
+        })
+
+        row.appendChild(left)
+        row.appendChild(btn)
+        wrap.appendChild(row)
+      }
+
+      storeEl.innerHTML = ""
+      storeEl.appendChild(wrap)
+    }
+
+    function openRedeem() {
+      if (!redeemPane) return
+      if (redeemPaneMessageEl) redeemPaneMessageEl.textContent = ""
+      updateAccounts()
+      renderStore()
+      redeemPane.style.display = "block"
+      mapDiv.style.display = "none"
+      syncMapHeight()
+    }
+
+    function closeRedeem() {
+      if (!redeemPane) return
+      redeemPane.style.display = "none"
+      mapDiv.style.display = "block"
+      if (redeemPaneMessageEl) redeemPaneMessageEl.textContent = ""
+      syncMapHeight()
+      map.invalidateSize()
+    }
+
+    function toggleRedeem() {
+      if (!redeemPane) return
+      const open = redeemPane.style.display === "block"
+      if (open) closeRedeem()
+      else openRedeem()
+    }
+
+
+    function syncMapHeight() {
+      if (!sideEl || !mapDiv) return
+      const h = sideEl.offsetHeight
+      if (h && h > 0) {
+        mapDiv.style.height = h + "px"
+        if (redeemPane) redeemPane.style.height = h + "px"
+        map.invalidateSize()
+      }
+    }
+
+    function resetUIForNewQuestion() {
+      answersEl.innerHTML = ""
+      if (messageEl) messageEl.textContent = ""
+      nextBtn.disabled = true
+      locked = false
+    }
+
+    function renderAnswers(options) {
+      answersEl.innerHTML = ""
+
+      for (const opt of options) {
+        const li = document.createElement("li")
+        const btn = document.createElement("button")
+        btn.className = "ansBtn"
+        btn.type = "button"
+
+        const bullet = document.createElement("span")
+        bullet.className = "bullet"
+        bullet.textContent = "•"
+
+        const label = document.createElement("span")
+        label.className = "label"
+        label.textContent = opt.displayName
+
+        const mark = document.createElement("span")
+        mark.className = "mark"
+        mark.textContent = ""
+
+        btn.appendChild(bullet)
+        btn.appendChild(label)
+        btn.appendChild(mark)
+
+        btn.addEventListener("click", () => onGuess(opt.key, btn))
+
+        li.appendChild(btn)
+        answersEl.appendChild(li)
+      }
+    }
+
+    function lockAnswers() {
+      const allButtons = Array.from(document.querySelectorAll(".ansBtn"))
+      for (const b of allButtons) b.disabled = true
+      return allButtons
+    }
+
+    function onGuess(chosenKey, chosenBtn) {
+  if (locked) return
+  locked = true
+  nextBtn.disabled = false
+
+  rounds += 1
+
+  const correctKey = current.key
+  const correctDisplay = current.displayName
+  const allButtons = lockAnswers()
+
+  if (chosenKey === correctKey) {
+    correctCount += 1
+    chosenBtn.classList.add("correct")
+    chosenBtn.querySelector(".mark").textContent = "✓"
+
+    if (mode === "normal") {
+      // Reward payout on a correct answer is the sum of the parent and sponsor flow rates.
+      // That sum is distributed 75% to Child, 12.5% to Developer, 12.5% to Platform.
+      const parentFlowU = Math.min(flowU, parentU)
+      const parentPayU = parentFlowU > 0 ? parentFlowU : 0
+
+      let sponsorPayU = 0
+      const m = Number(sponsorMatch)
+      if (parentFlowU > 0 && Number.isFinite(m) && m > 0 && sponsorU > 0) {
+        const sponsorFlowU = Math.floor(Number(parentFlowU) / m)
+        if (sponsorFlowU > 0) sponsorPayU = Math.min(sponsorFlowU, sponsorU)
+      }
+
+      const totalPayU = parentPayU + sponsorPayU
+
+      if (totalPayU > 0) {
+        // Split: 75% child, 12.5% content developer, 12.5% platform.
+        // Use carry remainders (denominator 8) to avoid systematic rounding bias.
+        const devNumer = totalPayU + devCarry
+        const platNumer = totalPayU + platCarry
+
+        const devAdd = Math.floor(devNumer / 8)
+        const platAdd = Math.floor(platNumer / 8)
+
+        devCarry = devNumer % 8
+        platCarry = platNumer % 8
+
+        const childAdd = totalPayU - devAdd - platAdd
+
+        parentU -= parentPayU
+        sponsorU -= sponsorPayU
+        childU += childAdd
+        devU += devAdd
+        platformU += platAdd
+
+        saveWallet()
+        clampFlowRate()
+        updateAccounts()
+      } else {
+        if (messageEl) messageEl.textContent = ""
+      }
+    } else {
+      // Practice misses mode, no money flows.
+      if (messageEl) messageEl.textContent = ""
+    }
+  } else {
+    chosenBtn.classList.add("wrong")
+    chosenBtn.querySelector(".mark").textContent = "✕"
+
+    const correctBtn = allButtons.find(b => b.querySelector(".label").textContent === correctDisplay)
+    if (correctBtn) {
+      correctBtn.classList.add("correct")
+      correctBtn.querySelector(".mark").textContent = "✓"
+    }
+
+    if (mode === "normal") {
+      // Record a miss (unique countries) for Practice misses mode.
+      if (!missesSet.has(correctKey)) {
+        missesSet.add(correctKey)
+        misses.push(correctKey)
+      }
+      if (quitBtn) quitBtn.disabled = misses.length === 0
+    }
+  }
+
+  if (mode === "practice") {
+    nextBtn.textContent = "Next question"
+    updateScoreDisplay(false)
+  } else {
+    const done = rounds >= deck.length
+    if (done) {
+      gameComplete = true
+      nextBtn.textContent = "Game over"
+      nextBtn.disabled = true
+      updateScoreDisplay(true)
+    } else {
+      nextBtn.textContent = "Next question"
+      updateScoreDisplay(false)
+    }
+  }
+
+  syncMapHeight()
+}
+
+
+
+    function nextQuestion() {
+  resetUIForNewQuestion()
+
+  if (mode === "practice") {
+    // Practice misses: infinite loop over missed countries.
+    if (misses.length === 0) {
+      if (messageEl) messageEl.textContent = "No misses yet. Play a New game first."
+      nextBtn.disabled = true
+      if (quitBtn) quitBtn.disabled = true
+      syncMapHeight()
+      return
+    }
+
+    if (!deck || deck.length === 0 || deckIndex >= deck.length) {
+      buildPracticeDeck()
+    }
+
+    const pickOne = deck[deckIndex]
+    deckIndex += 1
+    current = pickOne
+
+    setCountryOnMap(pickOne.feature)
+
+    const others = pickNOther(9, pickOne.key)
+    const options = shuffle([pickOne, ...others])
+
+    renderAnswers(options)
+
+    nextBtn.textContent = "Next question"
+    updateScoreDisplay(false)
+
+    syncMapHeight()
+    return
+  }
+
+  if (gameComplete) return
+
+  if (deckIndex >= deck.length) {
+    gameComplete = true
+    nextBtn.textContent = "Game over"
+    nextBtn.disabled = true
+    updateScoreDisplay(true)
+    syncMapHeight()
+    return
+  }
+
+  const pickOne = deck[deckIndex]
+  deckIndex += 1
+  current = pickOne
+
+  setCountryOnMap(pickOne.feature)
+
+  const others = pickNOther(9, pickOne.key)
+  const options = shuffle([pickOne, ...others])
+
+  renderAnswers(options)
+  updateScoreDisplay(false)
+
+
+  syncMapHeight()
+}
+
+
+
+    function startNewGame() {
+      overlay.classList.remove("show")
+
+      rounds = 0
+      correctCount = 0
+      gameComplete = false
+
+      mode = "normal"
+      misses = []
+      missesSet = new Set()
+      if (quitBtn) quitBtn.disabled = true
+
+      deck = shuffle(countries)
+      deckIndex = 0
+
+      nextBtn.textContent = "Next question"
+      updateScoreDisplay(false)
+
+      updateAccounts()
+      if (messageEl) messageEl.textContent = ""
+
+      nextQuestion()
+    }
+
+    
+
+function startPracticeMisses() {
+  overlay.classList.remove("show")
+
+  if (misses.length === 0) {
+    if (messageEl) messageEl.textContent = "No misses yet. Play a New game first."
+    if (quitBtn) quitBtn.disabled = true
+    return
+  }
+
+  mode = "practice"
+  rounds = 0
+  correctCount = 0
+  gameComplete = false
+
+  buildPracticeDeck()
+
+      if (!deck || deck.length === 0) {
+        if (messageEl) messageEl.textContent = "No missed countries could be loaded. Start a New game and make a few misses first."
+        nextBtn.disabled = true
+        if (quitBtn) quitBtn.disabled = true
+        return
+      }
+
+      nextBtn.textContent = "Next question"
+  updateScoreDisplay(false)
+  if (messageEl) messageEl.textContent = ""
+  nextQuestion()
+}
+
+function quitGame() {
+      overlay.classList.add("show")
+      document.getElementById("finalText").textContent =
+        "Final score: " + correctCount + "/" + rounds + "."
+    }
+
+    nextBtn.addEventListener("click", () => {
+      if (gameComplete) return
+      nextQuestion()
+    })
+
+    quitBtn.addEventListener("click", startPracticeMisses)
+    if (startNewBtn) startNewBtn.addEventListener("click", () => {
+      // Reset score and country deck, keep wallets and settings.
+      startNewGame()
+    })
+
+    restartBtn.addEventListener("click", startNewGame)
+
+    redeemBtn.addEventListener("click", toggleRedeem)
+    closeRedeemBtn.addEventListener("click", closeRedeem)
+    if (flowRateInput) {
+      flowRateInput.addEventListener("change", clampFlowRate)
+      flowRateInput.addEventListener("blur", clampFlowRate)
+    }
+    // Parent wallet parsing should NOT run on blur/change while typing.
+    // Commit only when the user presses Enter in the parent wallet field.
+    if (parentInput) {
+      parentInput.addEventListener("keydown", (e) => {
+        if (e.key !== "Enter") return
+        e.preventDefault()
+        clampParentInput()
+        parentInput.blur()
+      })
+    }
+
+    if (sponsorInput) {
+      sponsorInput.addEventListener("change", clampSponsorInput)
+      sponsorInput.addEventListener("blur", clampSponsorInput)
+    }
+
+    if (sponsorMatchInput) {
+      sponsorMatchInput.addEventListener("change", clampSponsorMatch)
+
+
+// When user presses Enter in any input, commit parsing (change) and then blur to apply formatting.
+for (const el of document.querySelectorAll("input")) {
+  el.addEventListener("keydown", (e) => {
+    if (el === parentInput) return
+    if (e.key !== "Enter") return
+    e.preventDefault()
+    el.dispatchEvent(new Event("change", { bubbles: true }))
+    el.blur()
+  })
+}
+      sponsorMatchInput.addEventListener("blur", clampSponsorMatch)
+    }
+
+    const ro = new ResizeObserver(() => syncMapHeight())
+    ro.observe(sideEl)
+    window.addEventListener("resize", () => syncMapHeight())
+
+    async function loadCountries() {
+      updateScoreDisplay(false)
+
+      const [unRes, geoRes] = await Promise.all([
+        fetch(UN_MEMBERS_URL),
+        fetch("countries.geojson")
+      ])
+
+      if (!unRes.ok) throw new Error("Could not load UN members list")
+      if (!geoRes.ok) throw new Error("Could not load countries.geojson")
+
+      const unRaw = await unRes.json()
+      const gj = await geoRes.json()
+
+      const unArr = Array.isArray(unRaw) ? unRaw : []
+
+      const unByA2 = new Map()
+      const unByA3 = new Map()
+      const unByCanonName = new Map()
+
+      for (const x of unArr) {
+        if (!x || (x.unMember !== true && String(x.cca3 || "").toUpperCase() !== "GNB")) continue
+
+        const cca2 = String(x.cca2 || "").toUpperCase()
+        const cca3 = String(x.cca3 || "").toUpperCase()
+        const common = x.name && x.name.common ? String(x.name.common) : ""
+        const official = x.name && x.name.official ? String(x.name.official) : ""
+
+        const key = cca3 || cca2 || canon(common) || canon(official)
+        const entry = { key, cca2, cca3, common, official }
+
+        if (cca2) unByA2.set(cca2, entry)
+        if (cca3) unByA3.set(cca3, entry)
+
+        if (common) unByCanonName.set(canon(common), entry)
+        if (official) unByCanonName.set(canon(official), entry)
+      }
+
+      const feats = (gj && gj.features) ? gj.features : []
+
+      const matched = []
+      for (const f of feats) {
+        const props = f.properties || {}
+        const name = geoName(props)
+        if (!name) continue
+
+        const iso2u = String(getISO2(props) || "").toUpperCase()
+        const iso3u = String(getISO3(props) || "").toUpperCase()
+
+        let entry = null
+
+        if (iso3u && unByA3.has(iso3u)) entry = unByA3.get(iso3u)
+        else if (iso2u && unByA2.has(iso2u)) entry = unByA2.get(iso2u)
+        else {
+          const cn = canon(name)
+          if (unByCanonName.has(cn)) entry = unByCanonName.get(cn)
+        }
+
+        if (!entry) continue
+
+        let displayName = entry.common || entry.official || name
+
+        // Fix diacritics for consistent display
+        if (normNameKey(displayName) === "sao tome and principe") displayName = "Sao Tome and Principe"
+
+        matched.push({
+          key: entry.key,
+          displayName,
+          feature: f
+        })
+      }
+
+      const seen = new Set()
+      countries = matched.filter(x => {
+        if (!x.key) return false
+        if (seen.has(x.key)) return false
+        seen.add(x.key)
+        return true
+      })
+
+      if (countries.length < 150) {
+        throw new Error("UN filter left too few countries")
+      }
+
+// Build a lookup map so Practice misses can quickly map keys to country objects.
+countryByKey = new Map()
+for (const c of countries) countryByKey.set(c.key, c)
+
+    }
+
+    loadCountries()
+      .then(() => {
+        resetWalletDefaults()
+flowDec = 2
+        if (flowRateInput) flowRateInput.value = fmtFlowInputU(flowU)
+        clampFlowRate()
+        updateAccounts()
+        startNewGame()
+        syncMapHeight()
+      })
+      .catch(err => {
+        if (messageEl) messageEl.textContent = "Error: " + err.message
+        syncMapHeight()
+      })
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </script>
+</body>
+</html>
