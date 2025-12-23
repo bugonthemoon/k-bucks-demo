@@ -1,7 +1,8 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+    <!-- KB_BUILD_VERSION: v0.1.0.7 -->
+<meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Name That Country</title>
 
@@ -224,7 +225,7 @@
       color: #444;
     }
 .answers { list-style: none; padding: 0; margin: 0; }
-    .answers li { margin: 2px 0; }
+    .answers li { margin: 1px 0; }
 
     .ansBtn {
       width: 100%;
@@ -545,7 +546,7 @@
         </div>
       </div>
     </div>
-    <div class="scoreInline copyrightLine">Copyright © 2025 Vladimir Kravtchenko. All rights reserved.</div>
+    <div class="scoreInline copyrightLine">Copyright © 2025 Vladimir Kravtchenko. All rights reserved. <span id="kbBuildVersion">v0.1.0.7</span></div>
   </div>
 
   <div class="overlay" id="overlay">
@@ -577,6 +578,14 @@
 
 
     const SCALE = 1000000000  
+    const KB_BUILD_VERSION = "v0.1.0.7"
+
+
+    // Keep footer version in sync with KB_BUILD_VERSION
+    try {
+      const vEl = document.getElementById("kbBuildVersion")
+      if (vEl) vEl.textContent = KB_BUILD_VERSION
+    } catch (e) {}
 
 // Wallet display formatter:
 // - comma separators for integer part
@@ -692,6 +701,7 @@ const messageEl = document.getElementById("message")
 
     let current = null
     let currentLayer = null
+    let pendingBounds = null
     let locked = false
     let rounds = 0
     let correctCount = 0
@@ -830,6 +840,14 @@ const messageEl = document.getElementById("message")
 
       const b = currentLayer.getBounds()
       if (!b || !b.isValid()) return
+
+
+      // If the map is hidden (for example, the redemption store is open), defer fitBounds
+      if (mapDiv && (mapDiv.offsetWidth === 0 || mapDiv.offsetHeight === 0)) {
+        pendingBounds = b
+        return
+      }
+      pendingBounds = null
 
       const size = map.getSize()
       const padY = Math.round(size.y * 0.25)
@@ -1214,15 +1232,15 @@ function clampFlowRate() {
     }
         // REDEMPTION_STORE_START
         const STORE_ITEMS = [
-              { name: "STAEDTLER Eraser", cost: 0.05, image: "eraser.png" },
-              { name: "Plastic Spider Ring", cost: 0.10, image: "plastic_spider_ring.jpg" },
+              { name: "Plastic Spider Ring", cost: 0.05, image: "plastic_spider_ring.jpg" },
+              { name: "STAEDTLER Eraser", cost: 0.10, image: "eraser.png" },
               { name: "Baskin Robins Gift Card", cost: 25.00, image: "baskin_robins_gift_card.jpg" },
               { name: "UGG Boots", cost: 199.00, image: "ugg_boots.jpg" },
               { name: "Sony PlayStation 5 Digital", cost: 399.00, image: "ps5_digital.jpg" },
               { name: "Apple iPhone 17", cost: 799.00, image: "iphone_17.png" }
             ]
         // REDEMPTION_STORE_END
-            // KB_STORE_MANIFEST_EXPECTED: count=6, minCost=0.05, maxCost=799.00, hash=3cb7731d
+            // KB_STORE_MANIFEST_EXPECTED: count=6, minCost=0.05, maxCost=799.00, hash=887d77dd
             const KB_STORE_MANIFEST_EXPECTED = {
               count: 6,
               minCost: "0.05",
@@ -1406,7 +1424,23 @@ function renderStore() {
       mapDiv.style.display = "block"
       if (redeemPaneMessageEl) redeemPaneMessageEl.textContent = ""
       syncMapHeight()
-      map.invalidateSize()
+      // Leaflet needs a post layout invalidate when returning from a hidden map
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          map.invalidateSize()
+          const b = pendingBounds || (currentLayer && currentLayer.getBounds ? currentLayer.getBounds() : null)
+          pendingBounds = null
+          if (!b || !b.isValid || !b.isValid()) return
+          const size = map.getSize()
+          const padY = Math.round(size.y * 0.25)
+          const padX = Math.round(size.x * 0.10)
+          map.fitBounds(b, {
+            paddingTopLeft: [padX, padY],
+            paddingBottomRight: [padX, padY],
+            maxZoom: 13
+          })
+        })
+      })
     }
 
     function toggleRedeem() {
