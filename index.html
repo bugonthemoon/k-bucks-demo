@@ -1,9 +1,11 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <!-- KB_BUILD_VERSION: 0.1.225 -->
+    <!-- KB_BUILD_VERSION: 0.1.227 -->
     <!--
       CHANGELOG:
+      - 0.1.227 (2026-01-17): Fix A, reduce Leaflet tile seam artifacts on Chrome.
+      - 0.1.226 (2026-01-17): Rename browser tab title to 'K-Bucks Demo'.
       - 0.1.225 (2025-12-27): Screen 2 wording, 'Available to Redeem' -> 'Available to redeem'.
       - 0.1.224 (2025-12-27): Restore Leaflet zoomSnap 0.2, zoomDelta 0.2, minZoom 2.2, and setView zoom 2.2. Fix footer version placeholders.
       - 0.1.223 (2025-12-27): Screen 1 wording, 'Child can earn' -> 'Available for the Child to earn'.
@@ -12,7 +14,7 @@
     -->
 <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Name That Country</title>
+  <title>K-Bucks Demo</title>
 
   <link
     rel="stylesheet"
@@ -182,6 +184,13 @@ body { margin: 0; background: #f6f6f6; color: #111; overflow: hidden; }
       height: 100%;
       min-height: 0;
       overflow: hidden;
+    }
+
+    /* Fix A: reduce Leaflet tile seam artifacts (thin white/gray lines) */
+    /* These seams can appear due to sub-pixel rounding during tile transforms in some browsers. */
+    /* We add a transparent outline to tiles so adjacent tiles overlap visually. */
+    #mapSlot img.leaflet-tile {
+      outline: 1px solid transparent;
     }
 
     /* Double-buffered Leaflet map containers */
@@ -1034,7 +1043,7 @@ color: #111;
         </div>
       </div>
       </div>
-      <div class="scoreInline copyrightLine">Copyright © 2025 Vladimir Kravtchenko. All rights reserved. Version&nbsp;<span id="kbBuildVersion">0.1.225</span></div>
+      <div class="scoreInline copyrightLine">Copyright © 2025 Vladimir Kravtchenko. All rights reserved. Version&nbsp;<span id="kbBuildVersion">0.1.227</span></div>
 
 </div>
 
@@ -1060,7 +1069,7 @@ color: #111;
         </div>
 </div>
       </div>
-      <div class="scoreInline copyrightLine">Copyright © 2025 Vladimir Kravtchenko. All rights reserved. Version&nbsp;<span id="kbBuildVersion2">0.1.225</span></div>
+      <div class="scoreInline copyrightLine">Copyright © 2025 Vladimir Kravtchenko. All rights reserved. Version&nbsp;<span id="kbBuildVersion">0.1.227</span></div>
 </div>
       
 
@@ -1089,7 +1098,7 @@ color: #111;
 </div>
       </div>
 
-      <div class="scoreInline copyrightLine">Copyright © 2025 Vladimir Kravtchenko. All rights reserved. Version&nbsp;<span id="kbBuildVersion3">0.1.225</span></div>
+      <div class="scoreInline copyrightLine">Copyright © 2025 Vladimir Kravtchenko. All rights reserved. Version&nbsp;<span id="kbBuildVersion">0.1.227</span></div>
     </div>
 
     <div id="screenBingo" class="screen" style="display:none;">
@@ -1337,7 +1346,7 @@ color: #111;
       </div>
     </div>
 
-      <div class="scoreInline copyrightLine">Copyright © 2025 Vladimir Kravtchenko. All rights reserved. Version&nbsp;<span id="kbBuildVersion4">0.1.225</span></div>
+      <div class="scoreInline copyrightLine">Copyright © 2025 Vladimir Kravtchenko. All rights reserved. Version&nbsp;<span id="kbBuildVersion">0.1.227</span></div>
     </div>
 
 </div>
@@ -1374,7 +1383,7 @@ color: #111;
 
 
     const SCALE = 1000000000  
-    const KB_BUILD_VERSION = "0.1.225"// Screen 4, Practice Times Tables tables
+    const KB_BUILD_VERSION = "0.1.227"// Screen 4, Practice Times Tables tables
     // productPairs, all 100 A x B pairs, 1..10 by 1..10
     // productResults, all unique products from those pairs
     const KB_BINGO_TABLES = (() => {
