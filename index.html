@@ -25,7 +25,7 @@
         }
       }
 
-      window.KB_BUILD_VERSION = "0.1.234"
+      window.KB_BUILD_VERSION = "0.1.236"
       const KB_GA_MEASUREMENT_ID = "G-FC0XXR6EFQ"
       const KB_ANON_USER_ID = kbGetOrCreateAnonUserId()
 
@@ -46,7 +46,9 @@
         function event(name, params) {
           safe(() => {
             if (!ready()) return
-            const p = Object.assign({ kb_build_version: window.KB_BUILD_VERSION || "" }, params || {})
+            const base = { kb_build_version: window.KB_BUILD_VERSION || "" }
+            if (typeof name === "string" && name.indexOf("kb_") === 0) base.kb_anon_user_id = KB_ANON_USER_ID
+            const p = Object.assign(base, params || {})
             window.gtag("event", name, p)
           })
         }
@@ -74,9 +76,11 @@
 
       try { window.KB_TELEMETRY.sessionStart() } catch (e) {}
     </script>
-    <!-- KB_BUILD_VERSION: 0.1.234 -->
+    <!-- KB_BUILD_VERSION: 0.1.236 -->
     <!--
+      - 0.1.236 (2026-01-24): Attach kb_anon_user_id to all kb_* GA4 events.
       CHANGELOG:
+      - 0.1.235 (2026-01-24): Fix missing kbHealTiles wrapper and sync redemption store manifest expected hash.
       - 0.1.234 (2026-01-23): Add GA4 telemetry hooks (games, questions, rewards, redemptions) and persistent anonymous user ID.
       - 0.1.233 (2026-01-22): Update footer text across screens to 2025-2026 range, include viewing recommendation, and bump version.
       - 0.1.231 (2026-01-17): Reduce Leaflet tile seam artifacts and make footer version updates consistent across screens.
@@ -1116,7 +1120,7 @@ color: #111;
         </div>
       </div>
       </div>
-      <div class="scoreInline copyrightLine">Copyright © 2025-2026 Vladimir Kravtchenko. All rights reserved. Version <span class="kbBuildVersion">0.1.234</span>. Best viewed in desktop Chrome at 100% zoom, ideally on a 2560x1440 display or higher.</div>
+      <div class="scoreInline copyrightLine">Copyright © 2025-2026 Vladimir Kravtchenko. All rights reserved. Version <span class="kbBuildVersion">0.1.236</span>. Best viewed in desktop Chrome at 100% zoom, ideally on a 2560x1440 display or higher.</div>
 
 </div>
 
@@ -1142,7 +1146,7 @@ color: #111;
         </div>
 </div>
       </div>
-      <div class="scoreInline copyrightLine">Copyright © 2025-2026 Vladimir Kravtchenko. All rights reserved. Version <span class="kbBuildVersion">0.1.234</span>. Best viewed in desktop Chrome at 100% zoom, ideally on a 2560x1440 display or higher.</div>
+      <div class="scoreInline copyrightLine">Copyright © 2025-2026 Vladimir Kravtchenko. All rights reserved. Version <span class="kbBuildVersion">0.1.236</span>. Best viewed in desktop Chrome at 100% zoom, ideally on a 2560x1440 display or higher.</div>
 </div>
       
 
@@ -1171,7 +1175,7 @@ color: #111;
 </div>
       </div>
 
-      <div class="scoreInline copyrightLine">Copyright © 2025-2026 Vladimir Kravtchenko. All rights reserved. Version <span class="kbBuildVersion">0.1.234</span>. Best viewed in desktop Chrome at 100% zoom, ideally on a 2560x1440 display or higher.</div>
+      <div class="scoreInline copyrightLine">Copyright © 2025-2026 Vladimir Kravtchenko. All rights reserved. Version <span class="kbBuildVersion">0.1.236</span>. Best viewed in desktop Chrome at 100% zoom, ideally on a 2560x1440 display or higher.</div>
     </div>
 
     <div id="screenBingo" class="screen" style="display:none;">
@@ -1419,7 +1423,7 @@ color: #111;
       </div>
     </div>
 
-      <div class="scoreInline copyrightLine">Copyright © 2025-2026 Vladimir Kravtchenko. All rights reserved. Version <span class="kbBuildVersion">0.1.234</span>. Best viewed in desktop Chrome at 100% zoom, ideally on a 2560x1440 display or higher.</div>
+      <div class="scoreInline copyrightLine">Copyright © 2025-2026 Vladimir Kravtchenko. All rights reserved. Version <span class="kbBuildVersion">0.1.236</span>. Best viewed in desktop Chrome at 100% zoom, ideally on a 2560x1440 display or higher.</div>
     </div>
 
 </div>
@@ -1456,7 +1460,7 @@ color: #111;
 
 
     const SCALE = 1000000000  
-    const KB_BUILD_VERSION = "0.1.234"
+    const KB_BUILD_VERSION = "0.1.236"
     try { window.KB_BUILD_VERSION = KB_BUILD_VERSION } catch (e) {}
 
     // Screen 4, Practice Times Tables tables
@@ -1634,6 +1638,13 @@ function kbHealTilesOnBuffer(buf, reason, opts) {
   }
   try { if (typeof kbDbg === "function") kbDbg("healTiles", { reason: reason, redraw: doRedraw }) } catch (e) {}
 }
+
+function kbHealTiles(reason, opts) {
+  // Wrapper for legacy calls. Heal both front and back Leaflet buffers if present.
+  try { kbHealTilesOnBuffer(kbGetFrontBuffer(), reason || "heal", opts) } catch (e) {}
+  try { kbHealTilesOnBuffer(kbGetBackBuffer(), reason || "heal", opts) } catch (e) {}
+}
+
 
 function kbDestroyLeafletMap(reason) {
   try { if (typeof kbDbg === "function") kbDbg("destroyLeafletMap", { reason: reason }) } catch (e) {}
@@ -3467,7 +3478,7 @@ function updateAccounts() {
               count: 6,
               minCost: "0.05",
               maxCost: "799.00",
-              hash: "3cb7731d"
+              hash: "887d77dd"
             }
 
             function kbFNV1a32(str) {
