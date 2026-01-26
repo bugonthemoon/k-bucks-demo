@@ -77,10 +77,10 @@
       try { window.KB_TELEMETRY.sessionStart() } catch (e) {}
     </script>
     <!-- KB_BUILD_VERSION: 0.1.237 -->
-    <!--      - 0.1.237 (2026-01-25): Fire kb_screen_view only from show*Screen functions, including educational_content.
-
+    <!--
+      - 0.1.237 (2026-01-25): Call KB_TELEMETRY.screen only from show*Screen functions.
       - 0.1.236 (2026-01-24): Attach kb_anon_user_id to all kb_* GA4 events.
-      CHANGELOG:
+CHANGELOG:
       - 0.1.235 (2026-01-24): Fix missing kbHealTiles wrapper and sync redemption store manifest expected hash.
       - 0.1.234 (2026-01-23): Add GA4 telemetry hooks (games, questions, rewards, redemptions) and persistent anonymous user ID.
       - 0.1.233 (2026-01-22): Update footer text across screens to 2025-2026 range, include viewing recommendation, and bump version.
@@ -1461,7 +1461,7 @@ color: #111;
 
 
     const SCALE = 1000000000  
-    const KB_BUILD_VERSION = "0.1.236"
+    const KB_BUILD_VERSION = "0.1.237"
     try { window.KB_BUILD_VERSION = KB_BUILD_VERSION } catch (e) {}
 
     // Screen 4, Practice Times Tables tables
@@ -1972,7 +1972,7 @@ const screenBingoEl = document.getElementById("screenBingo")
         if (!bingoTimerStopped && bingoTimerRunning) pauseBingoTimer()
       }
 currentScreen = "game"
-      try { if (window.KB_TELEMETRY) window.KB_TELEMETRY.screen("name_that_country") } catch (e) {}
+      try { if (window.KB_TELEMETRY) KB_TELEMETRY.screen("name_that_country") } catch (e) {}
       if (screenGameEl) screenGameEl.style.display = ""
       if (screenStoreEl) screenStoreEl.style.display = "none"
       if (screenEduEl) screenEduEl.style.display = "none"
@@ -1996,7 +1996,7 @@ currentScreen = "game"
         if (!bingoTimerStopped && bingoTimerRunning) pauseBingoTimer()
       }
 currentScreen = "store"
-      try { if (window.KB_TELEMETRY) window.KB_TELEMETRY.screen("redemption_store") } catch (e) {}
+      try { if (window.KB_TELEMETRY) KB_TELEMETRY.screen("redemption_store") } catch (e) {}
       if (screenGameEl) screenGameEl.style.display = "none"
       if (screenStoreEl) screenStoreEl.style.display = ""
       if (screenEduEl) screenEduEl.style.display = "none"
@@ -2016,7 +2016,7 @@ currentScreen = "store"
         if (!bingoTimerStopped && bingoTimerRunning) pauseBingoTimer()
       }
 currentScreen = "edu"
-      try { if (window.KB_TELEMETRY) window.KB_TELEMETRY.screen("educational_content") } catch (e) {}
+      try { if (window.KB_TELEMETRY) KB_TELEMETRY.screen("educational_content") } catch (e) {}
       if (screenGameEl) screenGameEl.style.display = "none"
       if (screenStoreEl) screenStoreEl.style.display = "none"
       if (screenEduEl) screenEduEl.style.display = ""
@@ -2632,7 +2632,7 @@ function showBingoScreen() {
         if (timerRunning) pauseTimer()
       }
 currentScreen = "bingo"
-      try { if (window.KB_TELEMETRY) window.KB_TELEMETRY.screen("practice_times_tables") } catch (e) {}
+      try { if (window.KB_TELEMETRY) KB_TELEMETRY.screen("practice_times_tables") } catch (e) {}
       if (screenGameEl) screenGameEl.style.display = "none"
       if (screenStoreEl) screenStoreEl.style.display = "none"
       if (screenEduEl) screenEduEl.style.display = "none"
