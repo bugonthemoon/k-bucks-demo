@@ -25,7 +25,7 @@
         }
       }
 
-      window.KB_BUILD_VERSION = "0.1.245"
+      window.KB_BUILD_VERSION = "0.1.252"
       const KB_GA_MEASUREMENT_ID = "G-FC0XXR6EFQ"
       const KB_ANON_USER_ID = kbGetOrCreateAnonUserId()
 
@@ -76,14 +76,14 @@
 
       try { window.KB_TELEMETRY.sessionStart() } catch (e) {}
     </script>
-    <!-- KB_BUILD_VERSION: 0.1.245 -->
+    <!-- KB_BUILD_VERSION: 0.1.251 -->
     <!--
-      - 0.1.245 (2026-01-26): Screen 3 Name That Country. Prevent answers column overlap, enforce 8 px column gaps, and set answer font to 16 px.
-      - 0.1.241 (2026-01-26): Screen 3 Name That Country layout. Set answers column to 256 px content with 1 px border, reduce answers list spacing to remove scroll, set 8 px gap above game buttons, and rename 'Practice misses' button to 'Misses'.
+      - 0.1.251 (2026-01-26): Set global wrap horizontal padding to 8px and keep NTC row height 32px.
       - 0.1.238 (2026-01-26): Screen 3 layout test. Set map slot to 512x512, move game buttons under answers, and move account panes into a right-side column.
       - 0.1.237 (2026-01-25): Call KB_TELEMETRY.screen only from show*Screen functions.
       - 0.1.236 (2026-01-24): Attach kb_anon_user_id to all kb_* GA4 events.
 CHANGELOG:
+      - 0.1.252 (2026-01-26): Set global wrap padding to 8px, set screen margin to 0, set NTC gap to 8px, remove Best viewed footer sentence, keep NTC answer rows at 32px, update NTC Misses and Quit labels.
       - 0.1.235 (2026-01-24): Fix missing kbHealTiles wrapper and sync redemption store manifest expected hash.
       - 0.1.234 (2026-01-23): Add GA4 telemetry hooks (games, questions, rewards, redemptions) and persistent anonymous user ID.
       - 0.1.233 (2026-01-22): Update footer text across screens to 2025-2026 range, include viewing recommendation, and bump version.
@@ -148,7 +148,7 @@ CHANGELOG:
     }
     .screen{
       width: calc(var(--kb-main-w) + var(--kb-side-w) + var(--kb-gap));
-      margin: 0 auto;
+      margin: 0;
     }
 
     .headerBar{
@@ -192,7 +192,7 @@ CHANGELOG:
       color: #444;
     }
 body { margin: 0; background: #f6f6f6; color: #111; overflow: hidden; }
-    .wrap {  padding: 8px 20px;  }
+    .wrap { padding: 8px 8px !important; }
     .title { font-size: 20px; margin: 0; }
 
     
@@ -268,14 +268,10 @@ body { margin: 0; background: #f6f6f6; color: #111; overflow: hidden; }
       min-height: 0;
       overflow: hidden;
     }
-    /* Screen 3 Name That Country layout: map, answers, accounts */
+    /* Screen 3 layout experiment: 512x512 map slot and two right columns */
     #screenGame .layout.gameLayout.kbNtcLayout {
-      --kb-ntc-map-outer: 514px;
-      --kb-ntc-answers-outer: 258px; /* 256 px content + 1 px border on each side */
-      --kb-ntc-accounts-outer: var(--kb-side-w);
-      grid-template-columns: var(--kb-ntc-map-outer) var(--kb-ntc-answers-outer) var(--kb-ntc-accounts-outer);
-      gap: 8px;
-      width: calc(var(--kb-ntc-map-outer) + var(--kb-ntc-answers-outer) + var(--kb-ntc-accounts-outer) + 16px);
+      grid-template-columns: 514px var(--kb-side-w) var(--kb-side-w);
+      width: calc(514px + (2 * var(--kb-side-w)) + (2 * var(--kb-gap)));
       align-items: start;
     }
 
@@ -284,32 +280,19 @@ body { margin: 0; background: #f6f6f6; color: #111; overflow: hidden; }
       height: 514px;
     }
 
+    #screenGame { --kb-gap: 8px; }
+    #screenGame #side { gap: 8px; }
+
     #screenGame .kbNtcSideLeft,
     #screenGame .kbNtcSideRight {
-      height: 514px;
-      overflow: hidden;
+      height: var(--kb-main-h);
+      overflow: auto;
     }
 
-    /* Ensure the answers column does not inherit the generic #side width and overlap columns. */
-    #screenGame #side.kbNtcSideLeft {
-      width: var(--kb-ntc-answers-outer);
-      box-sizing: border-box;
-    }
-
-    #screenGame #side.kbNtcSideLeft .bottomBar {
-      width: var(--kb-ntc-answers-outer);
-      box-sizing: border-box;
-    }
-
-    #screenGame .kbNtcSideLeft {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      min-height: 0;
-    }
-
-    #screenGame .kbNtcSideRight {
-      min-height: 0;
+    /* NTC answer rows */
+    #screenGame .ansBtn {
+      font-size: 16px;
+      min-height: 32px;
     }
 
 
@@ -579,29 +562,6 @@ body { margin: 0; background: #f6f6f6; color: #111; overflow: hidden; }
     }
 .answers { list-style: none; padding: 0; margin: 0; }
     .answers li { margin: 1px 0; }
-
-    /* Screen 3 Name That Country: compact answers list to fit 514 px map height with no scroll */
-    #screenGame #quizPane{
-      width: var(--kb-ntc-answers-outer);
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      min-height: 0;
-    }
-    #screenGame #quizPane .answers{
-      flex: 1 1 auto;
-      min-height: 0;
-      overflow: hidden;
-    }
-    #screenGame .answers li{ margin: 1px 0; }
-    #screenGame .ansBtn{
-      min-height: 30px;
-      padding: 3px 8px;
-      font-size: 16px;
-      line-height: 1.2;
-    }
-    #screenGame #quizPane .controls{ margin-top: 8px; }
 
     .ansBtn {
       width: 100%;
@@ -1193,7 +1153,7 @@ color: #111;
         </div>
       </div>
       </div>
-<div class="scoreInline copyrightLine">Copyright © 2025-2026 Vladimir Kravtchenko. All rights reserved. Version <span class="kbBuildVersion">0.1.245</span>.</div>
+<div class="scoreInline copyrightLine">Copyright © 2025-2026 Vladimir Kravtchenko. All rights reserved. Version <span class="kbBuildVersion">0.1.252</span>.</div>
 
 </div>
 
@@ -1219,7 +1179,7 @@ color: #111;
         </div>
 </div>
       </div>
-      <div class="scoreInline copyrightLine">Copyright © 2025-2026 Vladimir Kravtchenko. All rights reserved. Version <span class="kbBuildVersion">0.1.245</span>.</div>
+      <div class="scoreInline copyrightLine">Copyright © 2025-2026 Vladimir Kravtchenko. All rights reserved. Version <span class="kbBuildVersion">0.1.252</span>.</div>
 </div>
       
 
@@ -1248,7 +1208,7 @@ color: #111;
 </div>
       </div>
 
-      <div class="scoreInline copyrightLine">Copyright © 2025-2026 Vladimir Kravtchenko. All rights reserved. Version <span class="kbBuildVersion">0.1.245</span>.</div>
+      <div class="scoreInline copyrightLine">Copyright © 2025-2026 Vladimir Kravtchenko. All rights reserved. Version <span class="kbBuildVersion">0.1.252</span>.</div>
     </div>
 
     <div id="screenBingo" class="screen" style="display:none;">
@@ -1496,7 +1456,7 @@ color: #111;
       </div>
     </div>
 
-      <div class="scoreInline copyrightLine">Copyright © 2025-2026 Vladimir Kravtchenko. All rights reserved. Version <span class="kbBuildVersion">0.1.245</span>.</div>
+      <div class="scoreInline copyrightLine">Copyright © 2025-2026 Vladimir Kravtchenko. All rights reserved. Version <span class="kbBuildVersion">0.1.252</span>.</div>
     </div>
 
 </div>
@@ -1533,7 +1493,7 @@ color: #111;
 
 
     const SCALE = 1000000000  
-    const KB_BUILD_VERSION = "0.1.245"
+    const KB_BUILD_VERSION = "0.1.252"
     try { window.KB_BUILD_VERSION = KB_BUILD_VERSION } catch (e) {}
 
     // Screen 4, Practice Times Tables tables
