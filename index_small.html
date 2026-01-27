@@ -25,7 +25,7 @@
         }
       }
 
-      window.KB_BUILD_VERSION = "0.1.251"
+      window.KB_BUILD_VERSION = "0.1.255"
       const KB_GA_MEASUREMENT_ID = "G-FC0XXR6EFQ"
       const KB_ANON_USER_ID = kbGetOrCreateAnonUserId()
 
@@ -83,6 +83,7 @@
       - 0.1.237 (2026-01-25): Call KB_TELEMETRY.screen only from show*Screen functions.
       - 0.1.236 (2026-01-24): Attach kb_anon_user_id to all kb_* GA4 events.
 CHANGELOG:
+- 0.1.255 (2026-01-27): Fix NTC column overlap by locking left side column width to 258px and preventing overflow.
 - 0.1.253 (2026-01-27): Lock NTC grid, restore bullet sizing and dot alignment, set global padding to 8px.
       - 0.1.235 (2026-01-24): Fix missing kbHealTiles wrapper and sync redemption store manifest expected hash.
       - 0.1.234 (2026-01-23): Add GA4 telemetry hooks (games, questions, rewards, redemptions) and persistent anonymous user ID.
@@ -270,11 +271,12 @@ body { margin: 0; background: #f6f6f6; color: #111; overflow: hidden; }
     }
     /* Screen 3 layout experiment: 512x512 map slot and two right columns */
     #screenGame .layout.gameLayout.kbNtcLayout {
-      grid-template-columns: 514px 258px 360px;
-      width: calc(514px + (2 * var(--kb-side-w)) + (2 * var(--kb-gap)));
+      grid-template-columns: 514px 258px 386px;
+      width: calc(514px + 258px + 386px + (2 * 8px));
       align-items: start;
-      gap: 8px;
-}
+      column-gap: 8px;
+      row-gap: 4px;
+    }
 
     #screenGame #mapSlot {
       width: 514px;
@@ -285,6 +287,25 @@ body { margin: 0; background: #f6f6f6; color: #111; overflow: hidden; }
     #screenGame .kbNtcSideRight {
       height: var(--kb-main-h);
       overflow: auto;
+    }
+
+    /* NTC column widths, prevent overflow overlap */
+    #screenGame #side.kbNtcSideLeft {
+      width: 258px;
+      overflow: hidden;
+    }
+
+    #screenGame #ntcAccounts.kbNtcSideRight {
+      width: 386px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      overflow: hidden;
+    }
+
+    #screenGame #ntcAccounts.kbNtcSideRight .pane {
+      width: 100%;
+      box-sizing: border-box;
     }
 
     /* NTC answer rows */
@@ -1053,10 +1074,11 @@ color: #111;
 
 
 
-/* ===== NTC layout guardrails (0.1.253) ===== */
+/* ===== NTC layout guardrails (0.1.255) ===== */
 #screenGame .layout.gameLayout.kbNtcLayout { grid-template-columns: 514px 258px 360px; gap: 8px; width: 1148px; }
 #screenGame #mapSlot { width: 514px; height: 514px; }
 #screenGame #quizPane { width: 258px; box-sizing: border-box; }
+#screenGame #side.kbNtcSideLeft { width: 258px; box-sizing: border-box; overflow: hidden; }
 #screenGame .bottomBar { gap: 10px; }
 #screenGame .bottomBar button, #screenGame #nextBtn { font-size: 14px; }
 
@@ -1172,7 +1194,7 @@ color: #111;
         </div>
       </div>
       </div>
-<div class="scoreInline copyrightLine">Copyright © 2025-2026 Vladimir Kravtchenko. All rights reserved. Version <span class="kbBuildVersion">0.1.253</span></div>
+<div class="scoreInline copyrightLine">Copyright © 2025-2026 Vladimir Kravtchenko. All rights reserved. Version <span class="kbBuildVersion">0.1.255</span></div>
 
 </div>
 
@@ -1198,7 +1220,7 @@ color: #111;
         </div>
 </div>
       </div>
-      <div class="scoreInline copyrightLine">Copyright © 2025-2026 Vladimir Kravtchenko. All rights reserved. Version <span class="kbBuildVersion">0.1.253</span></div>
+      <div class="scoreInline copyrightLine">Copyright © 2025-2026 Vladimir Kravtchenko. All rights reserved. Version <span class="kbBuildVersion">0.1.255</span></div>
 </div>
       
 
@@ -1227,7 +1249,7 @@ color: #111;
 </div>
       </div>
 
-      <div class="scoreInline copyrightLine">Copyright © 2025-2026 Vladimir Kravtchenko. All rights reserved. Version <span class="kbBuildVersion">0.1.253</span></div>
+      <div class="scoreInline copyrightLine">Copyright © 2025-2026 Vladimir Kravtchenko. All rights reserved. Version <span class="kbBuildVersion">0.1.255</span></div>
     </div>
 
     <div id="screenBingo" class="screen" style="display:none;">
@@ -1475,7 +1497,7 @@ color: #111;
       </div>
     </div>
 
-      <div class="scoreInline copyrightLine">Copyright © 2025-2026 Vladimir Kravtchenko. All rights reserved. Version <span class="kbBuildVersion">0.1.253</span></div>
+      <div class="scoreInline copyrightLine">Copyright © 2025-2026 Vladimir Kravtchenko. All rights reserved. Version <span class="kbBuildVersion">0.1.255</span></div>
     </div>
 
 </div>
@@ -1512,7 +1534,7 @@ color: #111;
 
 
     const SCALE = 1000000000  
-    const KB_BUILD_VERSION = "0.1.253"
+    const KB_BUILD_VERSION = "0.1.255"
     try { window.KB_BUILD_VERSION = KB_BUILD_VERSION } catch (e) {}
 
     // Screen 4, Practice Times Tables tables
