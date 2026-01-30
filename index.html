@@ -1,10 +1,10 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FC0XXR6EFQ"></script>
-    <script>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-FC0XXR6EFQ"></script>
+<script>
       window.dataLayer = window.dataLayer || []
       function gtag(){dataLayer.push(arguments)}
       gtag("js", new Date())
@@ -25,7 +25,7 @@
         }
       }
 
-      window.KB_BUILD_VERSION = "0.1.237"
+      window.KB_BUILD_VERSION = "0.1.479";
       const KB_GA_MEASUREMENT_ID = "G-FC0XXR6EFQ"
       const KB_ANON_USER_ID = kbGetOrCreateAnonUserId()
 
@@ -75,12 +75,145 @@
       })()
 
       try { window.KB_TELEMETRY.sessionStart() } catch (e) {}
-    </script>
-    <!-- KB_BUILD_VERSION: 0.1.237 -->
-    <!--
+
+    // Footer placement is pure CSS (no JS transforms).
+    // This prevents zoom or resize feedback loops that can freeze the page.
+
+</script>
+<!-- KB_BUILD_VERSION: 0.1.479 -->
+<!--
+      - 0.1.357 (2026-01-28): Remove NTC footer pin JS and rely on CSS only to prevent zoom freezes.
+      - 0.1.251 (2026-01-26): Set global wrap horizontal padding to 8px and keep NTC row height 32px.
+      - 0.1.238 (2026-01-26): Screen 3 layout test. Set map slot to 512x512, move game buttons under answers, and move account panes into a right-side column.
       - 0.1.237 (2026-01-25): Call KB_TELEMETRY.screen only from show*Screen functions.
       - 0.1.236 (2026-01-24): Attach kb_anon_user_id to all kb_* GA4 events.
 CHANGELOG:
+  
+- 0.1.479 (2026-01-29): Screen 2, rename Classic Sheepskin Boots to UGG Classic Boots.
+
+- 0.1.478 (2026-01-29): Screen 2, rename Eraser to STAEDTLER Eraser.
+
+- 0.1.477 (2026-01-29): Screen 2, match redemption item text spacing and alignment to Educational Content. Rename Plastic Vinyl Eraser to Eraser.
+
+- 0.1.476 (2026-01-29): Screen 2, add Brand line under redemption item names. Update item names and brands.
+- 0.1.475 (2026-01-29): Screen 2, restore Available-to-redeem header font to match Screen 1. Limit 13px storePrice styling to redemption item prices only.
+- 0.1.474 (2026-01-29): Screen 2, Redemption Store item typography matches Educational Content card fonts.
+- 0.1.473 (2026-01-29): Screen 2, keep Redemption Store item list full width. Column 2 is collapsed for now.
+- 0.1.472 (2026-01-29): Screen 2, Redemption Store uses a two-column grid wrapper, column 2 is empty for now.
+- 0.1.397: Add favicon.ico links (cache-busted).
+- 0.1.396 (2026-01-28): Spigot padding left 12px to 8px, spigot text gap 8px to 12px.
+- 0.1.393 (2026-01-28): NTC attribution flush to map edge (remove Leaflet control margins and corner padding).
+- 0.1.396 (2026-01-28): Round NTC attribution box corners to 4px.
+- 0.1.392 (2026-01-28): NTC attribution: font size 11, background #f4f4f4, right-aligned to map edge.
+- 0.1.392 (2026-01-28): NTC attribution: font size 13, transparent background, centered at bottom.
+- 0.1.392 (2026-01-28): NTC attribution: font size 10, right-aligned (not centered), keep square box.
+- 0.1.388 (2026-01-28): Leaflet attribution box: remove border, set font size 13, add © Leaflet.
+- 0.1.387 (2026-01-28): Style Leaflet attribution to match footer (font, colors, rounded box).
+- 0.1.385 (2026-01-28): Column-2 mega pane for NTC + MTN, merged Select-your-answer and bottom controls, removed inter-pane gaps.
+- 0.1.384 (2026-01-28): Spigot row, moved 12 px right by padding on the spigot section wrapper.
+      - 0.1.383 (2026-01-28): Move spigot image 12px to the right.
+      - 0.1.383 (2026-01-28): Mega-pane padding tune: -2px bottom on five non-spigot sections, +5px bottom on spigot section.
+      - 0.1.381 (2026-01-28): Reduce spigot bottom padding by ~40px and redistribute +6px bottom padding to each non-spigot section.
+      - 0.1.379 (2026-01-28): Mega-pane top-five sections bottom padding +20px for visibility test.
+      - 0.1.377 (2026-01-28): Mega-pane spigot flush-left. Add 2px m
+      - 0.1.378 (2026-01-28): Mega-pane top-five sections bottom padding +1px.ore bottom padding to top five mega sections.
+      - 0.1.376 (2026-01-28): Spigot 52px and closer left. Add 1px more bottom padding to top five mega sections.
+      - 0.1.375 (2026-01-28): Add 1px more bottom padding to top five mega sections.
+      - 0.1.374 (2026-01-28): Mega-pane spigot larger, add 1px bottom padding to top five mega sections.
+- 0.1.373 (2026-01-28): Mega-pane spigot icon larger and text vertically centered. Harmonize Platform section spacing.
+- 0.1.372 (2026-01-28): Consolidated accounts pane: hide scrollbars and size to 384x512 content with 1 px border.
+- 0.1.372 (2026-01-28): Tighten consolidated accounts pane spacing to remove scrollbar.
+- 0.1.370 (2026-01-28): NTC and MTN: Reduce consolidated accounts pane padding to eliminate scrollbar.
+- 0.1.370 (2026-01-28): NTC and MTN: Consolidate the accounts column into a single 384x512 pane.
+- 0.1.367 (2026-01-28): MTN: Remove #bingoPane padding and border so 514x514 board frame fits without clipping.
+- 0.1.366 (2026-01-28): MTN: Fix board edge clipping by removing global bingoPairBtn padding inside the MTN grid.
+- 0.1.366 (2026-01-28): MTN: Remove unintended inner offset by anchoring the 512x512 grid to the frame content box.
+- 0.1.362 (2026-01-28): Center MTN 512x512 board inside a 514x514 stage so footer position matches other screens.
+- 0.1.363 (2026-01-28): MTN: Add a 1px border frame around the 512x512 board so the board area totals 514x514 like NTC.
+- 0.1.361 (2026-01-28): Make MTN layout width and height match NTC so the copyright footer does not shift between screens.
+- 0.1.360 (2026-01-28): Fix NTC and MTN footer alignment by removing forced footer width and setting per-screen widths.
+- 0.1.359 (2026-01-28): Stabilize footer position across screens by removing per-screen width overrides.
+- 0.1.358 (2026-01-28): Set copyright top-gap to 8px.
+- 0.1.355 (2026-01-28): Set .scoreInline and .acctLine to 13px. Set copyright text to 13px and 6px top-gap.
+- 0.1.353 (2026-01-27): Rename multiplication game to "Multiply Two Numbers".
+- 0.1.352 (2026-01-27): Rename "Multiply Two Numbers" everywhere (was "Practice Times Tables").
+- 0.1.351 (2026-01-27): Educational Content screen order: Name That Country first, Multiply Two Numbers second.
+- 0.1.350 (2026-01-27): Align answer bullets so the dot is vertically aligned under the 'S' in 'Select your answer' in both NTC and PTT.
+- 0.1.350 (2026-01-27): Unify NTC and PTT "Select your answer" panes styling and layout to match pre-PTT NTC pane.
+- 0.1.348 (2026-01-27): PTT header buttons to 15px, ensure AxB label spacing and 13px label font apply (override fixes).
+- 0.1.346 (2026-01-27): PTT AxB label: reintroduce spaces as "A x B" and set AxB label font size to 13px.
+- 0.1.345 (2026-01-27): PTT grid: set cell size to 44×44 px, keep 2px gaps, add 4px padding each side inside 512×512.
+- 0.1.342 (2026-01-27): PTT grid: make all 11×11 board cells exactly 46×46 px by switching to fixed 46px tracks and resizing the board to fit.
+- 0.1.341 (2026-01-27): PTT: enforce 14 px on AxB cells and remove spacing around x so it renders as AxB.
+- 0.1.340 (2026-01-27): PTT: increase AxB pair button font size to 14px and render labels as "AxB" (no spaces).
+- 0.1.339 (2026-01-27): PTT Misses mode: mark answered cells with red or green results like normal mode, and clear the board when the misses loop restarts.
+- 0.1.338 (2026-01-27): PTT: highlight the current A x B pair button in orange while the question is being shown.
+- 0.1.337 (2026-01-27): Fix PTT blank-start. Hide A x B labels when blank or showing results, prevent text concatenation, and keep current-pair cell unhighlighted.
+- 0.1.336 (2026-01-27): PTT reveals. Pair buttons start blank, show "A x B" only for the current question, then replace with the correct result number and keep red or green marking.
+- 0.1.334 (2026-01-27): PTT polish. Pair buttons are 12px with visible "A x B" spacing. Current pair highlight is list-gray. Keep header highlights until Next question, then reset headers for the new pair.
+- 0.1.332 (2026-01-27): PTT polish. Fix AxB rendering to remove added spacing, set pair font to 14px, restore NTC-matching answer bullet alignment and spacing, and enforce non-interactive board cursor.
+- 0.1.330 (2026-01-27): Multiply Two Numbers board polish. Make header cells match pair cell sizing, add top-left X, disable board clicks, restore compact A × B rendering, and highlight row and column headers for the current pair.
+- 0.1.331 (2026-01-27): PTT UI polish. Tighten AxB labels to "AxB" style, change corner to lowercase "x", and align answer bullets and row sizing to match NTC.
+- 0.1.328 (2026-01-27): Fix PTT answer rendering by restoring bingoPairBtn buttons, and harden NTC answer click handling to prevent runtime crashes.
+- 0.1.327 (2026-01-27): Polish Multiply Two Numbers UI to match Name That Country, fix versioning, tighten board cell sizing, and align list and footer styling.
+- 0.1.326 (2026-01-27): Multiply Two Numbers screen UI now matches Name That Country layout, with a 512x512 multiplication-board slot and aligned panes.
+- 0.1.325 (2026-01-27): Align Educational Content and Redemption Store message-slot behavior, so card start position matches when the message line is empty.
+- 0.1.324 (2026-01-27): Educational Content now reserves a one-line message slot under the Available line, matching Redemption Store, so the list starts at the same vertical position.
+- 0.1.323 (2026-01-27): Redemption Store list now always starts 10px below the Redeemed line, even when no redeemed message is shown, by reserving a one-line message slot.
+- 0.1.322 (2026-01-27): Fix main-pane header spacing so the list starts exactly 10px below the last header line (including Redeemed message) by removing the extra header-block bottom margin.
+- 0.1.321 (2026-01-27): Main panes: list now starts 10px below the last header line (Available or Redeemed message) and store list keeps its scrollbar without card size shifting.
+- 0.1.320 (2026-01-27): Leaflet minZoom now adapts to the map slot size so you can zoom out to see the full world map, which helps with countries like New Zealand and Fiji.
+- 0.1.319 (2026-01-27): Name That Country practice-mode: show Misses in the Progress slot so it lines up with Progress.
+- 0.1.318 (2026-01-27): Name That Country practice mode header: align "Misses" to start where "Progress" starts.
+- 0.1.317 (2026-01-27): Name That Country header: rename "Practice misses" label to "Misses".
+- 0.1.316 (2026-01-27): Remove trailing footer dot. Make edu and store cards match by setting card padding top and bottom to 8 px.
+- 0.1.314 (2026-01-27): Set all content and store thumbs to 144 px. Restore the canonical demo footer text on all screens.
+- 0.1.312 (2026-01-27): Unify Screen 1 and Screen 2 list spacing. Match Screen 2 for top offset below the 'Available' line and for card-to-card spacing.
+- 0.1.313 (2026-01-27): Reduce Screen 1 and Screen 2 card list gap from 8 px to 4 px.
+- 0.1.311 (2026-01-27): Screen 1: match Screen 2 header and list spacing so first content card aligns consistently below the 'Available' line.
+- 0.1.308 (2026-01-27): Screen 2: align first redemption item border with Screen 1 by removing the extra header bottom margin.
+      - 0.1.309 (2026-01-27): Screen 2: match Screen 1 header spacing by removing default paragraph margins on the redeem balance line.
+- 0.1.307 (2026-01-27): Screen 2: restore internal store list scrollbar, align list top to 10px below header and keep 10px gap above the bottom button. Footer: remove the extra best-viewed text.
+- 0.1.306 (2026-01-27): Screen 2: Mirror Screen 1 list spacing so the store list starts 10px below the redeem balance line and ends 10px above the bottom button, while keeping scrolling enabled.
+- 0.1.305 (2026-01-27): Screen 1: Ensure the first content card border starts 10px below the earn line by hiding the empty #eduPaneMessage spacer and tightening Screen 1 spacing, while keeping scrolling enabled.
+- 0.1.302 (2026-01-26): Resize Screen 2 Redemption Store white pane (#redeemPane) to 1166x514 with 10px 10px padding to match Screen 1 and NTC footprint.
+- 0.1.301 (2026-01-26): Make the Misses-style button formatting apply to all buttons automatically via CSS (button:not(.ansBtn)), so dynamically generated Play and Redeem buttons get the same size.
+- 0.1.300 (2026-01-26): Standardize non-answer buttons across all screens using a global .kbBtn style based on the NTC Misses button. Keep NTC answer rows (.ansBtn) unchanged.
+- 0.1.299 (2026-01-26): Screen 1: set Educational Content pane padding to 10px 10px to match NTC pane padding.
+- 0.1.298 (2026-01-26): Resize Screen 1 Educational Content white pane to 1166x514 to match NTC (map-to-parent width and map height).
+- 0.1.297 (2026-01-26): Pin the NTC footer under the map using DOM-measured positioning (transform) to remove the persistent bottom gap.
+- 0.1.296 (2026-01-26): Fix the large blank gap above the footer in NTC by locking the grid row height to --ntcMapSize with a final CSS override.
+- 0.1.295 (2026-01-26): In NTC, tie the layout height (--kb-main-h) to the map pane size (--ntcMapSize) so the footer sits close to the map instead of leaving a tall blank area.
+- 0.1.294 (2026-01-26): Restore the original Progress-to-map spacing behavior and set the footer-to-map spacing to 10px to match the 0.1.284 look.
+- 0.1.293 (2026-01-26): Fix footer spacing not applying by adding a final #screenGame .copyrightLine override that sets margin-top (matches header spacing) and prevents later .copyrightLine rules from overriding it.
+- 0.1.292 (2026-01-26): Make footer gap match the current header spacing by setting .copyrightLine margin-top to calc(20px + --ntcHeaderExtraPad). Disable the JS footer-gap experiment.
+- 0.1.290 (2026-01-26): Fix JS syntax in footer gap sync (remove stray brace) and keep sync applied to the visible footer.
+- 0.1.289 (2026-01-26): Fix footer gap sync by applying the measured gap to the visible footer element (there are multiple footer nodes in the DOM).
+- 0.1.288 (2026-01-26): Make footer-to-map spacing match Progress-to-map spacing by measuring the actual gap and applying it to the footer on load and resize.
+- 0.1.287 (2026-01-26): Increase footer-to-map spacing to visually match the Progress-to-map gap by adding --ntcFooterMatchPad (14px).
+- 0.1.286 (2026-01-26): Match footer-to-map spacing to header-to-map spacing by replacing fixed header height with padding and tying footer margin to the same value.
+- 0.1.285 (2026-01-26): Increase footer spacing by setting .copyrightLine margin-top to 10px.
+- 0.1.284 (2026-01-26): Simplify footer by removing the legacy best-viewed note. Center footer within NTC layout width.
+- 0.1.283 (2026-01-26): Set quiz header margin-bottom to 6px and answers padding-bottom to 6px.
+- 0.1.282 (2026-01-26): Restore NTC answer line-height to 1.3 (button and label) to prevent descender clipping.
+- 0.1.281 (2026-01-26): Set quiz header margin-bottom to 8px and answers padding-bottom to 8px.
+- 0.1.280 (2026-01-26): Reduce NTC answer line-height to 1.25 (button and label) for tighter vertical spacing.
+- 0.1.279 (2026-01-26): Adjust NTC quiz spacing by reducing header margin and adding bottom padding to the answers list.
+- 0.1.278 (2026-01-26): Use min-height 34px and padding 0px 10px for NTC answer rows for stable height without extra vertical padding.
+- 0.1.277 (2026-01-26): Adjust NTC answer row padding to 10px 10px.
+- 0.1.276 (2026-01-26): Adjust NTC answer row padding to 0px 10px for tightest vertical spacing.
+- 0.1.275 (2026-01-26): Adjust NTC answer row padding to 4px 10px for tighter vertical spacing.
+- 0.1.274 (2026-01-26): Set NTC answer line-height to 1.3 (button and label) to prevent descender clipping.
+- 0.1.273 (2026-01-26): Set NTC answer option rows (#screenGame .ansBtn) min-height to 34px to prevent descender clipping.
+- 0.1.272 (2026-01-26): Bump version to match the file-name version suffix guardrail.
+- 0.1.271 (2026-01-26): Make Education Sponsors pane absorb zoom rounding by flex-growing, remove visible breathing gap.
+- 0.1.270 (2026-01-26): Remove visible 1fr spacer gap in NTC column 3, instead anchor top and bottom using flex and let spacing below spigot absorb rounding.
+- 0.1.269 (2026-01-26): Lock NTC column 3 top and bottom to map using grid with a 1fr spacer row, fix footer version.
+- 0.1.268 (2026-01-26): In NTC, set the game grid row to 1fr and lock the grid height to the map size so column 3 stays top and bottom aligned when browser zoom changes.
+- 0.1.260 (2026-01-26): In NTC, set column 2 and 3 pane padding to 10px on all sides for a layout comparison.
+- 0.1.259 (2026-01-26): In NTC, set column 2 and 3 pane padding to 12px on all sides for a layout comparison.
+- 0.1.257 (2026-01-27): Fix NTC column overlap by locking left side column width to 258px and preventing overflow.
+- 0.1.253 (2026-01-27): Lock NTC grid, restore bullet sizing and dot alignment, set global padding to 8px.
       - 0.1.235 (2026-01-24): Fix missing kbHealTiles wrapper and sync redemption store manifest expected hash.
       - 0.1.234 (2026-01-23): Add GA4 telemetry hooks (games, questions, rewards, redemptions) and persistent anonymous user ID.
       - 0.1.233 (2026-01-22): Update footer text across screens to 2025-2026 range, include viewing recommendation, and bump version.
@@ -89,21 +222,27 @@ CHANGELOG:
       - 0.1.225 (2025-12-27): Screen 2 wording, 'Available to Redeem' -> 'Available to redeem'.
       - 0.1.224 (2025-12-27): Restore Leaflet zoomSnap 0.2, zoomDelta 0.2, minZoom 2.2, and setView zoom 2.2. Fix footer version placeholders.
       - 0.1.223 (2025-12-27): Screen 1 wording, 'Child can earn' -> 'Available for the Child to earn'.
-      - 0.1.222 (2025-12-27): Add K-Bucks/Hour (estimate) to Practice Times Tables spigot, keep version fields consistent.
+      - 0.1.222 (2025-12-27): Add K-Bucks/Hour (estimate) to Multiply Two Numbers spigot, keep version fields consistent.
       - 0.1.221 (2025-12-27): Restore Leaflet zoomSnap 0.2, zoomDelta 0.2, minZoom 2.2.
     -->
-<meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>K-Bucks Demo</title>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>K-Bucks Demo</title>
+<link crossorigin="" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" rel="stylesheet"/>
+<style>
 
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-    crossorigin=""
-  />
 
-  <style>
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -133,7 +272,53 @@ CHANGELOG:
       appearance: textfield;
     }
 
-    :root { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+    :root { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;   --ntcHeaderExtraPad: 8px;
+}
+
+
+
+/* 0.1.321: Main-pane header/list spacing consistency.
+   The first gray card starts 10px below the last header line (Available, or Redeemed message). */
+.kbMainHeaderBlock { margin-bottom: 0; display: flex; flex-direction: column; }
+#redeemBalance, #earnBalance { margin: 0; }
+
+#redeemPaneMessage, #eduPaneMessage{
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+
+#eduPaneMessage:empty{
+  display: none;
+  margin-top: 0;
+  min-height: 0;
+}
+
+/* Force a stable flex layout for both main panes, regardless of earlier experimental CSS blocks. */
+#screenStore #redeemPane, #screenEdu #eduPane{
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+#screenStore #store, #screenEdu #eduList{
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  margin: 0;
+}
+
+#screenStore #store .storeList, #screenEdu #eduList .storeList{
+  margin-top: 0;
+  margin-bottom: 0;
+  gap: 4px;
+}
+
+#screenStore #redeemPane .controls.mainSlotNav, #screenEdu #eduPane .controls.mainSlotNav{
+  margin-top: 10px;
+  margin-bottom: 0;
+  justify-content: flex-end;
+}
+
 
     :root{
       --kb-header-h: 27px;
@@ -145,16 +330,15 @@ CHANGELOG:
     }
     .screen{
       width: calc(var(--kb-main-w) + var(--kb-side-w) + var(--kb-gap));
-      margin: 0 auto;
+      margin: 0;
     }
 
     .headerBar{
-      height: var(--kb-header-h);
       display: flex;
       align-items: flex-start;
       padding: 0;
       margin: 0 0 10px;
-    }
+      height: var(--kb-header-h);}
 
     .headerLine{
       display: flex;
@@ -185,11 +369,11 @@ CHANGELOG:
       align-items: flex-end;
       justify-content: center;
       padding-bottom: 6px;
-      font-size: 13px;
+      font-size: 12px;
       color: #444;
     }
 body { margin: 0; background: #f6f6f6; color: #111; overflow: hidden; }
-    .wrap {  padding: 8px 20px;  }
+    .wrap {  padding: 8px 8px;  }
     .title { font-size: 20px; margin: 0; }
 
     
@@ -216,9 +400,20 @@ body { margin: 0; background: #f6f6f6; color: #111; overflow: hidden; }
       flex: 0 0 auto;
       margin-right: 0;
       text-align: left;
-    }
+    
+      font-size: 13px;}
 
-    .scoreInline{
+    
+    .kbFlexBreak{
+      flex: 0 0 100%;
+      height: 0;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      line-height: 0;
+      overflow: hidden;
+    }
+.scoreInline{
       width: auto;
       flex: 0 0 auto;
       margin-right: 0;
@@ -226,7 +421,7 @@ body { margin: 0; background: #f6f6f6; color: #111; overflow: hidden; }
     }
 
     .scoreInline {
-      font-size: 13px;
+      font-size: 12px;
       color: #333;
       white-space: nowrap;
       width: 20ch;
@@ -237,10 +432,17 @@ body { margin: 0; background: #f6f6f6; color: #111; overflow: hidden; }
 .copyrightLine{
       width: 100%;
       text-align: center;
-      margin-top: 6px;
-      padding-bottom: 6px;
+      margin-top: 8px;
+      padding-bottom: 0px;
       color: #444;
+    
+      font-size: 13px;
+      transform: none;
+      will-change: auto;
     }
+
+    #screenGame .copyrightLine{ width: 100%; text-align: center; margin-top: 8px; }
+
 .layout {
       display: grid;
       grid-template-columns: var(--kb-main-w) var(--kb-side-w);
@@ -260,11 +462,117 @@ body { margin: 0; background: #f6f6f6; color: #111; overflow: hidden; }
       border: 1px solid #ddd;
       border-radius: 8px;
       background: #e9eef5;
-      width: 100%;
-      height: 100%;
+      width: var(--pttBoardSize);
+      height: var(--pttBoardSize);
       min-height: 0;
       overflow: hidden;
     }
+    
+    /* Leaflet attribution styling to match K-Bucks footer */
+    #screenGame .leaflet-container { font-family: var(--kbFontStack); }
+
+        #screenGame .leaflet-control-attribution {
+      font-family: var(--kbFontStack);
+      font-size: 11px;
+      color: #444;
+      background: #f4f4f4;
+      border-radius: 4px;
+      padding: 2px 6px;
+      box-shadow: none;
+    }
+
+    /* Right-align attribution to the bottom-right edge of the 512x512 map */
+    #screenGame .leaflet-bottom.leaflet-right {
+      left: auto;
+      right: 0;
+      text-align: right;
+      padding-right: 0;
+      padding-left: 0;
+      padding-bottom: 0;
+    }
+    #screenGame .leaflet-right .leaflet-control { margin-right: 0 !important; }
+    #screenGame .leaflet-bottom .leaflet-control { margin-bottom: 0; }
+    #screenGame .leaflet-control-attribution { float: none; display: inline-block; }
+    #screenGame .leaflet-control-attribution a { color: #444; }
+/* Screen 3 layout experiment: 512x512 map slot and two right columns */
+    #screenGame { --ntcMapSize: 514px; --kb-main-h: var(--ntcMapSize); width: calc(var(--ntcMapSize) + 258px + 386px + (2 * 4px)); }
+
+    #screenGame .layout.gameLayout.kbNtcLayout {
+      grid-template-columns: var(--ntcMapSize) 258px 386px;
+      width: calc(var(--ntcMapSize) + 258px + 386px + (2 * 4px));
+      align-items: stretch;
+      column-gap: 4px;
+      row-gap: 4px;
+    
+      height: var(--ntcMapSize);
+      grid-template-rows: 1fr;
+      justify-items: stretch;
+}
+
+    #screenGame #mapSlot {
+      width: var(--ntcMapSize);
+      height: var(--ntcMapSize);
+    }
+
+    #screenGame #ntcAccounts { justify-content: flex-start; height: 100%; display: flex; flex-direction: column; gap: 4px;
+      min-height: 0;
+}
+
+    /* NTC: increase bottom padding so the Next question button sits lower */
+    #screenGame #quizPane { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; padding-bottom: 11px; }
+#screenGame #quizPane .answers { flex: 1 1 auto; min-height: 0;
+      padding-bottom: 6px;}
+#screenGame #quizPane .controls { margin-top: auto; }
+
+    /* PTT: match the NTC "Select your answer" pane layout behavior */
+    #screenBingo #bingoQuizPane { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; padding-bottom: 11px; }
+    #screenBingo #bingoQuizPane .answers { flex: 1 1 auto; min-height: 0; padding-bottom: 6px; }
+    #screenBingo #bingoQuizPane .controls { margin-top: auto; }
+
+
+    #screenGame .kbNtcSideLeft,
+    #screenGame .kbNtcSideRight {
+      height: var(--kb-main-h);
+      overflow: auto;
+    }
+
+    /* NTC column widths, prevent overflow overlap */
+    #screenGame #side.kbNtcSideLeft {width: 258px;
+      overflow: hidden;
+      gap: 0px;
+  height: var(--ntcMapSize);
+
+      min-height: 0;
+}
+
+    #screenGame #ntcAccounts.kbNtcSideRight {width: 386px;
+      height: var(--ntcMapSize);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      overflow: hidden;
+      min-height: 0;
+    }
+
+    #screenGame #ntcAccounts.kbNtcSideRight .pane {
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    /* NTC + PTT answer rows */
+    #screenGame .ansBtn,
+    #screenBingo .ansBtn {
+      font-size: 16px;
+      min-height: 34px;
+      line-height: 1.3;
+      padding: 0px 10px;
+    }
+
+    /* MTN only: slightly taller answer rows to match NTC spacing above Next question */
+    #screenBingo .ansBtn { min-height: 36px; }
+
+
+
 
     /* Fix A: reduce Leaflet tile seam artifacts */
     #mapSlot img.leaflet-tile {
@@ -317,6 +625,15 @@ body { margin: 0; background: #f6f6f6; color: #111; overflow: hidden; }
       overflow: hidden;
       display: block;
     }
+
+    /* MTN: remove outer padding and border so the 514x514 board frame fits without clipping */
+    #screenBingo #bingoPane{
+      padding: 0;
+      border: 0;
+      background: transparent;
+      border-radius: 0;
+    }
+
 #redeemPane .redeemHeader {
       display: flex;
       align-items: flex-start;
@@ -330,7 +647,7 @@ body { margin: 0; background: #f6f6f6; color: #111; overflow: hidden; }
       font-size: 18px;
     }
     #redeemBalance {
-      margin-top: 6px;
+      margin-top: 8px;
       color: #333;
       font-size: 16px;
       white-space: pre-wrap;
@@ -339,7 +656,7 @@ body { margin: 0; background: #f6f6f6; color: #111; overflow: hidden; }
       margin-top: 8px;
       min-height: 18px;
       color: #333;
-      font-size: 13px;
+      font-size: 12px;
       white-space: pre-wrap;
     }
 
@@ -395,17 +712,23 @@ body { margin: 0; background: #f6f6f6; color: #111; overflow: hidden; }
       font-size: 18px;
     }
     #earnBalance {
-      margin-top: 6px;
+      margin-top: 8px;
       color: #333;
       font-size: 16px;
       white-space: pre-wrap;
     }
     #eduPaneMessage {
-      margin-top: 8px;
-      min-height: 18px;
+      min-height: 20px;
+      line-height: 20px;
+      margin: 0 0 10px 0;
       color: #333;
-      font-size: 13px;
+      font-size: 12px;
       white-space: pre-wrap;
+    }
+
+    #eduPaneMessage:empty{
+      display: block;
+      visibility: hidden;
     }
 #side {
       display: flex;
@@ -437,7 +760,7 @@ body { margin: 0; background: #f6f6f6; color: #111; overflow: hidden; }
 .bingoPairBtn.kbBingoDoneCorrect:focus {
   background: #c8f3c8;
   border-color: #7bd47b;
-  color: #222222;
+  color: #333333;
 }
 
 .bingoPairBtn.kbBingoDoneWrong,
@@ -446,10 +769,10 @@ body { margin: 0; background: #f6f6f6; color: #111; overflow: hidden; }
 .bingoPairBtn.kbBingoDoneWrong:focus {
   background: #f6c1c1;
   border-color: #e18a8a;
-  color: #222222;
+  color: #333333;
 }
 
-/* Current question pair: the only orange highlight */
+/* Current question pair: highlighted in orange while the question is being shown */
 .bingoPairBtn.kbBingoCurrent,
 .bingoPairBtn.kbBingoCurrent:hover,
 .bingoPairBtn.kbBingoCurrent:active,
@@ -470,7 +793,7 @@ body { margin: 0; background: #f6f6f6; color: #111; overflow: hidden; }
       align-items: baseline;
       justify-content: space-between;
       gap: 10px;
-      margin-bottom: 10px;
+      margin-bottom: 6px;
     }
 
     .pane h3 {
@@ -492,41 +815,41 @@ body { margin: 0; background: #f6f6f6; color: #111; overflow: hidden; }
       box-sizing: border-box;
     
     
-  padding: 8px;
+  padding: 8px 8px 0px 8px;
 }
 .spigotInner{
   width: 100%;
   height: 100%;
   display:flex;
   flex-wrap: nowrap;
-  gap: 10px;
-  align-items: stretch;
+  gap: 12px;
+  align-items: center;
 }
 .spigotImg{
   flex: 0 0 auto;
-  height: 100%;
-  max-height: 100%;
+  height: 52px;
+  max-height: 52px;
   max-width: 52%;
   width: auto;
   display:block;
   object-fit: contain;
-  object-position: left bottom;
-  align-self: flex-end;
+  object-position: left center;
+  align-self: center;
 }
 .spigotText{
   flex: 1;
   min-width: 0;
   display:flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: flex-start;
   text-align: left;
 }
 .copyrightLine{
       width: 100%;
       text-align: center;
-      margin-top: 6px;
-      padding-bottom: 6px;
+      margin-top: 8px;
+      padding-bottom: 0px;
       color: #444;
     }
 .answers { list-style: none; padding: 0; margin: 0; }
@@ -537,7 +860,7 @@ body { margin: 0; background: #f6f6f6; color: #111; overflow: hidden; }
       text-align: left;
       border: 1px solid transparent;
       background: transparent;
-      padding: 4px 8px;
+      padding: 6px 10px;
       border-radius: 6px;
       cursor: pointer;
       display: flex;
@@ -609,7 +932,7 @@ body { margin: 0; background: #f6f6f6; color: #111; overflow: hidden; }
       margin-top: 10px;
       min-height: 18px;
       color: #333;
-      font-size: 13px;
+      font-size: 12px;
       white-space: pre-wrap;
     }
 
@@ -618,8 +941,12 @@ body { margin: 0; background: #f6f6f6; color: #111; overflow: hidden; }
     #quizPane #message { margin-top: 8px; min-height: 0; }
     #quizPane #message:empty { display: none; }
 
+
+    /* PTT quiz pane: match NTC behavior for empty message */
+    #bingoQuizPane #bingoMessage { margin-top: 8px; min-height: 0; }
+    #bingoQuizPane #bingoMessage:empty { display: none; }
 .acctLine{
-      margin-top: 6px;
+      margin-top: 8px;
       line-height: 1.35;
       font-size: 13px;
       color: #333;
@@ -634,7 +961,7 @@ body { margin: 0; background: #f6f6f6; color: #111; overflow: hidden; }
       border-radius: 6px;
       border: 1px solid #bbb;
       font: inherit;
-      font-size: 13px;
+      font-size: 12px;
       margin-left: 6px;
     }
 
@@ -646,7 +973,7 @@ body { margin: 0; background: #f6f6f6; color: #111; overflow: hidden; }
       border-radius: 6px;
       border: 1px solid #bbb;
       font: inherit;
-      font-size: 13px;
+      font-size: 12px;
       margin-left: 6px;
     }
     /* Empty-wallet highlight disabled for now
@@ -659,7 +986,7 @@ body { margin: 0; background: #f6f6f6; color: #111; overflow: hidden; }
       grid-template-columns: 1fr 1fr 1fr;
       gap: 10px;
       align-items: center;
-      padding: 14px;
+      padding: 10px;
       background: #fff;
       border: 1px solid #ddd;
       border-radius: 8px;
@@ -686,11 +1013,11 @@ body { margin: 0; background: #f6f6f6; color: #111; overflow: hidden; }
     .modal h2 { margin: 0 0 8px; font-size: 18px; }
     .modal p { margin: 0 0 14px; color: #333; }
 
-    .storeList { display: grid; gap: 8px; margin: 12px 0; }
+    .storeList { display: grid; gap: 4px; margin: 12px 0; }
     .storeItem {
       border: 1px solid #ddd;
       border-radius: 8px;
-      padding: 10px;
+      padding: 8px 10px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -708,9 +1035,46 @@ body { margin: 0; background: #f6f6f6; color: #111; overflow: hidden; }
   gap: 10px;
   min-width: 0;
 }
+
+
+
+/* Screen 1 (Educational Content): fixed column container to the right of the thumb */
+:root{
+  --eduColTitle: 234px;
+  --eduColKB: 220px;
+  --eduColGap: 20px;
+}
+.eduLeft{
+  display: flex;
+  flex: 1;
+  align-items: flex-start;
+  gap: 10px;
+  min-width: 0;
+}
+.eduMid{
+  display: grid;
+  grid-template-columns: var(--eduColTitle) var(--eduColKB);
+  column-gap: var(--eduColGap);
+  align-items: start;
+  min-width: 0;
+}
+.eduFundsCol{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 0;
+}
+.eduFundsTitle{
+  font-weight: 600;
+  font-size: inherit;
+  line-height: 1.2;
+  margin-top: 0;
+}
+
 .storeThumb{
-  width: 144px;
-  height: 144px;
+  8px;
+  8px;
   border-radius: 10px;
   object-fit: contain;
   flex: 0 0 auto;
@@ -730,7 +1094,7 @@ body { margin: 0; background: #f6f6f6; color: #111; overflow: hidden; }
   
     .matchSuffix{
       margin-left: 6px;
-      font-size: 13px;
+      font-size: 12px;
       opacity: 0.9;
       white-space: nowrap;
     }
@@ -747,7 +1111,21 @@ body { margin: 0; background: #f6f6f6; color: #111; overflow: hidden; }
 .spigotText .acctLine{ white-space: normal; overflow-wrap: anywhere; }
 
 
-    /* Screen 1: pin Redemption Store button to bottom-right of the Main Slot */
+    
+    /* Screen 1: match NTC overall footprint (map-to-parent width x map height) */
+    #screenEdu{
+      width: 1166px;
+    }
+    #screenEdu .storeMain{
+      width: 1166px;
+      height: 514px;
+    }
+    #screenEdu #eduPane{
+      width: 1166px;
+      height: 514px;
+      padding: 10px 10px;}
+
+/* Screen 1: pin Redemption Store button to bottom-right of the Main Slot */
     #eduPane{
       box-sizing: border-box;
       height: 100%;
@@ -766,7 +1144,41 @@ body { margin: 0; background: #f6f6f6; color: #111; overflow: hidden; }
     }
 
 
-    /* Screen 2: redemption items list is non-scrollable (may truncate) */
+    /* Screen 1: make the scroll container fill between the earn line and the button (10px gaps) */
+    #eduPane .redeemHeader{
+      margin-bottom: 0;
+    }
+    #eduPane h2{
+      margin: 0 0 6px 0;
+    }
+    #eduPane .storePrice{
+      margin: 0;
+    }
+    #eduList{
+      margin-top: 10px;
+      margin-bottom: 10px;
+      overflow-y: auto;
+    }
+    #eduPane .controls.mainSlotNav{
+      margin-top: 0;
+    }
+
+    
+    /* Screen 2: match NTC overall footprint (map-to-parent width x map height) */
+    #screenStore{
+      width: 1166px;
+    }
+    #screenStore .storeMain{
+      width: 1166px;
+      height: 514px;
+    }
+    #screenStore #redeemPane{
+      width: 1166px;
+      height: 514px;
+      padding: 10px 10px;
+    }
+
+/* Screen 2: redemption items list is non-scrollable (may truncate) */
     #screenStore #redeemPane {
       overflow: hidden;
     }
@@ -848,8 +1260,8 @@ body { margin: 0; background: #f6f6f6; color: #111; overflow: hidden; }
   padding-bottom: 8px;
 }
 #screenStore #store .storeThumb{
-  width: 140px;       /* slightly smaller thumbs to fit 6 items */
-  height: 140px;
+  8px;
+  8px;
 }
 
 
@@ -876,7 +1288,142 @@ body { margin: 0; background: #f6f6f6; color: #111; overflow: hidden; }
       --kb-map-white: #FAFAF8;  /* matches unselected countries */
     }
 
-    /* Screen 4: Practice Times Tables grid */
+        /* Screen 4: Multiply Two Numbers layout mirrors Name That Country */
+    #screenBingo { --pttStageSize: 514px; --pttBoardSize: 512px; --pttCellSize: 44px; --pttGap: 2px; --pttPad: 4px; --kb-main-h: var(--pttStageSize); width: calc(var(--pttStageSize) + 258px + 386px + (2 * 4px)); }
+
+    #screenBingo .layout.gameLayout.kbPttLayout {
+      grid-template-columns: var(--pttStageSize) 258px 386px;
+      width: calc(var(--pttStageSize) + 258px + 386px + (2 * 4px));
+      align-items: stretch;
+      column-gap: 4px;
+      row-gap: 4px;
+
+      height: var(--pttStageSize);
+      grid-template-rows: 1fr;
+      justify-items: stretch;
+    }
+
+    #screenBingo #bingoSlot { width: var(--pttStageSize); height: var(--pttStageSize); }
+
+    #screenBingo #bingoPane {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      width: 100%;
+      height: 100%;
+      min-height: 0;
+      overflow: hidden;
+      background: transparent;
+    }
+
+    /* MTN: 512x512 board framed to 514x514 with a 1px border (matches NTC map slot) */
+    #screenBingo #bingoBoardFrame {
+      box-sizing: border-box;
+      width: var(--pttStageSize);
+      height: var(--pttStageSize);
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background: var(--kb-ocean-gray);
+      overflow: hidden;
+
+      /* Anchor the grid to the frame, avoid flex-centering rounding artifacts */
+      display: block;
+      padding: 0;
+    }
+
+    #screenBingo #bingoGrid.pttBoard {
+      box-sizing: border-box;
+      width: 100%;
+      height: 100%;
+      padding: var(--pttPad);
+
+      display: grid;
+      grid-template-columns: repeat(11, var(--pttCellSize));
+      grid-template-rows: repeat(11, var(--pttCellSize));
+      gap: var(--pttGap);
+
+      background: var(--kb-ocean-gray);
+    }
+
+    #screenBingo .pttHdr,
+    #screenBingo .pttCorner {
+      box-sizing: border-box;
+      background: var(--kb-map-white);
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+      color: #333333;
+      user-select: none;
+    }
+
+    #screenBingo .pttCorner {
+      background: transparent;
+      border: 1px solid transparent;
+    }
+
+    #screenBingo .pttCell { box-sizing: border-box; }
+
+    #screenBingo .pttCell .bingoLine,
+    #screenBingo .pttCell .bingoPairBtn {
+      box-sizing: border-box;
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+      background: var(--kb-map-white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      font-weight: 400;
+      font-size: 14px;
+      color: #333333;
+      padding: 0;
+      user-select: none;
+    }
+
+    
+    /* MTN: match board frame rounding to prevent edge clipping */
+    #screenBingo .bingoPairBtn { border-radius: 8px; }
+#screenBingo .pttCell .bingoPairBtn { cursor: pointer; }
+
+    #screenBingo .kbPttSideLeft,
+    #screenBingo .kbPttSideRight {
+      height: var(--pttStageSize);
+      overflow: auto;
+    }
+
+    #screenBingo #bingoSide.kbPttSideLeft {
+      width: 258px;
+      overflow: hidden;
+      gap: 0px;
+      height: var(--pttStageSize);
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    #screenBingo #bingoAccounts.kbPttSideRight {
+      width: 386px;
+      overflow: hidden;
+      gap: 4px;
+      height: var(--pttStageSize);
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    #screenBingo #bingoQuizPane { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; padding-bottom: 11px; }
+    #screenBingo #bingoQuizPane .answers { flex: 1 1 auto; min-height: 0; padding-bottom: 6px; }
+    #screenBingo #bingoQuizPane .controls { margin-top: auto; }
+
+    /* Screen 4: Multiply Two Numbers grid */
     #bingoPane{
       background: var(--kb-ocean-gray);
     }
@@ -907,7 +1454,7 @@ body { margin: 0; background: #f6f6f6; color: #111; overflow: hidden; }
     }
     .bingoCardHeader{
       background: var(--kb-map-white);
-      color: #222222;
+      color: #333333;
       text-align: center;
       font-weight: 700;
       font-size: 30px;
@@ -941,11 +1488,11 @@ body { margin: 0; background: #f6f6f6; color: #111; overflow: hidden; }
       display: grid;
       grid-template-columns: 1fr auto 1fr;
       align-items: center;
-      color: #222222;
+      color: #333333;
     }
-    .bingoPairBtn .bingoA{ justify-self: end; padding-right: 14px; }
-    .bingoPairBtn .bingoX{ justify-self: center; }
-    .bingoPairBtn .bingoB{ justify-self: start; padding-left: 14px; }
+    .bingoPairBtn .bingoA{ padding: 0; }
+    .bingoPairBtn .bingoX{ padding: 0; }
+    .bingoPairBtn .bingoB{ padding: 0; }
 
 .bingoLine{
       width: 100%;
@@ -975,7 +1522,7 @@ body { margin: 0; background: #f6f6f6; color: #111; overflow: hidden; }
       align-items: center;
       gap: 6px;
       margin-top: 4px;
-      font-size: 13px;
+      font-size: 12px;
       line-height: 1.2;
       user-select: none;
     }
@@ -996,7 +1543,7 @@ color: #111;
     }
     .storeRating .ratingCount{
       color: #777;
-      font-size: 13px;
+      font-size: 12px;
     }
 
 
@@ -1022,435 +1569,1278 @@ color: #111;
       font-size: 14px;
     }
 
+
+
+/* ===== NTC layout guardrails (0.1.257) ===== */
+#screenGame .layout.gameLayout.kbNtcLayout { grid-template-columns: var(--ntcMapSize) 258px 386px; column-gap: 4px; row-gap: 4px; width: 1166px; }
+#screenGame #mapSlot { width: 514px; height: 514px; }
+#screenGame #quizPane { width: 100%; box-sizing: border-box; padding-bottom: 18px; }
+#screenGame #side.kbNtcSideLeft { width: 258px; box-sizing: border-box; overflow: hidden; gap: 0px; 
+      min-height: 0;
+}
+#screenGame .bottomBar { gap: 10px; }
+#screenGame .bottomBar button, #screenGame #nextBtn { font-size: 14px; }
+
+/* Answer rows */
+#screenGame .ansBtn { font-size: 16px; line-height: 1.2; min-height: 32px; padding: 6px 10px; gap: 0; }
+#screenGame .answers li { margin: 1px 0; }
+#screenGame .ansBtn .label { white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      line-height: 1.3;}
+
+/* Bullet alignment: dot under the 'S' in 'Select' */
+#screenGame .ansBtn 
+/* Prevent accidental centering gap on screens */
+.screen { margin: 0; }
+/* ===== end guardrails ===== */
+/* NTC pane padding experiment (0.1.260) */
+#screenGame #side.kbNtcSideLeft .pane { padding: 10px; }
+#screenGame #quizPane { padding: 10px; }
+#screenGame #ntcAccounts.kbNtcSideRight .pane { padding: 10px; }
+#screenGame #spigotPane { padding: 10px; }
+
+
+
+    
+
+    /* NTC: push bottom 3 panes to map bottom, breathing gap sits below spigot */
+    
+
+    /* NTC: let Education Sponsors pane absorb zoom rounding instead of a visible gap */
+    #screenGame #ntcAccounts.kbNtcSideRight > .pane:nth-child(2) { flex: 1 1 auto; min-height: 0; }
+    #screenGame #ntcAccounts.kbNtcSideRight > *:not(.pane:nth-child(2)) { flex: 0 0 auto; }
+
+
+    /* NTC footer: final authoritative rule to avoid later .copyrightLine overrides */
+    #screenGame .copyrightLine{ width: 100%; text-align: center; margin-top: 8px; }
+
+
+    /* NTC: lock the game grid height to the map size, prevents extra blank space before the footer */
+    #screenGame .layout.gameLayout.kbNtcLayout{
+      height: var(--ntcMapSize);
+      grid-template-rows: var(--ntcMapSize);
+      align-content: start;
+      max-height: var(--ntcMapSize);
+    }
+    #screenGame #mapSlot,
+    #screenGame #side.kbNtcSideLeft,
+    #screenGame #ntcAccounts.kbNtcSideRight{
+      height: var(--ntcMapSize);
+      max-height: var(--ntcMapSize);
+      min-height: 0;
+    }
+
+
+    /* Global button styling (all screens), based on the NTC "Misses" button. Excludes NTC answer rows (.ansBtn). */
+    button:not(.ansBtn){
+      font-size: 14px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid #888;
+      background: #f7f7f7;
+      cursor: pointer;
+      white-space: nowrap;
+      color: #111;
+    }
+    button:not(.ansBtn):hover:not(:disabled){
+      background: #eee;
+    }
+    button:not(.ansBtn):disabled{
+      opacity: 0.55;
+      cursor: default;
+    }
+
+
+        /* Screen 1: keep internal scrolling enabled and match Screen 2 spacing */
+    #screenEdu #eduPane{
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    #screenEdu #eduPane .redeemHeader{
+      margin-bottom: 0;
+    }
+    #screenEdu #eduPane h2{
+      margin: 0 0 6px 0;
+    }
+    #screenEdu #eduPane .storePrice{
+      margin: 0;
+    }
+    #screenEdu #eduList{
+      flex: 1 1 auto;
+      min-height: 0;
+      overflow-y: auto;
+      overflow-x: hidden;
+      margin-top: 10px;
+      margin-bottom: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+    #screenEdu #eduList .storeList{
+      margin-top: 0;
+      margin-bottom: 0;
+      gap: 4px;
+    }
+    #screenEdu #eduPane .controls.mainSlotNav{
+      margin-top: 10px;
+      margin-bottom: 0;
+    }
+
+/* Screen 2: keep internal scrollbar and align list to 10px below header line */
+    #screenStore #redeemPane{
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    #screenStore #redeemPaneMessage{
+      min-height: 20px;
+      line-height: 20px;
+      margin: 0 0 10px 0;
+    }
+    #redeemPaneMessage:empty{
+      display: block;
+      visibility: hidden;
+    }
+#screenStore #store{
+      flex: 1 1 auto;
+      min-height: 0;
+      overflow-y: auto;
+      overflow-x: hidden;
+      margin-top: 0;
+    }
+    #screenStore #store .storeList{
+      margin-top: 0;
+      margin-bottom: 0;
+      gap: 4px;
+    }
+    #screenStore #redeemPane .controls.mainSlotNav{
+      margin-top: 10px;
+      margin-bottom: 0;
+    }
+
+    #screenStore #redeemPane .redeemHeader{
+      margin-bottom: 0;
+    }
+
+    #screenStore #redeemPane h2{
+      margin: 0 0 6px 0;
+    }
+    #screenStore #redeemPane .storePrice{
+      margin: 0;
+    }
+
+
+
+/* 0.1.325: Reserve a stable one-line message slot under the Available line on both screens.
+   This keeps the first gray card aligned between Educational Content and Redemption Store. */
+#screenStore #redeemPaneMessage,
+#screenEdu #eduPaneMessage{
+  min-height: 20px !important;
+  line-height: 20px !important;
+  font-size: 13px !important;
+  color: #333 !important;
+  white-space: pre-wrap !important;
+  margin-top: 8px !important;
+  margin-bottom: 10px !important;
+  display: block !important;
+}
+
+#screenStore #redeemPaneMessage:empty,
+#screenEdu #eduPaneMessage:empty{
+  visibility: hidden !important;
+}
+
+/* Ensure list containers do not add their own top spacing. */
+#screenStore #store,
+#screenEdu #eduList{
+  margin-top: 0 !important;
+}
+
+
+    /* PTT: match NTC pane and answer list spacing */
+    #screenBingo #bingoQuizPane { padding: 10px; }
+    #screenBingo #bingoAccounts.kbPttSideRight .pane { padding: 10px; }
+    #screenBingo #bingoSpigotPane { padding: 10px; }
+
+    #screenBingo .ansBtn {
+      font-size: 16px;
+      min-height: 34px;
+      line-height: 1.3;
+      padding: 0px 10px 0px 2px;
+    }
+
+    /* PTT board: allow grid items to shrink so all columns fit inside 512x512 */
+    #screenBingo #bingoGrid.pttBoard > * { min-width: 0; min-height: 0; }
+    #screenBingo .pttCell .bingoLine,
+    #screenBingo .pttCell .bingoPairBtn { min-width: 0; }
+
+    /* PTT board: tighter text for A × B so it does not force column growth */
+    #screenBingo .pttCell .bingoLine,
+    #screenBingo .pttCell .bingoPairBtn {
+      font-size: 12px;
+      gap: 2px;
+    }
+    #screenBingo .pttHdr { font-size: 12px; }
+
+    /* PTT: render A × B as A space × space B, and do not bold */
+    #screenBingo .pttCell .bingoPairBtn .bingoX { margin: 0; font-weight: 400; padding: 0 2px; font-size: 13px; }
+    #screenBingo .pttCell .bingoPairBtn .bingoA,
+#screenBingo .pttCell .bingoPairBtn .bingoB { font-weight: 400; font-size: 13px; }
+
+    /* PTT: make row/column header cells match pair cell size */
+    #screenBingo .pttHdr{
+      box-sizing: border-box;
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+      background: var(--kb-map-white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 12px;
+      color: #333333;
+      user-select: none;
+    }
+
+    /* PTT: ensure orange, green, red highlights win over base button styling */
+    #screenBingo .bingoPairBtn.kbBingoDoneCorrect,
+    #screenBingo .bingoPairBtn.kbBingoDoneCorrect:hover,
+    #screenBingo .bingoPairBtn.kbBingoDoneCorrect:active,
+    #screenBingo .bingoPairBtn.kbBingoDoneCorrect:focus {
+      background: #c8f3c8;
+      border-color: #7bd47b;
+      color: #333333;
+    }
+
+    #screenBingo .bingoPairBtn.kbBingoDoneWrong,
+    #screenBingo .bingoPairBtn.kbBingoDoneWrong:hover,
+    #screenBingo .bingoPairBtn.kbBingoDoneWrong:active,
+    #screenBingo .bingoPairBtn.kbBingoDoneWrong:focus {
+      background: #f6c1c1;
+      border-color: #e18a8a;
+      color: #333333;
+    }
+
+    #screenBingo .bingoPairBtn.kbBingoCurrent,
+    #screenBingo .bingoPairBtn.kbBingoCurrent:hover,
+    #screenBingo .bingoPairBtn.kbBingoCurrent:active,
+    #screenBingo .bingoPairBtn.kbBingoCurrent:focus {
+      background: orange;
+      border-color: rgba(199, 111, 0, 0.75);
+      outline: none;
+    }
+
+#screenBingo .bingoPairBtn.kbBingoCurrent,
+#screenBingo .bingoPairBtn.kbBingoCurrent:hover,
+#screenBingo .bingoPairBtn.kbBingoCurrent:active,
+#screenBingo .bingoPairBtn.kbBingoCurrent:focus {
+  /* Current pair is shown with the same orange highlight as the header buttons. */
+  background: orange;
+  border-color: rgba(199, 111, 0, 0.75);
+  outline: none;
+}
+
+#screenBingo .bingoPairBtn .bingoResult {
+  font-size: 14px;
+  display: none;
+  grid-column: 1 / -1;
+  justify-self: center;
+  text-align: center;
+}
+
+#screenBingo .bingoPairBtn.kbBingoBlank .bingoA,
+#screenBingo .bingoPairBtn.kbBingoBlank .bingoX,
+#screenBingo .bingoPairBtn.kbBingoBlank .bingoB {
+  visibility: hidden;
+}
+
+#screenBingo .bingoPairBtn.kbBingoShowResult .bingoA,
+#screenBingo .bingoPairBtn.kbBingoShowResult .bingoX,
+#screenBingo .bingoPairBtn.kbBingoShowResult .bingoB {
+  display: none;
+}
+
+#screenBingo .bingoPairBtn.kbBingoShowResult .bingoResult {
+  display: block;
+}
+
+
+
+    /* PTT: match NTC answer list spacing and bullet alignment */
+    #screenBingo .answers { list-style: none; padding: 0; margin: 0; flex: 1 1 auto; min-height: 0; padding-bottom: 6px; }
+    #screenBingo .answers li { margin: 1px 0; }
+
+
+    /* PTT footer width match NTC */
+    #screenBingo .copyrightLine { width: 100%; text-align: center; margin-top: 8px; }
+
+
+
+/* PTT board polish: 11x11 grid, square headers, top-left X, no board clicks, header highlights */
+#screenBingo .pttCorner,
+#screenBingo .pttHdr{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0,0,0,0.25);
+  border-radius: 8px;
+  background: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  user-select: none;
+  pointer-events: none;
+  cursor: default;
+}
+
+#screenBingo .pttCorner{
+  font-weight: 700;
+}
+
+#screenBingo .pttCell .bingoPairBtn .bingoA,
+#screenBingo .pttCell .bingoPairBtn .bingoB{ padding: 0; }
+
+#screenBingo .pttHdr.kbBingoHdrCurrent,
+#screenBingo .pttCorner.kbBingoHdrCurrent{
+  background: orange;
+  border-color: rgba(199, 111, 0, 0.75);
+}
+
+
+    /* 0.1.338 PTT board text, sizing, and non-interactive guardrails */
+    #screenBingo #bingoGrid .bingoPairBtn,
+    #screenBingo #bingoGrid .pttHdr,
+    #screenBingo #bingoGrid .pttCorner{
+      cursor: default;
+      pointer-events: none;
+    }
+
+    #screenBingo #bingoGrid .pttCell .bingoPairBtn{
+      font-size: 14px;
+      gap: 0;
+      font-weight: 400;
+    }
+
+    #screenBingo #bingoGrid .pttCell .bingoX{ padding: 0 3px; }
+    #screenBingo #bingoGrid .pttCell .bingoPairBtn{ font-size: 14px; gap: 0; }
+    #screenBingo #bingoGrid .pttCell .bingoPairBtn .bingoA,
+    #screenBingo #bingoGrid .pttCell .bingoPairBtn .bingoX,
+    #screenBingo #bingoGrid .pttCell .bingoPairBtn .bingoB{
+      font-size: 13px;
+      line-height: 1;
+    }
+
+
+
+
+    #screenBingo #bingoGrid .pttHdr,
+    #screenBingo #bingoGrid .pttCorner{
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    #screenBingo #bingoGrid .pttCell .bingoPairBtn .bingoA,
+    #screenBingo #bingoGrid .pttCell .bingoPairBtn .bingoX,
+    #screenBingo #bingoGrid .pttCell .bingoPairBtn .bingoB{
+      font-weight: 400;
+    }
+
+    #screenBingo #bingoGrid .pttCell .bingoPairBtn .bingoX{
+      margin: 0;
+    }
+
+    /* PTT answer list should match NTC spacing */
+    #screenBingo #bingoQuizPane .answers{
+      padding-bottom: 6px;
+    }
+
+/* Answer bullet alignment: dot under the 'S' in 'Select' (match 0.1.325 look) */
+#screenGame .ansBtn .bullet,
+#screenBingo .ansBtn .bullet {
+  flex: 0 0 0;
+  width: 0;
+  margin-left: -8px;
+  margin-right: 12px;
+  text-align: left;
+}
+
+/* Keep PTT answer-row left padding consistent with NTC so bullet alignment matches */
+#screenBingo .ansBtn {
+  padding-left: 10px;
+}
+
+/* 0.1.358: Set footer spacing to 8px. */
+#screenGame .copyrightLine { margin-top: 8px !important; }
+
+/* 0.1.359: Keep footer position stable across screens, prevent tiny width-based shifts. */
+#screenEdu .copyrightLine,
+#screenStore .copyrightLine{
+  width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+
+    /* MTN: prevent global .bingoPairBtn padding from overflowing 44x44 grid cells */
+    #screenBingo #bingoGrid .bingoPairBtn{
+      box-sizing: border-box;
+      width: 100%;
+      height: 100%;
+      padding: 0 !important;
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+    }
+
+
+/* Consolidated accounts pane for NTC and MTN */
+.acctMegaPane {
+  width: 386px;
+  height: 514px;
+  border: 1px solid #d6d6d6;
+  border-radius: 8px;
+  background: #fff;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.acctMegaScroll {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.acctMegaScroll::-webkit-scrollbar { width: 0; height: 0; }
+
+/* In the consolidated accounts pane, tighten vertical rhythm to avoid scrollbars */
+.acctMegaPane .acctLine { margin-top: 6px; }
+.acctMegaPane .acctSubPane {
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  margin: 0;
+  border-radius: 0;
+  padding: 9px 12px;
+}
+
+
+.acctMegaPane .acctMegaScroll > .pane.acctSubPane { padding-bottom: 13px !important; }
+.acctMegaPane .acctSubPane + .acctSubPane {
+  border-top: 1px solid #e5e5e5;
+}
+.acctMegaPane .arrowDivider {
+  margin: 0;
+}
+.acctMegaPane .arrowDivider.acctSubPane {
+  padding-top: 9px;
+  padding-bottom: 5px !important;
+  padding-left: 8px;
+  padding-right: 12px;
+  margin-bottom: 0px !important;
+}
+
+.acctMegaPane .spigotPane {
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+
+/* Mega-pane spigot: match 0.1.237 look (bigger icon, vertically-centered text) */
+.acctMegaPane .spigotInner { align-items: center; }
+.acctMegaPane .spigotImg { height: 56px; max-height: 56px; max-width: none; width: auto; align-self: center; }
+.acctMegaPane .spigotText { justify-content: center; }
+.acctMegaPane .spigotText .acctLine { margin-top: 0; }
+.acctMegaPane .spigotText .acctLine + .acctLine { margin-top: 4px; }
+
+/* Fix slight top-spacing discrepancy in Platform section */
+.acctMegaPane #platformAcct,
+.acctMegaPane #bingoPlatformAcct { margin-top: 8px; }
+
+
+/* Column 2 mega panes (NTC + MTN): merge answer pane and bottom bar into one bordered container */
+.quizMegaPane{
+  box-sizing: border-box;
+  width: 258px;
+  height: var(--kb-main-h);
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.quizMegaScroll{
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+.quizSubPane{
+  flex: 1 1 auto;
+  min-height: 0;
+  padding: 14px;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+}
+.quizSubPane .paneHeader{ margin-bottom: 6px; }
+.quizSubPane h3{margin:0; font-size:16px;}
+.quizBottomBar{
+  border: none;
+  border-top: 1px solid #ddd;
+  border-radius: 0;
+  background: transparent;
+  padding: 10px;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.quizBottomBar.bottomBar{border:none; border-top:1px solid #ddd; border-radius:0; background: transparent; padding:10px;}
+
+
+
+#screenGame .leaflet-bar{ border: 1px solid rgba(0,0,0,0.2); box-shadow: none; }
+#screenGame .leaflet-control-zoom a{ width: 24px; height: 24px; line-height: 24px; font-size: 16px; }
+
+/* Screen 1 (Educational Content): typography to match Parent (h3) and Flow rate (acctLine) */
+.eduMid .storeMeta strong{
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.eduMid .storeMeta .storeRating,
+.eduMid .storeMeta .storeStarsLine,
+.eduMid .storeMeta .storeGradeLine,
+.eduMid .eduFundsCol .eduFundsLine{
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.35;
+  color: #333;
+}
+.eduMid .eduFundsTitle{
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: inherit;
+}
+/* Ensure consistent vertical rhythm so rows align across the two columns */
+.eduMid .storeMeta > div,
+.eduMid .eduFundsCol > div{
+  margin: 0;
+  padding: 0;
+}
+
+/* Screen 2 (Redemption Store): typography to match Educational Content card fonts */
+#screenStore .storeMeta strong{
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+#screenStore .storeMeta .storeRating{
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.35;
+  color: #333;
+}
+#screenStore .storeMeta .storePrice,
+#screenStore .storeMeta .storeBrand{
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.35;
+  color: #333;
+}
+
+/* Screen 2 (Redemption Store): match Educational Content vertical rhythm and alignment for the four text lines */
+#screenStore .storeLeft{
+  align-items: flex-start;
+}
+#screenStore .storeMeta{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+#screenStore .storeMeta > div{
+  margin: 0;
+  padding: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Screen 1 (Educational Content): align title and K-Bucks rows across the two columns */
+.eduMid{
+  display: grid;
+  grid-template-columns: var(--eduColTitle) var(--eduColKB);
+  grid-template-rows: repeat(4, min-content);
+  column-gap: var(--eduColGap);
+  row-gap: 4px;
+  align-items: start;
+  min-width: 0;
+}
+/* Let children of the two column wrappers participate in the parent grid */
+.eduMid .storeMeta,
+.eduMid .eduFundsCol{
+  display: contents;
+}
+/* Grid placement for aligned rows */
+.eduRow1Left{ grid-column: 1; grid-row: 1; }
+.eduRow2Left{ grid-column: 1; grid-row: 2; }
+.eduRow3Left{ grid-column: 1; grid-row: 3; }
+.eduRow4Left{ grid-column: 1; grid-row: 4; }
+
+.eduRow1Right{ grid-column: 2; grid-row: 1; }
+.eduRow2Right{ grid-column: 2; grid-row: 2; }
+.eduRow3Right{ grid-column: 2; grid-row: 3; }
+.eduRow4Right{ grid-column: 2; grid-row: 4; }
+
+
+/* Screen 1: smaller thumbnails for content cards */
+#screenEdu .storeThumb{
+  width: 128px;
+  height: 128px;
+}
+
+
+/* Screen 2 (Redemption Store): constrain thumbnails to 128x128 */
+#screenStore .storeThumb,
+#screenStore .storeItemThumb,
+#screenStore .redeemThumb{
+  width: 128px;
+  height: 128px;
+  flex: 0 0 128px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+#screenStore .storeThumb img,
+#screenStore .storeItemThumb img,
+#screenStore .redeemThumb img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+
+/* Color normalization: use #333 for key headings/titles/labels */
+#screenEdu h2,
+#screenStore h2,
+#screenGame .promptLabel,
+#screenBingo .promptLabel,
+#screenGame h3,
+#screenBingo h3,
+#screenGame .walletHdr,
+#screenBingo .walletHdr,
+#screenGame .answersTitle,
+#screenBingo .answersTitle{
+  color: #333;
+}
+
+/* EDU content card titles and K-Bucks header */
+#screenEdu .eduCellTitle,
+#screenEdu .storeMeta strong,
+#screenEdu .eduFundsTitle{
+  color: #333;
+}
+
+/* Store item titles */
+#screenStore .storeMeta strong,
+#screenStore .storeTitle,
+#screenStore .storeItemTitle{
+  color: #333;
+}
+
+/* Wallet section headers in NTC/MTN (fallback selectors) */
+#screenGame .acctHdr,
+#screenBingo .acctHdr,
+#screenGame .pane h3,
+#screenBingo .pane h3{
+  color: #333;
+}
+
+/* "Select your answer:" label */
+#screenGame .answersPane h3,
+#screenBingo .answersPane h3,
+#screenGame .answersPaneTitle,
+#screenBingo .answersPaneTitle{
+  color: #333;
+}
+
+
+/* NTC: re-introduce Leaflet zoom bar shadow */
+#screenGame .leaflet-bar{
+  box-shadow: 0 1px 3px rgba(0,0,0,0.65);
+}
+
+
+/* Remove unused status line under answers list (NTC + MTN) */
+#quizPane #message,
+#bingoQuizPane #bingoMessage{
+  display: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  min-height: 0 !important;
+  height: 0 !important;
+}
+
+
+/* MTN: match NTC gap between last answer row and "Next question" */
+#screenBingo #bingoQuizPane ul.answers{
+  flex: 0 0 auto !important;
+}
+#screenBingo #bingoQuizPane .controls{
+  margin-top: 8px !important;
+}
+
+
+/* MTN spacing parity with NTC:
+   1) Restore the original controls push-down behavior (do not pull "Next question" up)
+   2) Make MTN answer rows use the same sizing as NTC so the last bullet sits at the same height
+*/
+#bingoQuizPane .controls{
+  margin-top: auto !important;
+}
+
+#screenBingo .ansBtn{
+  font-size: 16px !important;
+  line-height: 1.2 !important;
+  min-height: 32px !important;
+  padding: 6px 10px !important;
+  gap: 0 !important;
+}
+
+
+/* MTN gap parity with NTC:
+   - Keep "Next question" in its original pushed-down position
+   - Make MTN answer rows match NTC row sizing so the last answer sits lower (smaller gap)
+*/
+#bingoQuizPane .answers{
+  flex: 1 1 auto !important;
+}
+#bingoQuizPane .controls{
+  margin-top: auto !important;
+}
+#screenBingo .ansBtn{
+  font-size: 16px !important;
+  line-height: 1.2 !important;
+  min-height: 32px !important;
+  padding: 6px 10px !important;
+  gap: 0 !important;
+}
+
+
+/* FINAL: MTN quiz spacing parity with NTC.
+   Goal: restore MTN "Next question" placement (pushed down) and make the LAST answer sit lower
+   by forcing MTN answer-row sizing to match NTC.
+*/
+#screenBingo #bingoQuizPane{
+  display: flex !important;
+  flex-direction: column !important;
+}
+#screenBingo #bingoQuizPane #bingoAnswers{
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  padding-bottom: 6px !important;
+}
+#screenBingo #bingoQuizPane .controls{
+  margin-top: auto !important;
+}
+#screenBingo #bingoQuizPane .ansBtn{
+  font-size: 16px !important;
+  line-height: 1.2 !important;
+  min-height: 32px !important;
+  padding: 6px 10px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0 !important;
+}
+#screenBingo #bingoQuizPane .ansBtn .label{
+  line-height: 1.2 !important;
+}
+
+
+/* MTN vs NTC answers gap:
+   MTN had default UL margin adding extra space between the last answer row and the controls.
+   Reset UL margin and padding to match NTC.
+*/
+#screenBingo #bingoQuizPane ul.answers,
+#screenBingo #bingoAnswers{
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+
+/* Parity: NTC and MTN answers layout.
+   Fixes:
+   - Undo accidental global ul.answers flex override
+   - Force MTN answers list sizing to match NTC so the last answer and Next question gap matches
+   - Force MTN answer button height to match NTC so green and red bars are the same thickness
+*/
+#screenGame #quizPane ul.answers,
+#screenBingo #bingoQuizPane ul.answers{
+  flex: 1 1 auto !important;
+}
+#screenBingo #bingoQuizPane .answers{
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  padding-bottom: 6px !important;
+}
+#screenBingo #bingoQuizPane .controls{
+  margin-top: auto !important;
+}
+#screenBingo #bingoQuizPane .ansBtn{
+  font-size: 16px !important;
+  line-height: 1.2 !important;
+  min-height: 32px !important;
+  padding: 6px 10px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0 !important;
+}
+
+
+
+/* MTN gap parity refinement:
+   Match MTN answer-row sizing to NTC (including padding and line-height) and
+   use a fractional fixed height to prevent cumulative drift vs NTC.
+*/
+#screenBingo #bingoQuizPane .ansBtn{
+  font-size: 16px !important;
+  line-height: 1.2 !important;
+  padding: 6px 10px !important;
+  gap: 0 !important;
+  height: 34.8px !important;
+  min-height: 34.8px !important;
+  box-sizing: border-box !important;
+}
+
+
+
+/* Screen 2: two-column grid wrapper for the Redemption Store body, column 2 is reserved for future text blocks. */
+#screenStore #storeGrid.kbStoreGrid2Col{
+  flex: 1 1 auto;
+  min-height: 0;
+  min-width: 0;
+  display: grid;
+
+  /* Keep the redemption-item list width unchanged by collapsing column 2 for now. */
+  --kbStoreCol2W: 0px;
+  --kbStoreGridGap: 0px;
+
+  grid-template-columns: minmax(0, 1fr) var(--kbStoreCol2W);
+  column-gap: var(--kbStoreGridGap);
+  row-gap: 0;
+  overflow: hidden;
+}
+#screenStore #storeGrid.kbStoreGrid2Col > #store{
+  min-height: 0;
+  min-width: 0;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin: 0;
+}
+#screenStore #storeGrid.kbStoreGrid2Col > #storeCol2{
+  min-height: 0;
+  min-width: 0;
+  width: 0;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
 </style>
+
+    <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="any">
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
 </head>
-
 <body>
-  <div class="wrap">
-    <div id="screenGame" class="screen" style="display:none;">
-            <div class="headerBar">
-        <div class="topHeader">
-          <p class="title">Name That Country</p>
-          <div class="topStatus" aria-live="polite">
-            <div class="scoreInline" id="progress">Progress: 0/0</div>
-            <div class="scoreInline" id="status">Score: 0/0 (0%)</div>
-            <div class="scoreInline" id="timer">Time: 00:00:00</div>
-          </div>
-        </div>
-      </div>
-<div class="layout gameLayout">
-        <div id="mapSlot">
-          <div class="kbMapBuffer kbMapFront" id="mapA"></div>
-          <div class="kbMapBuffer kbMapBack" id="mapB"></div>
-        </div>
-
-<div id="side">
-        <div class="pane" id="quizPane">
-          <div class="paneHeader">
-            <h3>Select your answer:</h3>
-</div>
-
-          <ul class="answers" id="answers"></ul>
-
-          <div class="status" id="message"></div>
-
-          <div class="controls">
-            <button id="nextBtn" disabled type="button">Next question</button>
-          </div>
-
-        </div>
-
-        
-        <div class="pane">
-          <h3>Parent</h3>
-          <div class="acctLine">
-            K-Bucks:
-            <input id="parentInput" class="moneyInput" type="text" inputmode="decimal" min="0" step="0.01" value="0.00" />
-          </div>
-          <div class="acctLine">
-            Flow rate (K-Bucks per correct answer):
-            <input id="flowRateInput" class="flowInput moneyInput" type="text" inputmode="decimal" min="0" step="any" value="0.00" />
-          </div>
-        </div>
-
-        <div class="pane">
-          <h3>Education Sponsors</h3>
-          <div class="acctLine">
-            K-Bucks:
-            <input id="sponsorInput" class="moneyInput" type="text" inputmode="decimal" min="0" step="any" value="0.00" />
-          </div>
-          <div class="acctLine">
-            Parent : Sponsors match ratio (3 ≤ x ≤ 7):
-            <input id="sponsorMatchInput" class="flowInput" type="number" min="3" max="7" step="any" value="5" /><span class="matchSuffix"> : 1</span></div>
-      </div>
-
-        
-
-        
-        <div class="arrowDivider" aria-hidden="true"><div id="spigotPane" class="pane spigotPane">
-          <div class="spigotInner">
-            <img class="spigotImg" src="spigot.png?v=3" alt="" />
-            <div class="spigotText">
-              <div class="acctLine">Flow rate (K-Bucks, Parent + Sponsors): <span id="spigotFlowRateOut">0.00</span></div>
-              <div class="acctLine kbHourLine">K-Bucks/Hour (estimate): <span id="spigotKbucksPerHourOut">0.00</span></div>
-            </div>
-          </div>
-        </div></div>
-
-        <div class="pane" id="childPane">
-          <h3>Child <span class="pct">(75%)</span></h3>
-          <div class="acctLine" id="childAcct">K-Bucks: 0.00000</div>
-        </div>
-
-        <div class="pane">
-          <h3>Content Developer <span class="pct">(12.5%)</span></h3>
-          <div class="acctLine" id="devAcct">K-Bucks: 0.00000</div>
-        </div>
-
-
-        <div class="pane">
-          <h3>K-Bucks Platform <span class="pct">(12.5%)</span></h3>
-          <div class="acctLine" id="platformAcct">K-Bucks: 0.00000</div>
-          <div class="acctLine" id="platformInfo"></div>
-        </div>
-
-        <div class="bottomBar">
-          <button id="quitBtn" type="button" disabled>Practice misses</button>
-          <button id="startNewBtn" type="button">New game</button>
-          <button id="redeemBtn" type="button">Quit game</button>
-        </div>
-      </div>
-      </div>
-      <div class="scoreInline copyrightLine">Copyright © 2025-2026 Vladimir Kravtchenko. All rights reserved. Version <span class="kbBuildVersion">0.1.237</span>. Best viewed in desktop Chrome at 100% zoom, ideally on a 2560x1440 display or higher.</div>
-
-</div>
-
-    <div id="screenStore" class="screen" style="display:none;">
-            <div class="headerBar">
-        <div class="topHeader">
-          <p class="title">K-Bucks: Learn & Earn!</p>
-        </div>
-      </div>
-<div class="storeMain">
-<div id="redeemPane" aria-live="polite">
-        <div class="redeemHeader">
-          <div>
-            <h2>Redemption Store</h2>
-            <p id="redeemBalance" class="storePrice">Available to redeem (Child K-Bucks): KBU 0.00</p>
-            <div id="redeemPaneMessage"></div>
-          </div>
-</div>
-
-        <div id="store"></div>
-        <div class="controls mainSlotNav">
-          <button id="closeRedeemBtn" type="button">Educational Content</button>
-        </div>
-</div>
-      </div>
-      <div class="scoreInline copyrightLine">Copyright © 2025-2026 Vladimir Kravtchenko. All rights reserved. Version <span class="kbBuildVersion">0.1.237</span>. Best viewed in desktop Chrome at 100% zoom, ideally on a 2560x1440 display or higher.</div>
-</div>
-      
-
-  
-
-  <div id="screenEdu" class="screen">
+<div class="wrap">
+<div class="screen" id="screenGame" style="display:none;">
 <div class="headerBar">
-        <div class="topHeader">
-          <p class="title">K-Bucks: Learn & Earn!</p>
-        </div>
-      </div>
-<div class="storeMain">
-        <div id="eduPane" aria-live="polite">
-          <div class="redeemHeader">
-            <div>
-              <h2>Educational Content</h2>
-              <p id="earnBalance" class="storePrice">Available for the Child to earn (from Parent + Sponsors): KBU 0.00</p>
-              <div id="eduPaneMessage"></div>
-            </div>
+<div class="topHeader">
+<p class="title">Name That Country</p>
+<div aria-live="polite" class="topStatus">
+<div class="scoreInline" id="progress">Progress: 0/0</div>
+<div class="scoreInline" id="status">Score: 0/0 (0%)</div>
+<div class="scoreInline" id="timer">Time: 00:00:00</div>
 </div>
-
-          <div id="eduList"></div>
-          <div class="controls mainSlotNav">
-            <button id="openStoreBtn" type="button">Redemption Store</button>
-          </div>
 </div>
-      </div>
-
-      <div class="scoreInline copyrightLine">Copyright © 2025-2026 Vladimir Kravtchenko. All rights reserved. Version <span class="kbBuildVersion">0.1.237</span>. Best viewed in desktop Chrome at 100% zoom, ideally on a 2560x1440 display or higher.</div>
-    </div>
-
-    <div id="screenBingo" class="screen" style="display:none;">
-      <div class="headerBar">
-        <div class="topHeader">
-          <p class="title">Practice Times Tables</p>
-        <div class="topStatus" aria-live="polite">
-            <div class="scoreInline" id="bingoProgress">Progress: 0/100 (0%)</div>
-            <div class="scoreInline" id="bingoStatus">Score: 0/0 (0%)</div>
-            <div class="scoreInline" id="bingoTimer">Time: 00:00:00</div>
-          </div>
-          </div>
-      </div>
-
-      <div class="layout gameLayout">
-      <div id="bingoSlot">
-        <div id="bingoPane" aria-live="polite">
-          <div id="bingoGrid" class="bingoGrid">
-        <div class="bingoCard">
-          <div class="bingoCardHeader">1</div>
-          <div class="bingoCardBody">
-            <div class="bingoLine"><span class="bingoA">1</span><span class="bingoX">&times;</span><span class="bingoB">1</span></div>
-            <div class="bingoLine"><span class="bingoA">1</span><span class="bingoX">&times;</span><span class="bingoB">2</span></div>
-            <div class="bingoLine"><span class="bingoA">1</span><span class="bingoX">&times;</span><span class="bingoB">3</span></div>
-            <div class="bingoLine"><span class="bingoA">1</span><span class="bingoX">&times;</span><span class="bingoB">4</span></div>
-            <div class="bingoLine"><span class="bingoA">1</span><span class="bingoX">&times;</span><span class="bingoB">5</span></div>
-            <div class="bingoLine"><span class="bingoA">1</span><span class="bingoX">&times;</span><span class="bingoB">6</span></div>
-            <div class="bingoLine"><span class="bingoA">1</span><span class="bingoX">&times;</span><span class="bingoB">7</span></div>
-            <div class="bingoLine"><span class="bingoA">1</span><span class="bingoX">&times;</span><span class="bingoB">8</span></div>
-            <div class="bingoLine"><span class="bingoA">1</span><span class="bingoX">&times;</span><span class="bingoB">9</span></div>
-            <div class="bingoLine"><span class="bingoA">1</span><span class="bingoX">&times;</span><span class="bingoB">10</span></div>
-          </div>
-        </div>
-        <div class="bingoCard">
-          <div class="bingoCardHeader">2</div>
-          <div class="bingoCardBody">
-            <div class="bingoLine"><span class="bingoA">2</span><span class="bingoX">&times;</span><span class="bingoB">1</span></div>
-            <div class="bingoLine"><span class="bingoA">2</span><span class="bingoX">&times;</span><span class="bingoB">2</span></div>
-            <div class="bingoLine"><span class="bingoA">2</span><span class="bingoX">&times;</span><span class="bingoB">3</span></div>
-            <div class="bingoLine"><span class="bingoA">2</span><span class="bingoX">&times;</span><span class="bingoB">4</span></div>
-            <div class="bingoLine"><span class="bingoA">2</span><span class="bingoX">&times;</span><span class="bingoB">5</span></div>
-            <div class="bingoLine"><span class="bingoA">2</span><span class="bingoX">&times;</span><span class="bingoB">6</span></div>
-            <div class="bingoLine"><span class="bingoA">2</span><span class="bingoX">&times;</span><span class="bingoB">7</span></div>
-            <div class="bingoLine"><span class="bingoA">2</span><span class="bingoX">&times;</span><span class="bingoB">8</span></div>
-            <div class="bingoLine"><span class="bingoA">2</span><span class="bingoX">&times;</span><span class="bingoB">9</span></div>
-            <div class="bingoLine"><span class="bingoA">2</span><span class="bingoX">&times;</span><span class="bingoB">10</span></div>
-          </div>
-        </div>
-        <div class="bingoCard">
-          <div class="bingoCardHeader">3</div>
-          <div class="bingoCardBody">
-            <div class="bingoLine"><span class="bingoA">3</span><span class="bingoX">&times;</span><span class="bingoB">1</span></div>
-            <div class="bingoLine"><span class="bingoA">3</span><span class="bingoX">&times;</span><span class="bingoB">2</span></div>
-            <div class="bingoLine"><span class="bingoA">3</span><span class="bingoX">&times;</span><span class="bingoB">3</span></div>
-            <div class="bingoLine"><span class="bingoA">3</span><span class="bingoX">&times;</span><span class="bingoB">4</span></div>
-            <div class="bingoLine"><span class="bingoA">3</span><span class="bingoX">&times;</span><span class="bingoB">5</span></div>
-            <div class="bingoLine"><span class="bingoA">3</span><span class="bingoX">&times;</span><span class="bingoB">6</span></div>
-            <div class="bingoLine"><span class="bingoA">3</span><span class="bingoX">&times;</span><span class="bingoB">7</span></div>
-            <div class="bingoLine"><span class="bingoA">3</span><span class="bingoX">&times;</span><span class="bingoB">8</span></div>
-            <div class="bingoLine"><span class="bingoA">3</span><span class="bingoX">&times;</span><span class="bingoB">9</span></div>
-            <div class="bingoLine"><span class="bingoA">3</span><span class="bingoX">&times;</span><span class="bingoB">10</span></div>
-          </div>
-        </div>
-        <div class="bingoCard">
-          <div class="bingoCardHeader">4</div>
-          <div class="bingoCardBody">
-            <div class="bingoLine"><span class="bingoA">4</span><span class="bingoX">&times;</span><span class="bingoB">1</span></div>
-            <div class="bingoLine"><span class="bingoA">4</span><span class="bingoX">&times;</span><span class="bingoB">2</span></div>
-            <div class="bingoLine"><span class="bingoA">4</span><span class="bingoX">&times;</span><span class="bingoB">3</span></div>
-            <div class="bingoLine"><span class="bingoA">4</span><span class="bingoX">&times;</span><span class="bingoB">4</span></div>
-            <div class="bingoLine"><span class="bingoA">4</span><span class="bingoX">&times;</span><span class="bingoB">5</span></div>
-            <div class="bingoLine"><span class="bingoA">4</span><span class="bingoX">&times;</span><span class="bingoB">6</span></div>
-            <div class="bingoLine"><span class="bingoA">4</span><span class="bingoX">&times;</span><span class="bingoB">7</span></div>
-            <div class="bingoLine"><span class="bingoA">4</span><span class="bingoX">&times;</span><span class="bingoB">8</span></div>
-            <div class="bingoLine"><span class="bingoA">4</span><span class="bingoX">&times;</span><span class="bingoB">9</span></div>
-            <div class="bingoLine"><span class="bingoA">4</span><span class="bingoX">&times;</span><span class="bingoB">10</span></div>
-          </div>
-        </div>
-        <div class="bingoCard">
-          <div class="bingoCardHeader">5</div>
-          <div class="bingoCardBody">
-            <div class="bingoLine"><span class="bingoA">5</span><span class="bingoX">&times;</span><span class="bingoB">1</span></div>
-            <div class="bingoLine"><span class="bingoA">5</span><span class="bingoX">&times;</span><span class="bingoB">2</span></div>
-            <div class="bingoLine"><span class="bingoA">5</span><span class="bingoX">&times;</span><span class="bingoB">3</span></div>
-            <div class="bingoLine"><span class="bingoA">5</span><span class="bingoX">&times;</span><span class="bingoB">4</span></div>
-            <div class="bingoLine"><span class="bingoA">5</span><span class="bingoX">&times;</span><span class="bingoB">5</span></div>
-            <div class="bingoLine"><span class="bingoA">5</span><span class="bingoX">&times;</span><span class="bingoB">6</span></div>
-            <div class="bingoLine"><span class="bingoA">5</span><span class="bingoX">&times;</span><span class="bingoB">7</span></div>
-            <div class="bingoLine"><span class="bingoA">5</span><span class="bingoX">&times;</span><span class="bingoB">8</span></div>
-            <div class="bingoLine"><span class="bingoA">5</span><span class="bingoX">&times;</span><span class="bingoB">9</span></div>
-            <div class="bingoLine"><span class="bingoA">5</span><span class="bingoX">&times;</span><span class="bingoB">10</span></div>
-          </div>
-        </div>
-        <div class="bingoCard">
-          <div class="bingoCardHeader">6</div>
-          <div class="bingoCardBody">
-            <div class="bingoLine"><span class="bingoA">6</span><span class="bingoX">&times;</span><span class="bingoB">1</span></div>
-            <div class="bingoLine"><span class="bingoA">6</span><span class="bingoX">&times;</span><span class="bingoB">2</span></div>
-            <div class="bingoLine"><span class="bingoA">6</span><span class="bingoX">&times;</span><span class="bingoB">3</span></div>
-            <div class="bingoLine"><span class="bingoA">6</span><span class="bingoX">&times;</span><span class="bingoB">4</span></div>
-            <div class="bingoLine"><span class="bingoA">6</span><span class="bingoX">&times;</span><span class="bingoB">5</span></div>
-            <div class="bingoLine"><span class="bingoA">6</span><span class="bingoX">&times;</span><span class="bingoB">6</span></div>
-            <div class="bingoLine"><span class="bingoA">6</span><span class="bingoX">&times;</span><span class="bingoB">7</span></div>
-            <div class="bingoLine"><span class="bingoA">6</span><span class="bingoX">&times;</span><span class="bingoB">8</span></div>
-            <div class="bingoLine"><span class="bingoA">6</span><span class="bingoX">&times;</span><span class="bingoB">9</span></div>
-            <div class="bingoLine"><span class="bingoA">6</span><span class="bingoX">&times;</span><span class="bingoB">10</span></div>
-          </div>
-        </div>
-        <div class="bingoCard">
-          <div class="bingoCardHeader">7</div>
-          <div class="bingoCardBody">
-            <div class="bingoLine"><span class="bingoA">7</span><span class="bingoX">&times;</span><span class="bingoB">1</span></div>
-            <div class="bingoLine"><span class="bingoA">7</span><span class="bingoX">&times;</span><span class="bingoB">2</span></div>
-            <div class="bingoLine"><span class="bingoA">7</span><span class="bingoX">&times;</span><span class="bingoB">3</span></div>
-            <div class="bingoLine"><span class="bingoA">7</span><span class="bingoX">&times;</span><span class="bingoB">4</span></div>
-            <div class="bingoLine"><span class="bingoA">7</span><span class="bingoX">&times;</span><span class="bingoB">5</span></div>
-            <div class="bingoLine"><span class="bingoA">7</span><span class="bingoX">&times;</span><span class="bingoB">6</span></div>
-            <div class="bingoLine"><span class="bingoA">7</span><span class="bingoX">&times;</span><span class="bingoB">7</span></div>
-            <div class="bingoLine"><span class="bingoA">7</span><span class="bingoX">&times;</span><span class="bingoB">8</span></div>
-            <div class="bingoLine"><span class="bingoA">7</span><span class="bingoX">&times;</span><span class="bingoB">9</span></div>
-            <div class="bingoLine"><span class="bingoA">7</span><span class="bingoX">&times;</span><span class="bingoB">10</span></div>
-          </div>
-        </div>
-        <div class="bingoCard">
-          <div class="bingoCardHeader">8</div>
-          <div class="bingoCardBody">
-            <div class="bingoLine"><span class="bingoA">8</span><span class="bingoX">&times;</span><span class="bingoB">1</span></div>
-            <div class="bingoLine"><span class="bingoA">8</span><span class="bingoX">&times;</span><span class="bingoB">2</span></div>
-            <div class="bingoLine"><span class="bingoA">8</span><span class="bingoX">&times;</span><span class="bingoB">3</span></div>
-            <div class="bingoLine"><span class="bingoA">8</span><span class="bingoX">&times;</span><span class="bingoB">4</span></div>
-            <div class="bingoLine"><span class="bingoA">8</span><span class="bingoX">&times;</span><span class="bingoB">5</span></div>
-            <div class="bingoLine"><span class="bingoA">8</span><span class="bingoX">&times;</span><span class="bingoB">6</span></div>
-            <div class="bingoLine"><span class="bingoA">8</span><span class="bingoX">&times;</span><span class="bingoB">7</span></div>
-            <div class="bingoLine"><span class="bingoA">8</span><span class="bingoX">&times;</span><span class="bingoB">8</span></div>
-            <div class="bingoLine"><span class="bingoA">8</span><span class="bingoX">&times;</span><span class="bingoB">9</span></div>
-            <div class="bingoLine"><span class="bingoA">8</span><span class="bingoX">&times;</span><span class="bingoB">10</span></div>
-          </div>
-        </div>
-        <div class="bingoCard">
-          <div class="bingoCardHeader">9</div>
-          <div class="bingoCardBody">
-            <div class="bingoLine"><span class="bingoA">9</span><span class="bingoX">&times;</span><span class="bingoB">1</span></div>
-            <div class="bingoLine"><span class="bingoA">9</span><span class="bingoX">&times;</span><span class="bingoB">2</span></div>
-            <div class="bingoLine"><span class="bingoA">9</span><span class="bingoX">&times;</span><span class="bingoB">3</span></div>
-            <div class="bingoLine"><span class="bingoA">9</span><span class="bingoX">&times;</span><span class="bingoB">4</span></div>
-            <div class="bingoLine"><span class="bingoA">9</span><span class="bingoX">&times;</span><span class="bingoB">5</span></div>
-            <div class="bingoLine"><span class="bingoA">9</span><span class="bingoX">&times;</span><span class="bingoB">6</span></div>
-            <div class="bingoLine"><span class="bingoA">9</span><span class="bingoX">&times;</span><span class="bingoB">7</span></div>
-            <div class="bingoLine"><span class="bingoA">9</span><span class="bingoX">&times;</span><span class="bingoB">8</span></div>
-            <div class="bingoLine"><span class="bingoA">9</span><span class="bingoX">&times;</span><span class="bingoB">9</span></div>
-            <div class="bingoLine"><span class="bingoA">9</span><span class="bingoX">&times;</span><span class="bingoB">10</span></div>
-          </div>
-        </div>
-        <div class="bingoCard">
-          <div class="bingoCardHeader">10</div>
-          <div class="bingoCardBody">
-            <div class="bingoLine"><span class="bingoA">10</span><span class="bingoX">&times;</span><span class="bingoB">1</span></div>
-            <div class="bingoLine"><span class="bingoA">10</span><span class="bingoX">&times;</span><span class="bingoB">2</span></div>
-            <div class="bingoLine"><span class="bingoA">10</span><span class="bingoX">&times;</span><span class="bingoB">3</span></div>
-            <div class="bingoLine"><span class="bingoA">10</span><span class="bingoX">&times;</span><span class="bingoB">4</span></div>
-            <div class="bingoLine"><span class="bingoA">10</span><span class="bingoX">&times;</span><span class="bingoB">5</span></div>
-            <div class="bingoLine"><span class="bingoA">10</span><span class="bingoX">&times;</span><span class="bingoB">6</span></div>
-            <div class="bingoLine"><span class="bingoA">10</span><span class="bingoX">&times;</span><span class="bingoB">7</span></div>
-            <div class="bingoLine"><span class="bingoA">10</span><span class="bingoX">&times;</span><span class="bingoB">8</span></div>
-            <div class="bingoLine"><span class="bingoA">10</span><span class="bingoX">&times;</span><span class="bingoB">9</span></div>
-            <div class="bingoLine"><span class="bingoA">10</span><span class="bingoX">&times;</span><span class="bingoB">10</span></div>
-          </div>
-        </div>
-          </div>
-        </div>
-      </div>
-
-      <div id="bingoSide">
-        <div class="pane" id="bingoQuizPane">
-          <div class="paneHeader">
-            <h3>Select your answer:</h3>
 </div>
-
-          <ul class="answers" id="bingoAnswers"></ul>
-
-          <div class="status" id="bingoMessage"></div>
-
-          <div class="controls">
-            <button id="bingoNextBtn" disabled type="button">Next question</button>
-          </div>
-
-        </div>
-
-        <div class="pane">
-          <h3>Parent</h3>
-          <div class="acctLine">
+<div class="layout gameLayout kbNtcLayout">
+<div id="mapSlot">
+<div class="kbMapBuffer kbMapFront" id="mapA"></div>
+<div class="kbMapBuffer kbMapBack" id="mapB"></div>
+</div>
+<div class="side kbNtcSideLeft" id="side">
+<div class="quizMegaPane" id="ntcQuizMegaPane">
+<div class="quizMegaScroll">
+<div class="quizSubPane" id="quizPane">
+<div class="paneHeader">
+<h3>Select your answer:</h3>
+</div>
+<ul class="answers" id="answers"></ul>
+<div class="status" id="message"></div>
+<div class="controls">
+<button disabled="" id="nextBtn" type="button">Next question</button>
+</div>
+</div>
+<div class="bottomBar quizBottomBar">
+<button disabled="" id="quitBtn" type="button">Misses</button>
+<button id="startNewBtn" type="button">New game</button>
+<button id="redeemBtn" type="button">Quit</button>
+</div>
+</div>
+</div>
+</div>
+<div class="side kbNtcSideRight" id="ntcAccounts">
+<div class="acctMegaPane" id="ntcAcctMegaPane">
+<div class="acctMegaScroll">
+<div class="pane acctSubPane">
+<h3>Parent</h3>
+<div class="acctLine">
             K-Bucks:
-            <input id="bingoParentInput" class="moneyInput" type="text" inputmode="decimal" min="0" step="0.01" value="0.00" />
-          </div>
-          <div class="acctLine">
+            <input class="moneyInput" id="parentInput" inputmode="decimal" min="0" step="0.01" type="text" value="0.00"/>
+</div>
+<div class="acctLine">
             Flow rate (K-Bucks per correct answer):
-            <input id="bingoFlowRateInput" class="flowInput moneyInput" type="text" inputmode="decimal" min="0" step="any" value="0.00" />
-          </div>
-        </div>
-
-        <div class="pane">
-          <h3>Education Sponsors</h3>
-          <div class="acctLine">
-            K-Bucks:
-            <input id="bingoSponsorInput" class="moneyInput" type="text" inputmode="decimal" min="0" step="any" value="0.00" />
-          </div>
-          <div class="acctLine">
-            Parent : Sponsors match ratio (3 ≤ x ≤ 7):
-            <input id="bingoSponsorMatchInput" class="flowInput" type="number" min="3" max="7" step="any" value="5" /><span class="matchSuffix"> : 1</span>
-          </div>
-        </div>
-
-        <div class="arrowDivider" aria-hidden="true"><div id="bingoSpigotPane" class="pane spigotPane">
-          <div class="spigotInner">
-            <img class="spigotImg" src="spigot.png?v=3" alt="" />
-            <div class="spigotText">
-              <div class="acctLine">Flow rate (K-Bucks, Parent + Sponsors): <span id="bingoSpigotFlowRateOut">0.00</span></div>
-              <div class="acctLine kbHourLine">K-Bucks/Hour (estimate): <span id="bingoSpigotKbucksPerHourOut">0.00</span></div>
-            </div>
-          </div>
-        </div></div>
-
-        <div class="pane" id="bingoChildPane">
-          <h3>Child <span class="pct">(75%)</span></h3>
-          <div class="acctLine" id="bingoChildAcct">K-Bucks: 0.00</div>
-        </div>
-
-        <div class="pane">
-          <h3>Content Developer <span class="pct">(12.5%)</span></h3>
-          <div class="acctLine" id="bingoDevAcct">K-Bucks: 0.00</div>
-        </div>
-
-        <div class="pane">
-          <h3>K-Bucks Platform <span class="pct">(12.5%)</span></h3>
-          <div class="acctLine" id="bingoPlatformAcct">K-Bucks: 0.00</div>
-          <div class="acctLine" id="bingoPlatformInfo"></div>
-        </div>
-
-      
-        <div class="bottomBar">
-          <button id="bingoQuitBtn" type="button" disabled>Practice misses</button>
-          <button id="bingoStartNewBtn" type="button">New game</button>
-          <button id="bingoRedeemBtn" type="button">Quit game</button>
-        </div>
-      </div>
-    </div>
-
-      <div class="scoreInline copyrightLine">Copyright © 2025-2026 Vladimir Kravtchenko. All rights reserved. Version <span class="kbBuildVersion">0.1.237</span>. Best viewed in desktop Chrome at 100% zoom, ideally on a 2560x1440 display or higher.</div>
-    </div>
-
+            <input class="flowInput moneyInput" id="flowRateInput" inputmode="decimal" min="0" step="any" type="text" value="0.00"/>
 </div>
-
-    
-    
-
+</div>
+<div class="pane acctSubPane">
+<h3>Education Sponsors</h3>
+<div class="acctLine">
+            K-Bucks:
+            <input class="moneyInput" id="sponsorInput" inputmode="decimal" min="0" step="any" type="text" value="0.00"/>
+</div>
+<div class="acctLine">
+            Parent : Sponsors match ratio (3 ≤ x ≤ 7):
+            <input class="flowInput" id="sponsorMatchInput" max="7" min="3" step="any" type="number" value="5"/><span class="matchSuffix"> : 1</span></div>
+</div>
+<div aria-hidden="true" class="arrowDivider acctSubPane"><div class="pane spigotPane" id="spigotPane">
+<div class="spigotInner">
+<img alt="" class="spigotImg" src="spigot.png?v=3"/>
+<div class="spigotText">
+<div class="acctLine">Flow rate (K-Bucks, Parent + Sponsors): <span id="spigotFlowRateOut">0.00</span></div>
+<div class="acctLine kbHourLine">K-Bucks/Hour (estimate): <span id="spigotKbucksPerHourOut">0.00</span></div>
+</div>
+</div>
+</div></div>
+<div class="pane acctSubPane" id="childPane">
+<h3>Child <span class="pct">(75%)</span></h3>
+<div class="acctLine" id="childAcct">K-Bucks: 0.00000</div>
+</div>
+<div class="pane acctSubPane">
+<h3>Content Developer <span class="pct">(12.5%)</span></h3>
+<div class="acctLine" id="devAcct">K-Bucks: 0.00000</div>
+</div>
+<div class="pane acctSubPane">
+<h3>K-Bucks Platform <span class="pct">(12.5%)</span></h3>
+<div class="acctLine" id="platformAcct">K-Bucks: 0.00000</div>
+<div class="acctLine" id="platformInfo"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="copyrightLine">Copyright © 2025-2026 Vladimir Kravtchenko. All rights reserved. Version <span class="kbBuildVersion">0.1.479</span></div>
+</div>
+<div class="screen" id="screenStore" style="display:none;">
+<div class="headerBar">
+<div class="topHeader">
+<p class="title">K-Bucks: Learn &amp; Earn!</p>
+</div>
+</div>
+<div class="storeMain">
+<div aria-live="polite" id="redeemPane">
+<div class="redeemHeader">
+<div>
+<h2>Redemption Store</h2>
+<div class="kbMainHeaderBlock"><p class="storePrice" id="redeemBalance">Available to redeem (Child K-Bucks): KBU 0.00</p>
+<div id="redeemPaneMessage"></div></div>
+</div>
+</div>
+<div id="storeGrid" class="kbStoreGrid2Col">
+<div id="store"></div>
+<div id="storeCol2"></div>
+</div>
+<div class="controls mainSlotNav">
+<button id="closeRedeemBtn" type="button">Educational Content</button>
+</div>
+</div>
+</div>
+<div class="copyrightLine">Copyright © 2025-2026 Vladimir Kravtchenko. All rights reserved. Version <span class="kbBuildVersion">0.1.479</span></div>
+</div>
+<div class="screen" id="screenEdu">
+<div class="headerBar">
+<div class="topHeader">
+<p class="title">K-Bucks: Learn &amp; Earn!</p>
+</div>
+</div>
+<div class="storeMain">
+<div aria-live="polite" id="eduPane">
+<div class="redeemHeader">
+<div>
+<h2>Educational Content</h2>
+<div class="kbMainHeaderBlock"><p class="storePrice" id="earnBalance">Available for the Child to earn (from Parent + Sponsors): KBU 0.00</p>
+<div id="eduPaneMessage"></div></div>
+</div>
+</div>
+<div id="eduList"></div>
+<div class="controls mainSlotNav">
+<button id="openStoreBtn" type="button">Redemption Store</button>
+</div>
+</div>
+</div>
+<div class="copyrightLine">Copyright © 2025-2026 Vladimir Kravtchenko. All rights reserved. Version <span class="kbBuildVersion">0.1.479</span></div>
+</div>
+<div class="screen" id="screenBingo" style="display:none;">
+<div class="headerBar">
+<div class="topHeader">
+<p class="title">Multiply Two Numbers</p>
+<div aria-live="polite" class="topStatus">
+<div class="scoreInline" id="bingoProgress">Progress: 0/100 (0%)</div>
+<div class="scoreInline" id="bingoStatus">Score: 0/0 (0%)</div>
+<div class="scoreInline" id="bingoTimer">Time: 00:00:00</div>
+</div>
+</div>
+</div>
+<div class="layout gameLayout kbPttLayout">
+<div id="bingoSlot">
+<div aria-live="polite" id="bingoPane">
+<div id="bingoBoardFrame">
+<div class="pttBoard" id="bingoGrid">
+<div class="pttCorner">x</div>
+<div class="pttHdr">1</div>
+<div class="pttHdr">2</div>
+<div class="pttHdr">3</div>
+<div class="pttHdr">4</div>
+<div class="pttHdr">5</div>
+<div class="pttHdr">6</div>
+<div class="pttHdr">7</div>
+<div class="pttHdr">8</div>
+<div class="pttHdr">9</div>
+<div class="pttHdr">10</div>
+<div class="pttHdr">1</div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">1</span><span class="bingoX">x</span><span class="bingoB">1</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">1</span><span class="bingoX">x</span><span class="bingoB">2</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">1</span><span class="bingoX">x</span><span class="bingoB">3</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">1</span><span class="bingoX">x</span><span class="bingoB">4</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">1</span><span class="bingoX">x</span><span class="bingoB">5</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">1</span><span class="bingoX">x</span><span class="bingoB">6</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">1</span><span class="bingoX">x</span><span class="bingoB">7</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">1</span><span class="bingoX">x</span><span class="bingoB">8</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">1</span><span class="bingoX">x</span><span class="bingoB">9</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">1</span><span class="bingoX">x</span><span class="bingoB">10</span></button></div>
+<div class="pttHdr">2</div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">2</span><span class="bingoX">x</span><span class="bingoB">1</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">2</span><span class="bingoX">x</span><span class="bingoB">2</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">2</span><span class="bingoX">x</span><span class="bingoB">3</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">2</span><span class="bingoX">x</span><span class="bingoB">4</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">2</span><span class="bingoX">x</span><span class="bingoB">5</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">2</span><span class="bingoX">x</span><span class="bingoB">6</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">2</span><span class="bingoX">x</span><span class="bingoB">7</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">2</span><span class="bingoX">x</span><span class="bingoB">8</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">2</span><span class="bingoX">x</span><span class="bingoB">9</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">2</span><span class="bingoX">x</span><span class="bingoB">10</span></button></div>
+<div class="pttHdr">3</div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">3</span><span class="bingoX">x</span><span class="bingoB">1</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">3</span><span class="bingoX">x</span><span class="bingoB">2</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">3</span><span class="bingoX">x</span><span class="bingoB">3</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">3</span><span class="bingoX">x</span><span class="bingoB">4</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">3</span><span class="bingoX">x</span><span class="bingoB">5</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">3</span><span class="bingoX">x</span><span class="bingoB">6</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">3</span><span class="bingoX">x</span><span class="bingoB">7</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">3</span><span class="bingoX">x</span><span class="bingoB">8</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">3</span><span class="bingoX">x</span><span class="bingoB">9</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">3</span><span class="bingoX">x</span><span class="bingoB">10</span></button></div>
+<div class="pttHdr">4</div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">4</span><span class="bingoX">x</span><span class="bingoB">1</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">4</span><span class="bingoX">x</span><span class="bingoB">2</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">4</span><span class="bingoX">x</span><span class="bingoB">3</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">4</span><span class="bingoX">x</span><span class="bingoB">4</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">4</span><span class="bingoX">x</span><span class="bingoB">5</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">4</span><span class="bingoX">x</span><span class="bingoB">6</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">4</span><span class="bingoX">x</span><span class="bingoB">7</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">4</span><span class="bingoX">x</span><span class="bingoB">8</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">4</span><span class="bingoX">x</span><span class="bingoB">9</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">4</span><span class="bingoX">x</span><span class="bingoB">10</span></button></div>
+<div class="pttHdr">5</div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">5</span><span class="bingoX">x</span><span class="bingoB">1</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">5</span><span class="bingoX">x</span><span class="bingoB">2</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">5</span><span class="bingoX">x</span><span class="bingoB">3</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">5</span><span class="bingoX">x</span><span class="bingoB">4</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">5</span><span class="bingoX">x</span><span class="bingoB">5</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">5</span><span class="bingoX">x</span><span class="bingoB">6</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">5</span><span class="bingoX">x</span><span class="bingoB">7</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">5</span><span class="bingoX">x</span><span class="bingoB">8</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">5</span><span class="bingoX">x</span><span class="bingoB">9</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">5</span><span class="bingoX">x</span><span class="bingoB">10</span></button></div>
+<div class="pttHdr">6</div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">6</span><span class="bingoX">x</span><span class="bingoB">1</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">6</span><span class="bingoX">x</span><span class="bingoB">2</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">6</span><span class="bingoX">x</span><span class="bingoB">3</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">6</span><span class="bingoX">x</span><span class="bingoB">4</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">6</span><span class="bingoX">x</span><span class="bingoB">5</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">6</span><span class="bingoX">x</span><span class="bingoB">6</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">6</span><span class="bingoX">x</span><span class="bingoB">7</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">6</span><span class="bingoX">x</span><span class="bingoB">8</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">6</span><span class="bingoX">x</span><span class="bingoB">9</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">6</span><span class="bingoX">x</span><span class="bingoB">10</span></button></div>
+<div class="pttHdr">7</div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">7</span><span class="bingoX">x</span><span class="bingoB">1</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">7</span><span class="bingoX">x</span><span class="bingoB">2</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">7</span><span class="bingoX">x</span><span class="bingoB">3</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">7</span><span class="bingoX">x</span><span class="bingoB">4</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">7</span><span class="bingoX">x</span><span class="bingoB">5</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">7</span><span class="bingoX">x</span><span class="bingoB">6</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">7</span><span class="bingoX">x</span><span class="bingoB">7</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">7</span><span class="bingoX">x</span><span class="bingoB">8</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">7</span><span class="bingoX">x</span><span class="bingoB">9</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">7</span><span class="bingoX">x</span><span class="bingoB">10</span></button></div>
+<div class="pttHdr">8</div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">8</span><span class="bingoX">x</span><span class="bingoB">1</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">8</span><span class="bingoX">x</span><span class="bingoB">2</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">8</span><span class="bingoX">x</span><span class="bingoB">3</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">8</span><span class="bingoX">x</span><span class="bingoB">4</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">8</span><span class="bingoX">x</span><span class="bingoB">5</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">8</span><span class="bingoX">x</span><span class="bingoB">6</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">8</span><span class="bingoX">x</span><span class="bingoB">7</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">8</span><span class="bingoX">x</span><span class="bingoB">8</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">8</span><span class="bingoX">x</span><span class="bingoB">9</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">8</span><span class="bingoX">x</span><span class="bingoB">10</span></button></div>
+<div class="pttHdr">9</div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">9</span><span class="bingoX">x</span><span class="bingoB">1</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">9</span><span class="bingoX">x</span><span class="bingoB">2</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">9</span><span class="bingoX">x</span><span class="bingoB">3</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">9</span><span class="bingoX">x</span><span class="bingoB">4</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">9</span><span class="bingoX">x</span><span class="bingoB">5</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">9</span><span class="bingoX">x</span><span class="bingoB">6</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">9</span><span class="bingoX">x</span><span class="bingoB">7</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">9</span><span class="bingoX">x</span><span class="bingoB">8</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">9</span><span class="bingoX">x</span><span class="bingoB">9</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">9</span><span class="bingoX">x</span><span class="bingoB">10</span></button></div>
+<div class="pttHdr">10</div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">10</span><span class="bingoX">x</span><span class="bingoB">1</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">10</span><span class="bingoX">x</span><span class="bingoB">2</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">10</span><span class="bingoX">x</span><span class="bingoB">3</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">10</span><span class="bingoX">x</span><span class="bingoB">4</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">10</span><span class="bingoX">x</span><span class="bingoB">5</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">10</span><span class="bingoX">x</span><span class="bingoB">6</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">10</span><span class="bingoX">x</span><span class="bingoB">7</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">10</span><span class="bingoX">x</span><span class="bingoB">8</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">10</span><span class="bingoX">x</span><span class="bingoB">9</span></button></div>
+<div class="pttCell"><button class="bingoPairBtn" type="button"><span class="bingoA">10</span><span class="bingoX">x</span><span class="bingoB">10</span></button></div>
+</div>
+</div>
+</div>
+</div>
+<div class="side kbPttSideLeft" id="bingoSide">
+<div class="quizMegaPane" id="bingoQuizMegaPane">
+<div class="quizMegaScroll">
+<div class="quizSubPane" id="bingoQuizPane">
+<div class="paneHeader">
+<h3>Select your answer:</h3>
+</div>
+<ul class="answers" id="bingoAnswers"></ul>
+<div class="status" id="bingoMessage"></div>
+<div class="controls">
+<button disabled="" id="bingoNextBtn" type="button">Next question</button>
+</div>
+</div>
+<div class="bottomBar quizBottomBar">
+<button disabled="" id="bingoQuitBtn" type="button">Misses</button>
+<button id="bingoStartNewBtn" type="button">New game</button>
+<button id="bingoRedeemBtn" type="button">Quit</button>
+</div>
+</div>
+</div>
+</div>
+<div class="side kbPttSideRight" id="bingoAccounts">
+<div class="acctMegaPane" id="bingoAcctMegaPane">
+<div class="acctMegaScroll">
+<div class="pane acctSubPane">
+<h3>Parent</h3>
+<div class="acctLine">
+              K-Bucks:
+              <input class="moneyInput" id="bingoParentInput" inputmode="decimal" min="0" step="0.01" type="text" value="0.00"/>
+</div>
+<div class="acctLine">
+              Flow rate (K-Bucks per correct answer):
+              <input class="flowInput moneyInput" id="bingoFlowRateInput" inputmode="decimal" min="0" step="any" type="text" value="0.00"/>
+</div>
+</div>
+<div class="pane acctSubPane">
+<h3>Education Sponsors</h3>
+<div class="acctLine">
+              K-Bucks:
+              <input class="moneyInput" id="bingoSponsorInput" inputmode="decimal" min="0" step="any" type="text" value="0.00"/>
+</div>
+<div class="acctLine">
+              Parent : Sponsors match ratio (3 ≤ x ≤ 7):
+              <input class="flowInput" id="bingoSponsorMatchInput" max="7" min="3" step="any" type="number" value="5"/><span class="matchSuffix"> : 1</span>
+</div>
+</div>
+<div aria-hidden="true" class="arrowDivider acctSubPane">
+<div class="pane spigotPane" id="bingoSpigotPane">
+<div class="spigotInner">
+<img alt="" class="spigotImg" src="spigot.png?v=3"/>
+<div class="spigotText">
+<div class="acctLine">Flow rate (K-Bucks, Parent + Sponsors): <span id="bingoSpigotFlowRateOut">0.00</span></div>
+<div class="acctLine kbHourLine">K-Bucks/Hour (estimate): <span id="bingoSpigotKbucksPerHourOut">0.00</span></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pane acctSubPane" id="bingoChildPane">
+<h3>Child <span class="pct">(75%)</span></h3>
+<div class="acctLine" id="bingoChildAcct">K-Bucks: 0.00000</div>
+</div>
+<div class="pane acctSubPane">
+<h3>Content Developer <span class="pct">(12.5%)</span></h3>
+<div class="acctLine" id="bingoDevAcct">K-Bucks: 0.00000</div>
+</div>
+<div class="pane acctSubPane">
+<h3>K-Bucks Platform <span class="pct">(12.5%)</span></h3>
+<div class="acctLine" id="bingoPlatformAcct">K-Bucks: 0.00000</div>
+<div class="acctLine" id="bingoPlatformInfo"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="copyrightLine">Copyright © 2025-2026 Vladimir Kravtchenko. All rights reserved. Version <span class="kbBuildVersion">0.1.479</span></div>
+</div>
+</div>
 <div class="overlay" id="overlay">
-    <div class="modal">
-      <h2>Game ended</h2>
-      <p id="finalText">Thanks for playing.</p>
-      <div class="controls">
-        <button id="restartBtn" type="button">Restart</button>
-      </div>
-    </div>
-  </div>
-<script
-    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-    crossorigin=""
-  >
-
-
+<div class="modal">
+<h2>Game ended</h2>
+<p id="finalText">Thanks for playing.</p>
+<div class="controls">
+<button id="restartBtn" type="button">Restart</button>
+</div>
+</div>
+</div>
+<script crossorigin="" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
 </script>
-
-  <script>
+<script>
 
 
 
@@ -1461,10 +2851,9 @@ color: #111;
 
 
     const SCALE = 1000000000  
-    const KB_BUILD_VERSION = "0.1.237"
+    const KB_BUILD_VERSION = (window.KB_BUILD_VERSION || "0.1.379")
     try { window.KB_BUILD_VERSION = KB_BUILD_VERSION } catch (e) {}
-
-    // Screen 4, Practice Times Tables tables
+    // Screen 4, Multiply Two Numbers tables
     // productPairs, all 100 A x B pairs, 1..10 by 1..10
     // productResults, all unique products from those pairs
     const KB_BINGO_TABLES = (() => {
@@ -1589,10 +2978,25 @@ function kbSetBufferClasses() {
 }
 
 function kbCreateLeafletMap(containerId) {
+  // Allow zooming out far enough to see the full world map even in smaller slots (e.g., 512x512).
+  // We compute the "fit-world" zoom for the container and set that as minZoom.
+  let kbMinZoom = 2.2
+  try {
+    const el = document.getElementById(containerId)
+    const w = el ? (el.clientWidth || 0) : 0
+    const h = el ? (el.clientHeight || 0) : 0
+    const size = Math.min(w, h)
+    if (size >= 256) {
+      const fitZoom = Math.log(size / 256) / Math.log(2)
+      // Leaflet uses zoomSnap 0.2, so snap down to the nearest 0.2 to guarantee the world fits.
+      kbMinZoom = Math.max(0, Math.min(2.2, Math.floor(fitZoom / 0.2) * 0.2))
+    }
+  } catch (e) {}
+
   const m = L.map(containerId, {
     zoomControl: true,
     attributionControl: false,
-    minZoom: 2.2,
+    minZoom: kbMinZoom,
     maxBounds: WORLD_BOUNDS,
     maxBoundsViscosity: 1.0,
     worldCopyJump: false,
@@ -1606,13 +3010,13 @@ function kbCreateLeafletMap(containerId) {
     m._kbSeq = window.kbMapSeq
   } catch (e) {}
 
-  L.control.attribution({ prefix: false }).addTo(m)
+  L.control.attribution({ prefix: "" }).addTo(m)
 
   const tileLayer = L.tileLayer("https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png", {
     subdomains: "abcd",
     detectRetina: true,
     maxZoom: 19,
-    attribution: "© OpenStreetMap contributors © CARTO",
+    attribution: "© OpenStreetMap contributors © CARTO © Leaflet",
     noWrap: true,
     bounds: WORLD_BOUNDS,
     updateWhenIdle: true,
@@ -2211,7 +3615,7 @@ currentScreen = "edu"
       if (kbBingoMode === "practice") {
         if (bingoProgressEl) {
           const presented = kbBingoPracticeTotal > 0 ? Math.min(kbBingoPracticeShown, kbBingoPracticeTotal) : 0
-          bingoProgressEl.textContent = "Practice misses: " + presented + "/" + kbBingoPracticeTotal
+          bingoProgressEl.textContent = "Misses: " + presented + "/" + kbBingoPracticeTotal
         }
         if (bingoStatusEl) bingoStatusEl.textContent = ""
         if (bingoTimerEl) bingoTimerEl.textContent = ""
@@ -2231,17 +3635,123 @@ currentScreen = "edu"
       if (bingoQuitBtn) bingoQuitBtn.disabled = kbBingoMisses.size === 0
     }
 
-    function kbBingoEnsurePairs() {
+
+    function kbBingoEnsurePttHeaderMeta() {
+      const grid = document.getElementById("bingoGrid")
+      if (!grid) return
+      const kids = Array.from(grid.children || [])
+      if (kids.length < 121) return
+    
+      for (let r = 0; r < 11; r += 1) {
+        for (let c = 0; c < 11; c += 1) {
+          const el = kids[r * 11 + c]
+          if (!el) continue
+    
+          if (r === 0 && c === 0) {
+            try { if (!el.textContent || !el.textContent.trim()) el.textContent = "x" } catch (e) {}
+            continue
+          }
+    
+          if (r === 0 && el.classList && el.classList.contains("pttHdr")) {
+            try { el.dataset.col = String(c) } catch (e) {}
+          }
+    
+          if (c === 0 && el.classList && el.classList.contains("pttHdr")) {
+            try { el.dataset.row = String(r) } catch (e) {}
+          }
+        }
+      }
+    }
+    
+    function kbBingoClearHeaderHighlights() {
+      const els = document.querySelectorAll("#screenBingo .pttHdr.kbBingoHdrCurrent, #screenBingo .pttCorner.kbBingoHdrCurrent")
+      for (const el of els) {
+        try { el.classList.remove("kbBingoHdrCurrent") } catch (e) {}
+      }
+    }
+    
+    function kbBingoSetHeaderHighlights(pair) {
+      kbBingoClearHeaderHighlights()
+      if (!pair) return
+      const a = Number(pair.a)
+      const b = Number(pair.b)
+      if (!a || !b) return
+    
+      const rowHdr = document.querySelector(`#screenBingo .pttHdr[data-row="${a}"]`)
+      const colHdr = document.querySelector(`#screenBingo .pttHdr[data-col="${b}"]`)
+      try { if (rowHdr) rowHdr.classList.add("kbBingoHdrCurrent") } catch (e) {}
+      try { if (colHdr) colHdr.classList.add("kbBingoHdrCurrent") } catch (e) {}
+    }
+    
+
+    // PTT pair button text: blank, question (A x B), or result (number)
+    function kbBingoEnsurePairResultSpan(btn) {
+      if (!btn) return null
+      let r = null
+      try { r = btn.querySelector('.bingoResult') } catch (e) { r = null }
+      if (!r) {
+        r = document.createElement('span')
+        r.className = 'bingoResult'
+        r.textContent = ''
+        try { btn.appendChild(r) } catch (e) {}
+      }
+      return r
+    }
+
+    function kbBingoSetPairDisplay(btn, mode, resultText) {
+      if (!btn) return
+      const r = kbBingoEnsurePairResultSpan(btn)
+      if (mode === 'blank') {
+        btn.classList.add('kbBingoBlank')
+        btn.classList.remove('kbBingoShowResult')
+        if (r) r.textContent = ''
+        try { btn.dataset.kbResult = '' } catch (e) {}
+        return
+      }
+      if (mode === 'result') {
+        btn.classList.remove('kbBingoBlank')
+        btn.classList.add('kbBingoShowResult')
+        const t = String(resultText == null ? '' : resultText)
+        if (r) r.textContent = t
+        try { btn.dataset.kbResult = t } catch (e) {}
+        return
+      }
+      // question (A x B)
+      btn.classList.remove('kbBingoBlank')
+      btn.classList.remove('kbBingoShowResult')
+      if (r) r.textContent = ''
+      try { btn.dataset.kbResult = '' } catch (e) {}
+    }
+
+    function kbBingoBlankAllPairs() {
+      for (const p of kbBingoPairs) {
+        try { kbBingoSetPairDisplay(p.btn, 'blank') } catch (e) {}
+      }
+    }
+
+function kbBingoEnsurePairs() {
+      kbBingoEnsurePttHeaderMeta()
       const btns = Array.from(document.querySelectorAll('#screenBingo .bingoPairBtn'))
       kbBingoPairs = []
       kbBingoPairByKey = new Map()
       for (const btn of btns) {
-        const aEl = btn.querySelector(".bingoA")
-        const bEl = btn.querySelector(".bingoB")
-        const a = aEl ? parseInt(String(aEl.textContent || "").trim(), 10) : NaN
-        const b = bEl ? parseInt(String(bEl.textContent || "").trim(), 10) : NaN
+        // Ensure the result span exists, even if the inner label is later hidden.
+        try { kbBingoEnsurePairResultSpan(btn) } catch (e) {}
+
+        const aEl = btn.querySelector('.bingoA')
+        const bEl = btn.querySelector('.bingoB')
+
+        let a = aEl ? parseInt(String(aEl.textContent || '').trim(), 10) : NaN
+        let b = bEl ? parseInt(String(bEl.textContent || '').trim(), 10) : NaN
+
+        // If the label spans were removed or altered, fall back to persisted dataset values.
+        if (!Number.isFinite(a) || !Number.isFinite(b)) {
+          a = parseInt(String(btn.dataset.a || ''), 10)
+          b = parseInt(String(btn.dataset.b || ''), 10)
+        }
+
         if (!Number.isFinite(a) || !Number.isFinite(b)) continue
-        const key = String(a) + "x" + String(b)
+        const key = String(a) + 'x' + String(b)
         btn.dataset.a = String(a)
         btn.dataset.b = String(b)
         btn.dataset.key = key
@@ -2251,7 +3761,7 @@ currentScreen = "edu"
       }
     }
 
-    function kbBingoClearHighlights() {
+function kbBingoClearHighlights() {
       for (const p of kbBingoPairs) {
         p.btn.classList.remove("kbBingoDoneCorrect")
         p.btn.classList.remove("kbBingoDoneWrong")
@@ -2319,12 +3829,42 @@ currentScreen = "edu"
     }
 
     function kbBingoSetCurrentPair(pair) {
-      for (const p of kbBingoPairs) p.btn.classList.remove("kbBingoCurrent")
+      for (const p of kbBingoPairs) {
+        try { p.btn.classList.remove('kbBingoCurrent') } catch (e) {}
+      }
+
       kbBingoCurrentPair = pair
-      if (pair && pair.btn) pair.btn.classList.add("kbBingoCurrent")
+      if (pair && pair.btn) {
+        try { pair.btn.classList.add('kbBingoCurrent') } catch (e) {}
+      }
+
+      // For the current question, highlight row and column headers and the current A x B pair button.
+      kbBingoSetHeaderHighlights(pair)
+
+      // Display rules:
+      // - unanswered non-current pairs: blank
+      // - current pair: show A x B
+      // - answered pairs: show the correct result number (red or green)
+      for (const p of kbBingoPairs) {
+        const btn = p.btn
+        if (!btn) continue
+
+        const done = btn.classList.contains('kbBingoDoneCorrect') || btn.classList.contains('kbBingoDoneWrong')
+        if (done) {
+          const t = String(btn.dataset.kbResult || (Number(p.a) * Number(p.b)))
+          kbBingoSetPairDisplay(btn, 'result', t)
+          continue
+        }
+
+        if (pair && p.key === pair.key) {
+          kbBingoSetPairDisplay(btn, 'question')
+        } else {
+          kbBingoSetPairDisplay(btn, 'blank')
+        }
+      }
     }
 
-    function kbBingoPresentRandomPair() {
+function kbBingoPresentRandomPair() {
       kbBingoEnsurePairs()
       if (kbBingoPairs.length === 0) return
 
@@ -2347,6 +3887,12 @@ currentScreen = "edu"
           kbBingoCorrectCount = 0
           kbShuffleInPlace(kbBingoPracticeDeck)
           kbBingoUpdateHeader(false)
+
+          // On a new misses cycle, clear the entire board like a New game.
+          kbBingoClearHighlights()
+          kbBingoClearHeaderHighlights()
+          kbBingoBlankAllPairs()
+          kbBingoCurrentPair = null
         }
 
         const key = kbBingoPracticeDeck[kbBingoPracticeIndex]
@@ -2512,18 +4058,21 @@ currentScreen = "edu"
         }
       }
 
-      // Mark the answered A x B pair only in normal mode.
-      if (!isPractice) {
-        try {
-          if (kbBingoCurrentPair && kbBingoCurrentPair.btn) {
-            const pairBtn = kbBingoCurrentPair.btn
-            pairBtn.classList.remove("kbBingoCurrent")
-            pairBtn.classList.remove("kbBingoDoneCorrect")
-            pairBtn.classList.remove("kbBingoDoneWrong")
-            pairBtn.classList.add(isCorrect ? "kbBingoDoneCorrect" : "kbBingoDoneWrong")
-          }
-        } catch (e) {}
+      // Mark the answered A x B pair in the board in both modes.
+      try {
+        if (kbBingoCurrentPair && kbBingoCurrentPair.btn) {
+          const pairBtn = kbBingoCurrentPair.btn
+          pairBtn.classList.remove("kbBingoCurrent")
+          pairBtn.classList.remove("kbBingoDoneCorrect")
+          pairBtn.classList.remove("kbBingoDoneWrong")
+          pairBtn.classList.add(isCorrect ? "kbBingoDoneCorrect" : "kbBingoDoneWrong")
+          // Replace "A x B" with the correct result number.
+          try { kbBingoSetPairDisplay(pairBtn, "result", String(correctKey)) } catch (e) {}
+        }
+      } catch (e) {}
 
+      // End conditions and Next button behavior differ by mode.
+      if (!isPractice) {
         const done = kbBingoAnsweredKeys.size >= kbBingoPairs.length
         if (done) {
           kbBingoComplete = true
@@ -2560,6 +4109,8 @@ currentScreen = "edu"
       kbBingoCurrentAnswerKey = null
 
       kbBingoClearHighlights()
+      kbBingoClearHeaderHighlights()
+      kbBingoBlankAllPairs()
       try { kbBingoUpdateAccounts() } catch (e) {}
 
       if (bingoNextBtn) {
@@ -2596,6 +4147,8 @@ currentScreen = "edu"
 
       // Clear any red or green markings. In practice mode we only use the yellow current highlight.
       kbBingoClearHighlights()
+      kbBingoClearHeaderHighlights()
+      kbBingoBlankAllPairs()
 
       if (bingoNextBtn) {
         bingoNextBtn.textContent = "Next question"
@@ -3316,14 +4869,16 @@ function clampFlowRate() {
     }
 
     function updateScoreDisplay(finalMode) {
+      if (progressEl) progressEl.classList.remove("kbFlexBreak")
       const total = (deck && deck.length) ? deck.length : (countries && countries.length ? countries.length : 0)
 
       if (mode === "practice") {
         setTimerVisible(false)
-        if (progressEl) progressEl.textContent = ""
+        if (progressEl) progressEl.classList.remove("kbFlexBreak")
         const b = total
         const a = Math.min(Math.max(deckIndex || 0, 0), b)
-        statusEl.textContent = "Practice misses: " + a + "/" + b
+        if (progressEl) progressEl.textContent = "Misses: " + a + "/" + b
+        if (statusEl) statusEl.textContent = ""
         return
       }
 
@@ -3464,21 +5019,21 @@ function updateAccounts() {
     }
         // REDEMPTION_STORE_START
         const STORE_ITEMS = [
-              { name: "Plastic Spider Ring", cost: 0.05, image: "plastic_spider_ring.jpg", rating: 4.5, reviews: "1.2M" },
-              { name: "STAEDTLER Eraser", cost: 0.10, image: "eraser.png", rating: 4.9, reviews: "123.7K" },
-              { name: "Baskin Robins Gift Card", cost: 25.00, image: "baskin_robins_gift_card.jpg", rating: 3.2, reviews: "46.9K" },
-              { name: "UGG Boots", cost: 199.00, image: "ugg_boots.jpg", rating: 4.1, reviews: "23.8K" },
-              { name: "Sony PlayStation 5 Digital", cost: 399.00, image: "ps5_digital.jpg", rating: 4.7, reviews: "36.1K" },
-              { name: "Apple iPhone 17", cost: 799.00, image: "iphone_17.png", rating: 4.9, reviews: "18.5K" }
+              { name: "Plastic Spider Ring", brand: "K-Bucks", cost: 0.05, image: "plastic_spider_ring.jpg", rating: 4.5, reviews: "1.2M" },
+              { name: "STAEDTLER Eraser", brand: "STAEDTLER", cost: 0.10, image: "eraser.png", rating: 4.9, reviews: "123.7K" },
+              { name: "Gift Card", brand: "Baskin Robins", cost: 25.00, image: "baskin_robins_gift_card.jpg", rating: 3.2, reviews: "46.9K" },
+              { name: "UGG Classic Boots", brand: "UGG", cost: 199.00, image: "ugg_boots.jpg", rating: 4.1, reviews: "23.8K" },
+              { name: "PlayStation 5 Digital", brand: "Sony", cost: 399.00, image: "ps5_digital.jpg", rating: 4.7, reviews: "36.1K" },
+              { name: "iPhone 17", brand: "Apple", cost: 799.00, image: "iphone_17.png", rating: 4.9, reviews: "18.5K" }
             ]
 
 // REDEMPTION_STORE_END
-            // KB_STORE_MANIFEST_EXPECTED: count=6, minCost=0.05, maxCost=799.00, hash=887d77dd
+            // KB_STORE_MANIFEST_EXPECTED: count=6, minCost=0.05, maxCost=799.00, hash=0d3727e1
             const KB_STORE_MANIFEST_EXPECTED = {
               count: 6,
               minCost: "0.05",
               maxCost: "799.00",
-              hash: "887d77dd"
+              hash: "0d3727e1"
             }
 
             function kbFNV1a32(str) {
@@ -3604,6 +5159,14 @@ function renderStore() {
         nameEl.innerHTML = "<strong>" + it.name + "</strong>"
         meta.appendChild(nameEl)
 
+
+        // Brand line (Screen 2)
+        if (it && it.brand) {
+          const brand = document.createElement("div")
+          brand.className = "storeBrand"
+          brand.textContent = "Brand: " + String(it.brand)
+          meta.appendChild(brand)
+        }
         // Rating line (Screen 2)
         if (Number.isFinite(Number(it && it.rating))) {
           const rating = document.createElement("div")
@@ -3661,8 +5224,8 @@ function renderStore() {
       storeEl.appendChild(wrap)
     }
     const EDU_ITEMS = [
-      { key: "mm", name: "Practice Times Tables", cost: 0.05, image: "multiplication_table.png" },
-      { key: "ntc", name: "Name That Country", cost: 0.10, image: "name_that_country.png" }
+      { key: "ntc", name: "Name That Country", cost: 0.10, image: "name_that_country.png" },
+      { key: "mm", name: "Multiply Two Numbers", cost: 0.05, image: "multiplication_table.png" }
     ]
 
     function renderEdu() {
@@ -3675,10 +5238,10 @@ function renderStore() {
 
       for (const it of EDU_ITEMS) {
         const row = document.createElement("div")
-        row.className = "storeItem"
+        row.className = "storeItem eduItem"
 
         const left = document.createElement("div")
-        left.className = "storeLeft"
+        left.className = "storeLeft eduLeft"
 
         if (it.image) {
           const img = document.createElement("img")
@@ -3689,16 +5252,26 @@ function renderStore() {
           left.appendChild(img)
         }
 
+        const mid = document.createElement("div")
+        mid.className = "eduMid"
+
         const meta = document.createElement("div")
         meta.className = "storeMeta"
 
         const nameEl = document.createElement("div")
         nameEl.innerHTML = "<strong>" + it.name + "</strong>"
+        nameEl.className = "eduRow1Left"
         meta.appendChild(nameEl)
         // Rating line (Screen 1)
         if (it.key === "ntc" || it.key === "mm") {
+          // Content developer line (Screen 1) between title and rating.
+          const author = document.createElement("div")
+          author.className = "storeRating eduRow2Left"
+          author.textContent = (it.key === "ntc") ? "by Geography Ninjas (Developer)" : "by Math Magicians (Developer)"
+          meta.appendChild(author)
+
           const rating = document.createElement("div")
-          rating.className = "storeRating"
+        rating.className = "storeRating storeStarsLine eduRow3Left"
 
           if (it.key === "ntc") {
             rating.innerHTML =
@@ -3720,18 +5293,16 @@ function renderStore() {
         // Grade line (Screen 1) placed below rating.
         if (it.key === "mm" || it.key === "ntc") {
           const grade = document.createElement("div")
-          grade.className = "storeRating"
+          grade.className = "storeRating storeGradeLine eduRow4Left"
           grade.textContent = (it.key === "mm") ? "Math: Grade 3" : "Geography: Grade 7"
           meta.appendChild(grade)
         }
 
+        const fundsCol = document.createElement("div")
+        fundsCol.className = "eduFundsCol"
+
         // Funds lines (Screen 1) replace the single KBU cost for the two games.
         if (it.key === "ntc") {
-                    const spacer = document.createElement("div")
-
-                    spacer.className = "eduFundsSpacer"
-
-                    meta.appendChild(spacer)
 
 
 
@@ -3748,45 +5319,38 @@ function renderStore() {
 
           const kb = document.createElement("div")
 
-          kb.className = "eduFundsLine"
-
-          kb.style.fontWeight = "700"
+          kb.className = "eduFundsTitle eduRow1Right"
 
           kb.textContent = hideFunds ? BLANK : "K-Bucks"
 
-          meta.appendChild(kb)
+          fundsCol.appendChild(kb)
 
 
           const p = document.createElement("div")
 
-          p.className = "eduFundsLine"
+          p.className = "eduFundsLine eduRow2Right"
 
           p.textContent = hideFunds ? BLANK : ("Parent: " + parentStr)
 
-          meta.appendChild(p)
+          fundsCol.appendChild(p)
 
 
           const s = document.createElement("div")
 
-          s.className = "eduFundsLine"
+          s.className = "eduFundsLine eduRow3Right"
 
           s.textContent = hideFunds ? BLANK : ("Sponsors: " + sponsorStr)
 
-          meta.appendChild(s)
+          fundsCol.appendChild(s)
 
 
           const a = document.createElement("div")
 
-          a.className = "eduFundsLine"
+          a.className = "eduFundsLine eduRow4Right"
 
           a.textContent = hideFunds ? BLANK : ("Available: " + availStr)
 
-          meta.appendChild(a)        } else if (it.key === "mm") {
-                    const spacer = document.createElement("div")
-
-                    spacer.className = "eduFundsSpacer"
-
-                    meta.appendChild(spacer)
+          fundsCol.appendChild(a)        } else if (it.key === "mm") {
 
 
 
@@ -3803,40 +5367,38 @@ function renderStore() {
 
           const kb = document.createElement("div")
 
-          kb.className = "eduFundsLine"
-
-          kb.style.fontWeight = "700"
+          kb.className = "eduFundsTitle eduRow1Right"
 
           kb.textContent = hideFunds ? BLANK : "K-Bucks"
 
-          meta.appendChild(kb)
+          fundsCol.appendChild(kb)
 
 
           const p = document.createElement("div")
 
-          p.className = "eduFundsLine"
+          p.className = "eduFundsLine eduRow2Right"
 
           p.textContent = hideFunds ? BLANK : ("Parent: " + parentStr)
 
-          meta.appendChild(p)
+          fundsCol.appendChild(p)
 
 
           const s = document.createElement("div")
 
-          s.className = "eduFundsLine"
+          s.className = "eduFundsLine eduRow3Right"
 
           s.textContent = hideFunds ? BLANK : ("Sponsors: " + sponsorStr)
 
-          meta.appendChild(s)
+          fundsCol.appendChild(s)
 
 
           const a = document.createElement("div")
 
-          a.className = "eduFundsLine"
+          a.className = "eduFundsLine eduRow4Right"
 
           a.textContent = hideFunds ? BLANK : ("Available: " + availStr)
 
-          meta.appendChild(a)        } else {
+          fundsCol.appendChild(a)        } else {
           const price = document.createElement("div")
           const costStr = Number(it.cost).toFixed(2)
           price.className = "storeCost"
@@ -3844,7 +5406,10 @@ function renderStore() {
           meta.appendChild(price)
         }
 
-        left.appendChild(meta)
+        mid.appendChild(meta)
+
+        mid.appendChild(fundsCol)
+        left.appendChild(mid)
 
         const btn = document.createElement("button")
         btn.type = "button"
@@ -3869,7 +5434,7 @@ function renderStore() {
               })
             })
           } else {
-            // Practice Times Tables (Screen 4)
+            // Multiply Two Numbers (Screen 4)
             showBingoScreen()
           }
         })
@@ -3921,8 +5486,9 @@ function quitGameToEdu() {
 
 
     function syncMapHeight() {
-      if (!sideEl || !mapDiv) return
-      const h = sideEl.offsetHeight
+      if (!mapDiv) return
+      const slot = mapSlotEl || document.getElementById("mapSlot")
+      const h = slot ? slot.clientHeight : (sideEl ? sideEl.offsetHeight : 0)
       try { kbDbg("syncMapHeight h", { h: h, now: kbMapState() }) } catch (e) {}
       if (!h || h <= 0) return
 
@@ -3937,7 +5503,6 @@ function quitGameToEdu() {
       if (seq) window.kbLastSyncMapSeq = seq
 
       mapDiv.style.height = desired
-      if (redeemPane) redeemPane.style.height = desired
 
       try {
         // Avoid panning during invalidate, which can interact badly with an in-flight fitBounds.
@@ -4186,6 +5751,7 @@ function quitGameToEdu() {
 
     function onGuess(chosenKey, chosenBtn) {
   if (locked) return
+  if (!current) { locked = false; return }
   locked = true
   kbUpdateNextBtnEnabled()
 
@@ -4204,7 +5770,7 @@ function quitGameToEdu() {
     kbTelemetryIsCorrect = true
     correctCount += 1
     chosenBtn.classList.add("correct")
-    chosenBtn.querySelector(".mark").textContent = "✓"
+    const _mk = chosenBtn.querySelector(".mark"); if (_mk) _mk.textContent = "✓"
 
     if (mode === "normal") {
       // Reward payout on a correct answer is the sum of the parent and sponsor flow rates.
@@ -4257,12 +5823,12 @@ function quitGameToEdu() {
     }
   } else {
     chosenBtn.classList.add("wrong")
-    chosenBtn.querySelector(".mark").textContent = "✕"
+    const _mk2 = chosenBtn.querySelector(".mark"); if (_mk2) _mk2.textContent = "✕"
 
-    const correctBtn = allButtons.find(b => b.querySelector(".label").textContent === correctDisplay)
+    const correctBtn = allButtons.find(b => { const _l = b.querySelector(".label"); return _l && _l.textContent === correctDisplay })
     if (correctBtn) {
       correctBtn.classList.add("correct")
-      correctBtn.querySelector(".mark").textContent = "✓"
+      const _mk3 = correctBtn.querySelector(".mark"); if (_mk3) _mk3.textContent = "✓"
     }
 
     if (mode === "normal") {
@@ -4691,6 +6257,5 @@ flowDec = 2
   
   
   </script>
-
 </body>
 </html>
