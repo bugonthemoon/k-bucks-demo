@@ -147,16 +147,239 @@
     // This prevents zoom or resize feedback loops that can freeze the page.
 
 </script>
-<!-- KB_BUILD_VERSION: 0.2.0 -->
+<!-- KB_BUILD_VERSION: 0.1.519 -->
 <!--
+      - 0.1.357 (2026-01-28): Remove NTC footer pin JS and rely on CSS only to prevent zoom freezes.
+      - 0.1.251 (2026-01-26): Set global wrap horizontal padding to 8px and keep NTC row height 32px.
+      - 0.1.238 (2026-01-26): Screen 3 layout test. Set map slot to 512x512, move game buttons under answers, and move account panes into a right-side column.
+      - 0.1.237 (2026-01-25): Call KB_TELEMETRY.screen only from show*Screen functions.
+      - 0.1.236 (2026-01-24): Attach kb_anon_user_id to all kb_* GA4 events.
 CHANGELOG:
 - 0.2.0 (2026-01-31): Version bump only.
+  
+
+
+
+  
+
+
+- 0.1.533 (2026-01-31): Add non-integer DPR tile seam masking, stronger low-fraction DPR mask, and post-resize DPR class update burst.
+- 0.1.519 (2026-01-31): Move EDU KBU blocks 1 px left.
+- 0.1.518 (2026-01-31): Educational Content KBU block header is no longer bold.
+- 0.1.517 (2026-01-31): Remove trailing period from redeem toast message.
+- 0.1.514 (2026-01-31): Remove tooltip period, unify borders to #ddd, set KBU input borders to #888, and match tooltip background to button.
+- 0.1.516 (2026-01-31): Add loading and empty states for EDU and Store lists. Show unified user-facing data load error message in EDU and Store panes.
+- 0.1.515 (2026-01-31): Tooltip background matches attribution background.
+
+- 0.1.513 (2026-01-31): Make ⓘ glyph non-bold, match glyph and tooltip colors to the (75%) label, and tighten glyph spacing.
+
+- 0.1.512 (2026-01-31): Match global balance tooltip styling to footer color, and set tooltip rounding to 4px.
+
+- 0.1.511 (2026-01-31): Use ⓘ glyph for global-balance tooltip icon and position tooltip to the right, vertically centered.
+
+- 0.1.510 (2026-01-31): Refine scope tooltip icon to a small circled i, update tooltip text, left align tooltip, remove shadow and bolding, and match tooltip border to mega panes.
+
+- 0.1.509 (2026-01-31): Refine scope tooltips for Child and K-Bucks Platform balances, use superscript (i), and use a custom tooltip with 2 px rounding.
+
+- 0.1.507 (2026-01-30): Add scope tooltips for Child and K-Bucks Platform balances, and add thousands separators to displayed KBU values in store prices.
+
+- 0.1.505 (2026-01-31): Move EDU KBU funds blocks right by 1 px more.
+
+- 0.1.504 (2026-01-31): Move EDU KBU funds blocks right by 1 px.
+
+- 0.1.503 (2026-01-31): Move EDU KBU funds blocks right by 70 px. Apply the indent to the EDU funds block wrappers, since eduFundsCol uses display contents.
+- 0.1.502 (2026-01-31): Apply the wallet formatter, min two and up to nine decimals, to all displayed KBU values, including Content Developer and EDU funds blocks. Format Sponsors flow rate with the same precision. Move EDU KBU blocks right by 134 px based on screenshot alignment.
+
+- 0.1.502 (2026-01-31): Apply the wallet formatter, min two and up to nine decimals, to all displayed KBU values, including Content Developer and EDU funds blocks. Format Sponsors flow rate with the same precision. Move EDU KBU blocks right by 134 px based on screenshot alignment.
+
+- 0.1.501 (2026-01-31): Always show at least 2 decimals and up to 9 decimals when needed for spigot flow rate, KBU per hour estimate, and balances. Move EDU funds blocks 100 px further right.
+
+- 0.1.500 (2026-01-31): Spigot flow rate now shows at least 2 decimals. EDU funds blocks: rename Education Sponsors line to Sponsors. Shift EDU funds blocks right to align with the KBU header.
+
+- 0.1.499 (2026-01-30): Revert ratio label and map attribution text. Shorten spigot flow rate label to Parent + Sponsors. Update redemption store available line. Remove global tag from game balance labels.
+
+- 0.1.498 (2026-01-31): UI copy polish. Select an answer, use × in PTT, standardize Sponsors labels, simplify ratio range text, change EDU funds header to KBU, rename Available to Available to earn, and tidy map attribution.
+
+- 0.1.497 (2026-01-31): Label only global balances as KBU balance (global). Keep other balances as KBU balance.
+
+- 0.1.496 (2026-01-31): Add scope hints to KBU balance labels, this content for Parent, Education Sponsors, and Content Developer, global for Child and K-Bucks Platform.
+
+- 0.1.495 (2026-01-31): Rename all account pane labels from KBU deposit and KBU account to KBU balance in both games.
+
+- 0.1.494 (2026-01-31): Rename K-Bucks labels to KBU in both game account panes, adjust match ratio suffix spacing, and update spigot labels.
+
+- 0.1.493 (2026-01-31): Copy polish for practice messages, overlay title, spigot K-Bucks per hour label, and Parent-to-Sponsors match ratio formatting. Replace technical load errors with a user friendly message. Fix storeThumb CSS width and height properties.
+
+- 0.1.492 (2026-01-30): Leaflet tile seam mitigations. Apply mix-blend-mode plus-lighter to Leaflet tiles when devicePixelRatio is non-integer. Heal after wheel zoom settles by invalidating size and redrawing tiles.
+
+- 0.1.491 (2026-01-30): Screen 2, set Plastic Spider Ring brand to Generic. Rename Gift Card to Baskin-Robbins Gift Card and set brand to Baskin-Robbins.
+
+- 0.1.479 (2026-01-29): Screen 2, rename Classic Sheepskin Boots to UGG Classic Boots.
+
+- 0.1.478 (2026-01-29): Screen 2, rename Eraser to STAEDTLER Eraser.
+
+- 0.1.477 (2026-01-29): Screen 2, match redemption item text spacing and alignment to Educational Content. Rename Plastic Vinyl Eraser to Eraser.
+
+- 0.1.476 (2026-01-29): Screen 2, add Brand line under redemption item names. Update item names and brands.
+- 0.1.475 (2026-01-29): Screen 2, restore Available-to-redeem header font to match Screen 1. Limit 13px storePrice styling to redemption item prices only.
+- 0.1.474 (2026-01-29): Screen 2, Redemption Store item typography matches Educational Content card fonts.
+- 0.1.473 (2026-01-29): Screen 2, keep Redemption Store item list full width. Column 2 is collapsed for now.
+- 0.1.472 (2026-01-29): Screen 2, Redemption Store uses a two-column grid wrapper, column 2 is empty for now.
+- 0.1.397: Add favicon.ico links (cache-busted).
+- 0.1.396 (2026-01-28): Spigot padding left 12px to 8px, spigot text gap 8px to 12px.
+- 0.1.393 (2026-01-28): NTC attribution flush to map edge (remove Leaflet control margins and corner padding).
+- 0.1.396 (2026-01-28): Round NTC attribution box corners to 4px.
+- 0.1.392 (2026-01-28): NTC attribution: font size 11, background #f4f4f4, right-aligned to map edge.
+- 0.1.392 (2026-01-28): NTC attribution: font size 13, transparent background, centered at bottom.
+- 0.1.392 (2026-01-28): NTC attribution: font size 10, right-aligned (not centered), keep square box.
+- 0.1.388 (2026-01-28): Leaflet attribution box: remove border, set font size 13, add © Leaflet.
+- 0.1.387 (2026-01-28): Style Leaflet attribution to match footer (font, colors, rounded box).
+- 0.1.385 (2026-01-28): Column-2 mega pane for NTC + MTN, merged Select-your-answer and bottom controls, removed inter-pane gaps.
+- 0.1.384 (2026-01-28): Spigot row, moved 12 px right by padding on the spigot section wrapper.
+      - 0.1.383 (2026-01-28): Move spigot image 12px to the right.
+      - 0.1.383 (2026-01-28): Mega-pane padding tune: -2px bottom on five non-spigot sections, +5px bottom on spigot section.
+      - 0.1.381 (2026-01-28): Reduce spigot bottom padding by ~40px and redistribute +6px bottom padding to each non-spigot section.
+      - 0.1.379 (2026-01-28): Mega-pane top-five sections bottom padding +20px for visibility test.
+      - 0.1.377 (2026-01-28): Mega-pane spigot flush-left. Add 2px m
+      - 0.1.378 (2026-01-28): Mega-pane top-five sections bottom padding +1px.ore bottom padding to top five mega sections.
+      - 0.1.376 (2026-01-28): Spigot 52px and closer left. Add 1px more bottom padding to top five mega sections.
+      - 0.1.375 (2026-01-28): Add 1px more bottom padding to top five mega sections.
+      - 0.1.374 (2026-01-28): Mega-pane spigot larger, add 1px bottom padding to top five mega sections.
+- 0.1.373 (2026-01-28): Mega-pane spigot icon larger and text vertically centered. Harmonize Platform section spacing.
+- 0.1.372 (2026-01-28): Consolidated accounts pane: hide scrollbars and size to 384x512 content with 1 px border.
+- 0.1.372 (2026-01-28): Tighten consolidated accounts pane spacing to remove scrollbar.
+- 0.1.370 (2026-01-28): NTC and MTN: Reduce consolidated accounts pane padding to eliminate scrollbar.
+- 0.1.370 (2026-01-28): NTC and MTN: Consolidate the accounts column into a single 384x512 pane.
+- 0.1.367 (2026-01-28): MTN: Remove #bingoPane padding and border so 514x514 board frame fits without clipping.
+- 0.1.366 (2026-01-28): MTN: Fix board edge clipping by removing global bingoPairBtn padding inside the MTN grid.
+- 0.1.366 (2026-01-28): MTN: Remove unintended inner offset by anchoring the 512x512 grid to the frame content box.
+- 0.1.362 (2026-01-28): Center MTN 512x512 board inside a 514x514 stage so footer position matches other screens.
+- 0.1.363 (2026-01-28): MTN: Add a 1px border frame around the 512x512 board so the board area totals 514x514 like NTC.
+- 0.1.361 (2026-01-28): Make MTN layout width and height match NTC so the copyright footer does not shift between screens.
+- 0.1.360 (2026-01-28): Fix NTC and MTN footer alignment by removing forced footer width and setting per-screen widths.
+- 0.1.359 (2026-01-28): Stabilize footer position across screens by removing per-screen width overrides.
+- 0.1.358 (2026-01-28): Set copyright top-gap to 8px.
+- 0.1.355 (2026-01-28): Set .scoreInline and .acctLine to 13px. Set copyright text to 13px and 6px top-gap.
+- 0.1.353 (2026-01-27): Rename multiplication game to "Multiply Two Numbers".
+- 0.1.352 (2026-01-27): Rename "Multiply Two Numbers" everywhere (was "Practice Times Tables").
+- 0.1.351 (2026-01-27): Educational Content screen order: Name That Country first, Multiply Two Numbers second.
+- 0.1.350 (2026-01-27): Align answer bullets so the dot is vertically aligned under the 'S' in 'Select your answer' in both NTC and PTT.
+- 0.1.350 (2026-01-27): Unify NTC and PTT "Select your answer" panes styling and layout to match pre-PTT NTC pane.
+- 0.1.348 (2026-01-27): PTT header buttons to 15px, ensure AxB label spacing and 13px label font apply (override fixes).
+- 0.1.346 (2026-01-27): PTT AxB label: reintroduce spaces as "A × B" and set AxB label font size to 13px.
+- 0.1.345 (2026-01-27): PTT grid: set cell size to 44×44 px, keep 2px gaps, add 4px padding each side inside 512×512.
+- 0.1.342 (2026-01-27): PTT grid: make all 11×11 board cells exactly 46×46 px by switching to fixed 46px tracks and resizing the board to fit.
+- 0.1.341 (2026-01-27): PTT: enforce 14 px on AxB cells and remove spacing around x so it renders as AxB.
+- 0.1.340 (2026-01-27): PTT: increase AxB pair button font size to 14px and render labels as "AxB" (no spaces).
+- 0.1.339 (2026-01-27): PTT Misses mode: mark answered cells with red or green results like normal mode, and clear the board when the misses loop restarts.
+- 0.1.338 (2026-01-27): PTT: highlight the current A x B pair button in orange while the question is being shown.
+- 0.1.337 (2026-01-27): Fix PTT blank-start. Hide A x B labels when blank or showing results, prevent text concatenation, and keep current-pair cell unhighlighted.
+- 0.1.336 (2026-01-27): PTT reveals. Pair buttons start blank, show "A × B" only for the current question, then replace with the correct result number and keep red or green marking.
+- 0.1.334 (2026-01-27): PTT polish. Pair buttons are 12px with visible "A × B" spacing. Current pair highlight is list-gray. Keep header highlights until Next question, then reset headers for the new pair.
+- 0.1.332 (2026-01-27): PTT polish. Fix AxB rendering to remove added spacing, set pair font to 14px, restore NTC-matching answer bullet alignment and spacing, and enforce non-interactive board cursor.
+- 0.1.330 (2026-01-27): Multiply Two Numbers board polish. Make header cells match pair cell sizing, add top-left X, disable board clicks, restore compact A × B rendering, and highlight row and column headers for the current pair.
+- 0.1.331 (2026-01-27): PTT UI polish. Tighten AxB labels to "AxB" style, change corner to lowercase "x", and align answer bullets and row sizing to match NTC.
+- 0.1.328 (2026-01-27): Fix PTT answer rendering by restoring bingoPairBtn buttons, and harden NTC answer click handling to prevent runtime crashes.
+- 0.1.327 (2026-01-27): Polish Multiply Two Numbers UI to match Name That Country, fix versioning, tighten board cell sizing, and align list and footer styling.
+- 0.1.326 (2026-01-27): Multiply Two Numbers screen UI now matches Name That Country layout, with a 512x512 multiplication-board slot and aligned panes.
+- 0.1.325 (2026-01-27): Align Educational Content and Redemption Store message-slot behavior, so card start position matches when the message line is empty.
+- 0.1.324 (2026-01-27): Educational Content now reserves a one-line message slot under the Available line, matching Redemption Store, so the list starts at the same vertical position.
+- 0.1.323 (2026-01-27): Redemption Store list now always starts 10px below the Redeemed line, even when no redeemed message is shown, by reserving a one-line message slot.
+- 0.1.322 (2026-01-27): Fix main-pane header spacing so the list starts exactly 10px below the last header line (including Redeemed message) by removing the extra header-block bottom margin.
+- 0.1.321 (2026-01-27): Main panes: list now starts 10px below the last header line (Available or Redeemed message) and store list keeps its scrollbar without card size shifting.
+- 0.1.320 (2026-01-27): Leaflet minZoom now adapts to the map slot size so you can zoom out to see the full world map, which helps with countries like New Zealand and Fiji.
+- 0.1.319 (2026-01-27): Name That Country practice-mode: show Misses in the Progress slot so it lines up with Progress.
+- 0.1.318 (2026-01-27): Name That Country practice mode header: align "Misses" to start where "Progress" starts.
+- 0.1.317 (2026-01-27): Name That Country header: rename "Practice misses" label to "Misses".
+- 0.1.316 (2026-01-27): Remove trailing footer dot. Make edu and store cards match by setting card padding top and bottom to 8 px.
+- 0.1.314 (2026-01-27): Set all content and store thumbs to 144 px. Restore the canonical demo footer text on all screens.
+- 0.1.312 (2026-01-27): Unify Screen 1 and Screen 2 list spacing. Match Screen 2 for top offset below the 'Available' line and for card-to-card spacing.
+- 0.1.313 (2026-01-27): Reduce Screen 1 and Screen 2 card list gap from 8 px to 4 px.
+- 0.1.311 (2026-01-27): Screen 1: match Screen 2 header and list spacing so first content card aligns consistently below the 'Available' line.
+- 0.1.308 (2026-01-27): Screen 2: align first redemption item border with Screen 1 by removing the extra header bottom margin.
+      - 0.1.309 (2026-01-27): Screen 2: match Screen 1 header spacing by removing default paragraph margins on the redeem balance line.
+- 0.1.307 (2026-01-27): Screen 2: restore internal store list scrollbar, align list top to 10px below header and keep 10px gap above the bottom button. Footer: remove the extra best-viewed text.
+- 0.1.306 (2026-01-27): Screen 2: Mirror Screen 1 list spacing so the store list starts 10px below the redeem balance line and ends 10px above the bottom button, while keeping scrolling enabled.
+- 0.1.305 (2026-01-27): Screen 1: Ensure the first content card border starts 10px below the earn line by hiding the empty #eduPaneMessage spacer and tightening Screen 1 spacing, while keeping scrolling enabled.
+- 0.1.302 (2026-01-26): Resize Screen 2 Redemption Store white pane (#redeemPane) to 1166x514 with 10px 10px padding to match Screen 1 and NTC footprint.
+- 0.1.301 (2026-01-26): Make the Misses-style button formatting apply to all buttons automatically via CSS (button:not(.ansBtn)), so dynamically generated Play and Redeem buttons get the same size.
+- 0.1.300 (2026-01-26): Standardize non-answer buttons across all screens using a global .kbBtn style based on the NTC Misses button. Keep NTC answer rows (.ansBtn) unchanged.
+- 0.1.299 (2026-01-26): Screen 1: set Educational Content pane padding to 10px 10px to match NTC pane padding.
+- 0.1.298 (2026-01-26): Resize Screen 1 Educational Content white pane to 1166x514 to match NTC (map-to-parent width and map height).
+- 0.1.297 (2026-01-26): Pin the NTC footer under the map using DOM-measured positioning (transform) to remove the persistent bottom gap.
+- 0.1.296 (2026-01-26): Fix the large blank gap above the footer in NTC by locking the grid row height to --ntcMapSize with a final CSS override.
+- 0.1.295 (2026-01-26): In NTC, tie the layout height (--kb-main-h) to the map pane size (--ntcMapSize) so the footer sits close to the map instead of leaving a tall blank area.
+- 0.1.294 (2026-01-26): Restore the original Progress-to-map spacing behavior and set the footer-to-map spacing to 10px to match the 0.1.284 look.
+- 0.1.293 (2026-01-26): Fix footer spacing not applying by adding a final #screenGame .copyrightLine override that sets margin-top (matches header spacing) and prevents later .copyrightLine rules from overriding it.
+- 0.1.292 (2026-01-26): Make footer gap match the current header spacing by setting .copyrightLine margin-top to calc(20px + --ntcHeaderExtraPad). Disable the JS footer-gap experiment.
+- 0.1.290 (2026-01-26): Fix JS syntax in footer gap sync (remove stray brace) and keep sync applied to the visible footer.
+- 0.1.289 (2026-01-26): Fix footer gap sync by applying the measured gap to the visible footer element (there are multiple footer nodes in the DOM).
+- 0.1.288 (2026-01-26): Make footer-to-map spacing match Progress-to-map spacing by measuring the actual gap and applying it to the footer on load and resize.
+- 0.1.287 (2026-01-26): Increase footer-to-map spacing to visually match the Progress-to-map gap by adding --ntcFooterMatchPad (14px).
+- 0.1.286 (2026-01-26): Match footer-to-map spacing to header-to-map spacing by replacing fixed header height with padding and tying footer margin to the same value.
+- 0.1.285 (2026-01-26): Increase footer spacing by setting .copyrightLine margin-top to 10px.
+- 0.1.284 (2026-01-26): Simplify footer by removing the legacy best-viewed note. Center footer within NTC layout width.
+- 0.1.283 (2026-01-26): Set quiz header margin-bottom to 6px and answers padding-bottom to 6px.
+- 0.1.282 (2026-01-26): Restore NTC answer line-height to 1.3 (button and label) to prevent descender clipping.
+- 0.1.281 (2026-01-26): Set quiz header margin-bottom to 8px and answers padding-bottom to 8px.
+- 0.1.280 (2026-01-26): Reduce NTC answer line-height to 1.25 (button and label) for tighter vertical spacing.
+- 0.1.279 (2026-01-26): Adjust NTC quiz spacing by reducing header margin and adding bottom padding to the answers list.
+- 0.1.278 (2026-01-26): Use min-height 34px and padding 0px 10px for NTC answer rows for stable height without extra vertical padding.
+- 0.1.277 (2026-01-26): Adjust NTC answer row padding to 10px 10px.
+- 0.1.276 (2026-01-26): Adjust NTC answer row padding to 0px 10px for tightest vertical spacing.
+- 0.1.275 (2026-01-26): Adjust NTC answer row padding to 4px 10px for tighter vertical spacing.
+- 0.1.274 (2026-01-26): Set NTC answer line-height to 1.3 (button and label) to prevent descender clipping.
+- 0.1.273 (2026-01-26): Set NTC answer option rows (#screenGame .ansBtn) min-height to 34px to prevent descender clipping.
+- 0.1.272 (2026-01-26): Bump version to match the file-name version suffix guardrail.
+- 0.1.271 (2026-01-26): Make Education Sponsors pane absorb zoom rounding by flex-growing, remove visible breathing gap.
+- 0.1.270 (2026-01-26): Remove visible 1fr spacer gap in NTC column 3, instead anchor top and bottom using flex and let spacing below spigot absorb rounding.
+- 0.1.269 (2026-01-26): Lock NTC column 3 top and bottom to map using grid with a 1fr spacer row, fix footer version.
+- 0.1.268 (2026-01-26): In NTC, set the game grid row to 1fr and lock the grid height to the map size so column 3 stays top and bottom aligned when browser zoom changes.
+- 0.1.260 (2026-01-26): In NTC, set column 2 and 3 pane padding to 10px on all sides for a layout comparison.
+- 0.1.259 (2026-01-26): In NTC, set column 2 and 3 pane padding to 12px on all sides for a layout comparison.
+- 0.1.257 (2026-01-27): Fix NTC column overlap by locking left side column width to 258px and preventing overflow.
+- 0.1.253 (2026-01-27): Lock NTC grid, restore bullet sizing and dot alignment, set global padding to 8px.
+      - 0.1.235 (2026-01-24): Fix missing kbHealTiles wrapper and sync redemption store manifest expected hash.
+      - 0.1.234 (2026-01-23): Add GA4 telemetry hooks (games, questions, rewards, redemptions) and persistent anonymous user ID.
+      - 0.1.233 (2026-01-22): Update footer text across screens to 2025-2026 range, include viewing recommendation, and bump version.
+      - 0.1.231 (2026-01-17): Reduce Leaflet tile seam artifacts and make footer version updates consistent across screens.
+      - 0.1.226 (2026-01-17): Rename browser tab title to 'K-Bucks Demo'.
+      - 0.1.225 (2025-12-27): Screen 2 wording, 'Available to Redeem' -> 'Available to redeem'.
+      - 0.1.224 (2025-12-27): Restore Leaflet zoomSnap 0.2, zoomDelta 0.2, minZoom 2.2, and setView zoom 2.2. Fix footer version placeholders.
+      - 0.1.223 (2025-12-27): Screen 1 wording, 'Child can earn' -> 'Available for the Child to earn'.
+      - 0.1.222 (2025-12-27): Add K-Bucks/Hour (estimate) to Multiply Two Numbers spigot, keep version fields consistent.
+      - 0.1.221 (2025-12-27): Restore Leaflet zoomSnap 0.2, zoomDelta 0.2, minZoom 2.2.
     -->
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>K-Bucks Demo</title>
 <link crossorigin="" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" rel="stylesheet"/>
 <style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     *, *::before, *::after { box-sizing: border-box; }
 
@@ -176,6 +399,8 @@ CHANGELOG:
 
     :root { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;   --ntcHeaderExtraPad: 8px;
 }
+
+
 
 /* 0.1.321: Main-pane header/list spacing consistency.
    The first gray card starts 10px below the last header line (Available, or Redeemed message). */
@@ -218,6 +443,7 @@ CHANGELOG:
   margin-bottom: 0;
   justify-content: flex-end;
 }
+
 
     :root{
       --kb-header-h: 27px;
@@ -1065,7 +1291,18 @@ body { margin: 0; background: #f6f6f6; color: #111; overflow: hidden; }
       white-space: nowrap;
     }
 
+  
+  
+  
+  
+  
+  
+
+
+
 .spigotText .acctLine{ white-space: normal; overflow-wrap: anywhere; }
+
+
     
     /* Screen 1: match NTC overall footprint (map-to-parent width x map height) */
     #screenEdu{
@@ -1141,6 +1378,11 @@ body { margin: 0; background: #f6f6f6; color: #111; overflow: hidden; }
       overflow: visible;
     }
 
+
+    
+
+    
+    
       /* padding-bottom is set dynamically in JS to (button height + D) */
     }
     #screenStore #redeemPane .controls.mainSlotNav{
@@ -1213,6 +1455,8 @@ body { margin: 0; background: #f6f6f6; color: #111; overflow: hidden; }
   width: 128px;
   height: 128px;
 }
+
+
 
     /* Thumbnails: make images fit the thumb box cleanly */
     .storeThumb {
@@ -1518,6 +1762,7 @@ color: #111;
     }
 
 
+
 /* ===== NTC layout guardrails (0.1.257) ===== */
 #screenGame .layout.gameLayout.kbNtcLayout { grid-template-columns: var(--ntcMapSize) 258px 386px; column-gap: 4px; row-gap: 4px; width: 1166px; }
 #screenGame #mapSlot { width: 514px; height: 514px; }
@@ -1544,6 +1789,10 @@ color: #111;
 #screenGame #quizPane { padding: 10px; }
 #screenGame #ntcAccounts.kbNtcSideRight .pane { padding: 10px; }
 #screenGame #spigotPane { padding: 10px; }
+
+
+
+    
 
     /* NTC: push bottom 3 panes to map bottom, breathing gap sits below spigot */
     
@@ -1671,6 +1920,8 @@ color: #111;
       margin: 0;
     }
 
+
+
 /* 0.1.325: Reserve a stable one-line message slot under the Available line on both screens.
    This keeps the first gray card aligned between Educational Content and Redemption Store. */
 #screenStore #redeemPaneMessage,
@@ -1695,6 +1946,7 @@ color: #111;
 #screenEdu #eduList{
   margin-top: 0 !important;
 }
+
 
     /* PTT: match NTC pane and answer list spacing */
     #screenBingo #bingoQuizPane { padding: 10px; }
@@ -1804,6 +2056,9 @@ color: #111;
 #screenBingo .bingoPairBtn.kbBingoShowResult .bingoResult {
   display: block;
 }
+
+
+
     /* PTT: match NTC answer list spacing and bullet alignment */
     #screenBingo .answers { list-style: none; padding: 0; margin: 0; flex: 1 1 auto; min-height: 0; padding-bottom: 6px; }
     #screenBingo .answers li { margin: 1px 0; }
@@ -1811,6 +2066,8 @@ color: #111;
 
     /* PTT footer width match NTC */
     #screenBingo .copyrightLine { width: 100%; text-align: center; margin-top: 8px; }
+
+
 
 /* PTT board polish: 11x11 grid, square headers, top-left X, no board clicks, header highlights */
 #screenBingo .pttCorner,
@@ -1840,6 +2097,8 @@ color: #111;
   background: orange;
   border-color: rgba(199, 111, 0, 0.75);
 }
+
+
     /* 0.1.338 PTT board text, sizing, and non-interactive guardrails */
     #screenBingo #bingoGrid .bingoPairBtn,
     #screenBingo #bingoGrid .pttHdr,
@@ -1862,6 +2121,9 @@ color: #111;
       font-size: 13px;
       line-height: 1;
     }
+
+
+
 
     #screenBingo #bingoGrid .pttHdr,
     #screenBingo #bingoGrid .pttCorner{
@@ -2104,6 +2366,22 @@ color: #111;
   margin: 0;
   padding: 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Screen 1 (Educational Content): align title and K-Bucks rows across the two columns */
 .eduMid{
@@ -2762,6 +3040,14 @@ color: #111;
 </script>
 <script>
 
+
+
+
+
+
+
+
+
     const SCALE = 1000000000  
     const KB_BUILD_VERSION = (window.KB_BUILD_VERSION || "0.1.379")
     try { window.KB_BUILD_VERSION = KB_BUILD_VERSION } catch (e) {}
@@ -2834,6 +3120,8 @@ function fmtWalletMin2U(u) {
       fillColor: "#f2a400",
       fillOpacity: 1.0
     }
+
+
 
     // Show countries slightly smaller than a tight fit. Fractional zoom remains enabled.
     const KB_ZOOM_OUT_AFTER_FIT = 0.25
@@ -4632,6 +4920,9 @@ function spigotKbucksPerHourU() {
 function fmtSpigotKbucksPerHour() {
   return fmtWalletMin2U(spigotKbucksPerHourU())
 }
+
+
+
     function toUnits(val) {
       const raw = String(val == null ? "" : val)
       const cleaned = raw.replace(/,/g, "").trim()
@@ -6188,6 +6479,14 @@ flowDec = 2
         kbSetUnifiedLoadError(m)
         syncMapHeight()
       })
+  
+  
+  
+  
+  
+  
+  
+  
   
   </script>
 </body>
