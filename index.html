@@ -25,7 +25,7 @@
         }
       }
 
-      window.KB_BUILD_VERSION = "0.2.2";
+      window.KB_BUILD_VERSION = "0.2.90";
 
   // Leaflet seam mitigations
 
@@ -155,6 +155,78 @@
       - 0.1.237 (2026-01-25): Call KB_TELEMETRY.screen only from show*Screen functions.
       - 0.1.236 (2026-01-24): Attach kb_anon_user_id to all kb_* GA4 events.
 CHANGELOG:
+- 0.2.90 (2026-02-17): Added kb_game_quit on Quit for OAP, NTC, and MTN. OAP kb_answer now fires every 10 seconds of watched time, including zero-payout ticks.
+- 0.2.89 (2026-02-17): Added kb_bullet param to kb_answer for NTC, MTN, and OAP (selected bullet text or video title).
+- 0.2.88 (2026-02-17): OAP GA kb_answer now fires on each 10-second watched-time KBU drop, not on bullet selection.
+- 0.2.87 (2026-02-17): Educational Content ratings update. Optics and Photonics now shows 4.4 stars.
+- 0.2.86 (2026-02-17): Educational Content ratings update. Optics and Photonics now shows 4.5 stars. Multiply Two Numbers now shows 4.1 stars.
+- 0.2.84 (2026-02-17): Standardize spigot formatting across OAP, NTC, and MTN by using MTN wallet formatting (min 2 decimals, up to 9, with thousand separators) for spigot Flow rate and KBU/hour or KBU drop lines.
+- 0.2.83 (2026-02-17): NTC and MTN spigot Flow rate and KBU per hour lines now update on blur or Enter for Parent and Sponsor input boxes.
+- 0.2.83 (2026-02-17): NTC spigot Flow rate now includes Sponsors contribution in display precision (up to 3 decimals, trimmed).
+- 0.2.81 (2026-02-17): Fixed OAP periodic KBU deduction to respect updated flow rate. Fixed NTC "KBU per hour (estimate)" to not use OAP drop logic.
+- 0.2.79 (2026-02-17): Fixed OAP spigot flow math and formatting. Updated "Flow rate" and "KBU drop" to recalc on blur or Enter for all four OAP inputs.
+- 0.2.77 (2026-02-17): OAP KBU per hour line now shows per-interval drop (every KB_OAP_FLOW_EVERY_SEC seconds) and label updates dynamically.
+- 0.2.77 (2026-02-17): Removed footer candy easter-egg, and added OAP periodic KBU flow every 10 seconds of watched time.
+- 0.2.78 (2026-02-17): OAP match ratio updates live while typing so flow and drop lines stay correct.
+- 0.2.74 (2026-02-17): Locked spigot pane height to 69 px across game screens to eliminate third-column jitter.
+- 0.2.74 (2026-02-17): OAP spigot row locked to 69px height to match NTC spacing and prevent any vertical shifting.
+- 0.2.72 (2026-02-17): OAP spigotInner top-aligned to prevent icon shifting when row height changes after input edits.
+- 0.2.70 (2026-02-17): Reserved spigot image size (width/height attrs and 56px CSS) to prevent initial layout shift in OAP.
+- 0.2.69 (2026-02-17): Reordered OAP Select-a-video list so Fiber optic cables appears first.
+- 0.2.67 (2026-02-16): OAP spigot icon pinned to top to prevent vertical jitter when inputs update.
+- 0.2.66 (2026-02-16): OAP rename video label to "Fiber optic cables 5:35".
+- 0.2.65 (2026-02-16): OAP KBU per hour (estimate) equals Parent+Sponsors flow rate. Rename Watch time to Total watch time.
+- 0.2.64 (2026-02-16): OAP KBU per hour estimate now equals Parent+Sponsors flow rate (per hour). NTC/MTN unchanged.
+- 0.2.63 (2026-02-16): OAP KBU per hour estimate equals flow rate. Rename Progress to Watch time in OAP and allow watch time to exceed 100%.
+- 0.2.62 (2026-02-16): Restore NTC/MTN KBU per hour estimate math. OAP per-hour estimate equals flow rate. OAP selected video shows a checkmark.
+- 0.2.61 (2026-02-16): OAP KBU per hour estimate equals flow rate. Selected video button shows checkmark.
+- 0.2.60 (2026-02-16): OAP Progress now shows m:ss for numerator and denominator, and integer percent.
+- 0.2.59 (2026-02-16): OAP Progress uses video currentTime deltas for exact sync with player timer.
+- 0.2.58 (2026-02-16): Initialize OAP watch timer on OAP entry so Progress enumerator updates while playing.
+- 0.2.57 (2026-02-16): Fix crash on start caused by malformed kbOapIsWindowActive try/catch block.
+- 0.2.56 (2026-02-16): Fix OAP Progress UI not updating by adding timeupdate-based progress tracking and making window-activity detection reliable.
+- 0.2.55 (2026-02-16): Fix crash on start caused by stray kbOapLastTickTs assignment. Ensure OAP watch timer initializes on OAP entry.
+- 0.2.54 (2026-02-16): OAP Progress enumerator now ticks reliably using real-time deltas while video plays, with pause/resume hooks.
+- 0.2.53 (2026-02-16): Fix crash on load from stray OAP progress code token, and initialize OAP watch timer.
+- 0.2.52 (2026-02-16): Fix crash on load caused by malformed kbOapProgressMs declaration.
+- 0.2.51 (2026-02-16): OAP Progress numerator now tracks watch time while video plays, pauses on tab blur or hidden and resumes on focus, ms precision with hh:mm:ss display.
+- 0.2.50 (2026-02-16): OAP Quit stops video playback; entering OAP resets Progress numerator and clears selected video.
+- 0.2.49 (2026-02-16): OAP Progress rendering now keys off kbGeoActiveKey === "oap" and forces update on OAP entry.
+- 0.2.48 (2026-02-16): Fix OAP Progress showing NTC counters by detecting OAP mode and rendering hh:mm:ss progress using OAP-specific variables.
+- 0.2.47 (2026-02-16): OAP Progress uses OAP-specific time-based numerator and denominator, showing 00:00:00/00:10:27 (0%).
+- 0.2.41 (2026-02-16): OAP shows video durations in the Select a video list.
+- 0.2.40 (2026-02-16): OAP extra padding below native controls adjusted from 32px to 16px.
+- 0.2.39 (2026-02-16): OAP adds 32px extra padding below native controls by increasing computed video element height.
+- 0.2.38 (2026-02-16): OAP sizes video element to video-frame height plus native controls height so controls sit directly under the video frame, not at the 512x512 bottom.
+- 0.2.37 (2026-02-16): OAP video element now extends to the bottom of the 512x512 box so native controls sit on the bottom edge (overlay style).
+- 0.2.36 (2026-02-16): OAP video top inset tweak adjusted from +6px to +5px.
+- 0.2.35 (2026-02-16): OAP video top alignment nudged down 6px to match prompt, and native controls pushed down with extra control padding.
+- 0.2.34 (2026-02-16): OAP moves native controls up by sizing the video element using a 16:9 fallback until metadata loads, then re-syncs on metadata and canplay.
+- 0.2.33 (2026-02-16): OAP sizes the native video element to the rendered video content height plus a controls allowance so controls sit directly under the video.
+- 0.2.32 (2026-02-16): OAP aligns video content to the top using object-position so the first frame starts at the prompt-aligned top edge.
+- 0.2.31 (2026-02-16): OAP forces video positioning using inline !important styles to override any prior centered rules.
+- 0.2.30 (2026-02-16): OAP enforces video positioning relative to #mapSlot and re-syncs after mode switch and source load so top alignment takes effect.
+- 0.2.29 (2026-02-16): OAP sets video top and height via inline styles computed from the prompt position, ensuring pixel-perfect alignment and a bottom gap for native controls.
+- 0.2.28 (2026-02-16): OAP positions native video element using a computed top inset and a fixed bottom gap so controls do not hug the 512x512 bottom edge.
+- 0.2.27 (2026-02-16): OAP video top inset is computed dynamically to align pixel-perfect with the "Select a video" prompt.
+- 0.2.26 (2026-02-16): OAP positions the native video player at a fixed top inset so controls sit under the video and do not hug the 512x512 bottom edge.
+- 0.2.25 (2026-02-16): OAP uses native video controls and positions the video+controls group with a top inset aligned to the quiz prompt.
+- 0.2.23 (2026-02-16): Fix OAP video element placement so it fills the 512x512 area, not the attribution box.
+- 0.2.22 (2026-02-16): OAP video buttons now play local .webm files inside the 512x512 video area.
+- 0.2.21 (2026-02-16): OAP uses "Select a video:" prompt. OAP video area background matches the right-pane background.
+- 0.2.19 (2026-02-16): Make OAP attribution use the same Leaflet-style attribution box styling as NTC.
+- 0.2.18 (2026-02-16): Split Content Developer wallet balance for NTC vs OAP. Make geo Parent, Sponsors, Flow rate, Match ratio, and Dev wallet per-content, while Child and Platform remain global. Update OAP flow label text.
+- 0.2.17 (2026-02-16): Include OAP in Screen 1 total 'Available for the Child to earn' calculation.
+- 0.2.15 (2026-02-16): Fix Screen 1 per-item KBU fields so each content card shows its own Parent, Sponsors, and Available to earn values.
+- 0.2.12 (2026-02-16): Fix JS syntax in Screen 1 Educational Content list so cards render again, keep OAP video-screen changes.
+- 0.2.13 (2026-02-16): Fix Screen 3 layout regression caused by a broken DOM structure and a stray CSS selector, remove the extra top footer.
+- 0.2.14 (2026-02-16): Separate OAP vs NTC account inputs and balances by saving and restoring Parent, Sponsors, flow rate, and match ratio per mode.
+- 0.2.10 (2026-02-16): OAP replica now removes score and time, removes maps, and shows a video-watch UI with Watch a video list and Quit back to Educational Content.
+- 0.2.9 (2026-02-16): Screen 1, Watch for Optics and Photonics now opens an OAP replica of the Name That Country screen, with separate OAP game-state variables.
+- 0.2.9 (2026-02-16): Screen 1, change Optics and Photonics attribution from (Developer) to (Instructor).
+- 0.2.9 (2026-02-16): Screen 1, change Optics and Photonics button label from Play to Watch.
+- 0.2.6 (2026-02-16): Screen 1, add Optics and Photonics educational content card using cogs.png, Play does nothing, blank-start KBU lines.
+
 - 0.2.2 (2026-01-31): Remove duplicate shortcut icon link to avoid double favicon requests.
 - 0.2.1 (2026-01-31): Update favicon links with cache-buster query string.
 - 0.2.0 (2026-01-31): Version bump only.
@@ -399,7 +471,11 @@ CHANGELOG:
       appearance: textfield;
     }
 
-    :root { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;   --ntcHeaderExtraPad: 8px;
+    :root {
+  --kb-spigot-pane-h: 69px;
+  --kb-spigot-img-w: 50px;
+  --kb-spigot-img-h: 56px;
+ font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;   --ntcHeaderExtraPad: 8px;
 }
 
 
@@ -568,6 +644,7 @@ body { margin: 0; background: #f6f6f6; color: #111; overflow: hidden; }
       will-change: auto;
     }
 
+
     #screenGame .copyrightLine{ width: 100%; text-align: center; margin-top: 8px; }
 
 .layout {
@@ -578,11 +655,12 @@ body { margin: 0; background: #f6f6f6; color: #111; overflow: hidden; }
       height: var(--kb-main-h);
       width: calc(var(--kb-main-w) + var(--kb-side-w) + var(--kb-gap));
     }
-#bingoSlot { width: var(--kb-main-w); height: var(--kb-main-h); }
-    @media (max-width: 900px) {
-      .layout { grid-template-columns: 1fr; }
-    }
 
+    /* Keep game layouts fixed, even on narrow viewports */
+    @media (max-width: 900px) {
+      .layout:not(.gameLayout) { grid-template-columns: 1fr; }
+    }
+#bingoSlot { width: var(--kb-main-w); height: var(--kb-main-h); }
     #mapSlot {
       position: relative;
       box-sizing: border-box;
@@ -1012,8 +1090,8 @@ body { margin: 0; background: #f6f6f6; color: #111; overflow: hidden; }
 }
 .spigotImg{
   flex: 0 0 auto;
-  height: 52px;
-  max-height: 52px;
+  height: 56px;
+  max-height: 56px;
   max-width: 52%;
   width: auto;
   display:block;
@@ -1066,6 +1144,19 @@ body { margin: 0; background: #f6f6f6; color: #111; overflow: hidden; }
     .ansBtn.wrong:hover,
     .ansBtn.wrong:active,
     .ansBtn.wrong:focus { background: #f6c1c1; border-color: #e18a8a; }
+    /* OAP: selectable video choice highlight */
+    .ansBtn.kbOapSelected,
+    .ansBtn.kbOapSelected:hover,
+    .ansBtn.kbOapSelected:active,
+    .ansBtn.kbOapSelected:focus { background: #eee; border-color: #bbb; }
+
+    
+    /* OAP: video playback area */
+    /* Keep attribution above the video, like Leaflet */
+    #screenGame.kbOapMode #mapSlot #oapAttributionWrap{ z-index: 2; }
+/* OAP: bottom bar should right-align Quit when other buttons are hidden */
+    .bottomBar.kbOapBottomBar { display: flex; justify-content: flex-end; grid-template-columns: none; }
+
 
     /* Keep disabled answer buttons readable, but do not gray out correct or wrong */
     .ansBtn:disabled {
@@ -1782,7 +1873,6 @@ color: #111;
       line-height: 1.3;}
 
 /* Bullet alignment: dot under the 'S' in 'Select' */
-#screenGame .ansBtn 
 /* Prevent accidental centering gap on screens */
 .screen { margin: 0; }
 /* ===== end guardrails ===== */
@@ -1790,7 +1880,11 @@ color: #111;
 #screenGame #side.kbNtcSideLeft .pane { padding: 10px; }
 #screenGame #quizPane { padding: 10px; }
 #screenGame #ntcAccounts.kbNtcSideRight .pane { padding: 10px; }
-#screenGame #spigotPane { padding: 10px; }
+
+#screenGame #spigotPane img.spigotImg { width: var(--kb-spigot-img-w); height: var(--kb-spigot-img-h); }
+#screenGame #spigotPane .spigotInner { min-height: 69px; height: 69px; align-items: center; }
+#screenGame #spigotPane .spigotText { line-height: 18px; }
+
 
 
 
@@ -2665,17 +2759,112 @@ color: #111;
   margin: 0;
   overflow: hidden;
 }
+
+/* OAP video placeholder in Screen 3 replica */
+#screenGame.kbOapMode #mapSlot{
+  background: #fff;
+}
+
+#screenGame.kbOapMode #mapSlot .kbMapBuffer{
+  display: none !important;
+}
+
+
+/* OAP: final video display guardrails */
+#screenGame.kbOapMode #oapVideo.kbOapVideo{ display: block; z-index: 1; }
+#screenGame:not(.kbOapMode) #oapVideo.kbOapVideo{ display: none; }
+
+
+/* OAP: keep contained video aligned to the top within its box */
+#screenGame.kbOapMode #oapVideo.kbOapVideo{ object-position: top center; }
+
+
+/* OAP: make selected video more pronounced with a checkmark */
+#screenGame.kbOapMode .ansBtn.selected{
+  position: relative;
+  padding-right: 34px;
+}
+#screenGame.kbOapMode .ansBtn.selected::after{
+  content: "✓";
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: 700;
+}
+
+
+/* OAP: selected video checkmark */
+#screenGame.kbOapMode .ansBtn .mark{
+  margin-left: auto;
+  font-weight: 700;
+}
+
+
+/* OAP: keep spigot row icon pinned so it does not shift when values update */
+#screenGame.kbOapMode .spigotRow,
+#screenGame.kbOapMode .spigotRowInner,
+#screenGame.kbOapMode .spigotBlockRow {
+  align-items: flex-start !important;
+}
+#screenGame.kbOapMode .spigotRow img,
+#screenGame.kbOapMode .spigotRow .spigotIcon,
+#screenGame.kbOapMode .spigotBlockRow img {
+  align-self: flex-start !important;
+}
+/* Prefer single-line labels in OAP to avoid reflow jitter */
+#screenGame.kbOapMode .spigotRow .spigotText,
+#screenGame.kbOapMode .spigotBlockRow .spigotText {
+  line-height: 18px;
+}
+#screenGame.kbOapMode .spigotRow .spigotTextLine,
+#screenGame.kbOapMode .spigotBlockRow .spigotTextLine,
+#screenGame.kbOapMode .spigotRow .spigotLine,
+#screenGame.kbOapMode .spigotBlockRow .spigotLine {
+  white-space: nowrap;
+}
+
+
+/* OAP: prevent spigot icon vertical jump when spigotInner height changes on input edits */
+#screenGame.kbOapMode #spigotPane .spigotInner{
+  align-items: flex-start !important;
+}
+#screenGame.kbOapMode #spigotPane img.spigotImg{
+  align-self: flex-start !important;
+  display: block;
+}
+#screenGame.kbOapMode #spigotPane .acctLine{
+  white-space: nowrap;
+  line-height: 18px;
+}
+
+
+/* OAP: make spigot row height deterministic so the divider spacing matches NTC and never shifts */
+#screenGame.kbOapMode #spigotPane{
+  min-height: 69px;
+}
+#screenGame.kbOapMode #spigotPane .spigotInner{
+  height: 69px !important;
+  min-height: 69px !important;
+  align-items: center !important;
+}
+#screenGame.kbOapMode #spigotPane img.spigotImg{
+  align-self: center !important;
+}
+
+.kbToast{position:fixed; left:50%; bottom:24px; transform:translateX(-50%); background:#333; color:#fff; padding:8px 12px; border-radius:10px; opacity:0; transition:opacity 0.2s, transform 0.2s; z-index:9999; font-size:13px;}
+.kbToast.show{opacity:0.95; transform:translateX(-50%) translateY(-4px);}
 </style>
 
     <!-- Favicons -->
-    <link rel="icon" href="favicon.ico?v=0.2.1" type="image/x-icon" sizes="any">
+    <link rel="icon" href="favicon.ico?v=0.2.19" type="image/x-icon" sizes="any">
 </head>
 <body>
 <div class="wrap">
 <div class="screen" id="screenGame" style="display:none;">
 <div class="headerBar">
 <div class="topHeader">
-<p class="title">Name That Country</p>
+<p class="title" id="geoTitle">Name That Country</p>
 <div aria-live="polite" class="topStatus">
 <div class="scoreInline" id="progress">Progress: 0/0</div>
 <div class="scoreInline" id="status">Score: 0/0 (0%)</div>
@@ -2687,13 +2876,17 @@ color: #111;
 <div id="mapSlot">
 <div class="kbMapBuffer kbMapFront" id="mapA"></div>
 <div class="kbMapBuffer kbMapBack" id="mapB"></div>
+  <div id="oapVideoWrap" class="kbOapVideoWrap">
+    <video id="oapVideo" class="kbOapVideo" controls preload="metadata" playsinline controls></video>
+  </div>
+<div class="leaflet-bottom leaflet-right" id="oapAttributionWrap" style="display:none;"><div class="leaflet-control-attribution leaflet-control" id="oapAttribution">© engineerguy, CC BY 3.0, via Wikimedia Commons</div></div>
 </div>
 <div class="side kbNtcSideLeft" id="side">
 <div class="quizMegaPane" id="ntcQuizMegaPane">
 <div class="quizMegaScroll">
 <div class="quizSubPane" id="quizPane">
 <div class="paneHeader">
-<h3>Select an answer:</h3>
+<h3 id="geoPromptHeader">Select an answer:</h3>
 </div>
 <ul class="answers" id="answers"></ul>
 <div class="status" id="message"></div>
@@ -2719,7 +2912,7 @@ color: #111;
             <input class="moneyInput" id="parentInput" inputmode="decimal" min="0" step="0.01" type="text" value="0.00"/>
 </div>
 <div class="acctLine">
-            Flow rate (KBU per correct answer):
+            <span id="flowRateLabelText">Flow rate (KBU per correct answer):</span>
             <input class="flowInput moneyInput" id="flowRateInput" inputmode="decimal" min="0" step="any" type="text" value="0.00"/>
 </div>
 </div>
@@ -2735,10 +2928,10 @@ color: #111;
 </div>
 <div aria-hidden="true" class="arrowDivider acctSubPane"><div class="pane spigotPane" id="spigotPane">
 <div class="spigotInner">
-<img alt="" class="spigotImg" src="spigot.png?v=3"/>
+<img alt="" class="spigotImg" src="spigot.png?v=3" width="50" height="56" />
 <div class="spigotText">
 <div class="acctLine">Flow rate (KBU, Parent + Sponsors): <span id="spigotFlowRateOut">0.00</span></div>
-<div class="acctLine kbHourLine">KBU per hour (estimate): <span id="spigotKbucksPerHourOut">0.00</span></div>
+<div class="acctLine kbHourLine"><span id="spigotKbucksPerHourLabel">KBU per hour (estimate): </span><span id="spigotKbucksPerHourOut">0.00</span></div>
 </div>
 </div>
 </div></div>
@@ -2759,7 +2952,7 @@ color: #111;
 </div>
 </div>
 </div>
-<div class="copyrightLine">Copyright © 2025-2026 Vladimir Kravtchenko. All rights reserved. Version <span class="kbBuildVersion">0.2.2</span></div>
+<div class="copyrightLine">Copyright © 2025-2026 Vladimir Kravtchenko. All rights reserved. Version <span class="kbBuildVersion">0.2.90</span></div>
 </div>
 <div class="screen" id="screenStore" style="display:none;">
 <div class="headerBar">
@@ -2785,7 +2978,7 @@ color: #111;
 </div>
 </div>
 </div>
-<div class="copyrightLine">Copyright © 2025-2026 Vladimir Kravtchenko. All rights reserved. Version <span class="kbBuildVersion">0.2.2</span></div>
+<div class="copyrightLine">Copyright © 2025-2026 Vladimir Kravtchenko. All rights reserved. Version <span class="kbBuildVersion">0.2.90</span></div>
 </div>
 <div class="screen" id="screenEdu">
 <div class="headerBar">
@@ -2808,7 +3001,7 @@ color: #111;
 </div>
 </div>
 </div>
-<div class="copyrightLine">Copyright © 2025-2026 Vladimir Kravtchenko. All rights reserved. Version <span class="kbBuildVersion">0.2.2</span></div>
+<div class="copyrightLine">Copyright © 2025-2026 Vladimir Kravtchenko. All rights reserved. Version <span class="kbBuildVersion">0.2.90</span></div>
 </div>
 <div class="screen" id="screenBingo" style="display:none;">
 <div class="headerBar">
@@ -2956,7 +3149,7 @@ color: #111;
 <div class="quizMegaScroll">
 <div class="quizSubPane" id="bingoQuizPane">
 <div class="paneHeader">
-<h3>Select an answer:</h3>
+<h3 id="geoPromptHeader">Select an answer:</h3>
 </div>
 <ul class="answers" id="bingoAnswers"></ul>
 <div class="status" id="bingoMessage"></div>
@@ -2982,7 +3175,7 @@ color: #111;
                <input class="moneyInput" id="bingoParentInput" inputmode="decimal" min="0" step="0.01" type="text" value="0.00"/>
 </div>
 <div class="acctLine">
-              Flow rate (KBU per correct answer):
+              <span id="flowRateLabelText">Flow rate (KBU per correct answer):</span>
               <input class="flowInput moneyInput" id="bingoFlowRateInput" inputmode="decimal" min="0" step="any" type="text" value="0.00"/>
 </div>
 </div>
@@ -3000,7 +3193,7 @@ color: #111;
 <div aria-hidden="true" class="arrowDivider acctSubPane">
 <div class="pane spigotPane" id="bingoSpigotPane">
 <div class="spigotInner">
-<img alt="" class="spigotImg" src="spigot.png?v=3"/>
+<img alt="" class="spigotImg" src="spigot.png?v=3" width="50" height="56" />
 <div class="spigotText">
 <div class="acctLine">Flow rate (KBU, Parent + Sponsors): <span id="bingoSpigotFlowRateOut">0.00</span></div>
 <div class="acctLine kbHourLine">KBU per hour (estimate): <span id="bingoSpigotKbucksPerHourOut">0.00</span></div>
@@ -3025,7 +3218,7 @@ color: #111;
 </div>
 </div>
 </div>
-<div class="copyrightLine">Copyright © 2025-2026 Vladimir Kravtchenko. All rights reserved. Version <span class="kbBuildVersion">0.2.2</span></div>
+<div class="copyrightLine">Copyright © 2025-2026 Vladimir Kravtchenko. All rights reserved. Version <span class="kbBuildVersion">0.2.90</span></div>
 </div>
 </div>
 <div class="overlay" id="overlay">
@@ -3050,7 +3243,7 @@ color: #111;
 
 
     const SCALE = 1000000000  
-    const KB_BUILD_VERSION = (window.KB_BUILD_VERSION || "0.1.379")
+    const KB_BUILD_VERSION = (window.KB_BUILD_VERSION || "0.2.90")
     try { window.KB_BUILD_VERSION = KB_BUILD_VERSION } catch (e) {}
     // Screen 4, Multiply Two Numbers tables
     // productPairs, all 100 A x B pairs, 1..10 by 1..10
@@ -3112,6 +3305,21 @@ function fmtWalletMin2U(u) {
 
   return intStr + "." + frac
 }
+
+function kbFmtKbuRate2(x) {
+  const n = Number(x)
+  if (!Number.isFinite(n) || n <= 0) return "0.00"
+  // Keep two decimals for consistency with balances and readability.
+  return n.toFixed(2)
+}
+
+function kbFmtKbuDrop2(x) {
+  const n = Number(x)
+  if (!Number.isFinite(n) || n <= 0) return "0.00"
+  return n.toFixed(2)
+}
+
+
 // 1 unit = 0.000000001 K-Bucks
 
     const ORANGE_STYLE = {
@@ -3511,7 +3719,676 @@ const messageEl = document.getElementById("message")
     const bingoPlatformInfoEl = document.getElementById("bingoPlatformInfo")
 
 
-    const overlay = document.getElementById("overlay")
+    
+    // Geo game context switching (NTC vs OAP replica)
+    let kbGeoActiveKey = "ntc"
+    let kbGeoSelectedVideoKey = ""
+    let kbOapSelectedBulletText = ""
+    const kbOapVideoByKey = {
+      laser: "how_a_laser_works.webm",
+      fiber: "how_a_fiber_optic_cable_works.webm",
+    }
+    const kbGeoState = {
+      ntc: { rounds: 0, correctCount: 0, gameComplete: false, mode: "normal", parentU: 0, sponsorU: 0, flowU: 0, sponsorMatch: 5, devCarry: 0, platCarry: 0, devU: 0, selectedVideoKey: "" },
+      oap: { rounds: 0, correctCount: 0, gameComplete: false, mode: "normal", parentU: 0, sponsorU: 0, flowU: 0, sponsorMatch: 5, devCarry: 0, platCarry: 0, devU: 0, selectedVideoKey: "" },
+    }
+
+    // OAP Progress is time-based and separate from NTC and MTN.
+    // Enumerator is watched time, denominator is total time of all OAP videos.
+    let kbOapProgressMs = 0
+    let kbOapLastVideoTimeSec = 0
+    let kbOapWasPlayingBeforeBlur = false
+    let kbOapTickTimer = null
+    let kbOapLastTickTs = 0
+    const kbOapTotalMs = (4 * 60 + 52 + 5 * 60 + 35) * 1000  // 00:10:27
+
+
+    // OAP periodic KBU flow: apply transfers every N seconds of *watched* time.
+    // This uses the Total watch time enumerator (kbOapProgressMs) as the clock.
+    const KB_OAP_FLOW_EVERY_SEC = 10
+    const KB_OAP_FLOW_EVERY_MS = KB_OAP_FLOW_EVERY_SEC * 1000
+    let kbOapLastFlowProgressMs = 0
+
+    
+    function kbOapSetVideoSrcByKey(videoKey) {
+      const v = document.getElementById("oapVideo")
+        try { kbOapHookVideoEventsOnce(v) } catch (e) {}
+      if (!v) return
+      const src = videoKey ? kbOapVideoByKey[videoKey] : ""
+      if (!src) {
+        try { v.pause() } catch (e) {}
+        v.removeAttribute("src")
+        v.load()
+      function kbOapOnceCanplaySync() {
+        v.removeEventListener("canplay", kbOapOnceCanplaySync)
+        kbScheduleOapVideoInsetSync()
+        kbOapSyncVideoTopInset()
+      }
+      v.addEventListener("canplay", kbOapOnceCanplaySync)
+
+        return
+      }
+      if (v.getAttribute("src") !== src) {
+        v.setAttribute("src", src)
+        v.load()
+      }
+      try {
+        v.currentTime = 0
+      } catch (e) {}
+      const p = v.play()
+      if (p && typeof p.catch === "function") p.catch(() => {})
+    }
+
+function kbGeoSaveState() {
+      const st = kbGeoState[kbGeoActiveKey]
+      if (!st) return
+      st.rounds = rounds
+      st.correctCount = correctCount
+      st.gameComplete = gameComplete
+      st.mode = mode
+      st.parentU = parentU
+      st.sponsorU = sponsorU
+      st.flowU = flowU
+      st.sponsorMatch = sponsorMatch
+      st.devCarry = devCarry
+      st.platCarry = platCarry
+      st.devU = devU
+      st.selectedVideoKey = kbGeoSelectedVideoKey
+    }
+
+    function kbGeoLoadState(key) {
+      if (!kbGeoState[key]) kbGeoState[key] = { rounds: 0, correctCount: 0, gameComplete: false, mode: "normal", parentU: 0, sponsorU: 0, flowU: 0, sponsorMatch: 5, devCarry: 0, platCarry: 0, devU: 0, selectedVideoKey: "" }
+      kbGeoSaveState()
+      kbGeoActiveKey = key
+      const st = kbGeoState[kbGeoActiveKey]
+      rounds = st.rounds
+      correctCount = st.correctCount
+      gameComplete = st.gameComplete
+      mode = st.mode
+      parentU = (typeof st.parentU === "number") ? st.parentU : 0
+      sponsorU = (typeof st.sponsorU === "number") ? st.sponsorU : 0
+      flowU = (typeof st.flowU === "number") ? st.flowU : 0
+      sponsorMatch = (typeof st.sponsorMatch === "number") ? st.sponsorMatch : 5
+      devCarry = (typeof st.devCarry === "number") ? st.devCarry : 0
+      platCarry = (typeof st.platCarry === "number") ? st.platCarry : 0
+      devU = (typeof st.devU === "number") ? st.devU : 0
+      kbGeoSelectedVideoKey = (typeof st.selectedVideoKey === "string") ? st.selectedVideoKey : ""
+      try {
+        if (parentInput) parentInput.value = fmtParentU(parentU)
+        if (sponsorInput) sponsorInput.value = fmtSponsorU(sponsorU)
+        if (flowRateInput) flowRateInput.value = fmtFlowInputU(flowU)
+        if (sponsorMatchInput) sponsorMatchInput.value = String(sponsorMatch)
+      } catch (e) {}
+      try { updateAccounts() } catch (e) {}
+      try {
+        const titleEl = document.getElementById("geoTitle")
+        if (titleEl) titleEl.textContent = (kbGeoActiveKey === "oap") ? "Optics and Photonics" : "Name That Country"
+      } catch (e) {}
+    }
+
+
+    
+    
+    
+    
+    
+    
+    function kbOapSyncVideoTopInset() {
+      if (kbGeoActiveKey !== "oap") return
+      const mapSlot = document.getElementById("mapSlot")
+      const prompt = document.getElementById("geoPromptHeader")
+      const v = document.getElementById("oapVideo")
+      if (!mapSlot || !prompt || !v) return
+
+      // Make absolute positioning relative to the 512x512 box.
+      mapSlot.style.setProperty("position", "relative", "important")
+      mapSlot.style.setProperty("overflow", "hidden", "important")
+
+      const mapRect = mapSlot.getBoundingClientRect()
+      const promptRect = prompt.getBoundingClientRect()
+
+      // Align the top of the video element to the top of the prompt text in the middle pane.
+      const topInsetRaw = Math.max(0, Math.round(promptRect.top - mapRect.top))
+
+      // Visual alignment tweak: prompt text sits ~5px lower than the raw geometry suggests.
+      const topInset = topInsetRaw + 5
+
+      // Size the video element so the native controls sit directly under the rendered video frame.
+      // Use actual aspect ratio when known, otherwise fall back to 16:9 so layout is stable immediately.
+      const controlsH = 56
+      const fallbackAr = 9 / 16
+      const ar = (v.videoWidth && v.videoHeight) ? (v.videoHeight / v.videoWidth) : fallbackAr
+      const contentH = Math.round(mapRect.width * ar)
+
+      const maxH = Math.max(120, Math.round(mapRect.height - topInset - 8))
+      const extraPad = 16
+      const h = Math.min(maxH, Math.max(120, contentH + controlsH + extraPad))
+
+// Force overrides even if older CSS uses !important.
+      v.style.setProperty("position", "absolute", "important")
+      v.style.setProperty("left", "0px", "important")
+      v.style.setProperty("top", topInset + "px", "important")
+      v.style.setProperty("width", "100%", "important")
+      v.style.setProperty("height", h + "px", "important")
+      v.style.setProperty("max-height", h + "px", "important")
+      v.style.setProperty("transform", "none", "important")
+      v.style.setProperty("object-fit", "contain", "important")
+      v.style.setProperty("object-position", "top center", "important")
+      v.style.setProperty("display", "block", "important")
+      v.style.setProperty("z-index", "1", "important")
+    }
+
+
+
+
+
+
+    let kbOapVideoInsetRaf = 0
+    
+    function kbOapAttachVideoMetaListener() {
+      const v = document.getElementById("oapVideo")
+      if (!v) return
+      v.addEventListener("loadedmetadata", () => { kbScheduleOapVideoInsetSync(); kbOapSyncVideoTopInset(); })
+      v.addEventListener("canplay", () => { kbScheduleOapVideoInsetSync(); kbOapSyncVideoTopInset(); })
+    }
+
+function kbScheduleOapVideoInsetSync() {
+      if (kbOapVideoInsetRaf) return
+      kbOapVideoInsetRaf = requestAnimationFrame(() => {
+        kbOapVideoInsetRaf = 0
+        kbOapSyncVideoTopInset()
+      })
+    }
+
+    window.addEventListener("resize", kbScheduleOapVideoInsetSync)
+
+function kbApplyGeoContextUI() {
+      const isOap = kbGeoActiveKey === "oap"
+      if (isOap) {
+        try { stopTimer() } catch (e) {}
+      }
+      const screen = document.getElementById("screenGame")
+      if (screen) {
+        if (isOap) screen.classList.add("kbOapMode")
+        else screen.classList.remove("kbOapMode")
+      }
+
+      const statusEl = document.getElementById("status")
+      const timerEl = document.getElementById("timer")
+      if (statusEl) statusEl.style.display = isOap ? "none" : ""
+      if (timerEl) timerEl.style.display = isOap ? "none" : ""
+
+      const promptEl = document.getElementById("geoPromptHeader")
+      if (promptEl) promptEl.textContent = isOap ? "Select a video:" : "Select an answer:"
+      if (isOap) kbScheduleOapVideoInsetSync()
+      if (isOap) setTimeout(() => kbOapSyncVideoTopInset(), 0)
+
+      const nextBtnEl = document.getElementById("nextBtn")
+      const missesBtnEl = document.getElementById("quitBtn") // Misses button, historical id
+      const newGameBtnEl = document.getElementById("startNewBtn")
+      if (nextBtnEl) nextBtnEl.style.display = isOap ? "none" : ""
+      if (missesBtnEl) missesBtnEl.style.display = isOap ? "none" : ""
+      if (newGameBtnEl) newGameBtnEl.style.display = isOap ? "none" : ""
+
+      const bottomBarEl = document.querySelector("#screenGame .quizBottomBar")
+      if (bottomBarEl) bottomBarEl.classList.toggle("kbOapBottomBar", isOap)
+
+      const oapAttrWrap = document.getElementById("oapAttributionWrap")
+      if (oapAttrWrap) oapAttrWrap.style.display = isOap ? "" : "none"
+
+      const v = document.getElementById("oapVideo")
+      if (v) {
+        if (!isOap) {
+          kbOapSetVideoSrcByKey("")
+        } else {
+          kbOapSetVideoSrcByKey(kbGeoSelectedVideoKey || "")
+
+      kbScheduleOapVideoInsetSync()
+        }
+      }
+
+      const flowLabelEl = document.getElementById("flowRateLabelText")
+      if (flowLabelEl) {
+        flowLabelEl.textContent = isOap ? "Flow rate (KBU per hour of watching): " : "Flow rate (KBU per correct answer):"
+      }
+
+      const kbuLineLabelEl = document.getElementById("spigotKbucksPerHourLabel")
+      if (kbuLineLabelEl) {
+        kbuLineLabelEl.textContent = isOap ? ("KBU drop every " + String(KB_OAP_FLOW_EVERY_SEC) + " seconds: ") : "KBU per hour (estimate): "
+      }
+    }
+
+    
+    function kbOapStopVideoPlayback() {
+      try {
+        const v = document.getElementById("oapVideo")
+        if (v) {
+          v.pause()
+          try { v.currentTime = 0 } catch (e) {}
+          kbOapWasPlayingBeforeBlur = false
+          kbOapLastVideoTimeSec = 0
+        }
+      } catch (e) {}
+    }
+
+    function kbOapClearSelectedVideo() {
+      try { kbGeoSelectedVideoKey = "" } catch (e) {}
+      try { kbOapSelectedBulletText = "" } catch (e) {}
+      try {
+        const answersEl = document.getElementById("answers")
+        if (!answersEl) return
+        const btns = answersEl.querySelectorAll(".ansBtn")
+        btns.forEach((b) => b.classList.remove("selected"))
+      } catch (e) {}
+    }
+
+    function kbOapResetOnEnter() {
+      // Reset OAP progress numerator and UI selection like "New game" state.
+      try { kbOapProgressMs = 0 } catch (e) {}
+      try { kbOapStopVideoPlayback() } catch (e) {}
+      try { kbOapClearSelectedVideo() } catch (e) {}
+      try { kbOapWasPlayingBeforeBlur = false } catch (e) {}
+      try { kbOapLastVideoTimeSec = 0 } catch (e) {}
+      try { kbOapLastTickTs = 0 } catch (e) {}
+       try { kbOapLastFlowProgressMs = 0 } catch (e) {}
+    }
+
+    function kbOapIsWindowActive() {
+      // Treat "hidden" as inactive. hasFocus() is unreliable across browsers and devtools.
+      try { return !document.hidden } catch (e) { return true }
+    }
+
+    
+    function kbOapHookVideoEventsOnce(v) {
+      if (!v) return
+      if (v.__kbOapHooked) return
+      v.__kbOapHooked = true
+
+      const sync = () => { try { kbOapSyncLastVideoTime() } catch (e) {} }
+
+      v.addEventListener("playing", sync)
+      v.addEventListener("pause", sync)
+      v.addEventListener("seeking", sync)
+      v.addEventListener("seeked", sync)
+      v.addEventListener("ended", sync)
+    }
+
+function kbOapGetVideoEl() {
+      try { return document.getElementById("oapVideo") } catch (e) { return null }
+    }
+
+    function kbOapClampProgress() {
+      try {
+        kbOapProgressMs = Math.max(0, kbOapProgressMs || 0)
+      } catch (e) {}
+    }
+
+
+    function kbOapSyncLastVideoTime() {
+      const v = kbOapGetVideoEl()
+      if (!v) return
+      const t = Number(v.currentTime || 0)
+      kbOapLastVideoTimeSec = isFinite(t) ? t : 0
+    }
+
+    function kbOapMaybePauseForInactivity() {
+      const v = kbOapGetVideoEl()
+      if (!v) return
+      if (!kbOapIsWindowActive() && !v.paused) {
+        kbOapWasPlayingBeforeBlur = true
+        try { v.pause() } catch (e) {}
+      }
+    }
+
+    function kbOapMaybeResumeAfterFocus() {
+      const v = kbOapGetVideoEl()
+      if (!v) return
+      // Only auto resume if we paused due to inactivity, and a source is loaded.
+      if (kbOapWasPlayingBeforeBlur && kbOapIsWindowActive()) {
+        kbOapWasPlayingBeforeBlur = false
+        try {
+          const p = v.play()
+          if (p && typeof p.catch === "function") p.catch(() => {})
+        } catch (e) {}
+      }
+    }
+
+    
+    function kbOapApplyPeriodicFlow() {
+      try {
+        if (kbGeoActiveKey !== "oap") return
+        if (mode !== "normal") return
+
+        const everyMs = KB_OAP_FLOW_EVERY_MS
+        const progMs = Number(kbOapProgressMs) || 0
+        const baseMs = (Number(kbOapLastFlowProgressMs) || 0)
+
+        // Only pay out when we have crossed one or more whole intervals.
+        const diffMs = progMs - baseMs
+        if (!Number.isFinite(diffMs) || diffMs < everyMs) return
+
+        let ticks = Math.floor(diffMs / everyMs)
+        if (!Number.isFinite(ticks) || ticks <= 0) return
+
+        // Move the watermark forward by whole ticks. Any remainder stays for the next call.
+        kbOapLastFlowProgressMs = baseMs + ticks * everyMs
+
+        let tickIndex = 0
+
+        const kbOapToKbu = (u) => {
+          const n = Number(u) || 0
+          return n > 0 ? (n / SCALE) : 0
+        }
+
+        // FlowU for OAP is KBU/hour (in internal units). Convert to "per interval" amount.
+        // Use truncation (no rounding) to keep behavior predictable.
+        const m = Number(sponsorMatch)
+
+        let anyMoved = false
+
+        while (ticks > 0) {
+          ticks -= 1
+          tickIndex += 1
+          const tickMs = baseMs + tickIndex * everyMs
+
+          // Default is "no payout" for this tick. We still emit telemetry per requirements.
+          let parentPayU = 0
+          let sponsorPayU = 0
+
+          // If the Parent wallet is empty, force Parent flow rate to 0 immediately, but keep emitting zero-payout ticks.
+          if (parentU <= 0) {
+            parentU = 0
+            flowU = 0
+          }
+
+          // Compute per-tick payout only when flow is positive and Parent has funds.
+          if (parentU > 0 && (Number(flowU) || 0) > 0) {
+            // flowU is KBU/hour (internal units). Convert to "per interval" amount in KBU-space, then back to units.
+            const wantParentPayU = Math.floor(((Number(flowU) || 0) / SCALE) * (everyMs / 3600000) * SCALE)
+            parentPayU = wantParentPayU > 0 ? Math.min(wantParentPayU, parentU) : 0
+
+            if (parentPayU > 0 && Number.isFinite(m) && m > 0 && sponsorU > 0) {
+              const wantSponsorPayU = Math.floor(Number(parentPayU) / m)
+              if (wantSponsorPayU > 0) sponsorPayU = Math.min(wantSponsorPayU, sponsorU)
+            }
+          }
+
+          const totalPayU = parentPayU + sponsorPayU
+
+          // Emit kb_answer for every tick, even if there is no payout.
+          try {
+            if (window.KB_TELEMETRY) {
+              window.KB_TELEMETRY.event("kb_answer", {
+                kb_game: "optics_and_photonics",
+                kb_mode: "normal",
+                kb_correct: totalPayU > 0 ? 1 : 0,
+                kb_round: formatTimeHMS(tickMs),
+                kb_bullet: kbOapGetSelectedBulletText(),
+                kb_total_pay_kbu: totalPayU > 0 ? kbOapToKbu(totalPayU) : 0,
+                kb_parent_pay_kbu: parentPayU > 0 ? kbOapToKbu(parentPayU) : 0,
+                kb_sponsor_pay_kbu: sponsorPayU > 0 ? kbOapToKbu(sponsorPayU) : 0
+              })
+            }
+          } catch (e) {}
+
+          if (totalPayU <= 0) continue
+
+          // Split: 75% child, 12.5% content developer, 12.5% platform.
+          // Use carry remainders (denominator 8) to avoid systematic rounding bias.
+          const devNumer = totalPayU + devCarry
+          const platNumer = totalPayU + platCarry
+
+          const devAdd = Math.floor(devNumer / 8)
+          const platAdd = Math.floor(platNumer / 8)
+
+          devCarry = devNumer % 8
+          platCarry = platNumer % 8
+
+          const childAdd = totalPayU - devAdd - platAdd
+
+          parentU -= parentPayU
+          sponsorU -= sponsorPayU
+
+          kbGlobalChildU += childAdd
+          devU += devAdd
+          kbGlobalPlatformU += platAdd
+
+          anyMoved = true
+
+          // If the Parent wallet is now empty, force flow to 0 right away.
+          if (parentU <= 0) {
+            parentU = 0
+            flowU = 0
+          }
+          if (sponsorU < 0) sponsorU = 0
+        }
+
+        if (anyMoved) {
+          try { kbGeoSaveState() } catch (e) {}
+          saveWallet()
+          clampFlowRate()
+          updateAccounts()
+        }
+      } catch (e) {}
+    }
+
+function kbOapWatchTick() {
+      try {
+        if (kbGeoActiveKey !== "oap") return
+        const v = kbOapGetVideoEl()
+        if (!v) return
+
+        // Anti-cheating. Do not allow playback while inactive.
+        kbOapMaybePauseForInactivity()
+
+        const curSecRaw = Number(v.currentTime || 0)
+        const curSec = isFinite(curSecRaw) ? curSecRaw : 0
+        const prevSec = isFinite(kbOapLastVideoTimeSec) ? kbOapLastVideoTimeSec : curSec
+
+        // Only count watch time when the video is actually playing and the page is active.
+        if (!v.paused && !v.ended && kbOapIsWindowActive()) {
+          const dSec = curSec - prevSec
+
+          // Count only forward playback deltas, ignore seeks and large jumps.
+          if (dSec > 0 && dSec <= 1.5) {
+            kbOapProgressMs = (kbOapProgressMs || 0) + dSec * 1000
+            kbOapClampProgress()
+            try { updateScoreDisplay() } catch (e) {}
+            try { kbOapApplyPeriodicFlow() } catch (e) {}
+          }
+        }
+
+        kbOapLastVideoTimeSec = curSec
+      } catch (e) {}
+    }
+
+function kbOapInitWatchTimer() {
+      if (kbOapTickTimer) return
+      kbOapTickTimer = setInterval(kbOapWatchTick, 250)
+
+      // Keep tick baseline correct when playback state changes.
+      document.addEventListener("play", (ev) => {
+        try {
+          if (kbGeoActiveKey !== "oap") return
+          const v = kbOapGetVideoEl()
+          if (!v) return
+          if (ev.target !== v) return
+          kbOapLastTickTs = performance.now()
+        } catch (e) {}
+      }, true)
+
+      document.addEventListener("pause", (ev) => {
+        try {
+          const v = kbOapGetVideoEl()
+          if (!v) return
+          if (ev.target !== v) return
+          kbOapLastTickTs = performance.now()
+        } catch (e) {}
+      }, true)
+
+      
+      document.addEventListener("timeupdate", (ev) => {
+        try {
+          if (kbGeoActiveKey !== "oap") return
+          const v = kbOapGetVideoEl()
+          if (!v) return
+          if (ev.target !== v) return
+          if (v.paused || v.ended) { kbOapLastVideoTimeSec = Number(v.currentTime || 0) || 0; return }
+          if (!kbOapIsWindowActive()) return
+
+          const cur = Number(v.currentTime || 0) || 0
+          const prev = Number(kbOapLastVideoTimeSec || 0) || 0
+          const dMs = (cur - prev) * 1000
+          // Count only small forward progress, ignore seeks and jumps.
+          if (dMs > 0 && dMs <= 1500) {
+            kbOapProgressMs = (kbOapProgressMs || 0) + dMs
+            kbOapClampProgress()
+            try { updateScoreDisplay() } catch (e) {}
+            try { kbOapApplyPeriodicFlow() } catch (e) {}
+          }
+          kbOapLastVideoTimeSec = cur
+          kbOapLastTickTs = performance.now()
+        } catch (e) {}
+      }, true)
+
+document.addEventListener("seeking", (ev) => {
+        try {
+          const v = kbOapGetVideoEl()
+          if (!v) return
+          if (ev.target !== v) return
+          kbOapLastTickTs = performance.now()
+        } catch (e) {}
+      }, true)
+
+      document.addEventListener("ended", (ev) => {
+        try {
+          const v = kbOapGetVideoEl()
+          if (!v) return
+          if (ev.target !== v) return
+          kbOapLastTickTs = performance.now()
+        } catch (e) {}
+      }, true)
+
+      // Pause when tab becomes hidden, resume when visible again.
+      document.addEventListener("visibilitychange", () => {
+        try {
+          const v = kbOapGetVideoEl()
+          if (!v) return
+          if (kbGeoActiveKey !== "oap") return
+          if (document.hidden) {
+            if (!v.paused) kbOapWasPlayingBeforeBlur = true
+            try { v.pause() } catch (e) {}
+          } else {
+            kbOapMaybeResumeAfterFocus()
+            kbOapSyncLastVideoTime()
+          }
+        } catch (e) {}
+      })
+
+      window.addEventListener("blur", () => {
+        try {
+          if (kbGeoActiveKey !== "oap") return
+          const v = kbOapGetVideoEl()
+          if (!v) return
+          if (!v.paused) kbOapWasPlayingBeforeBlur = true
+          try { v.pause() } catch (e) {}
+        } catch (e) {}
+      })
+
+      window.addEventListener("focus", () => {
+        try {
+          if (kbGeoActiveKey !== "oap") return
+          kbOapMaybeResumeAfterFocus()
+          kbOapSyncLastVideoTime()
+        } catch (e) {}
+      })
+    }
+
+
+function kbOapGetSelectedBulletText() {
+      try {
+        if (kbOapSelectedBulletText && String(kbOapSelectedBulletText).trim()) return String(kbOapSelectedBulletText).trim()
+        // Fallback based on selected key
+        const k = String(kbGeoSelectedVideoKey || "")
+        if (k === "fiber") return "Fiber optic cables 5:35"
+        if (k === "laser") return "How a laser works 4:52"
+        return ""
+      } catch (e) { return "" }
+    }
+
+function kbRenderOapVideoList() {
+      if (kbGeoActiveKey !== "oap") return
+      const answersEl = document.getElementById("answers")
+      if (!answersEl) return
+
+      answersEl.innerHTML = ""
+      const items = [
+        { key: "fiber", displayName: "Fiber optic cables 5:35" },
+        { key: "laser", displayName: "How a laser works 4:52" },
+      ]
+
+      kbOapSetVideoSrcByKey(kbGeoSelectedVideoKey || "")
+
+      for (const opt of items) {
+        const li = document.createElement("li")
+        const btn = document.createElement("button")
+        btn.className = "ansBtn"
+        btn.type = "button"
+
+        const bullet = document.createElement("span")
+        bullet.className = "bullet"
+        bullet.textContent = "•"
+
+        const label = document.createElement("span")
+        label.className = "label"
+        label.textContent = opt.displayName
+
+        const mark = document.createElement("span")
+        mark.className = "mark"
+        mark.textContent = ""
+
+        btn.appendChild(bullet)
+        btn.appendChild(label)
+        btn.appendChild(mark)
+
+        if (kbGeoSelectedVideoKey === opt.key) {
+          btn.classList.add("kbOapSelected")
+          mark.textContent = "✓"
+        
+          try { kbOapSelectedBulletText = opt.displayName } catch (e) {}
+        }
+
+        btn.addEventListener("click", () => {
+          if (kbGeoActiveKey !== "oap") return
+          kbGeoSelectedVideoKey = opt.key
+          try { kbOapSelectedBulletText = opt.displayName } catch (e) {}
+          const all = Array.from(document.querySelectorAll("#quizPane .ansBtn"))
+          for (const b of all) {
+            b.classList.remove("kbOapSelected")
+            const m = b.querySelector(".mark")
+            if (m) m.textContent = ""
+          }
+          btn.classList.add("kbOapSelected")
+          const myMark = btn.querySelector(".mark")
+          if (myMark) myMark.textContent = "✓"
+          kbGeoSaveState()
+          kbOapSetVideoSrcByKey(kbGeoSelectedVideoKey)
+          setTimeout(() => kbOapSyncVideoTopInset(), 0)
+
+          const msgEl = document.getElementById("message")
+          if (msgEl) msgEl.textContent = ""
+        })
+
+        li.appendChild(btn)
+        answersEl.appendChild(li)
+      }
+
+      const msgEl = document.getElementById("message")
+      if (msgEl) msgEl.textContent = ""
+    }
+
+
+const overlay = document.getElementById("overlay")
     const restartBtn = document.getElementById("restartBtn")
 
     const parentInput = document.getElementById("parentInput")
@@ -3586,7 +4463,10 @@ const screenBingoEl = document.getElementById("screenBingo")
       try { if (bingoMessageEl) bingoMessageEl.textContent = text } catch (e) {}
     }
 
-    function showGameScreen() {
+    function showGameScreen(whichKey) {
+
+      const key = (whichKey === "oap") ? "oap" : "ntc"
+      kbGeoLoadState(key)
       try { kbDbg("showGameScreen", kbMapState()) } catch (e) {}
 
       
@@ -3594,16 +4474,26 @@ const screenBingoEl = document.getElementById("screenBingo")
         if (!bingoTimerStopped && bingoTimerRunning) pauseBingoTimer()
       }
 currentScreen = "game"
-      try { if (window.KB_TELEMETRY) KB_TELEMETRY.screen("name_that_country") } catch (e) {}
+      try { if (window.KB_TELEMETRY) KB_TELEMETRY.screen((kbGeoActiveKey === "oap") ? "optics_and_photonics" : "name_that_country") } catch (e) {}
       if (screenGameEl) screenGameEl.style.display = ""
       if (screenStoreEl) screenStoreEl.style.display = "none"
       if (screenEduEl) screenEduEl.style.display = "none"
       
       if (screenBingoEl) screenBingoEl.style.display = "none"
       
+      try { kbApplyGeoContextUI() } catch (e) {}
+      if (kbGeoActiveKey === "oap") { try { kbOapInitWatchTimer() } catch (e) {} try { kbOapResetOnEnter() } catch (e) {} }
+      try { updateScoreDisplay() } catch (e) {}
+            try { kbOapApplyPeriodicFlow() } catch (e) {}
+
       // Recreate Leaflet map fresh each time we enter the game screen.
+      // OAP does not use maps.
       try { kbDestroyLeafletMap("showGameScreen") } catch (e) {}
-      try { kbEnsureLeafletMap("showGameScreen") } catch (e) {}
+      if (kbGeoActiveKey !== "oap") {
+        try { kbEnsureLeafletMap("showGameScreen") } catch (e) {}
+      } else {
+        try { map = null } catch (e) {}
+      }
 
       try { syncMapHeight() } catch (e) {}
       try { updateFooterDebugAll() } catch (e) {}
@@ -3611,6 +4501,8 @@ currentScreen = "game"
     }
 
     function showStoreScreen() {
+
+      try { if (currentScreen === "game") kbGeoSaveState() } catch (e) {}
       try { kbDbg("showStoreScreen", kbMapState()) } catch (e) {}
 
       
@@ -3631,6 +4523,8 @@ currentScreen = "store"
     }
 
     function showEduScreen() {
+
+      try { if (currentScreen === "game") kbGeoSaveState() } catch (e) {}
       try { kbDbg("showEduScreen", kbMapState()) } catch (e) {}
 
       
@@ -3661,8 +4555,11 @@ currentScreen = "edu"
     let kbBingoPlatCarry = 0
 
     function kbBingoSpigotFlowRateU() {
-      const parentFlowU = Number(kbBingoFlowU)
+      let parentFlowU = Number(kbBingoFlowU)
+      const parentWalletU = Number(kbBingoParentU)
       if (!Number.isFinite(parentFlowU) || parentFlowU <= 0) return 0
+      if (!Number.isFinite(parentWalletU) || parentWalletU <= 0) return 0
+      parentFlowU = Math.min(parentFlowU, parentWalletU)
 
       let sponsorAddU = 0
       const m = Number(kbBingoSponsorMatch)
@@ -4193,13 +5090,16 @@ function kbBingoPresentRandomPair() {
 
       // K-Bucks flow (normal mode only). No flow for incorrect answers.
       if (!isPractice && isCorrect) {
-        const parentFlowU = Number(kbBingoFlowU)
+        let parentFlowU = Number(kbBingoFlowU)
         const parentWalletU = Number(kbBingoParentU)
 
-        let parentPayU = 0
-        if (Number.isFinite(parentFlowU) && parentFlowU > 0 && Number.isFinite(parentWalletU) && parentWalletU > 0) {
-          parentPayU = Math.min(parentFlowU, parentWalletU)
+        if (!Number.isFinite(parentFlowU) || parentFlowU <= 0 || !Number.isFinite(parentWalletU) || parentWalletU <= 0) {
+          parentFlowU = 0
+        } else {
+          parentFlowU = Math.min(parentFlowU, parentWalletU)
         }
+
+        let parentPayU = parentFlowU
 
         let sponsorPayU = 0
         const m = Number(kbBingoSponsorMatch)
@@ -4249,6 +5149,7 @@ function kbBingoPresentRandomPair() {
             kb_mode: kbBingoMode,
             kb_correct: isCorrect ? 1 : 0,
             kb_round: kbBingoRounds,
+            kb_bullet: (function(){ try { const _l = chosenBtn && chosenBtn.querySelector(".label"); return _l ? String(_l.textContent || "").trim() : ""; } catch (e) { return ""; } })(),
             kb_total_pay_kbu: toKbu(kbTelemetryTotalPayU),
             kb_parent_pay_kbu: toKbu(kbTelemetryParentPayU),
             kb_sponsor_pay_kbu: toKbu(kbTelemetrySponsorPayU)
@@ -4380,6 +5281,9 @@ function kbBingoPresentRandomPair() {
 
     function quitBingoToEdu() {
       try { kbDbg("quitBingoToEdu", kbMapState()) } catch (e) {}
+      try {
+        if (window.KB_TELEMETRY) window.KB_TELEMETRY.event("kb_game_quit", { kb_game: "practice_times_tables" })
+      } catch (e) {}
       if (bingoTimerRunning) pauseBingoTimer()
       showEduScreen()
     }
@@ -4396,6 +5300,8 @@ function kbBingoPresentRandomPair() {
     if (bingoRedeemBtn) bingoRedeemBtn.addEventListener("click", quitBingoToEdu)
 
 function showBingoScreen() {
+
+      try { if (currentScreen === "game") kbGeoSaveState() } catch (e) {}
       try { kbDbg("showBingoScreen", kbMapState()) } catch (e) {}
 
       
@@ -4461,7 +5367,14 @@ currentScreen = "bingo"
       return hh + ":" + pad2(minutes) + ":" + pad2(seconds)
     }
 
-    function setTimerVisible(visible) {
+    function formatTimeMSS(ms) {
+      const totalSeconds = Math.max(0, Math.floor(ms / 1000))
+      const minutes = Math.floor(totalSeconds / 60)
+      const seconds = totalSeconds % 60
+      return String(minutes) + ":" + pad2(seconds)
+    }
+
+function setTimerVisible(visible) {
       if (!timerEl) return
       timerEl.style.display = visible ? "" : "none"
     }
@@ -4632,7 +5545,16 @@ currentScreen = "bingo"
     // K-Bucks demo wallet (units = 0.0001 K-Bucks)
     let parentU = 0 * SCALE
     let sponsorU = 0 * SCALE
-    let kbGlobalChildU = 0
+    // Optics and Photonics (Screen 1 card placeholder) wallets.
+    // Blank-start: these are intentionally zero until we wire up flows.
+    let kbOpticsParentU = 0 * SCALE
+    let kbOpticsSponsorU = 0 * SCALE
+    function kbAvailableToEarnOpticsU() {
+      const st = kbGeoState && kbGeoState.oap ? kbGeoState.oap : null
+      if (!st) return 0
+      return kbAvailableToEarnForGameU(st.flowU, st.parentU, st.sponsorU, st.sponsorMatch)
+    }
+let kbGlobalChildU = 0
     let devU = 0
     let kbGlobalPlatformU = 0
     let flowU = toUnits("0.00")  // 0.00
@@ -4848,78 +5770,79 @@ function fmtUnitsTrimU(u) {
   return intStr + "." + frac
 }
 
-// Combined Parent + Sponsors flow per correct answer, returned in internal units.
-// We keep full internal precision (up to 9 decimals) and avoid rounding.
+// Parent + Sponsors combined flow rate for OAP.
+// Returned in KBU per hour (float), not wallet units.
 function spigotFlowRateU() {
-  const parentU = Number(flowU)
-  if (!Number.isFinite(parentU) || parentU <= 0) return 0
+  const parentBalU = Number(parentU)
+  const parentRateU = Number(flowU)
+  if (!Number.isFinite(parentBalU) || parentBalU <= 0) return 0
+  if (!Number.isFinite(parentRateU) || parentRateU <= 0) return 0
 
-  let sponsorAddU = 0
+  const parentRateK = parentRateU / SCALE
+
+  let sponsorRateK = 0
+  const sponsorBalU = Number(sponsorU)
   const m = Number(sponsorMatch)
-  const sponsorWalletU = Number(sponsorU)
-
-  if (Number.isFinite(sponsorWalletU) && sponsorWalletU > 0 && Number.isFinite(m) && m > 0) {
-    // Convert parentU / m into units, truncating (not rounding).
-    sponsorAddU = Math.trunc(parentU / m)
-    if (sponsorAddU > sponsorWalletU) sponsorAddU = sponsorWalletU
-    if (sponsorAddU < 0) sponsorAddU = 0
+  if (Number.isFinite(sponsorBalU) && sponsorBalU > 0 && Number.isFinite(m) && m > 0) {
+    sponsorRateK = parentRateK / m
   }
 
-  return parentU + sponsorAddU
+  return parentRateK + sponsorRateK
 }
 
+function sponsorFlowRateU() {
+  const parentBalU = Number(parentU)
+  const parentRateU = Number(flowU)
+  if (!Number.isFinite(parentBalU) || parentBalU <= 0) return 0
+  if (!Number.isFinite(parentRateU) || parentRateU <= 0) return 0
 
-    function sponsorFlowRateU() {
-  // Sponsors pay a rate derived from the parent flow and the match ratio.
-  // Returned in internal units, truncated, never rounded.
-  if (Number(sponsorU) <= 0) return 0
+  const sponsorBalU = Number(sponsorU)
+  if (!Number.isFinite(sponsorBalU) || sponsorBalU <= 0) return 0
 
   const m = Number(sponsorMatch)
   if (!Number.isFinite(m) || m <= 0) return 0
 
-  let u = Math.trunc(Number(flowU) / m)
-
-  const sU = Number(sponsorU)
-  if (!Number.isFinite(sU) || sU <= 0) return 0
-
-  if (u > sU) u = sU
-  if (u < 0) u = 0
-
-  return u
+  return (parentRateU / SCALE) / m
 }
 
 function fmtSponsorFlowRate() {
-  return fmtWalletMin2U(sponsorFlowRateU())
+  return kbFmtKbuRate2(sponsorFlowRateU())
 }
 
+// Legacy helper, unused, kept for compatibility.
 function spigotFlowRateK() {
-  // Combined Parent + Sponsors flow per correct answer, in K-Bucks.
-  const parentK = Number(flowU) / SCALE
-  if (!Number.isFinite(parentK) || parentK <= 0) return 0
-
-  let sponsorK = 0
-  const m = Number(sponsorMatch)
-  const sponsorWalletK = Number(sponsorU) / SCALE
-
-  if (Number.isFinite(sponsorWalletK) && sponsorWalletK > 0 && Number.isFinite(m) && m > 0) {
-    sponsorK = parentK / m
-    if (sponsorK > sponsorWalletK) sponsorK = sponsorWalletK
-  }
-
-  return parentK + sponsorK
+  return spigotFlowRateU()
 }
+
 
 function fmtSpigotFlowRate() {
-  return fmtWalletMin2U(spigotFlowRateU())
+  const k = Number(spigotFlowRateU())
+  if (!Number.isFinite(k) || k <= 0) return "0.00"
+  const u = Math.trunc(k * SCALE)
+  return fmtWalletMin2U(u)
 }
-
 function spigotKbucksPerHourU() {
+  // For NTC and MTN, flow rate is per correct answer.
   // Estimate: flow per answer * (193 questions * 3600 sec/hour) / (1158 sec per full game) = flow * 600.
   return Math.trunc(spigotFlowRateU() * 600)
 }
 
 function fmtSpigotKbucksPerHour() {
-  return fmtWalletMin2U(spigotKbucksPerHourU())
+  const isOap = (typeof kbGeoActiveKey !== "undefined" && kbGeoActiveKey === "oap")
+
+  // In OAP, show the KBU drop per interval (every KB_OAP_FLOW_EVERY_SEC seconds of watched time).
+  if (isOap) {
+    const perHourK = Number(spigotFlowRateU())
+    if (!Number.isFinite(perHourK) || perHourK <= 0) return "0.00"
+    const intervalK = perHourK * Number(KB_OAP_FLOW_EVERY_SEC) / 3600
+    return fmtWalletMin2U(Math.trunc(intervalK * SCALE))
+  }
+
+  // In NTC/MTN, flow rate is KBU per correct answer. Estimate KBU per hour as flow * 600.
+  const perCorrectK = Number(spigotFlowRateU())
+  if (!Number.isFinite(perCorrectK) || perCorrectK <= 0) return "0.00"
+  const estPerHourK = perCorrectK * 600
+  return fmtWalletMin2U(Math.trunc(estPerHourK * SCALE))
 }
 
 
@@ -5029,6 +5952,7 @@ function clampFlowRate() {
   if (parentU <= 0) vU = 0
 
   flowU = vU
+      try { kbGeoSaveState() } catch (e) {}
   flowRateInput.value = fmtFlowInputU(flowU)
 
   saveWallet()
@@ -5041,6 +5965,7 @@ function clampFlowRate() {
       let vU = toMoneyUnits(raw)
       if (vU < 0) vU = 0
       parentU = vU
+      try { kbGeoSaveState() } catch (e) {}
       if (parentU <= 0) flowU = 0
       saveWallet()
       // Re-render flow after clamp
@@ -5055,6 +5980,7 @@ function clampFlowRate() {
       if (vU < 0) vU = 0
       sponsorU = vU
 
+      try { kbGeoSaveState() } catch (e) {}
       saveWallet()
       updateAccounts()
       if (sponsorInput && document.activeElement !== sponsorInput) sponsorInput.value = fmtSponsorU(sponsorU)
@@ -5073,11 +5999,38 @@ function clampFlowRate() {
 
       sponsorMatch = v
 
+      try { kbGeoSaveState() } catch (e) {}
       // Keep whatever the user typed while focused. Otherwise show the numeric value.
       if (document.activeElement !== sponsorMatchInput) sponsorMatchInput.value = String(sponsorMatch)
 
       saveWallet()
       updateAccounts()
+    }
+
+// Live-update sponsor match while typing so derived lines stay accurate.
+// Does not rewrite the input value while it is focused.
+function kbSponsorMatchLiveUpdate(inputEl) {
+  try {
+    if (!inputEl) return
+    const raw = String(inputEl.value || "").trim()
+    if (!raw) return
+    const v = Number(raw)
+    if (!Number.isFinite(v)) return
+    const clamped = Math.min(7, Math.max(3, v))
+    sponsorMatch = clamped
+    try { kbGeoSaveState() } catch (e) {}
+    saveWallet()
+    updateAccounts()
+  } catch (e) {}
+}
+
+
+
+    function formatScorePctInt(correct, total) {
+      if (!total || total <= 0) return ""
+      const pct = (correct / total) * 100
+      const pctInt = Math.round(pct)
+      return " (" + String(pctInt) + "%)"
     }
 
     function formatScorePct(correct, total) {
@@ -5101,12 +6054,28 @@ function clampFlowRate() {
         if (statusEl) statusEl.textContent = ""
         return
       }
+      if (kbGeoActiveKey === "oap") {
+        setTimerVisible(false)
+        if (timerEl) timerEl.textContent = ""
+        if (statusEl) statusEl.textContent = ""
+        if (progressEl) {
+          const a = Math.max(0, Math.floor(kbOapProgressMs || 0))
+          const b = Math.max(0, Math.floor(kbOapTotalMs || 0))
+          progressEl.textContent = "Total watch time: " + formatTimeMSS(a) + "/" + formatTimeMSS(b) + formatScorePctInt(a, b)
+        }
+        return
+      }
+
 
       setTimerVisible(true)
 
       if (progressEl) {
         const shown = Math.min(Math.max(rounds || 0, 0), total)
-        progressEl.textContent = "Progress: " + shown + "/" + total + formatScorePct(shown, total)
+        if (kbGeoActiveKey === "oap") {
+          progressEl.textContent = "Progress: " + formatTimeHMS(kbOapProgressMs) + "/" + formatTimeHMS(kbOapTotalMs) + formatScorePct(kbOapProgressMs, kbOapTotalMs)
+        } else {
+          progressEl.textContent = "Progress: " + shown + "/" + total + formatScorePct(shown, total)
+        }
       }
 
       if (finalMode) {
@@ -5194,7 +6163,9 @@ function clampFlowRate() {
     }
 
     function kbAvailableToEarnNtcU() {
-      return kbAvailableToEarnForGameU(flowU, parentU, sponsorU, sponsorMatch)
+      const st = kbGeoState && kbGeoState.ntc ? kbGeoState.ntc : null
+      if (!st) return 0
+      return kbAvailableToEarnForGameU(st.flowU, st.parentU, st.sponsorU, st.sponsorMatch)
     }
 
     function kbAvailableToEarnBingoU() {
@@ -5202,7 +6173,7 @@ function clampFlowRate() {
     }
 
     function kbComputeAvailableToEarnU() {
-      return kbAvailableToEarnNtcU() + kbAvailableToEarnBingoU()
+      return kbAvailableToEarnNtcU() + kbAvailableToEarnOpticsU() + kbAvailableToEarnBingoU()
     }
 function kbUpdateGlobalBalances() {
       if (redeemBalanceEl) {
@@ -5451,6 +6422,7 @@ function renderStore() {
     }
     const EDU_ITEMS = [
       { key: "ntc", name: "Name That Country", cost: 0.10, image: "name_that_country.png" },
+      { key: "op", name: "Optics and Photonics", cost: 0.00, image: "cogs.png" },
       { key: "mm", name: "Multiply Two Numbers", cost: 0.05, image: "multiplication_table.png" }
     ]
 
@@ -5495,11 +6467,11 @@ function renderStore() {
         nameEl.className = "eduRow1Left"
         meta.appendChild(nameEl)
         // Rating line (Screen 1)
-        if (it.key === "ntc" || it.key === "mm") {
+        if (it.key === "ntc" || it.key === "mm" || it.key === "op") {
           // Content developer line (Screen 1) between title and rating.
           const author = document.createElement("div")
           author.className = "storeRating eduRow2Left"
-          author.textContent = (it.key === "ntc") ? "by Geography Ninjas (Developer)" : "by Math Magicians (Developer)"
+          author.textContent = (it.key === "ntc") ? "by Geography Ninjas (Developer)" : (it.key === "mm") ? "by Math Magicians (Developer)" : "by Engineer Guy (Instructor)"
           meta.appendChild(author)
 
           const rating = document.createElement("div")
@@ -5511,22 +6483,28 @@ function renderStore() {
               '<span class="ratingStars">★★★★★</span>' +
               '<span class="ratingCaret">▾</span>' +
               '<span class="ratingCount">(53.3K)</span>'
-          } else {
+          } else if (it.key === "mm") {
             rating.innerHTML =
-              '<span class="ratingValue">4.5</span>' +
-              '<span class="ratingStarsBox"><span class="starsBase">★★★★★</span><span class="starsFill" style="width:90%;">★★★★★</span></span>' +
+              '<span class="ratingValue">4.1</span>' +
+              '<span class="ratingStarsBox"><span class="starsBase">★★★★★</span><span class="starsFill" style="width:82%;">★★★★★</span></span>' +
               '<span class="ratingCaret">▾</span>' +
               '<span class="ratingCount">(8.6K)</span>'
+          } else {
+            rating.innerHTML =
+              '<span class="ratingValue">4.4</span>' +
+              '<span class="ratingStarsBox"><span class="starsBase">★★★★★</span><span class="starsFill" style="width:88%;">★★★★★</span></span>' +
+              '<span class="ratingCaret">▾</span>' +
+              '<span class="ratingCount">(27.1K)</span>'
           }
 
           meta.appendChild(rating)
         }
 
         // Grade line (Screen 1) placed below rating.
-        if (it.key === "mm" || it.key === "ntc") {
+        if (it.key === "mm" || it.key === "ntc" || it.key === "op") {
           const grade = document.createElement("div")
           grade.className = "storeRating storeGradeLine eduRow4Left"
-          grade.textContent = (it.key === "mm") ? "Math: Grade 3" : "Geography: Grade 7"
+          grade.textContent = (it.key === "mm") ? "Math: Grade 3" : (it.key === "ntc") ? "Geography: Grade 7" : "Physics: Grades 10-12"
           meta.appendChild(grade)
         }
 
@@ -5534,17 +6512,37 @@ function renderStore() {
         fundsCol.className = "eduFundsCol"
 
         // Funds lines (Screen 1) replace the single KBU cost for the two games.
-        if (it.key === "ntc") {
+        if (it.key === "ntc" || it.key === "mm" || it.key === "op") {
 
 
 
           const BLANK = "\u00A0"
 
-          const parentStr = fmtOtherU(parentU)
+          // Per-item balances shown on Screen 1 should come from the item's own wallet variables,
+          // not whichever game screen was visited last.
+          let parentU_local = 0
+          let sponsorU_local = 0
+          let availU_local = 0
 
-          const sponsorStr = fmtOtherU(sponsorU)
+          if (it.key === "ntc") {
+            parentU_local = (kbGeoState && kbGeoState.ntc && typeof kbGeoState.ntc.parentU==='number') ? kbGeoState.ntc.parentU : 0
+            sponsorU_local = (kbGeoState && kbGeoState.ntc && typeof kbGeoState.ntc.sponsorU==='number') ? kbGeoState.ntc.sponsorU : 0
+            availU_local = kbAvailableToEarnNtcU()
+          } else if (it.key === "mm") {
+            parentU_local = kbBingoParentU
+            sponsorU_local = kbBingoSponsorU
+            availU_local = kbAvailableToEarnBingoU()
+          } else if (it.key === "op") {
+            parentU_local = (kbGeoState && kbGeoState.oap && typeof kbGeoState.oap.parentU==='number') ? kbGeoState.oap.parentU : 0
+            sponsorU_local = (kbGeoState && kbGeoState.oap && typeof kbGeoState.oap.sponsorU==='number') ? kbGeoState.oap.sponsorU : 0
+            availU_local = kbAvailableToEarnOpticsU()
+          }
 
-          const availStr = fmtOtherU(kbAvailableToEarnNtcU())
+          const parentStr = fmtOtherU(parentU_local)
+
+          const sponsorStr = fmtOtherU(sponsorU_local)
+
+          const availStr = fmtOtherU(availU_local)
 
           const hideFunds = parentStr === "0.00" && sponsorStr === "0.00" && availStr === "0.00"
 
@@ -5582,55 +6580,8 @@ function renderStore() {
 
           a.textContent = hideFunds ? BLANK : ("Available to earn: " + availStr)
 
-          fundsCol.appendChild(a)        } else if (it.key === "mm") {
-
-
-
-          const BLANK = "\u00A0"
-
-          const parentStr = fmtOtherU(kbBingoParentU)
-
-          const sponsorStr = fmtOtherU(kbBingoSponsorU)
-
-          const availStr = fmtOtherU(kbAvailableToEarnBingoU())
-
-          const hideFunds = parentStr === "0.00" && sponsorStr === "0.00" && availStr === "0.00"
-
-
-          const kb = document.createElement("div")
-
-          kb.className = "eduFundsTitle eduRow1Right"
-
-          kb.textContent = hideFunds ? BLANK : "KBU"
-
-          fundsCol.appendChild(kb)
-
-
-          const p = document.createElement("div")
-
-          p.className = "eduFundsLine eduRow2Right"
-
-          p.textContent = hideFunds ? BLANK : ("Parent: " + parentStr)
-
-          fundsCol.appendChild(p)
-
-
-          const s = document.createElement("div")
-
-          s.className = "eduFundsLine eduRow3Right"
-
-          s.textContent = hideFunds ? BLANK : ("Sponsors: " + sponsorStr)
-
-          fundsCol.appendChild(s)
-
-
-          const a = document.createElement("div")
-
-          a.className = "eduFundsLine eduRow4Right"
-
-          a.textContent = hideFunds ? BLANK : ("Available to earn: " + availStr)
-
-          fundsCol.appendChild(a)        } else {
+          fundsCol.appendChild(a)
+                } else {
           const price = document.createElement("div")
           const costStr = fmtWalletMin2U(toMoneyUnits(it.cost))
           price.className = "storeCost"
@@ -5645,12 +6596,12 @@ function renderStore() {
 
         const btn = document.createElement("button")
         btn.type = "button"
-        btn.textContent = "Play"
+        btn.textContent = (it.key === "op") ? "Watch" : "Play"
 
         btn.addEventListener("click", () => {
           if (it.key === "ntc") {
             // Start a new Name That Country game (Screen 3)
-            showGameScreen()
+            showGameScreen("ntc")
             try { kbEnsureLeafletMap("play-ntc") } catch (e) {}
             // Wait for the game screen to be visible and Leaflet to have a stable size.
             requestAnimationFrame(() => {
@@ -5665,6 +6616,11 @@ function renderStore() {
                 startNewGame()
               })
             })
+          } else if (it.key === "op") {
+            // Optics and Photonics (OAP) uses an NTC replica container, but with OAP-specific UI and state.
+            showGameScreen("oap")
+            try { kbApplyGeoContextUI() } catch (e) {}
+            try { kbRenderOapVideoList() } catch (e) {}
           } else {
             // Multiply Two Numbers (Screen 4)
             showBingoScreen()
@@ -5705,6 +6661,11 @@ function openStoreFromEdu() {
 }
 
 function quitGameToEdu() {
+  try {
+    const g = (kbGeoActiveKey === "oap") ? "optics_and_photonics" : "name_that_country"
+    if (window.KB_TELEMETRY) window.KB_TELEMETRY.event("kb_game_quit", { kb_game: g })
+  } catch (e) {}
+  if (kbGeoActiveKey === "oap") { try { kbOapStopVideoPlayback() } catch (e) {} try { kbOapClearSelectedVideo() } catch (e) {} }
   if (mode === "normal" && !gameComplete) pauseTimer()
   showEduScreen()
 }
@@ -6096,15 +7057,18 @@ function quitGameToEdu() {
         const n = Number(u) || 0
         return n > 0 ? (n / SCALE) : 0
       }
+      if (kbGeoActiveKey !== "oap") {
       window.KB_TELEMETRY.event("kb_answer", {
-        kb_game: "name_that_country",
+        kb_game: (kbGeoActiveKey === "oap") ? "optics_and_photonics" : "name_that_country",
         kb_mode: mode,
         kb_correct: kbTelemetryIsCorrect ? 1 : 0,
         kb_round: rounds,
+        kb_bullet: (function(){ try { const _l = chosenBtn && chosenBtn.querySelector(".label"); return _l ? String(_l.textContent || "").trim() : ""; } catch (e) { return ""; } })(),
         kb_total_pay_kbu: toKbu(kbTelemetryTotalPayU),
         kb_parent_pay_kbu: toKbu(kbTelemetryParentPayU),
         kb_sponsor_pay_kbu: toKbu(kbTelemetrySponsorPayU)
       })
+      }
     }
   } catch (e) {}
 
@@ -6224,7 +7188,7 @@ function quitGameToEdu() {
 
       mode = "normal"
 
-      try { if (window.KB_TELEMETRY) window.KB_TELEMETRY.event("kb_game_start", { kb_game: "name_that_country" }) } catch (e) {}
+      try { if (window.KB_TELEMETRY) window.KB_TELEMETRY.event("kb_game_start", { kb_game: (kbGeoActiveKey === "oap") ? "optics_and_photonics" : "name_that_country" }) } catch (e) {}
 
       try { kbResetPrebuild("startNewGame") } catch (e) {}
       try { kbClearLayerOn(kbGetFrontBuffer()) } catch (e) {}
@@ -6289,7 +7253,7 @@ function quitGame() {
     }
 
     nextBtn.addEventListener("click", () => {
-      try { if (window.KB_TELEMETRY) window.KB_TELEMETRY.event("kb_next_question_press", { kb_game: "name_that_country", kb_mode: mode }) } catch (e) {}
+      try { if (window.KB_TELEMETRY) window.KB_TELEMETRY.event("kb_next_question_press", { kb_game: (kbGeoActiveKey === "oap") ? "optics_and_photonics" : "name_that_country", kb_mode: mode }) } catch (e) {}
       if (gameComplete) return
       nextQuestion()
     })
@@ -6305,9 +7269,15 @@ function quitGame() {
     redeemBtn.addEventListener("click", quitGameToEdu)
     closeRedeemBtn.addEventListener("click", closeRedeem)
     if (openStoreBtn) openStoreBtn.addEventListener("click", openStoreFromEdu)
+    // Geo (NTC/OAP) flow rate parsing should not run on each keystroke.
+    // Commit on blur, and on Enter by blurring the field.
     if (flowRateInput) {
-      flowRateInput.addEventListener("change", clampFlowRate)
       flowRateInput.addEventListener("blur", clampFlowRate)
+      flowRateInput.addEventListener("keydown", (e) => {
+        if (e.key !== "Enter") return
+        e.preventDefault()
+        flowRateInput.blur()
+      })
     }
     // Parent wallet parsing should not run on each keystroke.
     // Commit when the user presses Enter or when the field loses focus.
@@ -6322,31 +7292,31 @@ function quitGame() {
     }
 
     if (sponsorInput) {
-      sponsorInput.addEventListener("change", clampSponsorInput)
       sponsorInput.addEventListener("blur", clampSponsorInput)
+      sponsorInput.addEventListener("keydown", (e) => {
+        if (e.key !== "Enter") return
+        e.preventDefault()
+        sponsorInput.blur()
+      })
     }
 
     if (sponsorMatchInput) {
-      sponsorMatchInput.addEventListener("change", clampSponsorMatch)
-
-
-// When user presses Enter in any input, commit parsing (change) and then blur to apply formatting.
-for (const el of document.querySelectorAll("input")) {
-  el.addEventListener("keydown", (e) => {
-    if (el === parentInput) return
-    if (e.key !== "Enter") return
-    e.preventDefault()
-    el.dispatchEvent(new Event("change", { bubbles: true }))
-    el.blur()
-  })
-}
       sponsorMatchInput.addEventListener("blur", clampSponsorMatch)
+      sponsorMatchInput.addEventListener("keydown", (e) => {
+        if (e.key !== "Enter") return
+        e.preventDefault()
+        sponsorMatchInput.blur()
+      })
     }
 
     // Bingo (Screen 4) wallet controls.
     if (bingoFlowRateInput) {
-      bingoFlowRateInput.addEventListener("change", kbBingoClampFlowRate)
       bingoFlowRateInput.addEventListener("blur", kbBingoClampFlowRate)
+      bingoFlowRateInput.addEventListener("keydown", (e) => {
+        if (e.key !== "Enter") return
+        e.preventDefault()
+        bingoFlowRateInput.blur()
+      })
     }
     if (bingoParentInput) {
       bingoParentInput.addEventListener("blur", kbBingoClampParentInput)
@@ -6357,12 +7327,20 @@ for (const el of document.querySelectorAll("input")) {
       })
     }
     if (bingoSponsorInput) {
-      bingoSponsorInput.addEventListener("change", kbBingoClampSponsorInput)
       bingoSponsorInput.addEventListener("blur", kbBingoClampSponsorInput)
+      bingoSponsorInput.addEventListener("keydown", (e) => {
+        if (e.key !== "Enter") return
+        e.preventDefault()
+        bingoSponsorInput.blur()
+      })
     }
     if (bingoSponsorMatchInput) {
-      bingoSponsorMatchInput.addEventListener("change", kbBingoClampSponsorMatch)
       bingoSponsorMatchInput.addEventListener("blur", kbBingoClampSponsorMatch)
+      bingoSponsorMatchInput.addEventListener("keydown", (e) => {
+        if (e.key !== "Enter") return
+        e.preventDefault()
+        bingoSponsorMatchInput.blur()
+      })
     }
     try { kbBingoUpdateAccounts() } catch (e) {}
 
@@ -6489,6 +7467,7 @@ flowDec = 2
   
   
   
-  </script>
+  
+</script>
 </body>
 </html>
