@@ -25,7 +25,7 @@
         }
       }
 
-      window.KB_BUILD_VERSION = "0.2.90";
+      window.KB_BUILD_VERSION = "0.2.92";
 
   // Leaflet seam mitigations
 
@@ -155,6 +155,8 @@
       - 0.1.237 (2026-01-25): Call KB_TELEMETRY.screen only from show*Screen functions.
       - 0.1.236 (2026-01-24): Attach kb_anon_user_id to all kb_* GA4 events.
 CHANGELOG:
+- 0.2.91 (2026-02-17): Set initial Parent and Sponsor balances and flow rates for NTC, OAP, and MTN.
+- 0.2.92 (2026-02-17): Fix startup initialization so NTC Parent/Sponsor defaults persist and Screen 1 Available-to-earn includes NTC.
 - 0.2.90 (2026-02-17): Added kb_game_quit on Quit for OAP, NTC, and MTN. OAP kb_answer now fires every 10 seconds of watched time, including zero-payout ticks.
 - 0.2.89 (2026-02-17): Added kb_bullet param to kb_answer for NTC, MTN, and OAP (selected bullet text or video title).
 - 0.2.88 (2026-02-17): OAP GA kb_answer now fires on each 10-second watched-time KBU drop, not on bullet selection.
@@ -2952,7 +2954,7 @@ color: #111;
 </div>
 </div>
 </div>
-<div class="copyrightLine">Copyright © 2025-2026 Vladimir Kravtchenko. All rights reserved. Version <span class="kbBuildVersion">0.2.90</span></div>
+<div class="copyrightLine">Copyright © 2025-2026 Vladimir Kravtchenko. All rights reserved. Version <span class="kbBuildVersion">0.2.92</span></div>
 </div>
 <div class="screen" id="screenStore" style="display:none;">
 <div class="headerBar">
@@ -2978,7 +2980,7 @@ color: #111;
 </div>
 </div>
 </div>
-<div class="copyrightLine">Copyright © 2025-2026 Vladimir Kravtchenko. All rights reserved. Version <span class="kbBuildVersion">0.2.90</span></div>
+<div class="copyrightLine">Copyright © 2025-2026 Vladimir Kravtchenko. All rights reserved. Version <span class="kbBuildVersion">0.2.92</span></div>
 </div>
 <div class="screen" id="screenEdu">
 <div class="headerBar">
@@ -3001,7 +3003,7 @@ color: #111;
 </div>
 </div>
 </div>
-<div class="copyrightLine">Copyright © 2025-2026 Vladimir Kravtchenko. All rights reserved. Version <span class="kbBuildVersion">0.2.90</span></div>
+<div class="copyrightLine">Copyright © 2025-2026 Vladimir Kravtchenko. All rights reserved. Version <span class="kbBuildVersion">0.2.92</span></div>
 </div>
 <div class="screen" id="screenBingo" style="display:none;">
 <div class="headerBar">
@@ -3218,7 +3220,7 @@ color: #111;
 </div>
 </div>
 </div>
-<div class="copyrightLine">Copyright © 2025-2026 Vladimir Kravtchenko. All rights reserved. Version <span class="kbBuildVersion">0.2.90</span></div>
+<div class="copyrightLine">Copyright © 2025-2026 Vladimir Kravtchenko. All rights reserved. Version <span class="kbBuildVersion">0.2.92</span></div>
 </div>
 </div>
 <div class="overlay" id="overlay">
@@ -3243,7 +3245,7 @@ color: #111;
 
 
     const SCALE = 1000000000  
-    const KB_BUILD_VERSION = (window.KB_BUILD_VERSION || "0.2.90")
+    const KB_BUILD_VERSION = (window.KB_BUILD_VERSION || "0.2.92")
     try { window.KB_BUILD_VERSION = KB_BUILD_VERSION } catch (e) {}
     // Screen 4, Multiply Two Numbers tables
     // productPairs, all 100 A x B pairs, 1..10 by 1..10
@@ -3729,8 +3731,8 @@ const messageEl = document.getElementById("message")
       fiber: "how_a_fiber_optic_cable_works.webm",
     }
     const kbGeoState = {
-      ntc: { rounds: 0, correctCount: 0, gameComplete: false, mode: "normal", parentU: 0, sponsorU: 0, flowU: 0, sponsorMatch: 5, devCarry: 0, platCarry: 0, devU: 0, selectedVideoKey: "" },
-      oap: { rounds: 0, correctCount: 0, gameComplete: false, mode: "normal", parentU: 0, sponsorU: 0, flowU: 0, sponsorMatch: 5, devCarry: 0, platCarry: 0, devU: 0, selectedVideoKey: "" },
+      ntc: { rounds: 0, correctCount: 0, gameComplete: false, mode: "normal", parentU: toUnits("5.00"), sponsorU: toUnits("1.00"), flowU: toUnits("0.01"), sponsorMatch: 5, devCarry: 0, platCarry: 0, devU: 0, selectedVideoKey: "" },
+      oap: { rounds: 0, correctCount: 0, gameComplete: false, mode: "normal", parentU: toUnits("1.00"), sponsorU: toUnits("0.00"), flowU: toUnits("7.20"), sponsorMatch: 5, devCarry: 0, platCarry: 0, devU: 0, selectedVideoKey: "" },
     }
 
     // OAP Progress is time-based and separate from NTC and MTN.
@@ -5543,8 +5545,8 @@ function setTimerVisible(visible) {
     //
 
     // K-Bucks demo wallet (units = 0.0001 K-Bucks)
-    let parentU = 0 * SCALE
-    let sponsorU = 0 * SCALE
+    let parentU = toUnits("5.00")
+    let sponsorU = toUnits("1.00")
     // Optics and Photonics (Screen 1 card placeholder) wallets.
     // Blank-start: these are intentionally zero until we wire up flows.
     let kbOpticsParentU = 0 * SCALE
@@ -5557,7 +5559,7 @@ function setTimerVisible(visible) {
 let kbGlobalChildU = 0
     let devU = 0
     let kbGlobalPlatformU = 0
-    let flowU = toUnits("0.00")  // 0.00
+    let flowU = toUnits("0.01")  // 0.01
     let flowDec = 2
     let sponsorMatch = 5
     let devCarry = 0
@@ -7444,7 +7446,8 @@ for (const c of countries) countryByKey.set(c.key, c)
 
     loadCountries()
       .then(() => {
-        resetWalletDefaults()
+        // Initialize Geo state to NTC defaults (do not wipe wallets on refresh)
+        try { kbGeoLoadState("ntc") } catch (e) {}
 flowDec = 2
         if (flowRateInput) flowRateInput.value = fmtFlowInputU(flowU)
         clampFlowRate()
