@@ -25,7 +25,7 @@
         }
       }
 
-      window.KB_BUILD_VERSION = "0.2.92";
+      window.KB_BUILD_VERSION = "0.2.93";
 
   // Leaflet seam mitigations
 
@@ -155,6 +155,7 @@
       - 0.1.237 (2026-01-25): Call KB_TELEMETRY.screen only from show*Screen functions.
       - 0.1.236 (2026-01-24): Attach kb_anon_user_id to all kb_* GA4 events.
 CHANGELOG:
+- 0.2.93 (2026-02-18): Set OAP initial flow rate to 3.60 KBU per hour of watching.
 - 0.2.91 (2026-02-17): Set initial Parent and Sponsor balances and flow rates for NTC, OAP, and MTN.
 - 0.2.92 (2026-02-17): Fix startup initialization so NTC Parent/Sponsor defaults persist and Screen 1 Available-to-earn includes NTC.
 - 0.2.90 (2026-02-17): Added kb_game_quit on Quit for OAP, NTC, and MTN. OAP kb_answer now fires every 10 seconds of watched time, including zero-payout ticks.
@@ -3732,7 +3733,7 @@ const messageEl = document.getElementById("message")
     }
     const kbGeoState = {
       ntc: { rounds: 0, correctCount: 0, gameComplete: false, mode: "normal", parentU: toUnits("5.00"), sponsorU: toUnits("1.00"), flowU: toUnits("0.01"), sponsorMatch: 5, devCarry: 0, platCarry: 0, devU: 0, selectedVideoKey: "" },
-      oap: { rounds: 0, correctCount: 0, gameComplete: false, mode: "normal", parentU: toUnits("1.00"), sponsorU: toUnits("0.00"), flowU: toUnits("7.20"), sponsorMatch: 5, devCarry: 0, platCarry: 0, devU: 0, selectedVideoKey: "" },
+      oap: { rounds: 0, correctCount: 0, gameComplete: false, mode: "normal", parentU: toUnits("1.00"), sponsorU: toUnits("0.00"), flowU: toUnits("3.60"), sponsorMatch: 5, devCarry: 0, platCarry: 0, devU: 0, selectedVideoKey: "" },
     }
 
     // OAP Progress is time-based and separate from NTC and MTN.
