@@ -1,84 +1,134 @@
-K-Bucks Demo
+# K-Bucks
 
-K-Bucks is a prototype educational incentives platform where children earn virtual currency (KBU) by completing learning activities.
+**K-Bucks** is a prototype educational incentives platform that rewards
+children with a virtual currency (**KBU**) for completing learning
+activities such as educational games and videos.
 
-The demo currently includes:
+The goal of the project is to explore how incentive systems can make
+learning more engaging and sustainable for children while aligning
+parents, sponsors, and educational content creators.
 
-Name That Country (NTC) geography game
+------------------------------------------------------------------------
 
-Optics & Photonics (OAP) educational video flow
+# Demo
 
-Multiply Two Numbers (MTN) math game
+The current demo includes several interactive learning experiences:
 
-Parent and Sponsor funding flows
+• **Name That Country (NTC)** --- geography recognition game using an
+interactive map\
+• **Optics & Photonics (OAP)** --- educational video flow with earning
+mechanics\
+• **Multiply Two Numbers (MTN)** --- multiplication practice game\
+• **Parent & Sponsor funding flows** --- simulated funding of a child
+wallet\
+• **Gameplay telemetry** --- analytics events for learning and earnings
 
-Telemetry events for gameplay and earnings
+The application is implemented as a lightweight **single‑page HTML
+demo**.
 
-The application is implemented as a lightweight single-page HTML demo.
+------------------------------------------------------------------------
 
-Development
+# Features
 
-Start the local development server:
+• Incentives‑based learning model\
+• Virtual currency economy (KBU)\
+• Interactive geography and math games\
+• Educational video reward flow\
+• Sponsor and parent funding simulation\
+• Telemetry events for gameplay analytics
 
-npm run dev
+------------------------------------------------------------------------
 
-This launches a Vite development server and opens:
+# Development
 
-http://localhost:5173
+Start the development server:
+
+    npm run dev
+
+This launches a **Vite development server** and opens:
+
+    http://localhost:5173
 
 The dev server automatically reloads the browser when files change.
 
-Release workflow
+------------------------------------------------------------------------
+
+# Release workflow
 
 Releasing a new demo version is automated.
 
 Run:
 
-npm run release -- <version> "<changelog message>"
+    npm run release -- <version> "<changelog message>"
 
 Example:
 
-npm run release -- 0.2.94 "Add Vite dev workflow and Leaflet config regression guard"
+    npm run release -- 0.2.94 "Add Vite dev workflow and Leaflet config regression guard"
 
-The release script will automatically:
+The release script automatically:
 
-Update window.KB_BUILD_VERSION in index.html
+• Updates `window.KB_BUILD_VERSION` in `index.html`\
+• Updates the fallback version reference\
+• Inserts a new entry into `CHANGELOG.md`\
+• Commits the changes\
+• Creates a Git tag (`v<version>`)
 
-Update the fallback version reference
+------------------------------------------------------------------------
 
-Insert a new entry into CHANGELOG.md
+# Project structure
 
-Commit the changes
+    index.html           Main demo application
+    CHANGELOG.md         Version history
+    CLAUDE.md            AI editing rules
+    scripts/release.js   Release automation
+    package.json         Dev tooling configuration
+    vite.config.js       Vite dev server configuration
 
-Create a Git tag (v<version>)
+------------------------------------------------------------------------
 
-Project structure
-index.html          Main demo application
-CHANGELOG.md        Version history
-CLAUDE.md           AI editing rules
-scripts/release.js  Release automation
-package.json        Dev tooling configuration
-vite.config.js      Vite dev server configuration
-AI-assisted development
+# Team
 
-This project is developed by a human + AI team.
+K-Bucks is developed by a small hybrid human + AI team.
 
-Role	Responsibility
-Vlad	Product owner and final decision maker
-Max	Architecture, planning, and review
-Claude	Code implementation and refactoring
+**Vlad**\
+CEO & Head of Product
 
-Claude Code follows rules defined in:
+**Max**\
+AI CTO & Technical Architect
 
-CLAUDE.md
+**Claude**\
+AI Software Engineer
+
+------------------------------------------------------------------------
+
+# AI‑assisted development
+
+This project uses AI‑assisted development tools.
+
+• **Vlad** defines product direction, approves changes, and is
+responsible for final decisions.\
+• **Max** provides architecture guidance, development planning, and
+technical review.\
+• **Claude** assists with implementation, refactoring, and code
+generation.
+
+Claude Code follows development rules defined in:
+
+    CLAUDE.md
 
 to ensure safe, minimal edits.
 
-Version history
+------------------------------------------------------------------------
+
+# Version history
 
 See:
 
-CHANGELOG.md
-License
+    CHANGELOG.md
 
-Prototype / demo code for experimentation.
+------------------------------------------------------------------------
+
+# License
+
+Prototype / demo code intended for experimentation and product
+exploration.
