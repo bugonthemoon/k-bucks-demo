@@ -32,3 +32,6 @@ After making changes:
 - Prefer readability over cleverness.
 - Avoid introducing dependencies unless explicitly requested.
 - Do not modify project structure unless requested.
+
+## Large file edits
+For files larger than 1000 lines (like index.html), always anchor edits to a specific line range when possible.
