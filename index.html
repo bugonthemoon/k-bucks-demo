@@ -3135,6 +3135,17 @@ function kbCreateLeafletMap(containerId) {
     preferCanvas: false
   }).setView([20, 0], 2.2)
 
+  // Regression guard: warn if critical Leaflet config values drift from intended values.
+  try {
+    const kbExpected = { zoomSnap: 0.2, zoomDelta: 0.2, minZoomMax: 2.2 }
+    if (m.options.zoomSnap !== kbExpected.zoomSnap)
+      console.warn("[KB] Leaflet zoomSnap drifted: expected " + kbExpected.zoomSnap + ", got " + m.options.zoomSnap)
+    if (m.options.zoomDelta !== kbExpected.zoomDelta)
+      console.warn("[KB] Leaflet zoomDelta drifted: expected " + kbExpected.zoomDelta + ", got " + m.options.zoomDelta)
+    if (m.options.minZoom > kbExpected.minZoomMax)
+      console.warn("[KB] Leaflet minZoom drifted: expected <= " + kbExpected.minZoomMax + ", got " + m.options.minZoom)
+  } catch (e) {}
+
   try {
     window.kbMapSeq = (window.kbMapSeq || 0) + 1
     m._kbSeq = window.kbMapSeq
