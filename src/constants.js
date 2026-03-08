@@ -7,6 +7,8 @@
 window.KB_CONST = {
   SCALE: 1000000000,
   KB_ZOOM_OUT_AFTER_FIT: 0.25,
+  KB_OAP_FLOW_EVERY_SEC: 10,
+  KB_OAP_FLOW_EVERY_MS: 10000,
   UN_MEMBERS_URL: "https://restcountries.com/v3.1/all?fields=name,cca2,cca3,unMember",
   ORANGE_STYLE: {
     color: "#d08a00",
