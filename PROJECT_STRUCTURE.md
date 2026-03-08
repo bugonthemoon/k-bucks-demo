@@ -148,9 +148,24 @@ Responsibilities:
 - asset paths
 - style constants
 - map constants
+- build version (sourced from `window.KB_BUILD_VERSION`)
+- Leaflet guardrail values (used by drift detection in map_engine.js)
 
 Exports:
 `window.KB_CONST`
+
+---
+
+## engine_registry.js
+Central metadata registry for game engines.
+
+Responsibilities:
+- engine registration (key, displayName, namespace, screen)
+- registry lookup and validation
+- source of truth for which engines are present at boot
+
+Exports:
+`window.KB_REGISTRY`
 
 ---
 
@@ -158,6 +173,7 @@ Exports:
 Application boot layer.
 
 Responsibilities:
+- boot-time registry validation (engine presence and namespace checks)
 - event listener wiring
 - startup initialization
 - ResizeObserver

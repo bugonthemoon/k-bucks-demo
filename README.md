@@ -33,6 +33,7 @@ The goal of the project is to explore how incentive systems can make learning mo
     │   ├── incentive_engine.js
     │   ├── content_data.js
     │   ├── constants.js
+    │   ├── engine_registry.js
     │   └── app_boot.js
     │
     ├── scripts/
@@ -54,13 +55,14 @@ Game engines are intentionally independent:
 
 Shared systems:
 
+- `engine_registry` - central metadata registry for all game engines
 - `wallet_engine` - wallet persistence and balances
 - `incentive_engine` - KBU unit math and sponsor logic
 - `map_engine` - Leaflet map lifecycle
 - `activity_state` - shared NTC/OAP activity state
 - `navigation` - screen transitions
-- `app_boot` - application initialization
-- `constants` - shared runtime constants
+- `app_boot` - application initialization and boot-time registry validation
+- `constants` - shared runtime constants, build version, and Leaflet guardrail values
 - `content_data` - static content definitions
 
 ## Demo
