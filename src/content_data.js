@@ -6,6 +6,7 @@
 // ======================================
 window.KB_DATA = {
 
+  // ---- Store items ----
   // REDEMPTION_STORE_START
   STORE_ITEMS: [
     { name: "Plastic Spider Ring", brand: "Generic", cost: 0.05, image: "assets/images/store/plastic_spider_ring.jpg", rating: 4.5, reviews: "1.2M" },
@@ -17,6 +18,7 @@ window.KB_DATA = {
   ],
   // REDEMPTION_STORE_END
 
+  // ---- Store manifest (integrity check) ----
   // KB_STORE_MANIFEST_EXPECTED: count=6, minCost=0.05, maxCost=799.00, hash=80dbce7d
   KB_STORE_MANIFEST_EXPECTED: {
     count: 6,
@@ -25,6 +27,7 @@ window.KB_DATA = {
     hash: "80dbce7d"
   },
 
+  // ---- Educational activity items ----
   EDU_ITEMS: [
     { key: "ntc", name: "Name That Country", cost: 0.10, image: "assets/images/games/name_that_country.png" },
     { key: "op", name: "Optics and Photonics", cost: 0.00, image: "assets/images/games/cogs.png" },
