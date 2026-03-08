@@ -57,7 +57,19 @@
     try { kbBingoUpdateAccounts() } catch (e) {}
   }
 
+  function validateRegistry() {
+    if (!window.KB_REGISTRY) throw new Error("[KB] KB_REGISTRY not loaded — check script load order")
+    const expectedKeys = ["ntc", "oap", "bingo"]
+    for (const key of expectedKeys) {
+      if (!KB_REGISTRY.has(key)) throw new Error("[KB] Engine registry missing key: \"" + key + "\"")
+    }
+    for (const entry of KB_REGISTRY.getAll()) {
+      if (!window[entry.namespace]) throw new Error("[KB] Engine namespace not loaded: window." + entry.namespace + " (key: \"" + entry.key + "\")")
+    }
+  }
+
   function init() {
+    validateRegistry()
     wirePrimaryButtons()
     wireGeoInputs()
     wireBingoInputs()
