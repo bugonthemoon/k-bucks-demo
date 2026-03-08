@@ -2991,6 +2991,7 @@ color: #111;
 <script src="src/constants.js"></script>
 <script src="src/incentive_engine.js"></script>
 <script src="src/content_data.js"></script>
+<script src="src/navigation.js"></script>
 <script>
 
 
@@ -3004,6 +3005,7 @@ color: #111;
     const { SCALE, KB_ZOOM_OUT_AFTER_FIT, UN_MEMBERS_URL, ORANGE_STYLE, kbOapVideoByKey, COUNTRIES_GEOJSON_PATH } = window.KB_CONST
     const { toUnits, toMoneyUnits, parseUnitsNoRound, fmtWalletMin2U, kbFmtKbuRate2, kbFmtKbuDrop2, fmtUnitsTrimU, fmtUnitsFlex, fmtMin2Max5, fmtParentU, fmtSponsorU, fmtOtherU, fmtFlow, fmtFlowInputU, kbSponsorTagAlongU, kbAvailableToEarnForGameU } = window.KB_ENGINE
     const { STORE_ITEMS, KB_STORE_MANIFEST_EXPECTED, EDU_ITEMS } = window.KB_DATA
+    const { showGameScreen, showStoreScreen, showEduScreen, showBingoScreen, isRedeemOpen } = window.KB_NAV
     // ========================= //
     // SECTION: GLOBAL CONFIGURATION    //
     // Build version · formatters //
@@ -4202,86 +4204,6 @@ const screenBingoEl = document.getElementById("screenBingo")
     // showGameScreen · showStore //
     // showEdu · showBingo        //
     // ========================= //
-    function showGameScreen(whichKey) {
-
-      const key = (whichKey === "oap") ? "oap" : "ntc"
-      kbGeoLoadState(key)
-      try { kbDbg("showGameScreen", kbMapState()) } catch (e) {}
-
-      
-      if (currentScreen === "bingo") {
-        if (!bingoTimerStopped && bingoTimerRunning) pauseBingoTimer()
-      }
-currentScreen = "game"
-      try { if (window.KB_TELEMETRY) KB_TELEMETRY.screen((kbGeoActiveKey === "oap") ? "optics_and_photonics" : "name_that_country") } catch (e) {}
-      if (screenGameEl) screenGameEl.style.display = ""
-      if (screenStoreEl) screenStoreEl.style.display = "none"
-      if (screenEduEl) screenEduEl.style.display = "none"
-      
-      if (screenBingoEl) screenBingoEl.style.display = "none"
-      
-      try { kbApplyGeoContextUI() } catch (e) {}
-      if (kbGeoActiveKey === "oap") { try { kbOapInitWatchTimer() } catch (e) {} try { kbOapResetOnEnter() } catch (e) {} }
-      try { updateScoreDisplay() } catch (e) {}
-            try { kbOapApplyPeriodicFlow() } catch (e) {}
-
-      // Recreate Leaflet map fresh each time we enter the game screen.
-      // OAP does not use maps.
-      try { kbDestroyLeafletMap("showGameScreen") } catch (e) {}
-      if (kbGeoActiveKey !== "oap") {
-        try { kbEnsureLeafletMap("showGameScreen") } catch (e) {}
-      } else {
-        try { map = null } catch (e) {}
-      }
-
-      try { syncMapHeight() } catch (e) {}
-      try { updateFooterDebugAll() } catch (e) {}
-      try { kbScheduleDebugUpdate() } catch (e) {}
-    }
-
-    function showStoreScreen() {
-
-      try { if (currentScreen === "game") kbGeoSaveState() } catch (e) {}
-      try { kbDbg("showStoreScreen", kbMapState()) } catch (e) {}
-
-      
-      if (currentScreen === "bingo") {
-        if (!bingoTimerStopped && bingoTimerRunning) pauseBingoTimer()
-      }
-currentScreen = "store"
-      try { if (window.KB_TELEMETRY) KB_TELEMETRY.screen("redemption_store") } catch (e) {}
-      if (screenGameEl) screenGameEl.style.display = "none"
-      if (screenStoreEl) screenStoreEl.style.display = ""
-      if (screenEduEl) screenEduEl.style.display = "none"
-      
-      if (screenBingoEl) screenBingoEl.style.display = "none"
-      
-      try { kbUpdateGlobalBalances() } catch (e) {}
-      try { updateFooterDebugAll() } catch (e) {}
-      try { kbScheduleDebugUpdate() } catch (e) {}
-    }
-
-    function showEduScreen() {
-
-      try { if (currentScreen === "game") kbGeoSaveState() } catch (e) {}
-      try { kbDbg("showEduScreen", kbMapState()) } catch (e) {}
-
-      
-      if (currentScreen === "bingo") {
-        if (!bingoTimerStopped && bingoTimerRunning) pauseBingoTimer()
-      }
-currentScreen = "edu"
-      try { if (window.KB_TELEMETRY) KB_TELEMETRY.screen("educational_content") } catch (e) {}
-      if (screenGameEl) screenGameEl.style.display = "none"
-      if (screenStoreEl) screenStoreEl.style.display = "none"
-      if (screenEduEl) screenEduEl.style.display = ""
-      
-      if (screenBingoEl) screenBingoEl.style.display = "none"
-      try { updateFooterDebugAll() } catch (e) {}
-      try { kbScheduleDebugUpdate() } catch (e) {}
-      try { updateAccounts() } catch (e) {}
-      try { renderEdu() } catch (e) {}
-    }
     
     // ========================= //
     // SECTION: MULTIPLY TWO NUMBERS (MTN) //
@@ -5043,28 +4965,6 @@ function kbBingoPresentRandomPair() {
     if (bingoStartNewBtn) bingoStartNewBtn.addEventListener("click", kbBingoStartNewGame)
     if (bingoRedeemBtn) bingoRedeemBtn.addEventListener("click", quitBingoToEdu)
 
-function showBingoScreen() {
-
-      try { if (currentScreen === "game") kbGeoSaveState() } catch (e) {}
-      try { kbDbg("showBingoScreen", kbMapState()) } catch (e) {}
-
-      
-      if (currentScreen === "game") {
-        if (timerRunning) pauseTimer()
-      }
-currentScreen = "bingo"
-      try { if (window.KB_TELEMETRY) KB_TELEMETRY.screen("practice_times_tables") } catch (e) {}
-      if (screenGameEl) screenGameEl.style.display = "none"
-      if (screenStoreEl) screenStoreEl.style.display = "none"
-      if (screenEduEl) screenEduEl.style.display = "none"
-      if (screenBingoEl) screenBingoEl.style.display = ""
-      try { updateFooterDebugAll() } catch (e) {}
-      try { kbScheduleDebugUpdate() } catch (e) {}
-      try { updateAccounts() } catch (e) {}
-      try { kbBingoUpdateAccounts() } catch (e) {}
-      try { kbUpgradeBingoPairsToButtons() } catch (e) {}
-      try { kbBingoStartNewGame() } catch (e) {}
-    }
 
 
 
@@ -5234,10 +5134,6 @@ function setTimerVisible(visible) {
     // Pause timers when the tab or window is not active.
     let timerPausedByTab = false
     let bingoTimerPausedByTab = false
-
-    function isRedeemOpen() {
-      return currentScreen === "store"
-    }
 
     function handleTabInactive() {
       if (currentScreen === "bingo") {
