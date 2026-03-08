@@ -60,3 +60,25 @@ The project is developed by a human + AI team:
 3. Prefer small, mechanical edits over large rewrites.
 4. Always show the proposed change and diff before writing files.
 5. If instructions conflict or are unclear, ask for clarification instead of guessing.
+
+## Change contract
+
+When editing this repository:
+
+- Make the smallest possible change that solves the requested task.
+- Do not rewrite large sections of files unless explicitly asked.
+- Do not reformat unrelated code.
+- Do not reorder code unless required for the task.
+- Do not change copy, labels, spacing, or styling unless explicitly requested.
+- Do not modify documentation files unless the task is documentation-related.
+- For `index.html`, identify the exact section first and edit only that section.
+- If a change may affect more than one section, say so before editing.
+- Before writing files, always show:
+  1. the current code or text being changed
+  2. the proposed replacement
+  3. a concise diff summary
+- If instructions are ambiguous, ask instead of guessing.
+- Prefer mechanical edits over creative refactors.
+- Preserve existing versioning, changelog, and release workflow conventions.
+- Never edit more than one logical section of `index.html` in a single pass unless explicitly approved.
+- Never combine functional changes with cleanup changes in the same edit.
