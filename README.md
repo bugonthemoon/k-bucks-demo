@@ -6,40 +6,39 @@ The current architecture separates game engines, shared systems, and boot logic 
 
 ## Project structure
 
-&nbsp;   K-Bucks Demo
-    │
-    ├── index.html              # main composition root
-    ├── PROJECT\_STRUCTURE.md    # module overview for developers and AI tools
-    ├── CHANGELOG.md            # version history
-    ├── CLAUDE.md               # AI editing rules
-    ├── .editorconfig           # formatting rules
-    ├── .gitignore              # repo hygiene rules
-    ├── docs/
-    │   ├── PROJECT.md
-    │   ├── ARCHITECTURE.md
-    │   ├── DEVELOPMENT.md
-    │   ├── INDEX\_HTML\_MAP.md
-    │   ├── ARCHITECTURE\_DIAGRAM.md
-    │   └── ARCHITECTURE\_RULES.md
-    │
-    ├── src/
-    │   ├── navigation.js
-    │   ├── map\_engine.js
-    │   ├── activity\_state.js
-    │   ├── ntc\_engine.js
-    │   ├── oap\_engine.js
-    │   ├── bingo\_engine.js
-    │   ├── wallet\_engine.js
-    │   ├── incentive\_engine.js
-    │   ├── content\_data.js
-    │   ├── constants.js
-    │   ├── engine\_registry.js
-    │   └── app\_boot.js
-    │
-    ├── scripts/
-    │   └── release.js
-    ├── package.json
-    └── vite.config.js
+```text
+K-Bucks Demo
+├── index.html              # main composition root
+├── PROJECT_STRUCTURE.md    # module overview for developers and AI tools
+├── CHANGELOG.md            # version history
+├── CLAUDE.md               # AI editing rules
+├── .editorconfig           # formatting rules
+├── .gitignore              # repo hygiene rules
+├── docs/
+│   ├── PROJECT.md
+│   ├── ARCHITECTURE.md
+│   ├── DEVELOPMENT.md
+│   ├── INDEX_HTML_MAP.md
+│   ├── ARCHITECTURE_DIAGRAM.md
+│   └── ARCHITECTURE_RULES.md
+├── src/
+│   ├── navigation.js
+│   ├── map_engine.js
+│   ├── activity_state.js
+│   ├── ntc_engine.js
+│   ├── oap_engine.js
+│   ├── bingo_engine.js
+│   ├── wallet_engine.js
+│   ├── incentive_engine.js
+│   ├── content_data.js
+│   ├── constants.js
+│   ├── engine_registry.js
+│   └── app_boot.js
+├── scripts/
+│   └── release.js
+├── package.json
+└── vite.config.js
+```
 
 
 ### Architecture overview
@@ -92,17 +91,23 @@ The application is implemented as a lightweight single-page HTML demo.
 
 Install dependencies:
 
-&nbsp;   npm install
+```text
+npm install
+```
 
 
 Run the development server:
 
-&nbsp;   npm run dev
+```text
+npm run dev
+```
 
 
 Create a new demo release:
 
-&nbsp;   npm run release -- VERSION "CHANGELOG MESSAGE"
+```text
+npm run release -- VERSION "CHANGELOG MESSAGE"
+```
 
 
 ## Development
@@ -114,7 +119,9 @@ Start the development server:
 
 This launches a Vite development server and opens:
 
-&nbsp;   http://localhost:5173
+```text
+http://localhost:5173
+```
 
 
 The dev server automatically reloads the browser when files change.
@@ -125,12 +132,16 @@ Releasing a new demo version is automated.
 
 Run:
 
-&nbsp;   npm run release -- VERSION "CHANGELOG MESSAGE"
+```text
+npm run release -- VERSION "CHANGELOG MESSAGE"
+```
 
 
 Example:
 
-&nbsp;   npm run release -- 0.2.94 "Add Vite dev workflow and Leaflet config regression guard"
+```text
+npm run release -- 0.2.94 "Add Vite dev workflow and Leaflet config regression guard"
+```
 
 
 The release script automatically:
@@ -164,13 +175,17 @@ This project uses AI-assisted development tools.
 
 Claude Code follows development rules defined in:
 
-&nbsp;   CLAUDE.md
+```text
+CLAUDE.md
+```
 
 
 Additional structure and refactoring guardrails live in:
 
-&nbsp;   PROJECT\_STRUCTURE.md
-    docs/ARCHITECTURE\_RULES.md
+```text
+PROJECT_STRUCTURE.md
+docs/ARCHITECTURE_RULES.md
+```
 
 
 These documents help keep changes modular, minimal, and safe.
@@ -190,7 +205,9 @@ See the `docs/` directory for additional documentation:
 
 See:
 
-&nbsp;   CHANGELOG.md
+```text
+CHANGELOG.md
+```
 
 
 ## License
