@@ -6,6 +6,7 @@ dist/
 
 # Editor settings
 .vscode/
+.idea/
 
 # Local experiment folders (not part of repo)
 Flags/
@@ -18,3 +19,9 @@ Thumbs.db
 # Logs
 *.log
 npm-debug.log*
+
+# Temporary files
+*.tmp
+
+# Claude Code working directory (optional)
+.claude/
