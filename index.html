@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 <!-- ========================= -->
-<!-- SECTION: HEAD SCRIPT      -->
+<!-- SECTION: GLOBAL CONFIGURATION    -->
 <!-- Build version · GA        -->
 <!-- telemetry · DPR helpers   -->
 <!-- Leaflet helpers            -->
@@ -158,7 +158,7 @@
 <title>K-Bucks Demo</title>
 <link crossorigin="" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" rel="stylesheet"/>
 <!-- ========================= -->
-<!-- SECTION: STYLES           -->
+<!-- SECTION: UI LAYOUT AND STYLES    -->
 <!-- ========================= -->
 <style>
 
@@ -2594,7 +2594,7 @@ color: #111;
 <body>
 <div class="wrap">
 <!-- ========================= -->
-<!-- SECTION: SCREEN 3         -->
+<!-- SECTION: GAME SCREEN — NTC / OAP -->
 <!-- Name That Country (NTC)   -->
 <!-- Optics & Photonics (OAP)  -->
 <!-- ========================= -->
@@ -2692,7 +2692,7 @@ color: #111;
 <div class="copyrightLine">Copyright © 2025-2026 Vladimir Kravtchenko. All rights reserved. Version <span class="kbBuildVersion">0.2.92</span></div>
 </div>
 <!-- ========================= -->
-<!-- SECTION: SCREEN 2         -->
+<!-- SECTION: REDEMPTION STORE SCREEN -->
 <!-- Redemption Store          -->
 <!-- ========================= -->
 <div class="screen" id="screenStore" style="display:none;">
@@ -2722,7 +2722,7 @@ color: #111;
 <div class="copyrightLine">Copyright © 2025-2026 Vladimir Kravtchenko. All rights reserved. Version <span class="kbBuildVersion">0.2.92</span></div>
 </div>
 <!-- ========================= -->
-<!-- SECTION: SCREEN 1         -->
+<!-- SECTION: EDUCATIONAL CONTENT SCREEN -->
 <!-- Educational Content       -->
 <!-- ========================= -->
 <div class="screen" id="screenEdu">
@@ -2749,7 +2749,7 @@ color: #111;
 <div class="copyrightLine">Copyright © 2025-2026 Vladimir Kravtchenko. All rights reserved. Version <span class="kbBuildVersion">0.2.92</span></div>
 </div>
 <!-- ========================= -->
-<!-- SECTION: SCREEN 4         -->
+<!-- SECTION: MTN SCREEN              -->
 <!-- Multiply Two Numbers (MTN)-->
 <!-- ========================= -->
 <div class="screen" id="screenBingo" style="display:none;">
@@ -2999,7 +2999,7 @@ color: #111;
 
 
     // ========================= //
-    // SECTION: CONSTANTS        //
+    // SECTION: GLOBAL CONFIGURATION    //
     // Build version · formatters //
     // color constants            //
     // ========================= //
@@ -3497,7 +3497,7 @@ const messageEl = document.getElementById("message")
 
     
     // ========================= //
-    // SECTION: OAP              //
+    // SECTION: OPTICS AND PHOTONICS (OAP) //
     // Optics & Photonics logic  //
     // ========================= //
     // Geo game context switching (NTC vs OAP replica)
@@ -4244,7 +4244,7 @@ const screenBingoEl = document.getElementById("screenBingo")
     }
 
     // ========================= //
-    // SECTION: SCREEN NAVIGATION //
+    // SECTION: SCREEN MANAGEMENT       //
     // showGameScreen · showStore //
     // showEdu · showBingo        //
     // ========================= //
@@ -4330,7 +4330,7 @@ currentScreen = "edu"
     }
     
     // ========================= //
-    // SECTION: MTN              //
+    // SECTION: MULTIPLY TWO NUMBERS (MTN) //
     // Multiply Two Numbers      //
     // logic                     //
     // ========================= //
@@ -5116,7 +5116,7 @@ currentScreen = "bingo"
 
 
     // ========================= //
-    // SECTION: NTC              //
+    // SECTION: NAME THAT COUNTRY (NTC) //
     // Name That Country logic   //
     // ========================= //
     let countries = []
@@ -5337,7 +5337,7 @@ function setTimerVisible(visible) {
     //
 
     // ========================= //
-    // SECTION: WALLET / KBU     //
+    // SECTION: INCENTIVE ENGINE AND WALLET //
     // FLOW                      //
     // Shared wallet state and   //
     // KBU formatting helpers    //
@@ -6225,7 +6225,7 @@ function renderStore() {
       storeEl.appendChild(wrap)
     }
     // ========================= //
-    // SECTION: EDUCATIONAL      //
+    // SECTION: EDUCATIONAL CONTENT     //
     // CONTENT                   //
     // Data & rendering          //
     // ========================= //
