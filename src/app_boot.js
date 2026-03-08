@@ -6,7 +6,18 @@
 // ======================================
 ;(function () {
 
-  function init() {
+  // Binds blur + Enter-to-blur for commit-on-blur input fields.
+  function bindCommitOnBlurAndEnter(inputEl, commitFn) {
+    if (!inputEl) return
+    inputEl.addEventListener("blur", commitFn)
+    inputEl.addEventListener("keydown", (e) => {
+      if (e.key !== "Enter") return
+      e.preventDefault()
+      inputEl.blur()
+    })
+  }
+
+  function wirePrimaryButtons() {
     nextBtn.addEventListener("click", () => {
       try { if (window.KB_TELEMETRY) window.KB_TELEMETRY.event("kb_next_question_press", { kb_game: (kbGeoActiveKey === "oap") ? "optics_and_photonics" : "name_that_country", kb_mode: mode }) } catch (e) {}
       if (gameComplete) return
@@ -24,81 +35,32 @@
     redeemBtn.addEventListener("click", quitGameToEdu)
     closeRedeemBtn.addEventListener("click", closeRedeem)
     if (openStoreBtn) openStoreBtn.addEventListener("click", openStoreFromEdu)
+  }
+
+  function wireGeoInputs() {
     // Geo (NTC/OAP) flow rate parsing should not run on each keystroke.
     // Commit on blur, and on Enter by blurring the field.
-    if (flowRateInput) {
-      flowRateInput.addEventListener("blur", clampFlowRate)
-      flowRateInput.addEventListener("keydown", (e) => {
-        if (e.key !== "Enter") return
-        e.preventDefault()
-        flowRateInput.blur()
-      })
-    }
+    bindCommitOnBlurAndEnter(flowRateInput, clampFlowRate)
     // Parent wallet parsing should not run on each keystroke.
     // Commit when the user presses Enter or when the field loses focus.
-    if (parentInput) {
-      parentInput.addEventListener("blur", clampParentInput)
-      parentInput.addEventListener("keydown", (e) => {
-        if (e.key !== "Enter") return
-        e.preventDefault()
-        // Blur triggers clampParentInput, matching click-outside behavior.
-        parentInput.blur()
-      })
-    }
+    bindCommitOnBlurAndEnter(parentInput, clampParentInput)
+    bindCommitOnBlurAndEnter(sponsorInput, clampSponsorInput)
+    bindCommitOnBlurAndEnter(sponsorMatchInput, clampSponsorMatch)
+  }
 
-    if (sponsorInput) {
-      sponsorInput.addEventListener("blur", clampSponsorInput)
-      sponsorInput.addEventListener("keydown", (e) => {
-        if (e.key !== "Enter") return
-        e.preventDefault()
-        sponsorInput.blur()
-      })
-    }
-
-    if (sponsorMatchInput) {
-      sponsorMatchInput.addEventListener("blur", clampSponsorMatch)
-      sponsorMatchInput.addEventListener("keydown", (e) => {
-        if (e.key !== "Enter") return
-        e.preventDefault()
-        sponsorMatchInput.blur()
-      })
-    }
-
+  function wireBingoInputs() {
     // Bingo (Screen 4) wallet controls.
-    if (bingoFlowRateInput) {
-      bingoFlowRateInput.addEventListener("blur", kbBingoClampFlowRate)
-      bingoFlowRateInput.addEventListener("keydown", (e) => {
-        if (e.key !== "Enter") return
-        e.preventDefault()
-        bingoFlowRateInput.blur()
-      })
-    }
-    if (bingoParentInput) {
-      bingoParentInput.addEventListener("blur", kbBingoClampParentInput)
-      bingoParentInput.addEventListener("keydown", (e) => {
-        if (e.key !== "Enter") return
-        e.preventDefault()
-        bingoParentInput.blur()
-      })
-    }
-    if (bingoSponsorInput) {
-      bingoSponsorInput.addEventListener("blur", kbBingoClampSponsorInput)
-      bingoSponsorInput.addEventListener("keydown", (e) => {
-        if (e.key !== "Enter") return
-        e.preventDefault()
-        bingoSponsorInput.blur()
-      })
-    }
-    if (bingoSponsorMatchInput) {
-      bingoSponsorMatchInput.addEventListener("blur", kbBingoClampSponsorMatch)
-      bingoSponsorMatchInput.addEventListener("keydown", (e) => {
-        if (e.key !== "Enter") return
-        e.preventDefault()
-        bingoSponsorMatchInput.blur()
-      })
-    }
+    bindCommitOnBlurAndEnter(bingoFlowRateInput, kbBingoClampFlowRate)
+    bindCommitOnBlurAndEnter(bingoParentInput, kbBingoClampParentInput)
+    bindCommitOnBlurAndEnter(bingoSponsorInput, kbBingoClampSponsorInput)
+    bindCommitOnBlurAndEnter(bingoSponsorMatchInput, kbBingoClampSponsorMatch)
     try { kbBingoUpdateAccounts() } catch (e) {}
+  }
 
+  function init() {
+    wirePrimaryButtons()
+    wireGeoInputs()
+    wireBingoInputs()
 
     const ro = new ResizeObserver(() => syncMapHeight())
     ro.observe(sideEl)
