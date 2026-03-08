@@ -1,9 +1,9 @@
-// ========================= //
-// KB_ENGINE                 //
-// KBU unit conversion       //
-// KBU formatting            //
-// Sponsor / wallet math     //
-// ========================= //
+// ======================================
+// K-BUCKS DEMO
+// Module: incentive_engine
+// Responsibility: KBU unit conversion, formatting, and sponsor/wallet math
+// Exports: window.KB_ENGINE
+// ======================================
 ;(function () {
   const SCALE = window.KB_CONST.SCALE
 

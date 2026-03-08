@@ -1,8 +1,9 @@
-// ========================= //
-// KB_CONST                  //
-// Runtime constants and     //
-// asset/data paths          //
-// ========================= //
+// ======================================
+// K-BUCKS DEMO
+// Module: constants
+// Responsibility: Runtime constants, asset paths, and Leaflet style definitions
+// Exports: window.KB_CONST
+// ======================================
 window.KB_CONST = {
   SCALE: 1000000000,
   KB_ZOOM_OUT_AFTER_FIT: 0.25,

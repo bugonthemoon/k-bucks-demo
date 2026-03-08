@@ -1,9 +1,9 @@
-// ========================= //
-// KB_MAP                    //
-// Leaflet map lifecycle     //
-// Double-buffer management  //
-// Tile heal helpers         //
-// ========================= //
+// ======================================
+// K-BUCKS DEMO
+// Module: map_engine
+// Responsibility: Leaflet map lifecycle, double-buffer management, and tile heal helpers
+// Exports: window.KB_MAP
+// ======================================
 ;(function () {
 
   function kbGetFrontBuffer() { return kbMapBuffers[kbFrontKey] }

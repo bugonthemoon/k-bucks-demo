@@ -1,10 +1,9 @@
-// ========================= //
-// KB_BINGO                  //
-// Bingo wallet helpers      //
-// Bingo board/UI helpers    //
-// Bingo game flow           //
-// Bingo timer               //
-// ========================= //
+// ======================================
+// K-BUCKS DEMO
+// Module: bingo_engine
+// Responsibility: Practice Times Tables gameplay engine — board, wallet, game flow, timer
+// Exports: window.KB_BINGO
+// ======================================
 ;(function () {
 
   // Private: all unique products from 1×1 to 10×10, sorted.

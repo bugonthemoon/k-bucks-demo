@@ -1,12 +1,9 @@
-// ========================= //
-// KB_NAV                    //
-// Screen navigation         //
-// showGameScreen             //
-// showStoreScreen            //
-// showEduScreen              //
-// showBingoScreen            //
-// isRedeemOpen               //
-// ========================= //
+// ======================================
+// K-BUCKS DEMO
+// Module: navigation
+// Responsibility: Screen navigation — show/hide game, store, edu, and bingo screens
+// Exports: window.KB_NAV
+// ======================================
 ;(function () {
 
   function showGameScreen(whichKey) {

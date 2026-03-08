@@ -1,9 +1,9 @@
-// ========================= //
-// KB_ACTIVITY               //
-// NTC/OAP shared state      //
-// Context switching helpers //
-// Video source / inset sync //
-// ========================= //
+// ======================================
+// K-BUCKS DEMO
+// Module: activity_state
+// Responsibility: Shared NTC/OAP activity state, context switching, video source and inset sync
+// Exports: window.KB_ACTIVITY
+// ======================================
 ;(function () {
 
   function kbOapSetVideoSrcByKey(videoKey) {

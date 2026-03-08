@@ -1,9 +1,9 @@
-// ========================= //
-// KB_APP_BOOT               //
-// Application boot layer    //
-// Event listener wiring     //
-// Startup initialization    //
-// ========================= //
+// ======================================
+// K-BUCKS DEMO
+// Module: app_boot
+// Responsibility: Application boot — event listener wiring and startup initialization
+// Exports: window.KB_APP_BOOT
+// ======================================
 ;(function () {
 
   function init() {

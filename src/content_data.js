@@ -1,9 +1,9 @@
-// ========================= //
-// KB_DATA                   //
-// Static content data       //
-// Store and educational     //
-// item definitions          //
-// ========================= //
+// ======================================
+// K-BUCKS DEMO
+// Module: content_data
+// Responsibility: Static store item and educational item definitions
+// Exports: window.KB_DATA
+// ======================================
 window.KB_DATA = {
 
   // REDEMPTION_STORE_START

@@ -1,11 +1,9 @@
-// ========================= //
-// KB_WALLET                 //
-// Wallet/persistence layer  //
-// Account update helpers    //
-// Available-to-earn helpers //
-// Flow rate helpers         //
-// Clamp/input helpers       //
-// ========================= //
+// ======================================
+// K-BUCKS DEMO
+// Module: wallet_engine
+// Responsibility: Wallet persistence, flow rate helpers, account update, and available-to-earn
+// Exports: window.KB_WALLET
+// ======================================
 ;(function () {
 
   function kbAvailableToEarnOpticsU() {

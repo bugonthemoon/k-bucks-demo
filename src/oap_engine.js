@@ -1,11 +1,9 @@
-// ========================= //
-// KB_OAP                    //
-// OAP watch timer           //
-// OAP playback helpers      //
-// OAP event hooks           //
-// OAP flow application      //
-// OAP video list renderer   //
-// ========================= //
+// ======================================
+// K-BUCKS DEMO
+// Module: oap_engine
+// Responsibility: Optics and Photonics watch engine — video timer, flow application, video list
+// Exports: window.KB_OAP
+// ======================================
 ;(function () {
 
   function kbOapAttachVideoMetaListener() {

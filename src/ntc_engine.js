@@ -1,14 +1,9 @@
-// ========================= //
-// KB_NTC                    //
-// Map view utilities        //
-// NTC timer                 //
-// Country helpers           //
-// Map layer helpers         //
-// Score display             //
-// UI helpers                //
-// Game flow                 //
-// Country loader            //
-// ========================= //
+// ======================================
+// K-BUCKS DEMO
+// Module: ntc_engine
+// Responsibility: Name That Country gameplay engine — map, timer, scoring, country loader
+// Exports: window.KB_NTC
+// ======================================
 ;(function () {
 
   // Show countries slightly smaller than a tight fit. Fractional zoom remains enabled.
