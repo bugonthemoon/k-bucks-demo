@@ -6,41 +6,11 @@
 // ======================================
 ;(function () {
 
-  function kbOapAttachVideoMetaListener() {
-    const v = document.getElementById("oapVideo")
-    if (!v) return
-    v.addEventListener("loadedmetadata", () => { kbScheduleOapVideoInsetSync(); kbOapSyncVideoTopInset(); })
-    v.addEventListener("canplay", () => { kbScheduleOapVideoInsetSync(); kbOapSyncVideoTopInset(); })
-  }
+  // ---- Video element and event helpers ----
 
-  function kbOapStopVideoPlayback() {
-    try {
-      const v = document.getElementById("oapVideo")
-      if (v) {
-        v.pause()
-        try { v.currentTime = 0 } catch (e) {}
-        kbOapWasPlayingBeforeBlur = false
-        kbOapLastVideoTimeSec = 0
-      }
-    } catch (e) {}
+  function kbOapGetVideoEl() {
+    try { return document.getElementById("oapVideo") } catch (e) { return null }
   }
-
-  function kbOapResetOnEnter() {
-    // Reset OAP progress numerator and UI selection like "New game" state.
-    try { kbOapProgressMs = 0 } catch (e) {}
-    try { kbOapStopVideoPlayback() } catch (e) {}
-    try { kbOapClearSelectedVideo() } catch (e) {}
-    try { kbOapWasPlayingBeforeBlur = false } catch (e) {}
-    try { kbOapLastVideoTimeSec = 0 } catch (e) {}
-    try { kbOapLastTickTs = 0 } catch (e) {}
-     try { kbOapLastFlowProgressMs = 0 } catch (e) {}
-  }
-
-  function kbOapIsWindowActive() {
-    // Treat "hidden" as inactive. hasFocus() is unreliable across browsers and devtools.
-    try { return !document.hidden } catch (e) { return true }
-  }
-
 
   function kbOapHookVideoEventsOnce(v) {
     if (!v) return
@@ -56,22 +26,37 @@
     v.addEventListener("ended", sync)
   }
 
-function kbOapGetVideoEl() {
-    try { return document.getElementById("oapVideo") } catch (e) { return null }
+  function kbOapAttachVideoMetaListener() {
+    const v = document.getElementById("oapVideo")
+    if (!v) return
+    v.addEventListener("loadedmetadata", () => { kbScheduleOapVideoInsetSync(); kbOapSyncVideoTopInset(); })
+    v.addEventListener("canplay", () => { kbScheduleOapVideoInsetSync(); kbOapSyncVideoTopInset(); })
   }
-
-  function kbOapClampProgress() {
-    try {
-      kbOapProgressMs = Math.max(0, kbOapProgressMs || 0)
-    } catch (e) {}
-  }
-
 
   function kbOapSyncLastVideoTime() {
     const v = kbOapGetVideoEl()
     if (!v) return
     const t = Number(v.currentTime || 0)
     kbOapLastVideoTimeSec = isFinite(t) ? t : 0
+  }
+
+  function kbOapStopVideoPlayback() {
+    try {
+      const v = document.getElementById("oapVideo")
+      if (v) {
+        v.pause()
+        try { v.currentTime = 0 } catch (e) {}
+        kbOapWasPlayingBeforeBlur = false
+        kbOapLastVideoTimeSec = 0
+      }
+    } catch (e) {}
+  }
+
+  // ---- Window activity and focus helpers ----
+
+  function kbOapIsWindowActive() {
+    // Treat "hidden" as inactive. hasFocus() is unreliable across browsers and devtools.
+    try { return !document.hidden } catch (e) { return true }
   }
 
   function kbOapMaybePauseForInactivity() {
@@ -96,6 +81,13 @@ function kbOapGetVideoEl() {
     }
   }
 
+  // ---- Progress and payout helpers ----
+
+  function kbOapClampProgress() {
+    try {
+      kbOapProgressMs = Math.max(0, kbOapProgressMs || 0)
+    } catch (e) {}
+  }
 
   function kbOapApplyPeriodicFlow() {
     try {
@@ -215,7 +207,7 @@ function kbOapGetVideoEl() {
     } catch (e) {}
   }
 
-function kbOapWatchTick() {
+  function kbOapWatchTick() {
     try {
       if (kbGeoActiveKey !== "oap") return
       const v = kbOapGetVideoEl()
@@ -245,110 +237,9 @@ function kbOapWatchTick() {
     } catch (e) {}
   }
 
-function kbOapInitWatchTimer() {
-    if (kbOapTickTimer) return
-    kbOapTickTimer = setInterval(kbOapWatchTick, 250)
+  // ---- Video list and answer selection ----
 
-    // Keep tick baseline correct when playback state changes.
-    document.addEventListener("play", (ev) => {
-      try {
-        if (kbGeoActiveKey !== "oap") return
-        const v = kbOapGetVideoEl()
-        if (!v) return
-        if (ev.target !== v) return
-        kbOapLastTickTs = performance.now()
-      } catch (e) {}
-    }, true)
-
-    document.addEventListener("pause", (ev) => {
-      try {
-        const v = kbOapGetVideoEl()
-        if (!v) return
-        if (ev.target !== v) return
-        kbOapLastTickTs = performance.now()
-      } catch (e) {}
-    }, true)
-
-
-    document.addEventListener("timeupdate", (ev) => {
-      try {
-        if (kbGeoActiveKey !== "oap") return
-        const v = kbOapGetVideoEl()
-        if (!v) return
-        if (ev.target !== v) return
-        if (v.paused || v.ended) { kbOapLastVideoTimeSec = Number(v.currentTime || 0) || 0; return }
-        if (!kbOapIsWindowActive()) return
-
-        const cur = Number(v.currentTime || 0) || 0
-        const prev = Number(kbOapLastVideoTimeSec || 0) || 0
-        const dMs = (cur - prev) * 1000
-        // Count only small forward progress, ignore seeks and jumps.
-        if (dMs > 0 && dMs <= 1500) {
-          kbOapProgressMs = (kbOapProgressMs || 0) + dMs
-          kbOapClampProgress()
-          try { updateScoreDisplay() } catch (e) {}
-          try { kbOapApplyPeriodicFlow() } catch (e) {}
-        }
-        kbOapLastVideoTimeSec = cur
-        kbOapLastTickTs = performance.now()
-      } catch (e) {}
-    }, true)
-
-document.addEventListener("seeking", (ev) => {
-      try {
-        const v = kbOapGetVideoEl()
-        if (!v) return
-        if (ev.target !== v) return
-        kbOapLastTickTs = performance.now()
-      } catch (e) {}
-    }, true)
-
-    document.addEventListener("ended", (ev) => {
-      try {
-        const v = kbOapGetVideoEl()
-        if (!v) return
-        if (ev.target !== v) return
-        kbOapLastTickTs = performance.now()
-      } catch (e) {}
-    }, true)
-
-    // Pause when tab becomes hidden, resume when visible again.
-    document.addEventListener("visibilitychange", () => {
-      try {
-        const v = kbOapGetVideoEl()
-        if (!v) return
-        if (kbGeoActiveKey !== "oap") return
-        if (document.hidden) {
-          if (!v.paused) kbOapWasPlayingBeforeBlur = true
-          try { v.pause() } catch (e) {}
-        } else {
-          kbOapMaybeResumeAfterFocus()
-          kbOapSyncLastVideoTime()
-        }
-      } catch (e) {}
-    })
-
-    window.addEventListener("blur", () => {
-      try {
-        if (kbGeoActiveKey !== "oap") return
-        const v = kbOapGetVideoEl()
-        if (!v) return
-        if (!v.paused) kbOapWasPlayingBeforeBlur = true
-        try { v.pause() } catch (e) {}
-      } catch (e) {}
-    })
-
-    window.addEventListener("focus", () => {
-      try {
-        if (kbGeoActiveKey !== "oap") return
-        kbOapMaybeResumeAfterFocus()
-        kbOapSyncLastVideoTime()
-      } catch (e) {}
-    })
-  }
-
-
-function kbOapGetSelectedBulletText() {
+  function kbOapGetSelectedBulletText() {
     try {
       if (kbOapSelectedBulletText && String(kbOapSelectedBulletText).trim()) return String(kbOapSelectedBulletText).trim()
       // Fallback based on selected key
@@ -359,7 +250,7 @@ function kbOapGetSelectedBulletText() {
     } catch (e) { return "" }
   }
 
-function kbRenderOapVideoList() {
+  function kbRenderOapVideoList() {
     if (kbGeoActiveKey !== "oap") return
     const answersEl = document.getElementById("answers")
     if (!answersEl) return
@@ -428,6 +319,120 @@ function kbRenderOapVideoList() {
 
     const msgEl = document.getElementById("message")
     if (msgEl) msgEl.textContent = ""
+  }
+
+  // ---- OAP entry points ----
+
+  function kbOapResetOnEnter() {
+    // Reset OAP progress numerator and UI selection like "New game" state.
+    try { kbOapProgressMs = 0 } catch (e) {}
+    try { kbOapStopVideoPlayback() } catch (e) {}
+    try { kbOapClearSelectedVideo() } catch (e) {}
+    try { kbOapWasPlayingBeforeBlur = false } catch (e) {}
+    try { kbOapLastVideoTimeSec = 0 } catch (e) {}
+    try { kbOapLastTickTs = 0 } catch (e) {}
+    try { kbOapLastFlowProgressMs = 0 } catch (e) {}
+  }
+
+  function kbOapInitWatchTimer() {
+    if (kbOapTickTimer) return
+    kbOapTickTimer = setInterval(kbOapWatchTick, 250)
+
+    // Keep tick baseline correct when playback state changes.
+    document.addEventListener("play", (ev) => {
+      try {
+        if (kbGeoActiveKey !== "oap") return
+        const v = kbOapGetVideoEl()
+        if (!v) return
+        if (ev.target !== v) return
+        kbOapLastTickTs = performance.now()
+      } catch (e) {}
+    }, true)
+
+    document.addEventListener("pause", (ev) => {
+      try {
+        const v = kbOapGetVideoEl()
+        if (!v) return
+        if (ev.target !== v) return
+        kbOapLastTickTs = performance.now()
+      } catch (e) {}
+    }, true)
+
+    document.addEventListener("timeupdate", (ev) => {
+      try {
+        if (kbGeoActiveKey !== "oap") return
+        const v = kbOapGetVideoEl()
+        if (!v) return
+        if (ev.target !== v) return
+        if (v.paused || v.ended) { kbOapLastVideoTimeSec = Number(v.currentTime || 0) || 0; return }
+        if (!kbOapIsWindowActive()) return
+
+        const cur = Number(v.currentTime || 0) || 0
+        const prev = Number(kbOapLastVideoTimeSec || 0) || 0
+        const dMs = (cur - prev) * 1000
+        // Count only small forward progress, ignore seeks and jumps.
+        if (dMs > 0 && dMs <= 1500) {
+          kbOapProgressMs = (kbOapProgressMs || 0) + dMs
+          kbOapClampProgress()
+          try { updateScoreDisplay() } catch (e) {}
+          try { kbOapApplyPeriodicFlow() } catch (e) {}
+        }
+        kbOapLastVideoTimeSec = cur
+        kbOapLastTickTs = performance.now()
+      } catch (e) {}
+    }, true)
+
+    document.addEventListener("seeking", (ev) => {
+      try {
+        const v = kbOapGetVideoEl()
+        if (!v) return
+        if (ev.target !== v) return
+        kbOapLastTickTs = performance.now()
+      } catch (e) {}
+    }, true)
+
+    document.addEventListener("ended", (ev) => {
+      try {
+        const v = kbOapGetVideoEl()
+        if (!v) return
+        if (ev.target !== v) return
+        kbOapLastTickTs = performance.now()
+      } catch (e) {}
+    }, true)
+
+    // Pause when tab becomes hidden, resume when visible again.
+    document.addEventListener("visibilitychange", () => {
+      try {
+        const v = kbOapGetVideoEl()
+        if (!v) return
+        if (kbGeoActiveKey !== "oap") return
+        if (document.hidden) {
+          if (!v.paused) kbOapWasPlayingBeforeBlur = true
+          try { v.pause() } catch (e) {}
+        } else {
+          kbOapMaybeResumeAfterFocus()
+          kbOapSyncLastVideoTime()
+        }
+      } catch (e) {}
+    })
+
+    window.addEventListener("blur", () => {
+      try {
+        if (kbGeoActiveKey !== "oap") return
+        const v = kbOapGetVideoEl()
+        if (!v) return
+        if (!v.paused) kbOapWasPlayingBeforeBlur = true
+        try { v.pause() } catch (e) {}
+      } catch (e) {}
+    })
+
+    window.addEventListener("focus", () => {
+      try {
+        if (kbGeoActiveKey !== "oap") return
+        kbOapMaybeResumeAfterFocus()
+        kbOapSyncLastVideoTime()
+      } catch (e) {}
+    })
   }
 
   window.KB_OAP = {
