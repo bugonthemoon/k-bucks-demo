@@ -2,6 +2,7 @@
 
 ## Releases
 
+- 0.3.0 (2026-03-08): Refactor and hardening milestone: modular engine source files, boot-time registry validation, centralized constants and guardrails, changelog cleanup, and updated project docs.
 - 0.2.94 (2026-03-08): Internal refactor sweep: modularized engine source files, added boot-time registry validation, centralized build version and Leaflet guardrail values in KB_CONST, and aligned project docs.
 - 0.2.93 (2026-02-18): Set OAP initial flow rate to 3.60 KBU per hour of watching.
 - 0.2.91 (2026-02-17): Set initial Parent and Sponsor balances and flow rates for NTC, OAP, and MTN.
