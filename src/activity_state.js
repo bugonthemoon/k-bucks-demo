@@ -6,36 +6,9 @@
 // ======================================
 ;(function () {
 
-  function kbOapSetVideoSrcByKey(videoKey) {
-    const v = document.getElementById("oapVideo")
-      try { kbOapHookVideoEventsOnce(v) } catch (e) {}
-    if (!v) return
-    const src = videoKey ? kbOapVideoByKey[videoKey] : ""
-    if (!src) {
-      try { v.pause() } catch (e) {}
-      v.removeAttribute("src")
-      v.load()
-    function kbOapOnceCanplaySync() {
-      v.removeEventListener("canplay", kbOapOnceCanplaySync)
-      kbScheduleOapVideoInsetSync()
-      kbOapSyncVideoTopInset()
-    }
-    v.addEventListener("canplay", kbOapOnceCanplaySync)
+  // ---- Geo state: save and load ----
 
-      return
-    }
-    if (v.getAttribute("src") !== src) {
-      v.setAttribute("src", src)
-      v.load()
-    }
-    try {
-      v.currentTime = 0
-    } catch (e) {}
-    const p = v.play()
-    if (p && typeof p.catch === "function") p.catch(() => {})
-  }
-
-function kbGeoSaveState() {
+  function kbGeoSaveState() {
     const st = kbGeoState[kbGeoActiveKey]
     if (!st) return
     st.rounds = rounds
@@ -82,12 +55,49 @@ function kbGeoSaveState() {
     } catch (e) {}
   }
 
+  // ---- OAP video source ----
 
+  function kbOapSetVideoSrcByKey(videoKey) {
+    const v = document.getElementById("oapVideo")
+    try { kbOapHookVideoEventsOnce(v) } catch (e) {}
+    if (!v) return
+    const src = videoKey ? kbOapVideoByKey[videoKey] : ""
+    if (!src) {
+      try { v.pause() } catch (e) {}
+      v.removeAttribute("src")
+      v.load()
+    function kbOapOnceCanplaySync() {
+      v.removeEventListener("canplay", kbOapOnceCanplaySync)
+      kbScheduleOapVideoInsetSync()
+      kbOapSyncVideoTopInset()
+    }
+    v.addEventListener("canplay", kbOapOnceCanplaySync)
 
+      return
+    }
+    if (v.getAttribute("src") !== src) {
+      v.setAttribute("src", src)
+      v.load()
+    }
+    try {
+      v.currentTime = 0
+    } catch (e) {}
+    const p = v.play()
+    if (p && typeof p.catch === "function") p.catch(() => {})
+  }
 
+  function kbOapClearSelectedVideo() {
+    try { kbGeoSelectedVideoKey = "" } catch (e) {}
+    try { kbOapSelectedBulletText = "" } catch (e) {}
+    try {
+      const answersEl = document.getElementById("answers")
+      if (!answersEl) return
+      const btns = answersEl.querySelectorAll(".ansBtn")
+      btns.forEach((b) => b.classList.remove("selected"))
+    } catch (e) {}
+  }
 
-
-
+  // ---- OAP video inset sync ----
 
   function kbOapSyncVideoTopInset() {
     if (kbGeoActiveKey !== "oap") return
@@ -120,7 +130,7 @@ function kbGeoSaveState() {
     const extraPad = 16
     const h = Math.min(maxH, Math.max(120, contentH + controlsH + extraPad))
 
-// Force overrides even if older CSS uses !important.
+    // Force overrides even if older CSS uses !important.
     v.style.setProperty("position", "absolute", "important")
     v.style.setProperty("left", "0px", "important")
     v.style.setProperty("top", topInset + "px", "important")
@@ -134,7 +144,7 @@ function kbGeoSaveState() {
     v.style.setProperty("z-index", "1", "important")
   }
 
-function kbScheduleOapVideoInsetSync() {
+  function kbScheduleOapVideoInsetSync() {
     if (kbOapVideoInsetRaf) return
     kbOapVideoInsetRaf = requestAnimationFrame(() => {
       kbOapVideoInsetRaf = 0
@@ -142,7 +152,9 @@ function kbScheduleOapVideoInsetSync() {
     })
   }
 
-function kbApplyGeoContextUI() {
+  // ---- Geo/OAP context UI ----
+
+  function kbApplyGeoContextUI() {
     const isOap = kbGeoActiveKey === "oap"
     if (isOap) {
       try { stopTimer() } catch (e) {}
@@ -196,17 +208,6 @@ function kbApplyGeoContextUI() {
     if (kbuLineLabelEl) {
       kbuLineLabelEl.textContent = isOap ? ("KBU drop every " + String(KB_OAP_FLOW_EVERY_SEC) + " seconds: ") : "KBU per hour (estimate): "
     }
-  }
-
-  function kbOapClearSelectedVideo() {
-    try { kbGeoSelectedVideoKey = "" } catch (e) {}
-    try { kbOapSelectedBulletText = "" } catch (e) {}
-    try {
-      const answersEl = document.getElementById("answers")
-      if (!answersEl) return
-      const btns = answersEl.querySelectorAll(".ansBtn")
-      btns.forEach((b) => b.classList.remove("selected"))
-    } catch (e) {}
   }
 
   window.KB_ACTIVITY = {
