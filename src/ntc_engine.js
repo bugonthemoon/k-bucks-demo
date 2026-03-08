@@ -6,6 +6,8 @@
 // ======================================
 ;(function () {
 
+  // ---- Map helpers ----
+
   // Show countries slightly smaller than a tight fit. Fractional zoom remains enabled.
   function kbZoomOutAfterNextMoveEnd(targetMap, delta) {
     try {
@@ -53,174 +55,6 @@
     try { if (map.invalidateSize) map.invalidateSize({ animate: false, pan: false }) } catch (e) {}
     try { kbDbg("normalizeMapView done", { reason: reason, after: kbMapState() }) } catch (e) {}
     return true
-  }
-
-  function pad2(n) {
-    return String(n).padStart(2, "0")
-  }
-
-  function formatTimeHMS(ms) {
-    const totalSeconds = Math.max(0, Math.floor(ms / 1000))
-    const hours = Math.floor(totalSeconds / 3600)
-    const minutes = Math.floor((totalSeconds % 3600) / 60)
-    const seconds = totalSeconds % 60
-    const hh = String(hours).padStart(2, "0")
-    return hh + ":" + pad2(minutes) + ":" + pad2(seconds)
-  }
-
-  function formatTimeMSS(ms) {
-    const totalSeconds = Math.max(0, Math.floor(ms / 1000))
-    const minutes = Math.floor(totalSeconds / 60)
-    const seconds = totalSeconds % 60
-    return String(minutes) + ":" + pad2(seconds)
-  }
-
-  function setTimerVisible(visible) {
-    if (!timerEl) return
-    timerEl.style.display = visible ? "" : "none"
-  }
-
-  function renderTimer() {
-    if (!timerEl) return
-    const ms = timerElapsedMs + (timerRunning ? (Date.now() - timerStartMs) : 0)
-    timerEl.textContent = "Time: " + formatTimeHMS(ms)
-  }
-
-  function startTimer() {
-    if (timerStopped) return
-    if (mode !== "normal") return
-    if (timerRunning) return
-    timerRunning = true
-    timerStartMs = Date.now()
-    if (timerInterval) clearInterval(timerInterval)
-    timerInterval = setInterval(renderTimer, 1000)
-    renderTimer()
-  }
-
-  function pauseTimer() {
-    if (!timerRunning) {
-      renderTimer()
-      return
-    }
-    timerElapsedMs += Date.now() - timerStartMs
-    timerRunning = false
-    timerStartMs = 0
-    if (timerInterval) clearInterval(timerInterval)
-    timerInterval = null
-    renderTimer()
-  }
-
-  function stopTimer() {
-    pauseTimer()
-    timerStopped = true
-  }
-
-  function resetAndStartTimer() {
-    timerElapsedMs = 0
-    timerStopped = false
-    timerRunning = false
-    timerStartMs = 0
-    if (timerInterval) clearInterval(timerInterval)
-    timerInterval = null
-    renderTimer()
-    startTimer()
-  }
-
-  function pick(obj, keys) {
-    for (const k of keys) {
-      if (obj && obj[k] != null && String(obj[k]).trim() !== "") return obj[k]
-    }
-    return null
-  }
-
-  function normNameKey(s) {
-    return String(s || "")
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
-      .toLowerCase()
-      .replace(/&/g, "and")
-      .replace(/[^a-z0-9 ]+/g, " ")
-      .replace(/\s+/g, " ")
-      .trim()
-  }
-
-  const NAME_ALIAS_TO_CANON = new Map([
-    ["united states of america", "united states"],
-    ["russian federation", "russia"],
-    ["iran islamic republic of", "iran"],
-    ["venezuela bolivarian republic of", "venezuela"],
-    ["bolivia plurinational state of", "bolivia"],
-    ["tanzania united republic of", "tanzania"],
-    ["lao people s democratic republic", "laos"],
-    ["viet nam", "vietnam"],
-    ["syrian arab republic", "syria"],
-    ["moldova republic of", "moldova"],
-    ["korea republic of", "south korea"],
-    ["korea democratic people s republic of", "north korea"],
-    ["czech republic", "czechia"],
-    ["cote d ivoire", "cote divoire"],
-    ["congo", "republic of the congo"],
-    ["congo democratic republic of the", "democratic republic of the congo"],
-    ["myanmar burma", "myanmar"],
-    ["brunei darussalam", "brunei"],
-    ["timor leste", "east timor"],
-    ["macedonia", "north macedonia"],
-    ["swaziland", "eswatini"],
-    ["cape verde", "cabo verde"],
-    ["the bahamas", "bahamas"],
-    ["turkiye", "turkey"],
-    ["türkiye", "turkey"]
-  ])
-
-  function canon(name) {
-    const n = normNameKey(name)
-    return NAME_ALIAS_TO_CANON.get(n) || n
-  }
-
-  function getISO2(props) {
-    return pick(props, ["ISO3166-1-Alpha-2", "ISO_A2", "iso_a2", "iso2", "ISO2", "alpha2", "alpha-2", "cca2", "id"])
-  }
-
-  function getISO3(props) {
-    return pick(props, ["ISO3166-1-Alpha-3", "ISO_A3", "iso_a3", "ADM0_A3", "adm0_a3", "iso3", "ISO3", "alpha3", "alpha-3", "cca3"])
-  }
-
-  function geoName(props) {
-    if (!props) return null
-    return pick(props, [
-      "ADMIN", "admin",
-      "NAME", "name",
-      "NAME_EN", "name_en",
-      "SOVEREIGNT", "sovereignt",
-      "COUNTRY", "country",
-      "Country"
-    ])
-  }
-
-  function shuffle(arr) {
-    const a = arr.slice()
-    for (let i = a.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1))
-      const t = a[i]
-      a[i] = a[j]
-      a[j] = t
-    }
-    return a
-  }
-
-  function pickNOther(n, excludeKey) {
-    const pool = countries.filter(c => c.key !== excludeKey)
-    return shuffle(pool).slice(0, n)
-  }
-
-  function buildPracticeDeck() {
-    const arr = []
-    for (const k of misses) {
-      const c = countryByKey.get(k)
-      if (c) arr.push(c)
-    }
-    deck = shuffle(arr)
-    deckIndex = 0
   }
 
   function clearMapLayer() {
@@ -296,6 +130,213 @@
     try { if (buf) buf.currentLayer = null } catch (e) {}
   }
 
+  function syncMapHeight() {
+    if (!mapDiv) return
+    const slot = mapSlotEl || document.getElementById("mapSlot")
+    const h = slot ? slot.clientHeight : (sideEl ? sideEl.offsetHeight : 0)
+    try { kbDbg("syncMapHeight h", { h: h, now: kbMapState() }) } catch (e) {}
+    if (!h || h <= 0) return
+
+    const desired = h + "px"
+    const seq = (map && map._kbSeq) ? map._kbSeq : 0
+    const forceForNewMap = seq && window.kbLastSyncMapSeq !== seq
+
+    if (window.kbLastSyncMapH === desired && !forceForNewMap) return
+    window.kbLastSyncMapH = desired
+    if (seq) window.kbLastSyncMapSeq = seq
+
+    mapDiv.style.height = desired
+
+    try {
+      if (map && map.invalidateSize) {
+        try { map.invalidateSize({ animate: false, pan: false }) } catch (e) { map.invalidateSize() }
+      }
+    } catch (e) {}
+    try {
+      const backBuf = kbGetBackBuffer()
+      if (backBuf && backBuf.map && backBuf.map.invalidateSize) {
+        try { backBuf.map.invalidateSize({ animate: false, pan: false }) } catch (e) { backBuf.map.invalidateSize() }
+      }
+    } catch (e) {}
+    try { kbDbg("syncMapHeight invalidateSize", kbMapState()) } catch (e) {}
+  }
+
+  // ---- Timer ----
+
+  function pad2(n) {
+    return String(n).padStart(2, "0")
+  }
+
+  function formatTimeHMS(ms) {
+    const totalSeconds = Math.max(0, Math.floor(ms / 1000))
+    const hours = Math.floor(totalSeconds / 3600)
+    const minutes = Math.floor((totalSeconds % 3600) / 60)
+    const seconds = totalSeconds % 60
+    const hh = String(hours).padStart(2, "0")
+    return hh + ":" + pad2(minutes) + ":" + pad2(seconds)
+  }
+
+  function formatTimeMSS(ms) {
+    const totalSeconds = Math.max(0, Math.floor(ms / 1000))
+    const minutes = Math.floor(totalSeconds / 60)
+    const seconds = totalSeconds % 60
+    return String(minutes) + ":" + pad2(seconds)
+  }
+
+  function setTimerVisible(visible) {
+    if (!timerEl) return
+    timerEl.style.display = visible ? "" : "none"
+  }
+
+  function renderTimer() {
+    if (!timerEl) return
+    const ms = timerElapsedMs + (timerRunning ? (Date.now() - timerStartMs) : 0)
+    timerEl.textContent = "Time: " + formatTimeHMS(ms)
+  }
+
+  function startTimer() {
+    if (timerStopped) return
+    if (mode !== "normal") return
+    if (timerRunning) return
+    timerRunning = true
+    timerStartMs = Date.now()
+    if (timerInterval) clearInterval(timerInterval)
+    timerInterval = setInterval(renderTimer, 1000)
+    renderTimer()
+  }
+
+  function pauseTimer() {
+    if (!timerRunning) {
+      renderTimer()
+      return
+    }
+    timerElapsedMs += Date.now() - timerStartMs
+    timerRunning = false
+    timerStartMs = 0
+    if (timerInterval) clearInterval(timerInterval)
+    timerInterval = null
+    renderTimer()
+  }
+
+  function stopTimer() {
+    pauseTimer()
+    timerStopped = true
+  }
+
+  function resetAndStartTimer() {
+    timerElapsedMs = 0
+    timerStopped = false
+    timerRunning = false
+    timerStartMs = 0
+    if (timerInterval) clearInterval(timerInterval)
+    timerInterval = null
+    renderTimer()
+    startTimer()
+  }
+
+  // ---- Country data helpers ----
+
+  function pick(obj, keys) {
+    for (const k of keys) {
+      if (obj && obj[k] != null && String(obj[k]).trim() !== "") return obj[k]
+    }
+    return null
+  }
+
+  function normNameKey(s) {
+    return String(s || "")
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase()
+      .replace(/&/g, "and")
+      .replace(/[^a-z0-9 ]+/g, " ")
+      .replace(/\s+/g, " ")
+      .trim()
+  }
+
+  const NAME_ALIAS_TO_CANON = new Map([
+    ["united states of america", "united states"],
+    ["russian federation", "russia"],
+    ["iran islamic republic of", "iran"],
+    ["venezuela bolivarian republic of", "venezuela"],
+    ["bolivia plurinational state of", "bolivia"],
+    ["tanzania united republic of", "tanzania"],
+    ["lao people s democratic republic", "laos"],
+    ["viet nam", "vietnam"],
+    ["syrian arab republic", "syria"],
+    ["moldova republic of", "moldova"],
+    ["korea republic of", "south korea"],
+    ["korea democratic people s republic of", "north korea"],
+    ["czech republic", "czechia"],
+    ["cote d ivoire", "cote divoire"],
+    ["congo", "republic of the congo"],
+    ["congo democratic republic of the", "democratic republic of the congo"],
+    ["myanmar burma", "myanmar"],
+    ["brunei darussalam", "brunei"],
+    ["timor leste", "east timor"],
+    ["macedonia", "north macedonia"],
+    ["swaziland", "eswatini"],
+    ["cape verde", "cabo verde"],
+    ["the bahamas", "bahamas"],
+    ["turkiye", "turkey"],
+    ["türkiye", "turkey"]
+  ])
+
+  function canon(name) {
+    const n = normNameKey(name)
+    return NAME_ALIAS_TO_CANON.get(n) || n
+  }
+
+  function getISO2(props) {
+    return pick(props, ["ISO3166-1-Alpha-2", "ISO_A2", "iso_a2", "iso2", "ISO2", "alpha2", "alpha-2", "cca2", "id"])
+  }
+
+  function getISO3(props) {
+    return pick(props, ["ISO3166-1-Alpha-3", "ISO_A3", "iso_a3", "ADM0_A3", "adm0_a3", "iso3", "ISO3", "alpha3", "alpha-3", "cca3"])
+  }
+
+  function geoName(props) {
+    if (!props) return null
+    return pick(props, [
+      "ADMIN", "admin",
+      "NAME", "name",
+      "NAME_EN", "name_en",
+      "SOVEREIGNT", "sovereignt",
+      "COUNTRY", "country",
+      "Country"
+    ])
+  }
+
+  // ---- Question selection ----
+
+  function shuffle(arr) {
+    const a = arr.slice()
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1))
+      const t = a[i]
+      a[i] = a[j]
+      a[j] = t
+    }
+    return a
+  }
+
+  function pickNOther(n, excludeKey) {
+    const pool = countries.filter(c => c.key !== excludeKey)
+    return shuffle(pool).slice(0, n)
+  }
+
+  function buildPracticeDeck() {
+    const arr = []
+    for (const k of misses) {
+      const c = countryByKey.get(k)
+      if (c) arr.push(c)
+    }
+    deck = shuffle(arr)
+    deckIndex = 0
+  }
+
+  // ---- Score and status display ----
+
   function formatScorePctInt(correct, total) {
     if (!total || total <= 0) return ""
     const pct = (correct / total) * 100
@@ -360,36 +401,7 @@
     statusEl.textContent = "Score: " + correctCount + "/" + rounds + formatScorePct(correctCount, rounds)
   }
 
-  function syncMapHeight() {
-    if (!mapDiv) return
-    const slot = mapSlotEl || document.getElementById("mapSlot")
-    const h = slot ? slot.clientHeight : (sideEl ? sideEl.offsetHeight : 0)
-    try { kbDbg("syncMapHeight h", { h: h, now: kbMapState() }) } catch (e) {}
-    if (!h || h <= 0) return
-
-    const desired = h + "px"
-    const seq = (map && map._kbSeq) ? map._kbSeq : 0
-    const forceForNewMap = seq && window.kbLastSyncMapSeq !== seq
-
-    if (window.kbLastSyncMapH === desired && !forceForNewMap) return
-    window.kbLastSyncMapH = desired
-    if (seq) window.kbLastSyncMapSeq = seq
-
-    mapDiv.style.height = desired
-
-    try {
-      if (map && map.invalidateSize) {
-        try { map.invalidateSize({ animate: false, pan: false }) } catch (e) { map.invalidateSize() }
-      }
-    } catch (e) {}
-    try {
-      const backBuf = kbGetBackBuffer()
-      if (backBuf && backBuf.map && backBuf.map.invalidateSize) {
-        try { backBuf.map.invalidateSize({ animate: false, pan: false }) } catch (e) { backBuf.map.invalidateSize() }
-      }
-    } catch (e) {}
-    try { kbDbg("syncMapHeight invalidateSize", kbMapState()) } catch (e) {}
-  }
+  // ---- Answer rendering and guess handling ----
 
   function resetUIForNewQuestion() {
     answersEl.innerHTML = ""
@@ -557,29 +569,31 @@
       }
     }
 
-  try {
-    if (window.KB_TELEMETRY) {
-      const toKbu = (u) => {
-        const n = Number(u) || 0
-        return n > 0 ? (n / SCALE) : 0
+    try {
+      if (window.KB_TELEMETRY) {
+        const toKbu = (u) => {
+          const n = Number(u) || 0
+          return n > 0 ? (n / SCALE) : 0
+        }
+        if (kbGeoActiveKey !== "oap") {
+          window.KB_TELEMETRY.event("kb_answer", {
+            kb_game: (kbGeoActiveKey === "oap") ? "optics_and_photonics" : "name_that_country",
+            kb_mode: mode,
+            kb_correct: kbTelemetryIsCorrect ? 1 : 0,
+            kb_round: rounds,
+            kb_bullet: (function(){ try { const _l = chosenBtn && chosenBtn.querySelector(".label"); return _l ? String(_l.textContent || "").trim() : ""; } catch (e) { return ""; } })(),
+            kb_total_pay_kbu: toKbu(kbTelemetryTotalPayU),
+            kb_parent_pay_kbu: toKbu(kbTelemetryParentPayU),
+            kb_sponsor_pay_kbu: toKbu(kbTelemetrySponsorPayU)
+          })
+        }
       }
-      if (kbGeoActiveKey !== "oap") {
-      window.KB_TELEMETRY.event("kb_answer", {
-        kb_game: (kbGeoActiveKey === "oap") ? "optics_and_photonics" : "name_that_country",
-        kb_mode: mode,
-        kb_correct: kbTelemetryIsCorrect ? 1 : 0,
-        kb_round: rounds,
-        kb_bullet: (function(){ try { const _l = chosenBtn && chosenBtn.querySelector(".label"); return _l ? String(_l.textContent || "").trim() : ""; } catch (e) { return ""; } })(),
-        kb_total_pay_kbu: toKbu(kbTelemetryTotalPayU),
-        kb_parent_pay_kbu: toKbu(kbTelemetryParentPayU),
-        kb_sponsor_pay_kbu: toKbu(kbTelemetrySponsorPayU)
-      })
-      }
-    }
-  } catch (e) {}
+    } catch (e) {}
 
-  syncMapHeight()
-}
+    syncMapHeight()
+  }
+
+  // ---- Game flow entry points ----
 
   function nextQuestion() {
     try { kbDbg("nextQuestion", kbMapState()) } catch (e) {}
