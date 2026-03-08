@@ -15,6 +15,14 @@ const ROOT = path.resolve(__dirname, '..')
 const INDEX_PATH = path.join(ROOT, 'index.html')
 const CHANGELOG_PATH = path.join(ROOT, 'CHANGELOG.md')
 
+// Safety check: abort if working tree has uncommitted changes
+try {
+  execSync('git diff --quiet', { cwd: ROOT, stdio: 'ignore' })
+} catch (e) {
+  console.error('Working tree is not clean. Commit or stash changes before running a release.')
+  process.exit(1)
+}
+
 // 1. Update both version occurrences in index.html
 const PATTERN_WINDOW = /window\.KB_BUILD_VERSION = "[^"]+"/
 const PATTERN_CONST  = /\(window\.KB_BUILD_VERSION \|\| "[^"]+"\)/

@@ -39,6 +39,22 @@ demo**.
 
 ------------------------------------------------------------------------
 
+## Quick start
+
+Install dependencies:
+
+    npm install
+
+Run the development server:
+
+    npm run dev
+
+Create a new demo release:
+
+    npm run release -- <version> "<changelog message>"
+
+------------------------------------------------------------------------
+
 # Development
 
 Start the development server:
