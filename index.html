@@ -2989,6 +2989,7 @@ color: #111;
 <script crossorigin="" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
 </script>
 <script src="src/constants.js"></script>
+<script src="src/engine_registry.js"></script>
 <script src="src/incentive_engine.js"></script>
 <script src="src/content_data.js"></script>
 <script src="src/navigation.js"></script>
@@ -3029,7 +3030,7 @@ color: #111;
 
     ;(function () {
       const required = [
-        "KB_CONST", "KB_ENGINE", "KB_DATA", "KB_NAV", "KB_MAP",
+        "KB_CONST", "KB_REGISTRY", "KB_ENGINE", "KB_DATA", "KB_NAV", "KB_MAP",
         "KB_ACTIVITY", "KB_OAP", "KB_NTC", "KB_BINGO", "KB_WALLET", "KB_APP_BOOT"
       ]
       const missing = required.filter(k => !window[k])
