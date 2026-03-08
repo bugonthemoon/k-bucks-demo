@@ -15,6 +15,8 @@
     return Array.from(s).sort((x, y) => x - y)
   })()
 
+  // ---- Flow rate helpers ----
+
   function kbBingoSpigotFlowRateU() {
     let parentFlowU = Number(kbBingoFlowU)
     const parentWalletU = Number(kbBingoParentU)
@@ -44,6 +46,8 @@
   function kbBingoFmtSpigotKbucksPerHour() {
     return fmtWalletMin2U(kbBingoSpigotKbucksPerHourU())
   }
+
+  // ---- Wallet and account display ----
 
   function kbBingoSyncSpigotPaneSize() {
     if (!bingoChildPaneEl || !bingoSpigotPaneEl) return
@@ -116,6 +120,12 @@
     kbBingoUpdateAccounts()
   }
 
+  function kbAvailableToEarnBingoU() {
+    return kbAvailableToEarnForGameU(kbBingoFlowU, kbBingoParentU, kbBingoSponsorU, kbBingoSponsorMatch)
+  }
+
+  // ---- Board setup and tile helpers ----
+
   function kbUpgradeBingoPairsToButtons() {
     if (kbBingoPairsUpgradedToButtons) return
     kbBingoPairsUpgradedToButtons = true
@@ -137,29 +147,6 @@
       arr[j] = tmp
     }
     return arr
-  }
-
-  function kbBingoUpdateHeader(finalMode) {
-    const total = kbBingoPairs.length || 100
-    if (kbBingoMode === "practice") {
-      if (bingoProgressEl) {
-        const presented = kbBingoPracticeTotal > 0 ? Math.min(kbBingoPracticeShown, kbBingoPracticeTotal) : 0
-        bingoProgressEl.textContent = "Misses: " + presented + "/" + kbBingoPracticeTotal
-      }
-      if (bingoStatusEl) bingoStatusEl.textContent = ""
-      if (bingoTimerEl) bingoTimerEl.textContent = ""
-    } else {
-      const answered = kbBingoAnsweredKeys.size
-      const correct = kbBingoCorrectCount
-      if (bingoProgressEl) {
-        bingoProgressEl.textContent = "Progress: " + answered + "/" + total + formatScorePct(answered, total)
-      }
-      if (bingoStatusEl) {
-        const prefix = finalMode ? "Final score: " : "Score: "
-        bingoStatusEl.textContent = prefix + correct + "/" + answered + (answered <= 0 ? " (0%)" : formatScorePct(correct, answered))
-      }
-    }
-    if (bingoQuitBtn) bingoQuitBtn.disabled = kbBingoMisses.size === 0
   }
 
   function kbBingoEnsurePttHeaderMeta() {
@@ -279,6 +266,31 @@
       p.btn.classList.remove("kbBingoDoneWrong")
       p.btn.classList.remove("kbBingoCurrent")
     }
+  }
+
+  // ---- Question presentation ----
+
+  function kbBingoUpdateHeader(finalMode) {
+    const total = kbBingoPairs.length || 100
+    if (kbBingoMode === "practice") {
+      if (bingoProgressEl) {
+        const presented = kbBingoPracticeTotal > 0 ? Math.min(kbBingoPracticeShown, kbBingoPracticeTotal) : 0
+        bingoProgressEl.textContent = "Misses: " + presented + "/" + kbBingoPracticeTotal
+      }
+      if (bingoStatusEl) bingoStatusEl.textContent = ""
+      if (bingoTimerEl) bingoTimerEl.textContent = ""
+    } else {
+      const answered = kbBingoAnsweredKeys.size
+      const correct = kbBingoCorrectCount
+      if (bingoProgressEl) {
+        bingoProgressEl.textContent = "Progress: " + answered + "/" + total + formatScorePct(answered, total)
+      }
+      if (bingoStatusEl) {
+        const prefix = finalMode ? "Final score: " : "Score: "
+        bingoStatusEl.textContent = prefix + correct + "/" + answered + (answered <= 0 ? " (0%)" : formatScorePct(correct, answered))
+      }
+    }
+    if (bingoQuitBtn) bingoQuitBtn.disabled = kbBingoMisses.size === 0
   }
 
   function kbBingoResetUIForNewQuestion() {
@@ -532,6 +544,56 @@
     if (bingoNextBtn) bingoNextBtn.disabled = false
   }
 
+  // ---- Timer ----
+
+  function renderBingoTimer() {
+    if (!bingoTimerEl) return
+    if (kbBingoMode === "practice") { bingoTimerEl.textContent = ""; return }
+    const now = Date.now()
+    const ms = bingoTimerElapsedMs + (bingoTimerRunning ? (now - bingoTimerStartMs) : 0)
+    bingoTimerEl.textContent = "Time: " + formatTimeHMS(ms)
+  }
+
+  function startBingoTimer() {
+    if (bingoTimerStopped) return
+    if (currentScreen !== "bingo") return
+    if (bingoTimerRunning) return
+    bingoTimerRunning = true
+    bingoTimerStartMs = Date.now()
+    if (bingoTimerInterval) clearInterval(bingoTimerInterval)
+    bingoTimerInterval = setInterval(renderBingoTimer, 1000)
+    renderBingoTimer()
+  }
+
+  function pauseBingoTimer() {
+    if (!bingoTimerRunning) { renderBingoTimer(); return }
+    const now = Date.now()
+    bingoTimerElapsedMs += (now - bingoTimerStartMs)
+    bingoTimerRunning = false
+    bingoTimerStartMs = 0
+    if (bingoTimerInterval) clearInterval(bingoTimerInterval)
+    bingoTimerInterval = null
+    renderBingoTimer()
+  }
+
+  function stopBingoTimer() {
+    pauseBingoTimer()
+    bingoTimerStopped = true
+  }
+
+  function resetAndStartBingoTimer() {
+    bingoTimerElapsedMs = 0
+    bingoTimerStopped = false
+    bingoTimerRunning = false
+    bingoTimerStartMs = 0
+    if (bingoTimerInterval) clearInterval(bingoTimerInterval)
+    bingoTimerInterval = null
+    renderBingoTimer()
+    startBingoTimer()
+  }
+
+  // ---- Game flow entry points ----
+
   function kbBingoStartNewGame() {
     try { if (window.KB_TELEMETRY) window.KB_TELEMETRY.event("kb_game_start", { kb_game: "practice_times_tables" }) } catch (e) {}
     kbBingoEnsurePairs()
@@ -589,56 +651,6 @@
     } catch (e) {}
     if (bingoTimerRunning) pauseBingoTimer()
     showEduScreen()
-  }
-
-  function renderBingoTimer() {
-    if (!bingoTimerEl) return
-    if (kbBingoMode === "practice") { bingoTimerEl.textContent = ""; return }
-    const now = Date.now()
-    const ms = bingoTimerElapsedMs + (bingoTimerRunning ? (now - bingoTimerStartMs) : 0)
-    bingoTimerEl.textContent = "Time: " + formatTimeHMS(ms)
-  }
-
-  function startBingoTimer() {
-    if (bingoTimerStopped) return
-    if (currentScreen !== "bingo") return
-    if (bingoTimerRunning) return
-    bingoTimerRunning = true
-    bingoTimerStartMs = Date.now()
-    if (bingoTimerInterval) clearInterval(bingoTimerInterval)
-    bingoTimerInterval = setInterval(renderBingoTimer, 1000)
-    renderBingoTimer()
-  }
-
-  function pauseBingoTimer() {
-    if (!bingoTimerRunning) { renderBingoTimer(); return }
-    const now = Date.now()
-    bingoTimerElapsedMs += (now - bingoTimerStartMs)
-    bingoTimerRunning = false
-    bingoTimerStartMs = 0
-    if (bingoTimerInterval) clearInterval(bingoTimerInterval)
-    bingoTimerInterval = null
-    renderBingoTimer()
-  }
-
-  function stopBingoTimer() {
-    pauseBingoTimer()
-    bingoTimerStopped = true
-  }
-
-  function resetAndStartBingoTimer() {
-    bingoTimerElapsedMs = 0
-    bingoTimerStopped = false
-    bingoTimerRunning = false
-    bingoTimerStartMs = 0
-    if (bingoTimerInterval) clearInterval(bingoTimerInterval)
-    bingoTimerInterval = null
-    renderBingoTimer()
-    startBingoTimer()
-  }
-
-  function kbAvailableToEarnBingoU() {
-    return kbAvailableToEarnForGameU(kbBingoFlowU, kbBingoParentU, kbBingoSponsorU, kbBingoSponsorMatch)
   }
 
   window.KB_BINGO = {
