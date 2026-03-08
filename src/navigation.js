@@ -6,6 +6,13 @@
 // ======================================
 ;(function () {
 
+  function hideAllScreens() {
+    if (screenGameEl)  screenGameEl.style.display  = "none"
+    if (screenStoreEl) screenStoreEl.style.display = "none"
+    if (screenEduEl)   screenEduEl.style.display   = "none"
+    if (screenBingoEl) screenBingoEl.style.display = "none"
+  }
+
   function showGameScreen(whichKey) {
 
     const key = (whichKey === "oap") ? "oap" : "ntc"
@@ -18,11 +25,8 @@
     }
 currentScreen = "game"
     try { if (window.KB_TELEMETRY) KB_TELEMETRY.screen((kbGeoActiveKey === "oap") ? "optics_and_photonics" : "name_that_country") } catch (e) {}
+    hideAllScreens()
     if (screenGameEl) screenGameEl.style.display = ""
-    if (screenStoreEl) screenStoreEl.style.display = "none"
-    if (screenEduEl) screenEduEl.style.display = "none"
-
-    if (screenBingoEl) screenBingoEl.style.display = "none"
 
     try { kbApplyGeoContextUI() } catch (e) {}
     if (kbGeoActiveKey === "oap") { try { kbOapInitWatchTimer() } catch (e) {} try { kbOapResetOnEnter() } catch (e) {} }
@@ -54,11 +58,8 @@ currentScreen = "game"
     }
 currentScreen = "store"
     try { if (window.KB_TELEMETRY) KB_TELEMETRY.screen("redemption_store") } catch (e) {}
-    if (screenGameEl) screenGameEl.style.display = "none"
+    hideAllScreens()
     if (screenStoreEl) screenStoreEl.style.display = ""
-    if (screenEduEl) screenEduEl.style.display = "none"
-
-    if (screenBingoEl) screenBingoEl.style.display = "none"
 
     try { kbUpdateGlobalBalances() } catch (e) {}
     try { updateFooterDebugAll() } catch (e) {}
@@ -76,11 +77,8 @@ currentScreen = "store"
     }
 currentScreen = "edu"
     try { if (window.KB_TELEMETRY) KB_TELEMETRY.screen("educational_content") } catch (e) {}
-    if (screenGameEl) screenGameEl.style.display = "none"
-    if (screenStoreEl) screenStoreEl.style.display = "none"
+    hideAllScreens()
     if (screenEduEl) screenEduEl.style.display = ""
-
-    if (screenBingoEl) screenBingoEl.style.display = "none"
     try { updateFooterDebugAll() } catch (e) {}
     try { kbScheduleDebugUpdate() } catch (e) {}
     try { updateAccounts() } catch (e) {}
@@ -98,9 +96,7 @@ currentScreen = "edu"
     }
 currentScreen = "bingo"
     try { if (window.KB_TELEMETRY) KB_TELEMETRY.screen("practice_times_tables") } catch (e) {}
-    if (screenGameEl) screenGameEl.style.display = "none"
-    if (screenStoreEl) screenStoreEl.style.display = "none"
-    if (screenEduEl) screenEduEl.style.display = "none"
+    hideAllScreens()
     if (screenBingoEl) screenBingoEl.style.display = ""
     try { updateFooterDebugAll() } catch (e) {}
     try { kbScheduleDebugUpdate() } catch (e) {}
