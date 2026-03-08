@@ -3027,6 +3027,14 @@ color: #111;
 
 
 
+    ;(function () {
+      const required = [
+        "KB_CONST", "KB_ENGINE", "KB_DATA", "KB_NAV", "KB_MAP",
+        "KB_ACTIVITY", "KB_OAP", "KB_NTC", "KB_BINGO", "KB_WALLET", "KB_APP_BOOT"
+      ]
+      const missing = required.filter(k => !window[k])
+      if (missing.length) throw new Error("K-Bucks: missing module(s): " + missing.join(", "))
+    })()
     const { SCALE, KB_ZOOM_OUT_AFTER_FIT, KB_OAP_FLOW_EVERY_SEC, KB_OAP_FLOW_EVERY_MS, UN_MEMBERS_URL, ORANGE_STYLE, kbOapVideoByKey, COUNTRIES_GEOJSON_PATH } = window.KB_CONST
     const { toUnits, toMoneyUnits, parseUnitsNoRound, fmtWalletMin2U, kbFmtKbuRate2, kbFmtKbuDrop2, fmtUnitsTrimU, fmtUnitsFlex, fmtMin2Max5, fmtParentU, fmtSponsorU, fmtOtherU, fmtFlow, fmtFlowInputU, kbSponsorTagAlongU, kbAvailableToEarnForGameU } = window.KB_ENGINE
     const { STORE_ITEMS, KB_STORE_MANIFEST_EXPECTED, EDU_ITEMS } = window.KB_DATA
