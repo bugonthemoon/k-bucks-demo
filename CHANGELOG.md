@@ -1,13 +1,5 @@
 # CHANGELOG
 
-## Legacy notes
-
-- 0.1.357 (2026-01-28): Remove NTC footer pin JS and rely on CSS only to prevent zoom freezes.
-- 0.1.251 (2026-01-26): Set global wrap horizontal padding to 8px and keep NTC row height 32px.
-- 0.1.238 (2026-01-26): Screen 3 layout test. Set map slot to 512x512, move game buttons under answers, and move account panes into a right-side column.
-- 0.1.237 (2026-01-25): Call KB_TELEMETRY.screen only from show*Screen functions.
-- 0.1.236 (2026-01-24): Attach kb_anon_user_id to all kb_* GA4 events.
-
 ## Releases
 
 - 0.2.94 (2026-03-08): Internal refactor sweep: modularized engine source files, added boot-time registry validation, centralized build version and Leaflet guardrail values in KB_CONST, and aligned project docs.
@@ -186,6 +178,7 @@
 - 0.1.360 (2026-01-28): Fix NTC and MTN footer alignment by removing forced footer width and setting per-screen widths.
 - 0.1.359 (2026-01-28): Stabilize footer position across screens by removing per-screen width overrides.
 - 0.1.358 (2026-01-28): Set copyright top-gap to 8px.
+- 0.1.357 (2026-01-28): Remove NTC footer pin JS and rely on CSS only to prevent zoom freezes.
 - 0.1.355 (2026-01-28): Set .scoreInline and .acctLine to 13px. Set copyright text to 13px and 6px top-gap.
 - 0.1.353 (2026-01-27): Rename multiplication game to "Multiply Two Numbers".
 - 0.1.352 (2026-01-27): Rename "Multiply Two Numbers" everywhere (was "Practice Times Tables").
@@ -266,6 +259,10 @@
 - 0.1.259 (2026-01-26): In NTC, set column 2 and 3 pane padding to 12px on all sides for a layout comparison.
 - 0.1.257 (2026-01-27): Fix NTC column overlap by locking left side column width to 258px and preventing overflow.
 - 0.1.253 (2026-01-27): Lock NTC grid, restore bullet sizing and dot alignment, set global padding to 8px.
+- 0.1.251 (2026-01-26): Set global wrap horizontal padding to 8px and keep NTC row height 32px.
+- 0.1.238 (2026-01-26): Screen 3 layout test. Set map slot to 512x512, move game buttons under answers, and move account panes into a right-side column.
+- 0.1.237 (2026-01-25): Call KB_TELEMETRY.screen only from show*Screen functions.
+- 0.1.236 (2026-01-24): Attach kb_anon_user_id to all kb_* GA4 events.
       - 0.1.235 (2026-01-24): Fix missing kbHealTiles wrapper and sync redemption store manifest expected hash.
       - 0.1.234 (2026-01-23): Add GA4 telemetry hooks (games, questions, rewards, redemptions) and persistent anonymous user ID.
       - 0.1.233 (2026-01-22): Update footer text across screens to 2025-2026 range, include viewing recommendation, and bump version.
