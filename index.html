@@ -2589,7 +2589,7 @@ color: #111;
 </style>
 
     <!-- Favicons -->
-    <link rel="icon" href="favicon.ico?v=0.2.19" type="image/x-icon" sizes="any">
+    <link rel="icon" href="assets/images/ui/favicon.ico?v=0.2.19" type="image/x-icon" sizes="any">
 </head>
 <body>
 <div class="wrap">
@@ -2665,7 +2665,7 @@ color: #111;
 </div>
 <div aria-hidden="true" class="arrowDivider acctSubPane"><div class="pane spigotPane" id="spigotPane">
 <div class="spigotInner">
-<img alt="" class="spigotImg" src="spigot.png?v=3" width="50" height="56" />
+<img alt="" class="spigotImg" src="assets/images/ui/spigot.png?v=3" width="50" height="56" />
 <div class="spigotText">
 <div class="acctLine">Flow rate (KBU, Parent + Sponsors): <span id="spigotFlowRateOut">0.00</span></div>
 <div class="acctLine kbHourLine"><span id="spigotKbucksPerHourLabel">KBU per hour (estimate): </span><span id="spigotKbucksPerHourOut">0.00</span></div>
@@ -2942,7 +2942,7 @@ color: #111;
 <div aria-hidden="true" class="arrowDivider acctSubPane">
 <div class="pane spigotPane" id="bingoSpigotPane">
 <div class="spigotInner">
-<img alt="" class="spigotImg" src="spigot.png?v=3" width="50" height="56" />
+<img alt="" class="spigotImg" src="assets/images/ui/spigot.png?v=3" width="50" height="56" />
 <div class="spigotText">
 <div class="acctLine">Flow rate (KBU, Parent + Sponsors): <span id="bingoSpigotFlowRateOut">0.00</span></div>
 <div class="acctLine kbHourLine">KBU per hour (estimate): <span id="bingoSpigotKbucksPerHourOut">0.00</span></div>
@@ -3505,8 +3505,8 @@ const messageEl = document.getElementById("message")
     let kbGeoSelectedVideoKey = ""
     let kbOapSelectedBulletText = ""
     const kbOapVideoByKey = {
-      laser: "how_a_laser_works.webm",
-      fiber: "how_a_fiber_optic_cable_works.webm",
+      laser: "assets/videos/how_a_laser_works.webm",
+      fiber: "assets/videos/how_a_fiber_optic_cable_works.webm",
     }
     const kbGeoState = {
       ntc: { rounds: 0, correctCount: 0, gameComplete: false, mode: "normal", parentU: toUnits("5.00"), sponsorU: toUnits("1.00"), flowU: toUnits("0.01"), sponsorMatch: 5, devCarry: 0, platCarry: 0, devU: 0, selectedVideoKey: "" },
@@ -6014,12 +6014,12 @@ function updateAccounts() {
         // ========================= //
         // REDEMPTION_STORE_START
         const STORE_ITEMS = [
-              { name: "Plastic Spider Ring", brand: "Generic", cost: 0.05, image: "plastic_spider_ring.jpg", rating: 4.5, reviews: "1.2M" },
-              { name: "STAEDTLER Eraser", brand: "STAEDTLER", cost: 0.10, image: "eraser.png", rating: 4.9, reviews: "123.7K" },
-              { name: "Baskin-Robbins Gift Card", brand: "Baskin-Robbins", cost: 25.00, image: "baskin_robbins_gift_card.jpg", rating: 3.2, reviews: "46.9K" },
-              { name: "UGG Classic Boots", brand: "UGG", cost: 199.00, image: "ugg_boots.jpg", rating: 4.1, reviews: "23.8K" },
-              { name: "PlayStation 5 Digital", brand: "Sony", cost: 399.00, image: "ps5_digital.jpg", rating: 4.7, reviews: "36.1K" },
-              { name: "iPhone 17", brand: "Apple", cost: 799.00, image: "iphone_17.png", rating: 4.9, reviews: "18.5K" }
+              { name: "Plastic Spider Ring", brand: "Generic", cost: 0.05, image: "assets/images/store/plastic_spider_ring.jpg", rating: 4.5, reviews: "1.2M" },
+              { name: "STAEDTLER Eraser", brand: "STAEDTLER", cost: 0.10, image: "assets/images/store/eraser.png", rating: 4.9, reviews: "123.7K" },
+              { name: "Baskin-Robbins Gift Card", brand: "Baskin-Robbins", cost: 25.00, image: "assets/images/store/baskin_robbins_gift_card.jpg", rating: 3.2, reviews: "46.9K" },
+              { name: "UGG Classic Boots", brand: "UGG", cost: 199.00, image: "assets/images/store/ugg_boots.jpg", rating: 4.1, reviews: "23.8K" },
+              { name: "PlayStation 5 Digital", brand: "Sony", cost: 399.00, image: "assets/images/store/ps5_digital.jpg", rating: 4.7, reviews: "36.1K" },
+              { name: "iPhone 17", brand: "Apple", cost: 799.00, image: "assets/images/store/iphone_17.png", rating: 4.9, reviews: "18.5K" }
             ]
 
 // REDEMPTION_STORE_END
@@ -6230,9 +6230,9 @@ function renderStore() {
     // Data & rendering          //
     // ========================= //
     const EDU_ITEMS = [
-      { key: "ntc", name: "Name That Country", cost: 0.10, image: "name_that_country.png" },
-      { key: "op", name: "Optics and Photonics", cost: 0.00, image: "cogs.png" },
-      { key: "mm", name: "Multiply Two Numbers", cost: 0.05, image: "multiplication_table.png" }
+      { key: "ntc", name: "Name That Country", cost: 0.10, image: "assets/images/games/name_that_country.png" },
+      { key: "op", name: "Optics and Photonics", cost: 0.00, image: "assets/images/games/cogs.png" },
+      { key: "mm", name: "Multiply Two Numbers", cost: 0.05, image: "assets/images/games/multiplication_table.png" }
     ]
 
     function renderEdu() {
@@ -7163,7 +7163,7 @@ function quitGame() {
 
       const [unRes, geoRes] = await Promise.all([
         fetch(UN_MEMBERS_URL),
-        fetch("countries.geojson")
+        fetch("data/countries.geojson")
       ])
 
       if (!unRes.ok) throw new Error("Could not load map data. Please refresh the page.")
