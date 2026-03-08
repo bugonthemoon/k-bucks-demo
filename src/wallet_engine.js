@@ -6,11 +6,7 @@
 // ======================================
 ;(function () {
 
-  function kbAvailableToEarnOpticsU() {
-    const st = kbGeoState && kbGeoState.oap ? kbGeoState.oap : null
-    if (!st) return 0
-    return kbAvailableToEarnForGameU(st.flowU, st.parentU, st.sponsorU, st.sponsorMatch)
-  }
+  // ---- Flow rate helpers ----
 
   // Parent + Sponsors combined flow rate for OAP.
   // Returned in KBU per hour (float), not wallet units.
@@ -87,6 +83,8 @@
     return fmtWalletMin2U(Math.trunc(estPerHourK * SCALE))
   }
 
+  // ---- Input clamp helpers ----
+
   function clampFlowRate() {
     if (!flowRateInput) return
 
@@ -96,7 +94,7 @@
     if (parentU <= 0) vU = 0
 
     flowU = vU
-        try { kbGeoSaveState() } catch (e) {}
+    try { kbGeoSaveState() } catch (e) {}
     flowRateInput.value = fmtFlowInputU(flowU)
 
     saveWallet()
@@ -115,7 +113,8 @@
     // Re-render flow after clamp
     if (flowRateInput) flowRateInput.value = fmtFlowInputU(flowU)
     updateAccounts()
-    if (parentInput) parentInput.value = fmtParentU(parentU)}
+    if (parentInput) parentInput.value = fmtParentU(parentU)
+  }
 
   function clampSponsorInput() {
     if (!sponsorInput) return
@@ -130,7 +129,7 @@
     if (sponsorInput && document.activeElement !== sponsorInput) sponsorInput.value = fmtSponsorU(sponsorU)
   }
 
-          function clampSponsorMatch() {
+  function clampSponsorMatch() {
     if (!sponsorMatchInput) return
     const raw = String(sponsorMatchInput.value || "").trim()
     let v = Number(raw)
@@ -168,6 +167,8 @@
     } catch (e) {}
   }
 
+  // ---- Wallet persistence ----
+
   function loadWallet() {
     try {
       const raw = localStorage.getItem("kbucks_wallet_v14")
@@ -188,7 +189,7 @@
 
   function saveWallet() {
     try {
-      localStorage.setItem("kbucks_wallet_v14", JSON.stringify({ parentU, kbGlobalChildU, devU, kbGlobalPlatformU, flowU, flowDec, devCarry, platCarry , sponsorU , sponsorMatch}))
+      localStorage.setItem("kbucks_wallet_v14", JSON.stringify({ parentU, kbGlobalChildU, devU, kbGlobalPlatformU, flowU, flowDec, devCarry, platCarry, sponsorU, sponsorMatch}))
     } catch (e) {}
   }
 
@@ -212,8 +213,16 @@
     updateAccounts()
   }
 
+  // ---- Available-to-earn ----
+
   function kbAvailableToEarnNtcU() {
     const st = kbGeoState && kbGeoState.ntc ? kbGeoState.ntc : null
+    if (!st) return 0
+    return kbAvailableToEarnForGameU(st.flowU, st.parentU, st.sponsorU, st.sponsorMatch)
+  }
+
+  function kbAvailableToEarnOpticsU() {
+    const st = kbGeoState && kbGeoState.oap ? kbGeoState.oap : null
     if (!st) return 0
     return kbAvailableToEarnForGameU(st.flowU, st.parentU, st.sponsorU, st.sponsorMatch)
   }
@@ -221,6 +230,8 @@
   function kbComputeAvailableToEarnU() {
     return kbAvailableToEarnNtcU() + kbAvailableToEarnOpticsU() + kbAvailableToEarnBingoU()
   }
+
+  // ---- Account display update ----
 
   function kbUpdateGlobalBalances() {
     if (redeemBalanceEl) {
@@ -252,8 +263,6 @@
     // if (sponsorInput) sponsorInput.classList.toggle("emptyWallet", sponsorU <= 0)
     kbUpdateGlobalBalances()
     syncSpigotPaneSize()
-
-
   }
 
   window.KB_WALLET = {
