@@ -77,11 +77,9 @@
 - 0.2.9 (2026-02-16): Screen 1, change Optics and Photonics attribution from (Developer) to (Instructor).
 - 0.2.9 (2026-02-16): Screen 1, change Optics and Photonics button label from Play to Watch.
 - 0.2.6 (2026-02-16): Screen 1, add Optics and Photonics educational content card using cogs.png, Play does nothing, blank-start KBU lines.
-
 - 0.2.2 (2026-01-31): Remove duplicate shortcut icon link to avoid double favicon requests.
 - 0.2.1 (2026-01-31): Update favicon links with cache-buster query string.
 - 0.2.0 (2026-01-31): Version bump only.
-
 - 0.1.533 (2026-01-31): Add non-integer DPR tile seam masking, stronger low-fraction DPR mask, and post-resize DPR class update burst.
 - 0.1.519 (2026-01-31): Move EDU KBU blocks 1 px left.
 - 0.1.518 (2026-01-31): Educational Content KBU block header is no longer bold.
@@ -89,56 +87,31 @@
 - 0.1.514 (2026-01-31): Remove tooltip period, unify borders to #ddd, set KBU input borders to #888, and match tooltip background to button.
 - 0.1.516 (2026-01-31): Add loading and empty states for EDU and Store lists. Show unified user-facing data load error message in EDU and Store panes.
 - 0.1.515 (2026-01-31): Tooltip background matches attribution background.
-
 - 0.1.513 (2026-01-31): Make ⓘ glyph non-bold, match glyph and tooltip colors to the (75%) label, and tighten glyph spacing.
-
 - 0.1.512 (2026-01-31): Match global balance tooltip styling to footer color, and set tooltip rounding to 4px.
-
 - 0.1.511 (2026-01-31): Use ⓘ glyph for global-balance tooltip icon and position tooltip to the right, vertically centered.
-
 - 0.1.510 (2026-01-31): Refine scope tooltip icon to a small circled i, update tooltip text, left align tooltip, remove shadow and bolding, and match tooltip border to mega panes.
-
 - 0.1.509 (2026-01-31): Refine scope tooltips for Child and K-Bucks Platform balances, use superscript (i), and use a custom tooltip with 2 px rounding.
-
 - 0.1.507 (2026-01-30): Add scope tooltips for Child and K-Bucks Platform balances, and add thousands separators to displayed KBU values in store prices.
-
 - 0.1.505 (2026-01-31): Move EDU KBU funds blocks right by 1 px more.
-
 - 0.1.504 (2026-01-31): Move EDU KBU funds blocks right by 1 px.
-
 - 0.1.503 (2026-01-31): Move EDU KBU funds blocks right by 70 px. Apply the indent to the EDU funds block wrappers, since eduFundsCol uses display contents.
 - 0.1.502 (2026-01-31): Apply the wallet formatter, min two and up to nine decimals, to all displayed KBU values, including Content Developer and EDU funds blocks. Format Sponsors flow rate with the same precision. Move EDU KBU blocks right by 134 px based on screenshot alignment.
-
 - 0.1.502 (2026-01-31): Apply the wallet formatter, min two and up to nine decimals, to all displayed KBU values, including Content Developer and EDU funds blocks. Format Sponsors flow rate with the same precision. Move EDU KBU blocks right by 134 px based on screenshot alignment.
-
 - 0.1.501 (2026-01-31): Always show at least 2 decimals and up to 9 decimals when needed for spigot flow rate, KBU per hour estimate, and balances. Move EDU funds blocks 100 px further right.
-
 - 0.1.500 (2026-01-31): Spigot flow rate now shows at least 2 decimals. EDU funds blocks: rename Education Sponsors line to Sponsors. Shift EDU funds blocks right to align with the KBU header.
-
 - 0.1.499 (2026-01-30): Revert ratio label and map attribution text. Shorten spigot flow rate label to Parent + Sponsors. Update redemption store available line. Remove global tag from game balance labels.
-
 - 0.1.498 (2026-01-31): UI copy polish. Select an answer, use × in PTT, standardize Sponsors labels, simplify ratio range text, change EDU funds header to KBU, rename Available to Available to earn, and tidy map attribution.
-
 - 0.1.497 (2026-01-31): Label only global balances as KBU balance (global). Keep other balances as KBU balance.
-
 - 0.1.496 (2026-01-31): Add scope hints to KBU balance labels, this content for Parent, Education Sponsors, and Content Developer, global for Child and K-Bucks Platform.
-
 - 0.1.495 (2026-01-31): Rename all account pane labels from KBU deposit and KBU account to KBU balance in both games.
-
 - 0.1.494 (2026-01-31): Rename K-Bucks labels to KBU in both game account panes, adjust match ratio suffix spacing, and update spigot labels.
-
 - 0.1.493 (2026-01-31): Copy polish for practice messages, overlay title, spigot K-Bucks per hour label, and Parent-to-Sponsors match ratio formatting. Replace technical load errors with a user friendly message. Fix storeThumb CSS width and height properties.
-
 - 0.1.492 (2026-01-30): Leaflet tile seam mitigations. Apply mix-blend-mode plus-lighter to Leaflet tiles when devicePixelRatio is non-integer. Heal after wheel zoom settles by invalidating size and redrawing tiles.
-
 - 0.1.491 (2026-01-30): Screen 2, set Plastic Spider Ring brand to Generic. Rename Gift Card to Baskin-Robbins Gift Card and set brand to Baskin-Robbins.
-
 - 0.1.479 (2026-01-29): Screen 2, rename Classic Sheepskin Boots to UGG Classic Boots.
-
 - 0.1.478 (2026-01-29): Screen 2, rename Eraser to STAEDTLER Eraser.
-
 - 0.1.477 (2026-01-29): Screen 2, match redemption item text spacing and alignment to Educational Content. Rename Plastic Vinyl Eraser to Eraser.
-
 - 0.1.476 (2026-01-29): Screen 2, add Brand line under redemption item names. Update item names and brands.
 - 0.1.475 (2026-01-29): Screen 2, restore Available-to-redeem header font to match Screen 1. Limit 13px storePrice styling to redemption item prices only.
 - 0.1.474 (2026-01-29): Screen 2, Redemption Store item typography matches Educational Content card fonts.
@@ -155,15 +128,15 @@
 - 0.1.387 (2026-01-28): Style Leaflet attribution to match footer (font, colors, rounded box).
 - 0.1.385 (2026-01-28): Column-2 mega pane for NTC + MTN, merged Select-your-answer and bottom controls, removed inter-pane gaps.
 - 0.1.384 (2026-01-28): Spigot row, moved 12 px right by padding on the spigot section wrapper.
-      - 0.1.383 (2026-01-28): Move spigot image 12px to the right.
-      - 0.1.383 (2026-01-28): Mega-pane padding tune: -2px bottom on five non-spigot sections, +5px bottom on spigot section.
-      - 0.1.381 (2026-01-28): Reduce spigot bottom padding by ~40px and redistribute +6px bottom padding to each non-spigot section.
-      - 0.1.379 (2026-01-28): Mega-pane top-five sections bottom padding +20px for visibility test.
-      - 0.1.377 (2026-01-28): Mega-pane spigot flush-left. Add 2px m
-      - 0.1.378 (2026-01-28): Mega-pane top-five sections bottom padding +1px.ore bottom padding to top five mega sections.
-      - 0.1.376 (2026-01-28): Spigot 52px and closer left. Add 1px more bottom padding to top five mega sections.
-      - 0.1.375 (2026-01-28): Add 1px more bottom padding to top five mega sections.
-      - 0.1.374 (2026-01-28): Mega-pane spigot larger, add 1px bottom padding to top five mega sections.
+- 0.1.383 (2026-01-28): Move spigot image 12px to the right.
+- 0.1.383 (2026-01-28): Mega-pane padding tune: -2px bottom on five non-spigot sections, +5px bottom on spigot section.
+- 0.1.381 (2026-01-28): Reduce spigot bottom padding by ~40px and redistribute +6px bottom padding to each non-spigot section.
+- 0.1.379 (2026-01-28): Mega-pane top-five sections bottom padding +20px for visibility test.
+- 0.1.377 (2026-01-28): Mega-pane spigot flush-left. Add 2px m
+- 0.1.378 (2026-01-28): Mega-pane top-five sections bottom padding +1px.ore bottom padding to top five mega sections.
+- 0.1.376 (2026-01-28): Spigot 52px and closer left. Add 1px more bottom padding to top five mega sections.
+- 0.1.375 (2026-01-28): Add 1px more bottom padding to top five mega sections.
+- 0.1.374 (2026-01-28): Mega-pane spigot larger, add 1px bottom padding to top five mega sections.
 - 0.1.373 (2026-01-28): Mega-pane spigot icon larger and text vertically centered. Harmonize Platform section spacing.
 - 0.1.372 (2026-01-28): Consolidated accounts pane: hide scrollbars and size to 384x512 content with 1 px border.
 - 0.1.372 (2026-01-28): Tighten consolidated accounts pane spacing to remove scrollbar.
@@ -217,7 +190,7 @@
 - 0.1.313 (2026-01-27): Reduce Screen 1 and Screen 2 card list gap from 8 px to 4 px.
 - 0.1.311 (2026-01-27): Screen 1: match Screen 2 header and list spacing so first content card aligns consistently below the 'Available' line.
 - 0.1.308 (2026-01-27): Screen 2: align first redemption item border with Screen 1 by removing the extra header bottom margin.
-      - 0.1.309 (2026-01-27): Screen 2: match Screen 1 header spacing by removing default paragraph margins on the redeem balance line.
+- 0.1.309 (2026-01-27): Screen 2: match Screen 1 header spacing by removing default paragraph margins on the redeem balance line.
 - 0.1.307 (2026-01-27): Screen 2: restore internal store list scrollbar, align list top to 10px below header and keep 10px gap above the bottom button. Footer: remove the extra best-viewed text.
 - 0.1.306 (2026-01-27): Screen 2: Mirror Screen 1 list spacing so the store list starts 10px below the redeem balance line and ends 10px above the bottom button, while keeping scrolling enabled.
 - 0.1.305 (2026-01-27): Screen 1: Ensure the first content card border starts 10px below the earn line by hiding the empty #eduPaneMessage spacer and tightening Screen 1 spacing, while keeping scrolling enabled.
@@ -263,13 +236,13 @@
 - 0.1.238 (2026-01-26): Screen 3 layout test. Set map slot to 512x512, move game buttons under answers, and move account panes into a right-side column.
 - 0.1.237 (2026-01-25): Call KB_TELEMETRY.screen only from show*Screen functions.
 - 0.1.236 (2026-01-24): Attach kb_anon_user_id to all kb_* GA4 events.
-      - 0.1.235 (2026-01-24): Fix missing kbHealTiles wrapper and sync redemption store manifest expected hash.
-      - 0.1.234 (2026-01-23): Add GA4 telemetry hooks (games, questions, rewards, redemptions) and persistent anonymous user ID.
-      - 0.1.233 (2026-01-22): Update footer text across screens to 2025-2026 range, include viewing recommendation, and bump version.
-      - 0.1.231 (2026-01-17): Reduce Leaflet tile seam artifacts and make footer version updates consistent across screens.
-      - 0.1.226 (2026-01-17): Rename browser tab title to 'K-Bucks Demo'.
-      - 0.1.225 (2025-12-27): Screen 2 wording, 'Available to Redeem' -> 'Available to redeem'.
-      - 0.1.224 (2025-12-27): Restore Leaflet zoomSnap 0.2, zoomDelta 0.2, minZoom 2.2, and setView zoom 2.2. Fix footer version placeholders.
-      - 0.1.223 (2025-12-27): Screen 1 wording, 'Child can earn' -> 'Available for the Child to earn'.
-      - 0.1.222 (2025-12-27): Add K-Bucks/Hour (estimate) to Multiply Two Numbers spigot, keep version fields consistent.
-      - 0.1.221 (2025-12-27): Restore Leaflet zoomSnap 0.2, zoomDelta 0.2, minZoom 2.2.
+- 0.1.235 (2026-01-24): Fix missing kbHealTiles wrapper and sync redemption store manifest expected hash.
+- 0.1.234 (2026-01-23): Add GA4 telemetry hooks (games, questions, rewards, redemptions) and persistent anonymous user ID.
+- 0.1.233 (2026-01-22): Update footer text across screens to 2025-2026 range, include viewing recommendation, and bump version.
+- 0.1.231 (2026-01-17): Reduce Leaflet tile seam artifacts and make footer version updates consistent across screens.
+- 0.1.226 (2026-01-17): Rename browser tab title to 'K-Bucks Demo'.
+- 0.1.225 (2025-12-27): Screen 2 wording, 'Available to Redeem' -> 'Available to redeem'.
+- 0.1.224 (2025-12-27): Restore Leaflet zoomSnap 0.2, zoomDelta 0.2, minZoom 2.2, and setView zoom 2.2. Fix footer version placeholders.
+- 0.1.223 (2025-12-27): Screen 1 wording, 'Child can earn' -> 'Available for the Child to earn'.
+- 0.1.222 (2025-12-27): Add K-Bucks/Hour (estimate) to Multiply Two Numbers spigot, keep version fields consistent.
+- 0.1.221 (2025-12-27): Restore Leaflet zoomSnap 0.2, zoomDelta 0.2, minZoom 2.2.
