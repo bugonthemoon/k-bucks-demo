@@ -9,6 +9,10 @@
   const _engines = []
 
   function register(entry) {
+    if (!entry || typeof entry !== "object") throw new Error("KB_REGISTRY.register: entry must be an object")
+    var missing = ["key", "displayName", "namespace", "screen"].filter(function (f) { return !entry[f] })
+    if (missing.length) throw new Error("KB_REGISTRY.register: missing required field(s): " + missing.join(", "))
+    if (_engines.some(function (e) { return e.key === entry.key })) throw new Error("KB_REGISTRY.register: duplicate key \"" + entry.key + "\"")
     _engines.push(entry)
   }
 
@@ -20,7 +24,17 @@
     return _engines.slice()
   }
 
-  window.KB_REGISTRY = { register, get, getAll }
+  function has(key) {
+    return _engines.some(function (e) { return e.key === key })
+  }
+
+  function getOrThrow(key) {
+    var entry = get(key)
+    if (!entry) throw new Error("KB_REGISTRY.getOrThrow: no engine registered for key \"" + key + "\"")
+    return entry
+  }
+
+  window.KB_REGISTRY = { register, get, getAll, has, getOrThrow }
 
   // ---- Current engine registrations ----
 
