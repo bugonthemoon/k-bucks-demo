@@ -125,3 +125,4 @@ See the `/docs` directory for additional documentation:
 - docs/ARCHITECTURE.md — system architecture
 - docs/DEVELOPMENT.md — development workflow
 - docs/INDEX_HTML_MAP.md — guide to navigating index.html
+- docs/ARCHITECTURE_DIAGRAM.md — system architecture diagram

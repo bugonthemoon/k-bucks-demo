@@ -1,6 +1,7 @@
 # K-Bucks Architecture
 
 The K-Bucks demo is implemented as a lightweight single-page web application.
+See also: docs/ARCHITECTURE_DIAGRAM.md for a visual overview of the system architecture.
 
 ## High-level architecture
 
