@@ -1,5 +1,20 @@
+# Node dependencies
 node_modules/
-dist
-.vscode
+
+# Build output
+dist/
+
+# Editor settings
+.vscode/
+
+# Local experiment folders (not part of repo)
 Flags/
 Temp/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
