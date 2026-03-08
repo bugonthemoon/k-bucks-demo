@@ -6,6 +6,8 @@
 // ======================================
 ;(function () {
 
+  // ---- Buffer helpers ----
+
   function kbGetFrontBuffer() { return kbMapBuffers[kbFrontKey] }
   function kbGetBackBuffer() { return kbMapBuffers[kbBackKey] }
 
@@ -23,6 +25,8 @@
       }
     } catch (e) {}
   }
+
+  // ---- Map creation and destruction ----
 
   function kbCreateLeafletMap(containerId) {
     // Allow zooming out far enough to see the full world map even in smaller slots (e.g., 512x512).
@@ -86,29 +90,6 @@
     return { map: m, tileLayer: tileLayer }
   }
 
-  function kbHealTilesOnBuffer(buf, reason, opts) {
-    const o = opts || {}
-    const doRedraw = !!o.redraw
-    try {
-      if (buf && buf.map && buf.map.invalidateSize) {
-        try { buf.map.invalidateSize({ animate: false, pan: false }) } catch (e) {
-          try { buf.map.invalidateSize() } catch (e2) {}
-        }
-      }
-    } catch (e) {}
-    if (doRedraw) {
-      try { if (buf && buf.tileLayer && buf.tileLayer.redraw) buf.tileLayer.redraw() } catch (e) {}
-    }
-    try { if (typeof kbDbg === "function") kbDbg("healTiles", { reason: reason, redraw: doRedraw }) } catch (e) {}
-  }
-
-  function kbHealTiles(reason, opts) {
-    // Wrapper for legacy calls. Heal both front and back Leaflet buffers if present.
-    try { kbHealTilesOnBuffer(kbGetFrontBuffer(), reason || "heal", opts) } catch (e) {}
-    try { kbHealTilesOnBuffer(kbGetBackBuffer(), reason || "heal", opts) } catch (e) {}
-  }
-
-
   function kbDestroyLeafletMap(reason) {
     try { if (typeof kbDbg === "function") kbDbg("destroyLeafletMap", { reason: reason }) } catch (e) {}
 
@@ -166,6 +147,32 @@
     try { if (typeof kbDbg === "function") kbDbg("ensureLeafletMap", { reason: reason }) } catch (e) {}
     return map
   }
+
+  // ---- Tile healing and invalidation ----
+
+  function kbHealTilesOnBuffer(buf, reason, opts) {
+    const o = opts || {}
+    const doRedraw = !!o.redraw
+    try {
+      if (buf && buf.map && buf.map.invalidateSize) {
+        try { buf.map.invalidateSize({ animate: false, pan: false }) } catch (e) {
+          try { buf.map.invalidateSize() } catch (e2) {}
+        }
+      }
+    } catch (e) {}
+    if (doRedraw) {
+      try { if (buf && buf.tileLayer && buf.tileLayer.redraw) buf.tileLayer.redraw() } catch (e) {}
+    }
+    try { if (typeof kbDbg === "function") kbDbg("healTiles", { reason: reason, redraw: doRedraw }) } catch (e) {}
+  }
+
+  function kbHealTiles(reason, opts) {
+    // Wrapper for legacy calls. Heal both front and back Leaflet buffers if present.
+    try { kbHealTilesOnBuffer(kbGetFrontBuffer(), reason || "heal", opts) } catch (e) {}
+    try { kbHealTilesOnBuffer(kbGetBackBuffer(), reason || "heal", opts) } catch (e) {}
+  }
+
+  // ---- Buffer swap ----
 
   function kbSwapMapBuffers(reason) {
     try { if (typeof kbDbg === "function") kbDbg("swapBuffers", { reason: reason }) } catch (e) {}
