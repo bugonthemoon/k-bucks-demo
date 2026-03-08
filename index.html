@@ -2,6 +2,12 @@
 
 <html lang="en">
 <head>
+<!-- ========================= -->
+<!-- SECTION: HEAD SCRIPT      -->
+<!-- Build version · GA        -->
+<!-- telemetry · DPR helpers   -->
+<!-- Leaflet helpers            -->
+<!-- ========================= -->
 <!-- Google tag (gtag.js) -->
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-FC0XXR6EFQ"></script>
 <script>
@@ -151,6 +157,9 @@
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>K-Bucks Demo</title>
 <link crossorigin="" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" rel="stylesheet"/>
+<!-- ========================= -->
+<!-- SECTION: STYLES           -->
+<!-- ========================= -->
 <style>
 
 
@@ -2584,6 +2593,11 @@ color: #111;
 </head>
 <body>
 <div class="wrap">
+<!-- ========================= -->
+<!-- SECTION: SCREEN 3         -->
+<!-- Name That Country (NTC)   -->
+<!-- Optics & Photonics (OAP)  -->
+<!-- ========================= -->
 <div class="screen" id="screenGame" style="display:none;">
 <div class="headerBar">
 <div class="topHeader">
@@ -2677,6 +2691,10 @@ color: #111;
 </div>
 <div class="copyrightLine">Copyright © 2025-2026 Vladimir Kravtchenko. All rights reserved. Version <span class="kbBuildVersion">0.2.92</span></div>
 </div>
+<!-- ========================= -->
+<!-- SECTION: SCREEN 2         -->
+<!-- Redemption Store          -->
+<!-- ========================= -->
 <div class="screen" id="screenStore" style="display:none;">
 <div class="headerBar">
 <div class="topHeader">
@@ -2703,6 +2721,10 @@ color: #111;
 </div>
 <div class="copyrightLine">Copyright © 2025-2026 Vladimir Kravtchenko. All rights reserved. Version <span class="kbBuildVersion">0.2.92</span></div>
 </div>
+<!-- ========================= -->
+<!-- SECTION: SCREEN 1         -->
+<!-- Educational Content       -->
+<!-- ========================= -->
 <div class="screen" id="screenEdu">
 <div class="headerBar">
 <div class="topHeader">
@@ -2726,6 +2748,10 @@ color: #111;
 </div>
 <div class="copyrightLine">Copyright © 2025-2026 Vladimir Kravtchenko. All rights reserved. Version <span class="kbBuildVersion">0.2.92</span></div>
 </div>
+<!-- ========================= -->
+<!-- SECTION: SCREEN 4         -->
+<!-- Multiply Two Numbers (MTN)-->
+<!-- ========================= -->
 <div class="screen" id="screenBingo" style="display:none;">
 <div class="headerBar">
 <div class="topHeader">
@@ -2944,6 +2970,10 @@ color: #111;
 <div class="copyrightLine">Copyright © 2025-2026 Vladimir Kravtchenko. All rights reserved. Version <span class="kbBuildVersion">0.2.92</span></div>
 </div>
 </div>
+<!-- ========================= -->
+<!-- SECTION: SHARED UI        -->
+<!-- Game over overlay         -->
+<!-- ========================= -->
 <div class="overlay" id="overlay">
 <div class="modal">
 <h2>Game over</h2>
@@ -2953,6 +2983,9 @@ color: #111;
 </div>
 </div>
 </div>
+<!-- ========================= -->
+<!-- SECTION: MAIN BODY SCRIPT -->
+<!-- ========================= -->
 <script crossorigin="" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
 </script>
 <script>
@@ -2965,7 +2998,12 @@ color: #111;
 
 
 
-    const SCALE = 1000000000  
+    // ========================= //
+    // SECTION: CONSTANTS        //
+    // Build version · formatters //
+    // color constants            //
+    // ========================= //
+    const SCALE = 1000000000
     const KB_BUILD_VERSION = (window.KB_BUILD_VERSION || "0.2.93")
     try { window.KB_BUILD_VERSION = KB_BUILD_VERSION } catch (e) {}
     // Screen 4, Multiply Two Numbers tables
@@ -3078,6 +3116,10 @@ function kbFmtKbuDrop2(x) {
 )
 
 
+// ========================= //
+// SECTION: LEAFLET MAP      //
+// Double-buffer system      //
+// ========================= //
 let map = null
 let kbBaseTileLayer = null
 
@@ -3454,6 +3496,10 @@ const messageEl = document.getElementById("message")
 
 
     
+    // ========================= //
+    // SECTION: OAP              //
+    // Optics & Photonics logic  //
+    // ========================= //
     // Geo game context switching (NTC vs OAP replica)
     let kbGeoActiveKey = "ntc"
     let kbGeoSelectedVideoKey = ""
@@ -4197,6 +4243,11 @@ const screenBingoEl = document.getElementById("screenBingo")
       try { if (bingoMessageEl) bingoMessageEl.textContent = text } catch (e) {}
     }
 
+    // ========================= //
+    // SECTION: SCREEN NAVIGATION //
+    // showGameScreen · showStore //
+    // showEdu · showBingo        //
+    // ========================= //
     function showGameScreen(whichKey) {
 
       const key = (whichKey === "oap") ? "oap" : "ntc"
@@ -4278,6 +4329,11 @@ currentScreen = "edu"
       try { renderEdu() } catch (e) {}
     }
     
+    // ========================= //
+    // SECTION: MTN              //
+    // Multiply Two Numbers      //
+    // logic                     //
+    // ========================= //
     // Bingo (Screen 4) K-Bucks wallets and flow logic.
     // Keep independent from the Name That Country (Screen 3) wallets.
     let kbBingoParentU = 0 * SCALE
@@ -5059,6 +5115,10 @@ currentScreen = "bingo"
 
 
 
+    // ========================= //
+    // SECTION: NTC              //
+    // Name That Country logic   //
+    // ========================= //
     let countries = []
     let deck = []
     let deckIndex = 0
@@ -5276,6 +5336,12 @@ function setTimerVisible(visible) {
 
     //
 
+    // ========================= //
+    // SECTION: WALLET / KBU     //
+    // FLOW                      //
+    // Shared wallet state and   //
+    // KBU formatting helpers    //
+    // ========================= //
     // K-Bucks demo wallet (units = 0.0001 K-Bucks)
     let parentU = toUnits("5.00")
     let sponsorU = toUnits("1.00")
@@ -5942,6 +6008,10 @@ function updateAccounts() {
 
 
     }
+        // ========================= //
+        // SECTION: REDEMPTION STORE //
+        // Data & rendering          //
+        // ========================= //
         // REDEMPTION_STORE_START
         const STORE_ITEMS = [
               { name: "Plastic Spider Ring", brand: "Generic", cost: 0.05, image: "plastic_spider_ring.jpg", rating: 4.5, reviews: "1.2M" },
@@ -6154,6 +6224,11 @@ function renderStore() {
 
       storeEl.appendChild(wrap)
     }
+    // ========================= //
+    // SECTION: EDUCATIONAL      //
+    // CONTENT                   //
+    // Data & rendering          //
+    // ========================= //
     const EDU_ITEMS = [
       { key: "ntc", name: "Name That Country", cost: 0.10, image: "name_that_country.png" },
       { key: "op", name: "Optics and Photonics", cost: 0.00, image: "cogs.png" },
@@ -7173,6 +7248,10 @@ for (const c of countries) countryByKey.set(c.key, c)
 
     }
 
+    // ========================= //
+    // SECTION: STARTUP          //
+    // Initialization            //
+    // ========================= //
     // Ensure Screen 1 content is rendered on initial load
     try { showEduScreen() } catch (e) {}
 
