@@ -116,3 +116,12 @@ See:
 ## License
 
 Prototype and demo code intended for experimentation and product exploration.
+
+## Documentation
+
+See the `/docs` directory for additional documentation:
+
+- docs/PROJECT.md — project overview
+- docs/ARCHITECTURE.md — system architecture
+- docs/DEVELOPMENT.md — development workflow
+- docs/INDEX_HTML_MAP.md — guide to navigating index.html
