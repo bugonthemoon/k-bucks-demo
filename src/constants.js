@@ -31,4 +31,14 @@ window.KB_CONST = {
     fiber: "assets/videos/how_a_fiber_optic_cable_works.webm",
   },
 
+  // ---- Build version ----
+  KB_BUILD_VERSION: window.KB_BUILD_VERSION || "",
+
+  // ---- Leaflet guardrail values ----
+  // Expected Leaflet config — used by the regression guard in map_engine.js.
+  // Do not change these without also changing the matching L.map() options.
+  KB_LEAFLET_ZOOM_SNAP:    0.2,
+  KB_LEAFLET_ZOOM_DELTA:   0.2,
+  KB_LEAFLET_MIN_ZOOM_MAX: 2.2,
+
 }

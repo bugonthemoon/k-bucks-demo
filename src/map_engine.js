@@ -58,13 +58,12 @@
 
     // Regression guard: warn if critical Leaflet config values drift from intended values.
     try {
-      const kbExpected = { zoomSnap: 0.2, zoomDelta: 0.2, minZoomMax: 2.2 }
-      if (m.options.zoomSnap !== kbExpected.zoomSnap)
-        console.warn("[KB] Leaflet zoomSnap drifted: expected " + kbExpected.zoomSnap + ", got " + m.options.zoomSnap)
-      if (m.options.zoomDelta !== kbExpected.zoomDelta)
-        console.warn("[KB] Leaflet zoomDelta drifted: expected " + kbExpected.zoomDelta + ", got " + m.options.zoomDelta)
-      if (m.options.minZoom > kbExpected.minZoomMax)
-        console.warn("[KB] Leaflet minZoom drifted: expected <= " + kbExpected.minZoomMax + ", got " + m.options.minZoom)
+      if (m.options.zoomSnap !== KB_CONST.KB_LEAFLET_ZOOM_SNAP)
+        console.warn("[KB] Leaflet zoomSnap drifted: expected " + KB_CONST.KB_LEAFLET_ZOOM_SNAP + ", got " + m.options.zoomSnap)
+      if (m.options.zoomDelta !== KB_CONST.KB_LEAFLET_ZOOM_DELTA)
+        console.warn("[KB] Leaflet zoomDelta drifted: expected " + KB_CONST.KB_LEAFLET_ZOOM_DELTA + ", got " + m.options.zoomDelta)
+      if (m.options.minZoom > KB_CONST.KB_LEAFLET_MIN_ZOOM_MAX)
+        console.warn("[KB] Leaflet minZoom drifted: expected <= " + KB_CONST.KB_LEAFLET_MIN_ZOOM_MAX + ", got " + m.options.minZoom)
     } catch (e) {}
 
     try {
