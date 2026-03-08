@@ -1,43 +1,29 @@
 # K-Bucks
 
-**K-Bucks** is a prototype educational incentives platform that rewards
-children with a virtual currency (**KBU**) for completing learning
-activities such as educational games and videos.
+K-Bucks is a prototype educational incentives platform that rewards children with a virtual currency (KBU) for completing learning activities such as educational games and videos.
 
-The goal of the project is to explore how incentive systems can make
-learning more engaging and sustainable for children while aligning
-parents, sponsors, and educational content creators.
+The goal of the project is to explore how incentive systems can make learning more engaging and sustainable for children while aligning parents, sponsors, and educational content creators.
 
-------------------------------------------------------------------------
-
-# Demo
+## Demo
 
 The current demo includes several interactive learning experiences:
 
-• **Name That Country (NTC)** --- geography recognition game using an
-interactive map\
-• **Optics & Photonics (OAP)** --- educational video flow with earning
-mechanics\
-• **Multiply Two Numbers (MTN)** --- multiplication practice game\
-• **Parent & Sponsor funding flows** --- simulated funding of a child
-wallet\
-• **Gameplay telemetry** --- analytics events for learning and earnings
+- Name That Country (NTC) - geography recognition game using an interactive map
+- Optics & Photonics (OAP) - educational video flow with earning mechanics
+- Multiply Two Numbers (MTN) - multiplication practice game
+- Parent and Sponsor funding flows - simulated funding of a child wallet
+- Gameplay telemetry - analytics events for learning and earnings
 
-The application is implemented as a lightweight **single‑page HTML
-demo**.
+The application is implemented as a lightweight single-page HTML demo.
 
-------------------------------------------------------------------------
+## Features
 
-# Features
-
-• Incentives‑based learning model\
-• Virtual currency economy (KBU)\
-• Interactive geography and math games\
-• Educational video reward flow\
-• Sponsor and parent funding simulation\
-• Telemetry events for gameplay analytics
-
-------------------------------------------------------------------------
+- Incentives-based learning model
+- Virtual currency economy (KBU)
+- Interactive geography and math games
+- Educational video reward flow
+- Sponsor and parent funding simulation
+- Telemetry events for gameplay analytics
 
 ## Quick start
 
@@ -51,31 +37,27 @@ Run the development server:
 
 Create a new demo release:
 
-    npm run release -- <version> "<changelog message>"
+    npm run release -- VERSION "CHANGELOG MESSAGE"
 
-------------------------------------------------------------------------
-
-# Development
+## Development
 
 Start the development server:
 
     npm run dev
 
-This launches a **Vite development server** and opens:
+This launches a Vite development server and opens:
 
     http://localhost:5173
 
 The dev server automatically reloads the browser when files change.
 
-------------------------------------------------------------------------
-
-# Release workflow
+## Release workflow
 
 Releasing a new demo version is automated.
 
 Run:
 
-    npm run release -- <version> "<changelog message>"
+    npm run release -- VERSION "CHANGELOG MESSAGE"
 
 Example:
 
@@ -83,15 +65,13 @@ Example:
 
 The release script automatically:
 
-• Updates `window.KB_BUILD_VERSION` in `index.html`\
-• Updates the fallback version reference\
-• Inserts a new entry into `CHANGELOG.md`\
-• Commits the changes\
-• Creates a Git tag (`v<version>`)
+- Updates window.KB_BUILD_VERSION in index.html
+- Updates the fallback version reference
+- Inserts a new entry into CHANGELOG.md
+- Commits the changes
+- Creates a Git tag (v plus version)
 
-------------------------------------------------------------------------
-
-# Project structure
+## Project structure
 
     index.html           Main demo application
     CHANGELOG.md         Version history
@@ -100,33 +80,26 @@ The release script automatically:
     package.json         Dev tooling configuration
     vite.config.js       Vite dev server configuration
 
-------------------------------------------------------------------------
-
-# Team
+## Team
 
 K-Bucks is developed by a small hybrid human + AI team.
 
-**Vlad**\
-CEO & Head of Product
+Vlad
+CEO and Head of Product
 
-**Max**\
-AI CTO & Technical Architect
+Max
+AI CTO and Technical Architect
 
-**Claude**\
+Claude
 AI Software Engineer
 
-------------------------------------------------------------------------
+## AI-assisted development
 
-# AI‑assisted development
+This project uses AI-assisted development tools.
 
-This project uses AI‑assisted development tools.
-
-• **Vlad** defines product direction, approves changes, and is
-responsible for final decisions.\
-• **Max** provides architecture guidance, development planning, and
-technical review.\
-• **Claude** assists with implementation, refactoring, and code
-generation.
+- Vlad defines product direction, approves changes, and is responsible for final decisions.
+- Max provides architecture guidance, development planning, and technical review.
+- Claude assists with implementation, refactoring, and code generation.
 
 Claude Code follows development rules defined in:
 
@@ -134,17 +107,12 @@ Claude Code follows development rules defined in:
 
 to ensure safe, minimal edits.
 
-------------------------------------------------------------------------
-
-# Version history
+## Version history
 
 See:
 
     CHANGELOG.md
 
-------------------------------------------------------------------------
+## License
 
-# License
-
-Prototype / demo code intended for experimentation and product
-exploration.
+Prototype and demo code intended for experimentation and product exploration.

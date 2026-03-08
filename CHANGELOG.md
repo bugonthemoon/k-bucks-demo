@@ -1,9 +1,15 @@
-      - 0.1.357 (2026-01-28): Remove NTC footer pin JS and rely on CSS only to prevent zoom freezes.
-      - 0.1.251 (2026-01-26): Set global wrap horizontal padding to 8px and keep NTC row height 32px.
-      - 0.1.238 (2026-01-26): Screen 3 layout test. Set map slot to 512x512, move game buttons under answers, and move account panes into a right-side column.
-      - 0.1.237 (2026-01-25): Call KB_TELEMETRY.screen only from show*Screen functions.
-      - 0.1.236 (2026-01-24): Attach kb_anon_user_id to all kb_* GA4 events.
-CHANGELOG:
+# CHANGELOG
+
+## Legacy notes
+
+- 0.1.357 (2026-01-28): Remove NTC footer pin JS and rely on CSS only to prevent zoom freezes.
+- 0.1.251 (2026-01-26): Set global wrap horizontal padding to 8px and keep NTC row height 32px.
+- 0.1.238 (2026-01-26): Screen 3 layout test. Set map slot to 512x512, move game buttons under answers, and move account panes into a right-side column.
+- 0.1.237 (2026-01-25): Call KB_TELEMETRY.screen only from show*Screen functions.
+- 0.1.236 (2026-01-24): Attach kb_anon_user_id to all kb_* GA4 events.
+
+## Releases
+
 - 0.2.93 (2026-02-18): Set OAP initial flow rate to 3.60 KBU per hour of watching.
 - 0.2.91 (2026-02-17): Set initial Parent and Sponsor balances and flow rates for NTC, OAP, and MTN.
 - 0.2.92 (2026-02-17): Fix startup initialization so NTC Parent/Sponsor defaults persist and Screen 1 Available-to-earn includes NTC.
@@ -82,12 +88,6 @@ CHANGELOG:
 - 0.2.2 (2026-01-31): Remove duplicate shortcut icon link to avoid double favicon requests.
 - 0.2.1 (2026-01-31): Update favicon links with cache-buster query string.
 - 0.2.0 (2026-01-31): Version bump only.
-
-
-
-
-
-
 
 - 0.1.533 (2026-01-31): Add non-integer DPR tile seam masking, stronger low-fraction DPR mask, and post-resize DPR class update burst.
 - 0.1.519 (2026-01-31): Move EDU KBU blocks 1 px left.
