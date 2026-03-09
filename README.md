@@ -1,6 +1,6 @@
 # K-Bucks Demo
 
-K-Bucks Demo illustrates how the educational incentives platform works. The platform rewards children with a virtual currency (KBU) for completing learning activities such as playing educational games and watching educational videos. Children can redeem KBU for rewards such as toys, experiences, and desired items. The goal of the demo is to show how incentive systems can make learning more engaging and sustainable for children while aligning parents, sponsors, and educational content creators.
+K-Bucks Demo illustrates how the educational incentives platform works. The platform rewards children with a virtual currency (KBU, funded by parents and education sponsors) for completing learning activities such as playing educational games and watching educational videos. Children can redeem KBU for rewards such as toys, experiences, and desired items. Educational content creators and the K-Bucks platform receive a percentage of the KBU flowing through the educational content. The goal of the demo is to show how incentive systems can make learning more engaging and sustainable for children while aligning parents, sponsors, and educational content creators.
 
 The current architecture separates game engines, shared systems, and boot logic into focused modules for safer development and refactoring.
 
