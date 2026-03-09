@@ -158,14 +158,9 @@ The release script automatically:
 
 K-Bucks Demo is developed by a small hybrid human + AI team.
 
-**Vlad**  
-CEO and Head of Product
-
-**Max** (ChatGPT)
-AI CTO and Technical Architect
-
-**Claude** (Claude Code)
-AI Software Engineer
+* **Vlad** - Head of Product
+* **Max** (ChatGPT) - Technical Architect
+* **Claude** (Claude Code) - Software Engineer
 
 ## AI-assisted development
 
