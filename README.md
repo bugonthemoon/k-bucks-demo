@@ -14,6 +14,8 @@ K-Bucks Demo
 ├── CLAUDE.md               # AI editing rules
 ├── .editorconfig           # formatting rules
 ├── .gitignore              # repo hygiene rules
+├── assets/                 # static demo assets such as images and videos
+├── data/                   # static data files such as country GeoJSON
 ├── docs/
 │   ├── PROJECT.md
 │   ├── ARCHITECTURE.md
@@ -34,7 +36,7 @@ K-Bucks Demo
 │   ├── constants.js
 │   ├── engine_registry.js
 │   └── app_boot.js
-├── scripts/
+├── scripts/                # development and release helper scripts
 │   └── release.js
 ├── package.json
 └── vite.config.js
@@ -94,6 +96,8 @@ Install dependencies:
 ```text
 npm install
 ```
+
+This recreates local dependencies in `node_modules/`.
 
 
 Run the development server:
