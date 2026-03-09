@@ -49,29 +49,29 @@ K-Bucks Demo
 
 Game engines are intentionally independent:
 
-* `ntc\_engine` - Name That Country
-* `oap\_engine` - Optics \& Photonics
-* `bingo\_engine` - Practice Times Tables
+* `ntc_engine` - Name That Country (NTC)
+* `oap_engine` - Optics \& Photonics (OAP)
+* `bingo_engine` - Multiply Two Numbers (MTN)
 
 Shared systems:
 
-* `engine\_registry` - central metadata registry for all game engines
-* `wallet\_engine` - wallet persistence and balances
-* `incentive\_engine` - KBU unit math and sponsor logic
-* `map\_engine` - Leaflet map lifecycle
-* `activity\_state` - shared NTC/OAP activity state
+* `engine_registry` - central metadata registry for all game engines
+* `wallet_engine` - wallet persistence and balances
+* `incentive_engine` - KBU unit math and sponsor logic
+* `map_engine` - Leaflet map lifecycle
+* `activity_state` - shared NTC/OAP activity state
 * `navigation` - screen transitions
-* `app\_boot` - application initialization and boot-time registry validation
+* `app_boot` - application initialization and boot-time registry validation
 * `constants` - shared runtime constants, build version, and Leaflet guardrail values
-* `content\_data` - static content definitions
+* `content_data` - static content definitions
 
 ## Demo
 
-The current demo includes several interactive learning experiences:
+The current demo includes several interactive learning experiences showing earning mechanics:
 
-* Name That Country (NTC) - geography recognition game using an interactive map
-* Optics \& Photonics (OAP) - educational video flow with earning mechanics
-* Multiply Two Numbers (MTN) - multiplication practice game
+* Name That Country - geography recognition game using an interactive map
+* Optics \& Photonics - educational videos
+* Multiply Two Numbers - multiplication practice game
 * Parent and Sponsor funding flows - simulated funding of a child wallet
 * Gameplay telemetry - analytics events for learning and earnings
 
@@ -114,7 +114,9 @@ npm run release -- VERSION "CHANGELOG MESSAGE"
 
 Start the development server:
 
-&nbsp;   npm run dev
+```text
+npm run dev
+```
 
 
 This launches a Vite development server and opens:
@@ -156,13 +158,13 @@ The release script automatically:
 
 K-Bucks Demo is developed by a small hybrid human + AI team.
 
-Vlad  
+**Vlad**  
 CEO and Head of Product
 
-Max  
+**Max** (ChatGPT)
 AI CTO and Technical Architect
 
-Claude  
+**Claude** (Claude Code)
 AI Software Engineer
 
 ## AI-assisted development
