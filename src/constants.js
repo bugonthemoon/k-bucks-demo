@@ -25,7 +25,7 @@ window.KB_CONST = {
 
   // ---- Asset paths ----
   COUNTRIES_GEOJSON_PATH: "data/countries.geojson",
-  UN_MEMBERS_URL: "https://restcountries.com/v3.1/all?fields=name,cca2,cca3,unMember",
+  UN_MEMBERS_PATH: "data/un_members.json",
   kbOapVideoByKey: {
     laser: "assets/videos/how_a_laser_works.webm",
     fiber: "assets/videos/how_a_fiber_optic_cable_works.webm",

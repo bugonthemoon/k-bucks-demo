@@ -3036,7 +3036,7 @@ color: #111;
       const missing = required.filter(k => !window[k])
       if (missing.length) throw new Error("K-Bucks: missing module(s): " + missing.join(", "))
     })()
-    const { SCALE, KB_ZOOM_OUT_AFTER_FIT, KB_OAP_FLOW_EVERY_SEC, KB_OAP_FLOW_EVERY_MS, UN_MEMBERS_URL, ORANGE_STYLE, kbOapVideoByKey, COUNTRIES_GEOJSON_PATH } = window.KB_CONST
+    const { SCALE, KB_ZOOM_OUT_AFTER_FIT, KB_OAP_FLOW_EVERY_SEC, KB_OAP_FLOW_EVERY_MS, UN_MEMBERS_PATH, ORANGE_STYLE, kbOapVideoByKey, COUNTRIES_GEOJSON_PATH } = window.KB_CONST
     const { toUnits, toMoneyUnits, parseUnitsNoRound, fmtWalletMin2U, kbFmtKbuRate2, kbFmtKbuDrop2, fmtUnitsTrimU, fmtUnitsFlex, fmtMin2Max5, fmtParentU, fmtSponsorU, fmtOtherU, fmtFlow, fmtFlowInputU, kbSponsorTagAlongU, kbAvailableToEarnForGameU } = window.KB_ENGINE
     const { STORE_ITEMS, KB_STORE_MANIFEST_EXPECTED, EDU_ITEMS } = window.KB_DATA
     const { showGameScreen, showStoreScreen, showEduScreen, showBingoScreen, isRedeemOpen } = window.KB_NAV

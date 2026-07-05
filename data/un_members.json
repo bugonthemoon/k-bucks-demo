@@ -1,0 +1,1739 @@
+[
+  {
+    "cca2": "AF",
+    "cca3": "AFG",
+    "unMember": true,
+    "name": {
+      "common": "Afghanistan",
+      "official": "Islamic Republic of Afghanistan"
+    }
+  },
+  {
+    "cca2": "AO",
+    "cca3": "AGO",
+    "unMember": true,
+    "name": {
+      "common": "Angola",
+      "official": "Republic of Angola"
+    }
+  },
+  {
+    "cca2": "AL",
+    "cca3": "ALB",
+    "unMember": true,
+    "name": {
+      "common": "Albania",
+      "official": "Republic of Albania"
+    }
+  },
+  {
+    "cca2": "AD",
+    "cca3": "AND",
+    "unMember": true,
+    "name": {
+      "common": "Andorra",
+      "official": "Principality of Andorra"
+    }
+  },
+  {
+    "cca2": "AE",
+    "cca3": "ARE",
+    "unMember": true,
+    "name": {
+      "common": "United Arab Emirates",
+      "official": "United Arab Emirates"
+    }
+  },
+  {
+    "cca2": "AR",
+    "cca3": "ARG",
+    "unMember": true,
+    "name": {
+      "common": "Argentina",
+      "official": "Argentine Republic"
+    }
+  },
+  {
+    "cca2": "AM",
+    "cca3": "ARM",
+    "unMember": true,
+    "name": {
+      "common": "Armenia",
+      "official": "Republic of Armenia"
+    }
+  },
+  {
+    "cca2": "AG",
+    "cca3": "ATG",
+    "unMember": true,
+    "name": {
+      "common": "Antigua and Barbuda",
+      "official": "Antigua and Barbuda"
+    }
+  },
+  {
+    "cca2": "AU",
+    "cca3": "AUS",
+    "unMember": true,
+    "name": {
+      "common": "Australia",
+      "official": "Commonwealth of Australia"
+    }
+  },
+  {
+    "cca2": "AT",
+    "cca3": "AUT",
+    "unMember": true,
+    "name": {
+      "common": "Austria",
+      "official": "Republic of Austria"
+    }
+  },
+  {
+    "cca2": "AZ",
+    "cca3": "AZE",
+    "unMember": true,
+    "name": {
+      "common": "Azerbaijan",
+      "official": "Republic of Azerbaijan"
+    }
+  },
+  {
+    "cca2": "BI",
+    "cca3": "BDI",
+    "unMember": true,
+    "name": {
+      "common": "Burundi",
+      "official": "Republic of Burundi"
+    }
+  },
+  {
+    "cca2": "BE",
+    "cca3": "BEL",
+    "unMember": true,
+    "name": {
+      "common": "Belgium",
+      "official": "Kingdom of Belgium"
+    }
+  },
+  {
+    "cca2": "BJ",
+    "cca3": "BEN",
+    "unMember": true,
+    "name": {
+      "common": "Benin",
+      "official": "Republic of Benin"
+    }
+  },
+  {
+    "cca2": "BF",
+    "cca3": "BFA",
+    "unMember": true,
+    "name": {
+      "common": "Burkina Faso",
+      "official": "Burkina Faso"
+    }
+  },
+  {
+    "cca2": "BD",
+    "cca3": "BGD",
+    "unMember": true,
+    "name": {
+      "common": "Bangladesh",
+      "official": "People's Republic of Bangladesh"
+    }
+  },
+  {
+    "cca2": "BG",
+    "cca3": "BGR",
+    "unMember": true,
+    "name": {
+      "common": "Bulgaria",
+      "official": "Republic of Bulgaria"
+    }
+  },
+  {
+    "cca2": "BH",
+    "cca3": "BHR",
+    "unMember": true,
+    "name": {
+      "common": "Bahrain",
+      "official": "Kingdom of Bahrain"
+    }
+  },
+  {
+    "cca2": "BS",
+    "cca3": "BHS",
+    "unMember": true,
+    "name": {
+      "common": "Bahamas",
+      "official": "Commonwealth of the Bahamas"
+    }
+  },
+  {
+    "cca2": "BA",
+    "cca3": "BIH",
+    "unMember": true,
+    "name": {
+      "common": "Bosnia and Herzegovina",
+      "official": "Bosnia and Herzegovina"
+    }
+  },
+  {
+    "cca2": "BY",
+    "cca3": "BLR",
+    "unMember": true,
+    "name": {
+      "common": "Belarus",
+      "official": "Republic of Belarus"
+    }
+  },
+  {
+    "cca2": "BZ",
+    "cca3": "BLZ",
+    "unMember": true,
+    "name": {
+      "common": "Belize",
+      "official": "Belize"
+    }
+  },
+  {
+    "cca2": "BO",
+    "cca3": "BOL",
+    "unMember": true,
+    "name": {
+      "common": "Bolivia",
+      "official": "Plurinational State of Bolivia"
+    }
+  },
+  {
+    "cca2": "BR",
+    "cca3": "BRA",
+    "unMember": true,
+    "name": {
+      "common": "Brazil",
+      "official": "Federative Republic of Brazil"
+    }
+  },
+  {
+    "cca2": "BB",
+    "cca3": "BRB",
+    "unMember": true,
+    "name": {
+      "common": "Barbados",
+      "official": "Barbados"
+    }
+  },
+  {
+    "cca2": "BN",
+    "cca3": "BRN",
+    "unMember": true,
+    "name": {
+      "common": "Brunei",
+      "official": "Nation of Brunei, Abode of Peace"
+    }
+  },
+  {
+    "cca2": "BT",
+    "cca3": "BTN",
+    "unMember": true,
+    "name": {
+      "common": "Bhutan",
+      "official": "Kingdom of Bhutan"
+    }
+  },
+  {
+    "cca2": "BW",
+    "cca3": "BWA",
+    "unMember": true,
+    "name": {
+      "common": "Botswana",
+      "official": "Republic of Botswana"
+    }
+  },
+  {
+    "cca2": "CF",
+    "cca3": "CAF",
+    "unMember": true,
+    "name": {
+      "common": "Central African Republic",
+      "official": "Central African Republic"
+    }
+  },
+  {
+    "cca2": "CA",
+    "cca3": "CAN",
+    "unMember": true,
+    "name": {
+      "common": "Canada",
+      "official": "Canada"
+    }
+  },
+  {
+    "cca2": "CH",
+    "cca3": "CHE",
+    "unMember": true,
+    "name": {
+      "common": "Switzerland",
+      "official": "Swiss Confederation"
+    }
+  },
+  {
+    "cca2": "CL",
+    "cca3": "CHL",
+    "unMember": true,
+    "name": {
+      "common": "Chile",
+      "official": "Republic of Chile"
+    }
+  },
+  {
+    "cca2": "CN",
+    "cca3": "CHN",
+    "unMember": true,
+    "name": {
+      "common": "China",
+      "official": "People's Republic of China"
+    }
+  },
+  {
+    "cca2": "CI",
+    "cca3": "CIV",
+    "unMember": true,
+    "name": {
+      "common": "Ivory Coast",
+      "official": "Republic of Côte d'Ivoire"
+    }
+  },
+  {
+    "cca2": "CM",
+    "cca3": "CMR",
+    "unMember": true,
+    "name": {
+      "common": "Cameroon",
+      "official": "Republic of Cameroon"
+    }
+  },
+  {
+    "cca2": "CD",
+    "cca3": "COD",
+    "unMember": true,
+    "name": {
+      "common": "DR Congo",
+      "official": "Democratic Republic of the Congo"
+    }
+  },
+  {
+    "cca2": "CG",
+    "cca3": "COG",
+    "unMember": true,
+    "name": {
+      "common": "Congo",
+      "official": "Republic of the Congo"
+    }
+  },
+  {
+    "cca2": "CO",
+    "cca3": "COL",
+    "unMember": true,
+    "name": {
+      "common": "Colombia",
+      "official": "Republic of Colombia"
+    }
+  },
+  {
+    "cca2": "KM",
+    "cca3": "COM",
+    "unMember": true,
+    "name": {
+      "common": "Comoros",
+      "official": "Union of the Comoros"
+    }
+  },
+  {
+    "cca2": "CV",
+    "cca3": "CPV",
+    "unMember": true,
+    "name": {
+      "common": "Cape Verde",
+      "official": "Republic of Cabo Verde"
+    }
+  },
+  {
+    "cca2": "CR",
+    "cca3": "CRI",
+    "unMember": true,
+    "name": {
+      "common": "Costa Rica",
+      "official": "Republic of Costa Rica"
+    }
+  },
+  {
+    "cca2": "CU",
+    "cca3": "CUB",
+    "unMember": true,
+    "name": {
+      "common": "Cuba",
+      "official": "Republic of Cuba"
+    }
+  },
+  {
+    "cca2": "CY",
+    "cca3": "CYP",
+    "unMember": true,
+    "name": {
+      "common": "Cyprus",
+      "official": "Republic of Cyprus"
+    }
+  },
+  {
+    "cca2": "CZ",
+    "cca3": "CZE",
+    "unMember": true,
+    "name": {
+      "common": "Czechia",
+      "official": "Czech Republic"
+    }
+  },
+  {
+    "cca2": "DE",
+    "cca3": "DEU",
+    "unMember": true,
+    "name": {
+      "common": "Germany",
+      "official": "Federal Republic of Germany"
+    }
+  },
+  {
+    "cca2": "DJ",
+    "cca3": "DJI",
+    "unMember": true,
+    "name": {
+      "common": "Djibouti",
+      "official": "Republic of Djibouti"
+    }
+  },
+  {
+    "cca2": "DM",
+    "cca3": "DMA",
+    "unMember": true,
+    "name": {
+      "common": "Dominica",
+      "official": "Commonwealth of Dominica"
+    }
+  },
+  {
+    "cca2": "DK",
+    "cca3": "DNK",
+    "unMember": true,
+    "name": {
+      "common": "Denmark",
+      "official": "Kingdom of Denmark"
+    }
+  },
+  {
+    "cca2": "DO",
+    "cca3": "DOM",
+    "unMember": true,
+    "name": {
+      "common": "Dominican Republic",
+      "official": "Dominican Republic"
+    }
+  },
+  {
+    "cca2": "DZ",
+    "cca3": "DZA",
+    "unMember": true,
+    "name": {
+      "common": "Algeria",
+      "official": "People's Democratic Republic of Algeria"
+    }
+  },
+  {
+    "cca2": "EC",
+    "cca3": "ECU",
+    "unMember": true,
+    "name": {
+      "common": "Ecuador",
+      "official": "Republic of Ecuador"
+    }
+  },
+  {
+    "cca2": "EG",
+    "cca3": "EGY",
+    "unMember": true,
+    "name": {
+      "common": "Egypt",
+      "official": "Arab Republic of Egypt"
+    }
+  },
+  {
+    "cca2": "ER",
+    "cca3": "ERI",
+    "unMember": true,
+    "name": {
+      "common": "Eritrea",
+      "official": "State of Eritrea"
+    }
+  },
+  {
+    "cca2": "ES",
+    "cca3": "ESP",
+    "unMember": true,
+    "name": {
+      "common": "Spain",
+      "official": "Kingdom of Spain"
+    }
+  },
+  {
+    "cca2": "EE",
+    "cca3": "EST",
+    "unMember": true,
+    "name": {
+      "common": "Estonia",
+      "official": "Republic of Estonia"
+    }
+  },
+  {
+    "cca2": "ET",
+    "cca3": "ETH",
+    "unMember": true,
+    "name": {
+      "common": "Ethiopia",
+      "official": "Federal Democratic Republic of Ethiopia"
+    }
+  },
+  {
+    "cca2": "FI",
+    "cca3": "FIN",
+    "unMember": true,
+    "name": {
+      "common": "Finland",
+      "official": "Republic of Finland"
+    }
+  },
+  {
+    "cca2": "FJ",
+    "cca3": "FJI",
+    "unMember": true,
+    "name": {
+      "common": "Fiji",
+      "official": "Republic of Fiji"
+    }
+  },
+  {
+    "cca2": "FR",
+    "cca3": "FRA",
+    "unMember": true,
+    "name": {
+      "common": "France",
+      "official": "French Republic"
+    }
+  },
+  {
+    "cca2": "FM",
+    "cca3": "FSM",
+    "unMember": true,
+    "name": {
+      "common": "Micronesia",
+      "official": "Federated States of Micronesia"
+    }
+  },
+  {
+    "cca2": "GA",
+    "cca3": "GAB",
+    "unMember": true,
+    "name": {
+      "common": "Gabon",
+      "official": "Gabonese Republic"
+    }
+  },
+  {
+    "cca2": "GB",
+    "cca3": "GBR",
+    "unMember": true,
+    "name": {
+      "common": "United Kingdom",
+      "official": "United Kingdom of Great Britain and Northern Ireland"
+    }
+  },
+  {
+    "cca2": "GE",
+    "cca3": "GEO",
+    "unMember": true,
+    "name": {
+      "common": "Georgia",
+      "official": "Georgia"
+    }
+  },
+  {
+    "cca2": "GH",
+    "cca3": "GHA",
+    "unMember": true,
+    "name": {
+      "common": "Ghana",
+      "official": "Republic of Ghana"
+    }
+  },
+  {
+    "cca2": "GN",
+    "cca3": "GIN",
+    "unMember": true,
+    "name": {
+      "common": "Guinea",
+      "official": "Republic of Guinea"
+    }
+  },
+  {
+    "cca2": "GM",
+    "cca3": "GMB",
+    "unMember": true,
+    "name": {
+      "common": "Gambia",
+      "official": "Republic of the Gambia"
+    }
+  },
+  {
+    "cca2": "GW",
+    "cca3": "GNB",
+    "unMember": true,
+    "name": {
+      "common": "Guinea-Bissau",
+      "official": "Republic of Guinea-Bissau"
+    }
+  },
+  {
+    "cca2": "GQ",
+    "cca3": "GNQ",
+    "unMember": true,
+    "name": {
+      "common": "Equatorial Guinea",
+      "official": "Republic of Equatorial Guinea"
+    }
+  },
+  {
+    "cca2": "GR",
+    "cca3": "GRC",
+    "unMember": true,
+    "name": {
+      "common": "Greece",
+      "official": "Hellenic Republic"
+    }
+  },
+  {
+    "cca2": "GD",
+    "cca3": "GRD",
+    "unMember": true,
+    "name": {
+      "common": "Grenada",
+      "official": "Grenada"
+    }
+  },
+  {
+    "cca2": "GT",
+    "cca3": "GTM",
+    "unMember": true,
+    "name": {
+      "common": "Guatemala",
+      "official": "Republic of Guatemala"
+    }
+  },
+  {
+    "cca2": "GY",
+    "cca3": "GUY",
+    "unMember": true,
+    "name": {
+      "common": "Guyana",
+      "official": "Co-operative Republic of Guyana"
+    }
+  },
+  {
+    "cca2": "HN",
+    "cca3": "HND",
+    "unMember": true,
+    "name": {
+      "common": "Honduras",
+      "official": "Republic of Honduras"
+    }
+  },
+  {
+    "cca2": "HR",
+    "cca3": "HRV",
+    "unMember": true,
+    "name": {
+      "common": "Croatia",
+      "official": "Republic of Croatia"
+    }
+  },
+  {
+    "cca2": "HT",
+    "cca3": "HTI",
+    "unMember": true,
+    "name": {
+      "common": "Haiti",
+      "official": "Republic of Haiti"
+    }
+  },
+  {
+    "cca2": "HU",
+    "cca3": "HUN",
+    "unMember": true,
+    "name": {
+      "common": "Hungary",
+      "official": "Hungary"
+    }
+  },
+  {
+    "cca2": "ID",
+    "cca3": "IDN",
+    "unMember": true,
+    "name": {
+      "common": "Indonesia",
+      "official": "Republic of Indonesia"
+    }
+  },
+  {
+    "cca2": "IN",
+    "cca3": "IND",
+    "unMember": true,
+    "name": {
+      "common": "India",
+      "official": "Republic of India"
+    }
+  },
+  {
+    "cca2": "IE",
+    "cca3": "IRL",
+    "unMember": true,
+    "name": {
+      "common": "Ireland",
+      "official": "Republic of Ireland"
+    }
+  },
+  {
+    "cca2": "IR",
+    "cca3": "IRN",
+    "unMember": true,
+    "name": {
+      "common": "Iran",
+      "official": "Islamic Republic of Iran"
+    }
+  },
+  {
+    "cca2": "IQ",
+    "cca3": "IRQ",
+    "unMember": true,
+    "name": {
+      "common": "Iraq",
+      "official": "Republic of Iraq"
+    }
+  },
+  {
+    "cca2": "IS",
+    "cca3": "ISL",
+    "unMember": true,
+    "name": {
+      "common": "Iceland",
+      "official": "Iceland"
+    }
+  },
+  {
+    "cca2": "IL",
+    "cca3": "ISR",
+    "unMember": true,
+    "name": {
+      "common": "Israel",
+      "official": "State of Israel"
+    }
+  },
+  {
+    "cca2": "IT",
+    "cca3": "ITA",
+    "unMember": true,
+    "name": {
+      "common": "Italy",
+      "official": "Italian Republic"
+    }
+  },
+  {
+    "cca2": "JM",
+    "cca3": "JAM",
+    "unMember": true,
+    "name": {
+      "common": "Jamaica",
+      "official": "Jamaica"
+    }
+  },
+  {
+    "cca2": "JO",
+    "cca3": "JOR",
+    "unMember": true,
+    "name": {
+      "common": "Jordan",
+      "official": "Hashemite Kingdom of Jordan"
+    }
+  },
+  {
+    "cca2": "JP",
+    "cca3": "JPN",
+    "unMember": true,
+    "name": {
+      "common": "Japan",
+      "official": "Japan"
+    }
+  },
+  {
+    "cca2": "KZ",
+    "cca3": "KAZ",
+    "unMember": true,
+    "name": {
+      "common": "Kazakhstan",
+      "official": "Republic of Kazakhstan"
+    }
+  },
+  {
+    "cca2": "KE",
+    "cca3": "KEN",
+    "unMember": true,
+    "name": {
+      "common": "Kenya",
+      "official": "Republic of Kenya"
+    }
+  },
+  {
+    "cca2": "KG",
+    "cca3": "KGZ",
+    "unMember": true,
+    "name": {
+      "common": "Kyrgyzstan",
+      "official": "Kyrgyz Republic"
+    }
+  },
+  {
+    "cca2": "KH",
+    "cca3": "KHM",
+    "unMember": true,
+    "name": {
+      "common": "Cambodia",
+      "official": "Kingdom of Cambodia"
+    }
+  },
+  {
+    "cca2": "KI",
+    "cca3": "KIR",
+    "unMember": true,
+    "name": {
+      "common": "Kiribati",
+      "official": "Independent and Sovereign Republic of Kiribati"
+    }
+  },
+  {
+    "cca2": "KN",
+    "cca3": "KNA",
+    "unMember": true,
+    "name": {
+      "common": "Saint Kitts and Nevis",
+      "official": "Federation of Saint Christopher and Nevis"
+    }
+  },
+  {
+    "cca2": "KR",
+    "cca3": "KOR",
+    "unMember": true,
+    "name": {
+      "common": "South Korea",
+      "official": "Republic of Korea"
+    }
+  },
+  {
+    "cca2": "KW",
+    "cca3": "KWT",
+    "unMember": true,
+    "name": {
+      "common": "Kuwait",
+      "official": "State of Kuwait"
+    }
+  },
+  {
+    "cca2": "LA",
+    "cca3": "LAO",
+    "unMember": true,
+    "name": {
+      "common": "Laos",
+      "official": "Lao People's Democratic Republic"
+    }
+  },
+  {
+    "cca2": "LB",
+    "cca3": "LBN",
+    "unMember": true,
+    "name": {
+      "common": "Lebanon",
+      "official": "Lebanese Republic"
+    }
+  },
+  {
+    "cca2": "LR",
+    "cca3": "LBR",
+    "unMember": true,
+    "name": {
+      "common": "Liberia",
+      "official": "Republic of Liberia"
+    }
+  },
+  {
+    "cca2": "LY",
+    "cca3": "LBY",
+    "unMember": true,
+    "name": {
+      "common": "Libya",
+      "official": "State of Libya"
+    }
+  },
+  {
+    "cca2": "LC",
+    "cca3": "LCA",
+    "unMember": true,
+    "name": {
+      "common": "Saint Lucia",
+      "official": "Saint Lucia"
+    }
+  },
+  {
+    "cca2": "LI",
+    "cca3": "LIE",
+    "unMember": true,
+    "name": {
+      "common": "Liechtenstein",
+      "official": "Principality of Liechtenstein"
+    }
+  },
+  {
+    "cca2": "LK",
+    "cca3": "LKA",
+    "unMember": true,
+    "name": {
+      "common": "Sri Lanka",
+      "official": "Democratic Socialist Republic of Sri Lanka"
+    }
+  },
+  {
+    "cca2": "LS",
+    "cca3": "LSO",
+    "unMember": true,
+    "name": {
+      "common": "Lesotho",
+      "official": "Kingdom of Lesotho"
+    }
+  },
+  {
+    "cca2": "LT",
+    "cca3": "LTU",
+    "unMember": true,
+    "name": {
+      "common": "Lithuania",
+      "official": "Republic of Lithuania"
+    }
+  },
+  {
+    "cca2": "LU",
+    "cca3": "LUX",
+    "unMember": true,
+    "name": {
+      "common": "Luxembourg",
+      "official": "Grand Duchy of Luxembourg"
+    }
+  },
+  {
+    "cca2": "LV",
+    "cca3": "LVA",
+    "unMember": true,
+    "name": {
+      "common": "Latvia",
+      "official": "Republic of Latvia"
+    }
+  },
+  {
+    "cca2": "MA",
+    "cca3": "MAR",
+    "unMember": true,
+    "name": {
+      "common": "Morocco",
+      "official": "Kingdom of Morocco"
+    }
+  },
+  {
+    "cca2": "MC",
+    "cca3": "MCO",
+    "unMember": true,
+    "name": {
+      "common": "Monaco",
+      "official": "Principality of Monaco"
+    }
+  },
+  {
+    "cca2": "MD",
+    "cca3": "MDA",
+    "unMember": true,
+    "name": {
+      "common": "Moldova",
+      "official": "Republic of Moldova"
+    }
+  },
+  {
+    "cca2": "MG",
+    "cca3": "MDG",
+    "unMember": true,
+    "name": {
+      "common": "Madagascar",
+      "official": "Republic of Madagascar"
+    }
+  },
+  {
+    "cca2": "MV",
+    "cca3": "MDV",
+    "unMember": true,
+    "name": {
+      "common": "Maldives",
+      "official": "Republic of the Maldives"
+    }
+  },
+  {
+    "cca2": "MX",
+    "cca3": "MEX",
+    "unMember": true,
+    "name": {
+      "common": "Mexico",
+      "official": "United Mexican States"
+    }
+  },
+  {
+    "cca2": "MH",
+    "cca3": "MHL",
+    "unMember": true,
+    "name": {
+      "common": "Marshall Islands",
+      "official": "Republic of the Marshall Islands"
+    }
+  },
+  {
+    "cca2": "MK",
+    "cca3": "MKD",
+    "unMember": true,
+    "name": {
+      "common": "North Macedonia",
+      "official": "Republic of North Macedonia"
+    }
+  },
+  {
+    "cca2": "ML",
+    "cca3": "MLI",
+    "unMember": true,
+    "name": {
+      "common": "Mali",
+      "official": "Republic of Mali"
+    }
+  },
+  {
+    "cca2": "MT",
+    "cca3": "MLT",
+    "unMember": true,
+    "name": {
+      "common": "Malta",
+      "official": "Republic of Malta"
+    }
+  },
+  {
+    "cca2": "MM",
+    "cca3": "MMR",
+    "unMember": true,
+    "name": {
+      "common": "Myanmar",
+      "official": "Republic of the Union of Myanmar"
+    }
+  },
+  {
+    "cca2": "ME",
+    "cca3": "MNE",
+    "unMember": true,
+    "name": {
+      "common": "Montenegro",
+      "official": "Montenegro"
+    }
+  },
+  {
+    "cca2": "MN",
+    "cca3": "MNG",
+    "unMember": true,
+    "name": {
+      "common": "Mongolia",
+      "official": "Mongolia"
+    }
+  },
+  {
+    "cca2": "MZ",
+    "cca3": "MOZ",
+    "unMember": true,
+    "name": {
+      "common": "Mozambique",
+      "official": "Republic of Mozambique"
+    }
+  },
+  {
+    "cca2": "MR",
+    "cca3": "MRT",
+    "unMember": true,
+    "name": {
+      "common": "Mauritania",
+      "official": "Islamic Republic of Mauritania"
+    }
+  },
+  {
+    "cca2": "MU",
+    "cca3": "MUS",
+    "unMember": true,
+    "name": {
+      "common": "Mauritius",
+      "official": "Republic of Mauritius"
+    }
+  },
+  {
+    "cca2": "MW",
+    "cca3": "MWI",
+    "unMember": true,
+    "name": {
+      "common": "Malawi",
+      "official": "Republic of Malawi"
+    }
+  },
+  {
+    "cca2": "MY",
+    "cca3": "MYS",
+    "unMember": true,
+    "name": {
+      "common": "Malaysia",
+      "official": "Malaysia"
+    }
+  },
+  {
+    "cca2": "NA",
+    "cca3": "NAM",
+    "unMember": true,
+    "name": {
+      "common": "Namibia",
+      "official": "Republic of Namibia"
+    }
+  },
+  {
+    "cca2": "NE",
+    "cca3": "NER",
+    "unMember": true,
+    "name": {
+      "common": "Niger",
+      "official": "Republic of Niger"
+    }
+  },
+  {
+    "cca2": "NG",
+    "cca3": "NGA",
+    "unMember": true,
+    "name": {
+      "common": "Nigeria",
+      "official": "Federal Republic of Nigeria"
+    }
+  },
+  {
+    "cca2": "NI",
+    "cca3": "NIC",
+    "unMember": true,
+    "name": {
+      "common": "Nicaragua",
+      "official": "Republic of Nicaragua"
+    }
+  },
+  {
+    "cca2": "NL",
+    "cca3": "NLD",
+    "unMember": true,
+    "name": {
+      "common": "Netherlands",
+      "official": "Kingdom of the Netherlands"
+    }
+  },
+  {
+    "cca2": "NO",
+    "cca3": "NOR",
+    "unMember": true,
+    "name": {
+      "common": "Norway",
+      "official": "Kingdom of Norway"
+    }
+  },
+  {
+    "cca2": "NP",
+    "cca3": "NPL",
+    "unMember": true,
+    "name": {
+      "common": "Nepal",
+      "official": "Federal Democratic Republic of Nepal"
+    }
+  },
+  {
+    "cca2": "NR",
+    "cca3": "NRU",
+    "unMember": true,
+    "name": {
+      "common": "Nauru",
+      "official": "Republic of Nauru"
+    }
+  },
+  {
+    "cca2": "NZ",
+    "cca3": "NZL",
+    "unMember": true,
+    "name": {
+      "common": "New Zealand",
+      "official": "New Zealand"
+    }
+  },
+  {
+    "cca2": "OM",
+    "cca3": "OMN",
+    "unMember": true,
+    "name": {
+      "common": "Oman",
+      "official": "Sultanate of Oman"
+    }
+  },
+  {
+    "cca2": "PK",
+    "cca3": "PAK",
+    "unMember": true,
+    "name": {
+      "common": "Pakistan",
+      "official": "Islamic Republic of Pakistan"
+    }
+  },
+  {
+    "cca2": "PA",
+    "cca3": "PAN",
+    "unMember": true,
+    "name": {
+      "common": "Panama",
+      "official": "Republic of Panama"
+    }
+  },
+  {
+    "cca2": "PE",
+    "cca3": "PER",
+    "unMember": true,
+    "name": {
+      "common": "Peru",
+      "official": "Republic of Peru"
+    }
+  },
+  {
+    "cca2": "PH",
+    "cca3": "PHL",
+    "unMember": true,
+    "name": {
+      "common": "Philippines",
+      "official": "Republic of the Philippines"
+    }
+  },
+  {
+    "cca2": "PW",
+    "cca3": "PLW",
+    "unMember": true,
+    "name": {
+      "common": "Palau",
+      "official": "Republic of Palau"
+    }
+  },
+  {
+    "cca2": "PG",
+    "cca3": "PNG",
+    "unMember": true,
+    "name": {
+      "common": "Papua New Guinea",
+      "official": "Independent State of Papua New Guinea"
+    }
+  },
+  {
+    "cca2": "PL",
+    "cca3": "POL",
+    "unMember": true,
+    "name": {
+      "common": "Poland",
+      "official": "Republic of Poland"
+    }
+  },
+  {
+    "cca2": "KP",
+    "cca3": "PRK",
+    "unMember": true,
+    "name": {
+      "common": "North Korea",
+      "official": "Democratic People's Republic of Korea"
+    }
+  },
+  {
+    "cca2": "PT",
+    "cca3": "PRT",
+    "unMember": true,
+    "name": {
+      "common": "Portugal",
+      "official": "Portuguese Republic"
+    }
+  },
+  {
+    "cca2": "PY",
+    "cca3": "PRY",
+    "unMember": true,
+    "name": {
+      "common": "Paraguay",
+      "official": "Republic of Paraguay"
+    }
+  },
+  {
+    "cca2": "QA",
+    "cca3": "QAT",
+    "unMember": true,
+    "name": {
+      "common": "Qatar",
+      "official": "State of Qatar"
+    }
+  },
+  {
+    "cca2": "RO",
+    "cca3": "ROU",
+    "unMember": true,
+    "name": {
+      "common": "Romania",
+      "official": "Romania"
+    }
+  },
+  {
+    "cca2": "RU",
+    "cca3": "RUS",
+    "unMember": true,
+    "name": {
+      "common": "Russia",
+      "official": "Russian Federation"
+    }
+  },
+  {
+    "cca2": "RW",
+    "cca3": "RWA",
+    "unMember": true,
+    "name": {
+      "common": "Rwanda",
+      "official": "Republic of Rwanda"
+    }
+  },
+  {
+    "cca2": "SA",
+    "cca3": "SAU",
+    "unMember": true,
+    "name": {
+      "common": "Saudi Arabia",
+      "official": "Kingdom of Saudi Arabia"
+    }
+  },
+  {
+    "cca2": "SD",
+    "cca3": "SDN",
+    "unMember": true,
+    "name": {
+      "common": "Sudan",
+      "official": "Republic of the Sudan"
+    }
+  },
+  {
+    "cca2": "SN",
+    "cca3": "SEN",
+    "unMember": true,
+    "name": {
+      "common": "Senegal",
+      "official": "Republic of Senegal"
+    }
+  },
+  {
+    "cca2": "SG",
+    "cca3": "SGP",
+    "unMember": true,
+    "name": {
+      "common": "Singapore",
+      "official": "Republic of Singapore"
+    }
+  },
+  {
+    "cca2": "SB",
+    "cca3": "SLB",
+    "unMember": true,
+    "name": {
+      "common": "Solomon Islands",
+      "official": "Solomon Islands"
+    }
+  },
+  {
+    "cca2": "SL",
+    "cca3": "SLE",
+    "unMember": true,
+    "name": {
+      "common": "Sierra Leone",
+      "official": "Republic of Sierra Leone"
+    }
+  },
+  {
+    "cca2": "SV",
+    "cca3": "SLV",
+    "unMember": true,
+    "name": {
+      "common": "El Salvador",
+      "official": "Republic of El Salvador"
+    }
+  },
+  {
+    "cca2": "SM",
+    "cca3": "SMR",
+    "unMember": true,
+    "name": {
+      "common": "San Marino",
+      "official": "Most Serene Republic of San Marino"
+    }
+  },
+  {
+    "cca2": "SO",
+    "cca3": "SOM",
+    "unMember": true,
+    "name": {
+      "common": "Somalia",
+      "official": "Federal Republic of Somalia"
+    }
+  },
+  {
+    "cca2": "RS",
+    "cca3": "SRB",
+    "unMember": true,
+    "name": {
+      "common": "Serbia",
+      "official": "Republic of Serbia"
+    }
+  },
+  {
+    "cca2": "SS",
+    "cca3": "SSD",
+    "unMember": true,
+    "name": {
+      "common": "South Sudan",
+      "official": "Republic of South Sudan"
+    }
+  },
+  {
+    "cca2": "ST",
+    "cca3": "STP",
+    "unMember": true,
+    "name": {
+      "common": "São Tomé and Príncipe",
+      "official": "Democratic Republic of São Tomé and Príncipe"
+    }
+  },
+  {
+    "cca2": "SR",
+    "cca3": "SUR",
+    "unMember": true,
+    "name": {
+      "common": "Suriname",
+      "official": "Republic of Suriname"
+    }
+  },
+  {
+    "cca2": "SK",
+    "cca3": "SVK",
+    "unMember": true,
+    "name": {
+      "common": "Slovakia",
+      "official": "Slovak Republic"
+    }
+  },
+  {
+    "cca2": "SI",
+    "cca3": "SVN",
+    "unMember": true,
+    "name": {
+      "common": "Slovenia",
+      "official": "Republic of Slovenia"
+    }
+  },
+  {
+    "cca2": "SE",
+    "cca3": "SWE",
+    "unMember": true,
+    "name": {
+      "common": "Sweden",
+      "official": "Kingdom of Sweden"
+    }
+  },
+  {
+    "cca2": "SZ",
+    "cca3": "SWZ",
+    "unMember": true,
+    "name": {
+      "common": "Eswatini",
+      "official": "Kingdom of Eswatini"
+    }
+  },
+  {
+    "cca2": "SC",
+    "cca3": "SYC",
+    "unMember": true,
+    "name": {
+      "common": "Seychelles",
+      "official": "Republic of Seychelles"
+    }
+  },
+  {
+    "cca2": "SY",
+    "cca3": "SYR",
+    "unMember": true,
+    "name": {
+      "common": "Syria",
+      "official": "Syrian Arab Republic"
+    }
+  },
+  {
+    "cca2": "TD",
+    "cca3": "TCD",
+    "unMember": true,
+    "name": {
+      "common": "Chad",
+      "official": "Republic of Chad"
+    }
+  },
+  {
+    "cca2": "TG",
+    "cca3": "TGO",
+    "unMember": true,
+    "name": {
+      "common": "Togo",
+      "official": "Togolese Republic"
+    }
+  },
+  {
+    "cca2": "TH",
+    "cca3": "THA",
+    "unMember": true,
+    "name": {
+      "common": "Thailand",
+      "official": "Kingdom of Thailand"
+    }
+  },
+  {
+    "cca2": "TJ",
+    "cca3": "TJK",
+    "unMember": true,
+    "name": {
+      "common": "Tajikistan",
+      "official": "Republic of Tajikistan"
+    }
+  },
+  {
+    "cca2": "TM",
+    "cca3": "TKM",
+    "unMember": true,
+    "name": {
+      "common": "Turkmenistan",
+      "official": "Turkmenistan"
+    }
+  },
+  {
+    "cca2": "TL",
+    "cca3": "TLS",
+    "unMember": true,
+    "name": {
+      "common": "Timor-Leste",
+      "official": "Democratic Republic of Timor-Leste"
+    }
+  },
+  {
+    "cca2": "TO",
+    "cca3": "TON",
+    "unMember": true,
+    "name": {
+      "common": "Tonga",
+      "official": "Kingdom of Tonga"
+    }
+  },
+  {
+    "cca2": "TT",
+    "cca3": "TTO",
+    "unMember": true,
+    "name": {
+      "common": "Trinidad and Tobago",
+      "official": "Republic of Trinidad and Tobago"
+    }
+  },
+  {
+    "cca2": "TN",
+    "cca3": "TUN",
+    "unMember": true,
+    "name": {
+      "common": "Tunisia",
+      "official": "Tunisian Republic"
+    }
+  },
+  {
+    "cca2": "TR",
+    "cca3": "TUR",
+    "unMember": true,
+    "name": {
+      "common": "Türkiye",
+      "official": "Republic of Türkiye"
+    }
+  },
+  {
+    "cca2": "TV",
+    "cca3": "TUV",
+    "unMember": true,
+    "name": {
+      "common": "Tuvalu",
+      "official": "Tuvalu"
+    }
+  },
+  {
+    "cca2": "TZ",
+    "cca3": "TZA",
+    "unMember": true,
+    "name": {
+      "common": "Tanzania",
+      "official": "United Republic of Tanzania"
+    }
+  },
+  {
+    "cca2": "UG",
+    "cca3": "UGA",
+    "unMember": true,
+    "name": {
+      "common": "Uganda",
+      "official": "Republic of Uganda"
+    }
+  },
+  {
+    "cca2": "UA",
+    "cca3": "UKR",
+    "unMember": true,
+    "name": {
+      "common": "Ukraine",
+      "official": "Ukraine"
+    }
+  },
+  {
+    "cca2": "UY",
+    "cca3": "URY",
+    "unMember": true,
+    "name": {
+      "common": "Uruguay",
+      "official": "Oriental Republic of Uruguay"
+    }
+  },
+  {
+    "cca2": "US",
+    "cca3": "USA",
+    "unMember": true,
+    "name": {
+      "common": "United States",
+      "official": "United States of America"
+    }
+  },
+  {
+    "cca2": "UZ",
+    "cca3": "UZB",
+    "unMember": true,
+    "name": {
+      "common": "Uzbekistan",
+      "official": "Republic of Uzbekistan"
+    }
+  },
+  {
+    "cca2": "VC",
+    "cca3": "VCT",
+    "unMember": true,
+    "name": {
+      "common": "Saint Vincent and the Grenadines",
+      "official": "Saint Vincent and the Grenadines"
+    }
+  },
+  {
+    "cca2": "VE",
+    "cca3": "VEN",
+    "unMember": true,
+    "name": {
+      "common": "Venezuela",
+      "official": "Bolivarian Republic of Venezuela"
+    }
+  },
+  {
+    "cca2": "VN",
+    "cca3": "VNM",
+    "unMember": true,
+    "name": {
+      "common": "Vietnam",
+      "official": "Socialist Republic of Vietnam"
+    }
+  },
+  {
+    "cca2": "VU",
+    "cca3": "VUT",
+    "unMember": true,
+    "name": {
+      "common": "Vanuatu",
+      "official": "Republic of Vanuatu"
+    }
+  },
+  {
+    "cca2": "WS",
+    "cca3": "WSM",
+    "unMember": true,
+    "name": {
+      "common": "Samoa",
+      "official": "Independent State of Samoa"
+    }
+  },
+  {
+    "cca2": "YE",
+    "cca3": "YEM",
+    "unMember": true,
+    "name": {
+      "common": "Yemen",
+      "official": "Republic of Yemen"
+    }
+  },
+  {
+    "cca2": "ZA",
+    "cca3": "ZAF",
+    "unMember": true,
+    "name": {
+      "common": "South Africa",
+      "official": "Republic of South Africa"
+    }
+  },
+  {
+    "cca2": "ZM",
+    "cca3": "ZMB",
+    "unMember": true,
+    "name": {
+      "common": "Zambia",
+      "official": "Republic of Zambia"
+    }
+  },
+  {
+    "cca2": "ZW",
+    "cca3": "ZWE",
+    "unMember": true,
+    "name": {
+      "common": "Zimbabwe",
+      "official": "Republic of Zimbabwe"
+    }
+  }
+]

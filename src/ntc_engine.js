@@ -768,7 +768,7 @@
     updateScoreDisplay(false)
 
     const [unRes, geoRes] = await Promise.all([
-      fetch(UN_MEMBERS_URL),
+      fetch(UN_MEMBERS_PATH),
       fetch(COUNTRIES_GEOJSON_PATH)
     ])
 
